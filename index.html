@@ -9,199 +9,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Preloader ── */
+    /* ── Page fade-in ── */
+    .page-content {
+      opacity: 0;
+      transition: opacity .8s ease;
+    }
+    .page-content.visible { opacity: 1; }
+    html.loading { overflow: hidden; }
+
+    /* Preloader — minimal: white screen fades out */
     .preloader {
       position: fixed; inset: 0; z-index: 9999;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      background: #5C1A22;
-      transition: opacity 1.2s ease .3s, visibility 1.2s ease .3s;
+      background: #F7F4EF;
+      transition: opacity .6s ease, visibility .6s ease;
     }
     .preloader.done {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-    }
-
-    .pre-line {
-      width: 1px; height: 0;
-      background: rgba(228,224,213,.3);
-      animation: preLineGrow 2s ease forwards;
-      margin-bottom: 32px;
-    }
-    @keyframes preLineGrow { to { height: 64px; } }
-
-    .pre-names {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.8rem, 5vw, 3.2rem);
-      font-weight: 400;
-      letter-spacing: .12em;
-      color: #E8E4DE;
-      opacity: 0;
-      transform: translateY(16px);
-      animation: preFadeIn 1.4s ease 1.2s forwards;
-      text-align: center;
-    }
-    .pre-ampersand {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 300;
-      font-size: .7em;
-      opacity: .5;
-      margin: 0 .2em;
-    }
-
-    .pre-date {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .6rem;
-      font-weight: 400;
-      letter-spacing: .4em;
-      text-transform: uppercase;
-      color: rgba(228,224,213,.4);
-      margin-top: 16px;
-      opacity: 0;
-      animation: preFadeIn 1.2s ease 2.2s forwards;
-    }
-
-    .pre-line-bottom {
-      width: 0; height: 1px;
-      background: rgba(228,224,213,.25);
-      margin-top: 32px;
-      animation: preLineWiden 1.6s ease 3s forwards;
-    }
-    @keyframes preLineWiden { to { width: 120px; } }
-    @keyframes preFadeIn { to { opacity: 1; transform: translateY(0); } }
-
-    /* ── Preloader: Maguey / Agave ── */
-    .pre-agave {
-      margin-top: 24px;
-      width: 130px; height: 150px;
-      opacity: 0;
-      animation: preFadeIn 1s ease 3.2s forwards;
-    }
-    .pre-agave svg {
-      width: 100%; height: 100%;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .pre-agave .agave-leaf {
-      stroke: rgba(228,224,213,.22);
-      stroke-width: 1;
-      stroke-linejoin: miter;
-      stroke-miterlimit: 4;
-      stroke-dasharray: 500;
-      stroke-dashoffset: 500;
-    }
-    .pre-agave .agave-spine {
-      stroke: rgba(228,224,213,.16);
-      stroke-width: .55;
-      stroke-dasharray: 100;
-      stroke-dashoffset: 100;
-    }
-    .pre-agave .agave-quiote {
-      stroke: rgba(228,224,213,.18);
-      stroke-width: .9;
-      stroke-linejoin: miter;
-      stroke-miterlimit: 4;
-      stroke-dasharray: 200;
-      stroke-dashoffset: 200;
-    }
-    /* Stagger leaves from center outward */
-    .pre-agave .agave-quiote            { animation: preAgaveDraw 2s ease 3.4s forwards; }
-    .pre-agave .leaf-c                  { animation: preAgaveDraw 2s ease 3.5s forwards; }
-    .pre-agave .leaf-il                 { animation: preAgaveDraw 2s ease 3.7s forwards; }
-    .pre-agave .leaf-ir                 { animation: preAgaveDraw 2s ease 3.8s forwards; }
-    .pre-agave .leaf-ml                 { animation: preAgaveDraw 2s ease 3.9s forwards; }
-    .pre-agave .leaf-mr                 { animation: preAgaveDraw 2s ease 4.0s forwards; }
-    .pre-agave .leaf-ol                 { animation: preAgaveDraw 2s ease 4.1s forwards; }
-    .pre-agave .leaf-or                 { animation: preAgaveDraw 2s ease 4.2s forwards; }
-    .pre-agave .leaf-fl                 { animation: preAgaveDraw 2s ease 4.3s forwards; }
-    .pre-agave .leaf-fr                 { animation: preAgaveDraw 2s ease 4.4s forwards; }
-    .pre-agave .leaf-gl                 { animation: preAgaveDraw 2s ease 4.5s forwards; }
-    .pre-agave .leaf-gr                 { animation: preAgaveDraw 2s ease 4.6s forwards; }
-    .pre-agave .agave-spine            { animation: preAgaveDraw 1.5s ease 4.8s forwards; }
-    @keyframes preAgaveDraw { to { stroke-dashoffset: 0; } }
-
-    /* ── Preloader: Location ── */
-    .pre-location {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .5rem; font-weight: 400;
-      letter-spacing: .35em; text-transform: uppercase;
-      color: rgba(228,224,213,.25);
-      margin-top: 16px;
-      opacity: 0;
-      animation: preFadeIn 1s ease 5s forwards;
-    }
-
-    /* ── Preloader: Papel Picado ── */
-    .pre-papel, .pre-papel-top {
-      position: absolute;
-      left: 0; right: 0;
-      height: 60px;
-      opacity: 0;
-      overflow: hidden;
-      animation: preFadeIn 1.4s ease 2.6s forwards;
-    }
-    .pre-papel { bottom: 0; }
-    .pre-papel-top { top: 0; transform: rotate(180deg); }
-
-    .pre-papel svg, .pre-papel-top svg {
-      width: 100%; height: 100%;
-      fill: none;
-      stroke-width: .5;
-    }
-    .pre-papel .pp-string, .pre-papel-top .pp-string {
-      stroke: rgba(228,224,213,.12);
-      stroke-dasharray: 2000;
-      stroke-dashoffset: 2000;
-      animation: prePapelDraw 3s ease 2.8s forwards;
-    }
-    .pre-papel .pp-flag, .pre-papel-top .pp-flag {
-      stroke: rgba(228,224,213,.07);
-      stroke-width: .4;
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
-      animation: prePapelDraw 2.5s ease 3.2s forwards;
-    }
-    .pre-papel .pp-cut, .pre-papel-top .pp-cut {
-      stroke: rgba(228,224,213,.05);
-      stroke-width: .3;
-      stroke-dasharray: 200;
-      stroke-dashoffset: 200;
-      animation: prePapelDraw 2s ease 3.8s forwards;
-    }
-    @keyframes prePapelDraw { to { stroke-dashoffset: 0; } }
-
-    /* Preloader stepped-fret corners */
-    .pre-corner {
-      position: absolute;
-      width: 40px; height: 40px;
-      opacity: 0;
-      animation: preFadeIn 1.2s ease 2.8s forwards;
-    }
-    .pre-corner svg {
-      width: 100%; height: 100%;
-      stroke: rgba(228,224,213,.1);
-      fill: none;
-      stroke-width: .7;
-    }
-    .pre-corner-tl { top: 32px; left: 32px; }
-    .pre-corner-tr { top: 32px; right: 32px; transform: scaleX(-1); }
-    .pre-corner-bl { bottom: 32px; left: 32px; transform: scaleY(-1); }
-    .pre-corner-br { bottom: 32px; right: 32px; transform: scale(-1); }
-
-    /* Hide page content until loaded */
-    .page-content {
-      opacity: 0;
-      transition: opacity .8s ease;
-    }
-    .page-content.visible {
-      opacity: 1;
-    }
-
-    /* Prevent scroll during preloader */
-    html.loading {
-      overflow: hidden;
     }
 
     /* ── Reset & Base ── */
@@ -254,7 +79,7 @@
       margin: 0 auto;
     }
     .section {
-      padding: 100px 24px;
+      padding: clamp(56px, 10vw, 100px) 24px;
     }
     .section-alt { background: var(--cream-light); }
     .container { max-width: 1040px; margin: 0 auto; }
@@ -274,125 +99,20 @@
       color: var(--charcoal);
     }
 
-    /* ── Oaxaca Line Art ── */
-    .oax-icon {
-      display: inline-block;
-      color: rgba(42,42,42,.12);
-      transition: color .5s;
-    }
-    .oax-icon svg {
-      width: 100%; height: 100%;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* Draw-in animation */
-    .oax-draw svg path,
-    .oax-draw svg line,
-    .oax-draw svg polyline,
-    .oax-draw svg circle,
-    .oax-draw svg ellipse {
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
-      transition: stroke-dashoffset 2s ease;
-    }
-    .oax-draw.visible svg path,
-    .oax-draw.visible svg line,
-    .oax-draw.visible svg polyline,
-    .oax-draw.visible svg circle,
-    .oax-draw.visible svg ellipse {
-      stroke-dashoffset: 0;
-    }
-
-    /* Section ornament: centered icon between divider lines */
+    /* Section ornament — thin rule only, no icons */
     .section-ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin: 32px auto 0;
-    }
-    .section-ornament .orn-line {
       width: 48px; height: 1px;
-      background: rgba(42,42,42,.12);
-    }
-    .section-ornament .oax-icon {
-      width: 28px; height: 28px;
-      color: rgba(42,42,42,.18);
+      background: rgba(42,42,42,.15);
+      margin: 28px auto 0;
     }
 
-    /* Floating accents — positioned absolutely in sections */
-    .oax-float {
-      position: absolute;
-      pointer-events: none;
-      opacity: .07;
-      animation: oaxFloat 8s ease-in-out infinite;
-    }
-    .oax-float-alt { animation-direction: alternate-reverse; }
-    @keyframes oaxFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(3deg); }
-    }
-
-    /* Papel picado banner strip */
-    .papel-picado {
-      width: 100%;
-      overflow: hidden;
-      height: 32px;
-      position: relative;
-      opacity: .08;
-    }
-    .papel-picado svg {
-      width: 100%; height: 100%;
-    }
-
-    /* Textile border pattern */
-    .textile-border {
-      width: 100%;
-      height: 8px;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        transparent 8px,
-        rgba(42,42,42,.06) 8px,
-        rgba(42,42,42,.06) 10px,
-        transparent 10px,
-        transparent 14px,
-        rgba(42,42,42,.04) 14px,
-        rgba(42,42,42,.04) 15px
-      );
-      margin: 0 auto;
-    }
-    .textile-border-v {
-      position: absolute;
-      width: 8px;
-      height: 100%;
-      top: 0;
-      background: repeating-linear-gradient(
-        180deg,
-        transparent 0px,
-        transparent 8px,
-        rgba(42,42,42,.04) 8px,
-        rgba(42,42,42,.04) 10px,
-        transparent 10px,
-        transparent 18px
-      );
-    }
-    .textile-border-v.left { left: 12px; }
-    .textile-border-v.right { right: 12px; }
-
-    /* ── Scroll Reveal ── */
+    /* ── Scroll Reveal — fade only, no slide ── */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity .85s ease, transform .85s ease;
+      transition: opacity 1s ease;
     }
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
     }
 
     /* ── Scrollbar ── */
@@ -407,6 +127,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 24px clamp(24px, 4vw, 48px);
+      background: linear-gradient(to bottom, rgba(240,235,225,.7) 0%, rgba(240,235,225,0) 100%);
       transition: background .45s, padding .45s, box-shadow .45s;
     }
     .nav.scrolled {
@@ -419,7 +140,7 @@
       font-family: var(--font-display);
       font-size: 1.1rem;
       letter-spacing: .35em;
-      color: #fff;
+      color: #1C1C1C;
       transition: color .4s;
     }
     .nav.scrolled .nav-logo { color: var(--charcoal); }
@@ -431,10 +152,10 @@
       font-weight: 500;
       letter-spacing: .35em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.75);
+      color: rgba(42,42,42,.55);
       transition: color .3s;
     }
-    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover { color: var(--charcoal); }
     .nav.scrolled .nav-links a { color: var(--warm-gray); }
     .nav.scrolled .nav-links a:hover { color: var(--charcoal); }
 
@@ -443,7 +164,7 @@
       flex-direction: column; gap: 5px; padding: 4px;
     }
     .nav-toggle span {
-      display: block; width: 24px; height: 1px; background: #fff;
+      display: block; width: 24px; height: 1px; background: var(--charcoal);
       transition: transform .3s, opacity .3s, background .3s;
     }
     .nav.scrolled .nav-toggle span { background: var(--charcoal); }
@@ -477,74 +198,117 @@
     }
 
     /* ──────────────────────────────────────
-       HERO
+       HERO — editorial
     ────────────────────────────────────── */
     .hero {
       position: relative;
-      min-height: 100vh; display: flex;
-      flex-direction: column; align-items: center; justify-content: center;
-      overflow: hidden; background: var(--soft-black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #F7F4EF;
+      padding: 120px 40px 160px;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: url('hero.jpg') center/cover no-repeat;
-      filter: grayscale(100%);
-      transition: filter .6s;
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 860px;
     }
-    .hero:hover .hero-bg { filter: grayscale(75%); }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.2) 50%, rgba(0,0,0,.5));
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; color: #fff; padding: 0 24px;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3.4rem, 10vw, 7.5rem);
-      letter-spacing: .06em;
-      line-height: 1;
-    }
-    .hero .ampersand {
-      display: block;
+
+    /* Names — light Cormorant, wide tracking */
+    .hero-names-line {
       font-family: var(--font-serif);
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(2rem, 5.5vw, 5rem);
       font-weight: 300;
-      letter-spacing: .5em;
-      opacity: .7;
-      margin: 12px 0;
+      letter-spacing: .22em;
+      color: #1C1C1C;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: clamp(40px, 5vw, 64px);
     }
+    .hero-amp {
+      font-style: italic;
+      font-weight: 300;
+      opacity: .5;
+      margin: 0 .25em;
+      letter-spacing: 0;
+    }
+
+    /* Photo — clean, no effects */
+    .hero-photo {
+      width: clamp(260px, 42vw, 500px);
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      background: #111;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(100%);
+      display: block;
+    }
+
+    /* Thin vertical rule + date */
+    .hero-rule {
+      width: 1px;
+      height: 40px;
+      background: rgba(28,28,28,.2);
+      margin: clamp(32px, 4vw, 48px) auto 0;
+    }
+
     .hero-date {
-      margin-top: 48px;
-      font-size: .8rem; font-weight: 500;
-      letter-spacing: .5em; text-transform: uppercase;
+      margin-top: 20px;
+      font-family: var(--font-sans);
+      font-size: .6rem;
+      font-weight: 400;
+      letter-spacing: .5em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,.45);
     }
     .hero-location {
       margin-top: 8px;
-      font-size: .7rem; font-weight: 300;
-      letter-spacing: .35em; text-transform: uppercase;
-      opacity: .65;
+      font-family: var(--font-sans);
+      font-size: .6rem;
+      font-weight: 300;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,.3);
     }
+
+    /* Static scroll line — no bounce */
     .hero-scroll {
-      margin-top: 64px;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      animation: gentleBounce 2.5s infinite;
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      color: rgba(28,28,28,.25);
     }
-    .hero-scroll span {
-      font-size: .55rem; letter-spacing: .5em; text-transform: uppercase; opacity: .45;
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: rgba(28,28,28,.2);
     }
-    .hero-scroll svg { opacity: .45; }
 
-    @keyframes gentleBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
+    /* Fade only — no slide */
+    .hero-fade { opacity: 0; animation: heroFade 1.6s ease forwards; }
+    .hero-fade-2 { animation-delay: .5s; }
+    .hero-fade-3 { animation-delay: 1s; }
+    .hero-fade-4 { animation-delay: 1.4s; }
+    @keyframes heroFade { to { opacity: 1; } }
 
-    .hero-enter { opacity: 0; transform: translateY(32px); animation: heroIn 1s ease forwards; }
-    .hero-enter-delay { animation-delay: .45s; }
-    .hero-enter-delay2 { animation-delay: .85s; }
-    @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+    /* Mobile */
+    @media (max-width: 600px) {
+      .hero { padding: 100px 24px 160px; }
+      .hero-photo { width: clamp(240px, 78vw, 340px); }
+    }
 
     /* ── Countdown Bar ── */
     .countdown-bar {
@@ -556,6 +320,11 @@
       display: flex; justify-content: center; gap: clamp(24px, 5vw, 56px);
     }
     .countdown-unit { text-align: center; }
+    @media (max-width: 480px) {
+      .countdown-unit.hide-mobile { display: none; }
+      .countdown { gap: clamp(28px, 10vw, 48px); }
+      .countdown-value { font-size: clamp(2rem, 8vw, 2.8rem); }
+    }
     .countdown-value {
       font-family: var(--font-serif);
       font-size: clamp(1.6rem, 4vw, 3rem);
@@ -574,51 +343,120 @@
     /* ──────────────────────────────────────
        OUR STORY
     ────────────────────────────────────── */
-    .timeline { position: relative; max-width: 740px; margin: 0 auto; }
-    .timeline::before {
-      content: ''; position: absolute;
-      left: 16px; top: 0; bottom: 0;
-      width: 1px; background: rgba(42,42,42,.1);
+
+    /* Row 1: large title left, prose right */
+    .story-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 100px);
+      align-items: start;
+      margin-bottom: clamp(64px, 8vw, 112px);
     }
-    @media (min-width: 769px) {
-      .timeline::before { left: 50%; transform: translateX(-50%); }
+    @media (max-width: 700px) {
+      .story-header { grid-template-columns: 1fr; gap: 32px; }
     }
 
-    .tl-item {
-      position: relative; display: flex; align-items: flex-start;
-      gap: 32px; margin-bottom: 56px;
-    }
-    .tl-item:last-child { margin-bottom: 0; }
-
-    .tl-dot {
-      position: absolute; left: 16px; top: 8px;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: rgba(42,42,42,.25);
-      transform: translateX(-50%); z-index: 2;
-    }
-    .tl-content { margin-left: 48px; }
-
-    @media (min-width: 769px) {
-      .tl-dot { left: 50%; }
-      .tl-item { justify-content: flex-start; }
-      .tl-item:nth-child(odd) .tl-content { margin-left: 0; width: 42%; }
-      .tl-item:nth-child(even) .tl-content { margin-left: auto; width: 42%; text-align: right; }
-      .tl-item:nth-child(even) { flex-direction: row-reverse; }
-    }
-
-    .tl-year {
+    .story-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-size: clamp(3.2rem, 8vw, 7rem);
       font-weight: 300;
-      color: rgba(42,42,42,.12);
-      line-height: 1;
-      margin-bottom: 4px;
+      line-height: 1.0;
+      color: #1C1C1C;
+      letter-spacing: -.01em;
     }
-    .tl-title {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--charcoal);
-      margin-bottom: 8px;
+
+    .story-prose {
+      padding-top: clamp(0px, 2vw, 24px);
+    }
+    .story-prose p {
+      font-family: var(--font-sans);
+      font-size: clamp(.85rem, 1.1vw, .95rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(28,28,28,.55);
+      margin-bottom: 1.4em;
+    }
+    .story-prose p:last-child { margin-bottom: 0; }
+
+    /* ── Photo Groups — intercalated, scroll-triggered ── */
+    .story-groups {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(80px, 12vw, 160px);
+    }
+
+    /* Shared image placeholder */
+    .story-img {
+      background: #2A2A2A;
+      overflow: hidden;
+    }
+
+    /* ── Group A: Large portrait left, smaller offset right ── */
+    .story-group--a {
+      display: grid;
+      grid-template-columns: 58% 1fr;
+      gap: clamp(14px, 2.5vw, 32px);
+      align-items: end;
+    }
+    .story-group--a .story-img:nth-child(1) {
+      aspect-ratio: 3 / 4;
+    }
+    .story-group--a .story-img:nth-child(2) {
+      aspect-ratio: 3 / 4;
+      margin-bottom: clamp(32px, 6vw, 80px);
+    }
+
+    /* ── Group B: 3 photos — staggered diagonal rhythm ── */
+    .story-group--b {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1fr;
+      gap: clamp(10px, 2vw, 22px);
+      align-items: start;
+    }
+    .story-group--b .story-img:nth-child(1) {
+      aspect-ratio: 2 / 3;
+      margin-top: clamp(48px, 7vw, 96px);
+    }
+    .story-group--b .story-img:nth-child(2) {
+      aspect-ratio: 3 / 4;
+    }
+    .story-group--b .story-img:nth-child(3) {
+      aspect-ratio: 1 / 1;
+      margin-top: clamp(64px, 9vw, 128px);
+    }
+
+    /* ── Group C: Mirrored — small landscape left, large portrait right ── */
+    .story-group--c {
+      display: grid;
+      grid-template-columns: 1fr 58%;
+      gap: clamp(14px, 2.5vw, 32px);
+      align-items: start;
+    }
+    .story-group--c .story-img:nth-child(1) {
+      aspect-ratio: 4 / 5;
+      margin-top: clamp(40px, 6vw, 88px);
+    }
+    .story-group--c .story-img:nth-child(2) {
+      aspect-ratio: 3 / 4;
+    }
+
+    /* Mobile: simplify groups to 2-column stacks */
+    @media (max-width: 700px) {
+      .story-groups { gap: clamp(48px, 12vw, 80px); }
+
+      .story-group--a,
+      .story-group--c {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+      .story-group--a .story-img:nth-child(2) { margin-bottom: 0; }
+      .story-group--c .story-img:nth-child(1) { margin-top: 0; }
+
+      .story-group--b {
+        grid-template-columns: 1fr 1fr;
+      }
+      .story-group--b .story-img:nth-child(1) { margin-top: 0; }
+      .story-group--b .story-img:nth-child(3) { display: none; }
     }
 
     /* ──────────────────────────────────────
@@ -666,12 +504,13 @@
       margin-bottom: 4px;
     }
     .event-card .map-link {
-      display: inline-block; margin-top: 16px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-top: 16px;
+      min-height: 44px; padding: 10px 0 3px;
       font-size: .6rem; font-weight: 500;
       letter-spacing: .35em; text-transform: uppercase;
       color: var(--warm-gray);
       border-bottom: 1px solid rgba(42,42,42,.25);
-      padding-bottom: 3px;
       transition: border-color .3s;
     }
     .event-card .map-link:hover { border-color: var(--charcoal); }
@@ -697,7 +536,8 @@
       display: grid; grid-template-columns: 1fr;
       gap: 20px; margin-bottom: 72px;
     }
-    @media (min-width: 640px) { .hotel-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 480px) { .hotel-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 768px) { .hotel-grid { grid-template-columns: repeat(3, 1fr); } }
 
     .hotel-card {
       background: var(--cream-light);
@@ -715,12 +555,13 @@
     }
     .hotel-card p { flex-grow: 1; }
     .hotel-card .book-link {
-      display: inline-block; margin-top: 20px; align-self: flex-start;
+      display: inline-flex; align-items: center;
+      margin-top: 20px; align-self: flex-start;
+      min-height: 44px; padding: 10px 0 3px;
       font-size: .6rem; font-weight: 500;
       letter-spacing: .35em; text-transform: uppercase;
       color: var(--warm-gray);
       border-bottom: 1px solid rgba(42,42,42,.25);
-      padding-bottom: 3px;
       transition: border-color .3s;
     }
     .hotel-card .book-link:hover { border-color: var(--charcoal); }
@@ -765,9 +606,11 @@
     textarea.form-input { resize: none; }
     select.form-input { appearance: none; cursor: pointer; }
 
-    .attend-btns { display: flex; gap: 16px; }
+    .attend-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .attend-btn {
-      flex: 1; padding: 16px;
+      flex: 1; min-width: 140px;
+      padding: 16px;
+      min-height: 52px;
       background: transparent;
       border: 1px solid rgba(42,42,42,.12);
       font-family: var(--font-sans);
@@ -778,6 +621,10 @@
       transition: all .3s;
     }
     .attend-btn:hover { border-color: rgba(42,42,42,.3); }
+    @media (max-width: 380px) {
+      .attend-btns { flex-direction: column; }
+      .attend-btn { min-width: unset; width: 100%; }
+    }
     .attend-btn.selected {
       background: var(--charcoal); color: var(--cream);
       border-color: var(--charcoal);
@@ -817,9 +664,9 @@
        FOOTER
     ────────────────────────────────────── */
     .footer {
-      background: var(--charcoal);
-      color: var(--cream);
-      padding: 80px 24px;
+      background: #1C1C1C;
+      color: #F0EBE1;
+      padding: clamp(56px, 8vw, 80px) 24px;
       text-align: center;
     }
     .footer h2 {
@@ -830,11 +677,11 @@
     }
     .footer .sub {
       font-size: .65rem; letter-spacing: .5em; text-transform: uppercase;
-      opacity: .45;
+      opacity: .5;
     }
     .footer .divider-f {
       width: 64px; height: 1px;
-      background: rgba(240,237,232,.15);
+      background: rgba(240,235,225,.2);
       margin: 40px auto;
     }
     .footer .quote {
@@ -842,7 +689,7 @@
       font-size: 1.15rem;
       font-weight: 300;
       font-style: italic;
-      opacity: .55;
+      opacity: .6;
       max-width: 420px;
       margin: 0 auto 40px;
     }
@@ -857,65 +704,34 @@
       letter-spacing: .15em;
       opacity: .18;
     }
+
+    /* ──────────────────────────────────────
+       ACCESSIBILITY — reduced motion
+    ────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-enter {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .oax-float { animation: none !important; }
+      .hero-scroll { animation: none !important; }
+      .pre-line, .pre-line-bottom,
+      .pre-names, .pre-date, .pre-agave,
+      .pre-location, .pre-papel, .pre-papel-top,
+      .pre-corner { animation: none !important; opacity: 1 !important; }
+    }
   </style>
 </head>
 <body>
 
 <!-- ═══════ PRELOADER ═══════ -->
 <div class="preloader" id="preloader">
-  <!-- Stepped-fret corners -->
-  <div class="pre-corner pre-corner-tl"><svg viewBox="0 0 32 32"><path d="M0 28 L0 20 L8 20 L8 12 L16 12 L16 4 L24 4 L24 0"/></svg></div>
-  <div class="pre-corner pre-corner-tr"><svg viewBox="0 0 32 32"><path d="M0 28 L0 20 L8 20 L8 12 L16 12 L16 4 L24 4 L24 0"/></svg></div>
-  <div class="pre-corner pre-corner-bl"><svg viewBox="0 0 32 32"><path d="M0 28 L0 20 L8 20 L8 12 L16 12 L16 4 L24 4 L24 0"/></svg></div>
-  <div class="pre-corner pre-corner-br"><svg viewBox="0 0 32 32"><path d="M0 28 L0 20 L8 20 L8 12 L16 12 L16 4 L24 4 L24 0"/></svg></div>
 
-  <!-- Papel picado top -->
-  <div class="pre-papel-top"><svg viewBox="0 0 1000 60" preserveAspectRatio="none">
-    <!-- Hanging string -->
-    <path class="pp-string" d="M0,4 C20,8 40,4 60,4 C80,4 100,8 120,4 C140,4 160,8 180,4 C200,4 220,8 240,4 C260,4 280,8 300,4 C320,4 340,8 360,4 C380,4 400,8 420,4 C440,4 460,8 480,4 C500,4 520,8 540,4 C560,4 580,8 600,4 C620,4 640,8 660,4 C680,4 700,8 720,4 C740,4 760,8 780,4 C800,4 820,8 840,4 C860,4 880,8 900,4 C920,4 940,8 960,4 C980,4 990,6 1000,4"/>
-    <!-- Flags: rectangles with scalloped bottoms and diamond cutouts -->
-    <path class="pp-flag" d="M10,4 L10,38 Q20,46 30,38 Q40,46 50,38 L50,4 Z M70,4 L70,38 Q80,46 90,38 Q100,46 110,38 L110,4 Z M130,4 L130,38 Q140,46 150,38 Q160,46 170,38 L170,4 Z M190,4 L190,38 Q200,46 210,38 Q220,46 230,38 L230,4 Z M250,4 L250,38 Q260,46 270,38 Q280,46 290,38 L290,4 Z M310,4 L310,38 Q320,46 330,38 Q340,46 350,38 L350,4 Z M370,4 L370,38 Q380,46 390,38 Q400,46 410,38 L410,4 Z M430,4 L430,38 Q440,46 450,38 Q460,46 470,38 L470,4 Z M490,4 L490,38 Q500,46 510,38 Q520,46 530,38 L530,4 Z M550,4 L550,38 Q560,46 570,38 Q580,46 590,38 L590,4 Z M610,4 L610,38 Q620,46 630,38 Q640,46 650,38 L650,4 Z M670,4 L670,38 Q680,46 690,38 Q700,46 710,38 L710,4 Z M730,4 L730,38 Q740,46 750,38 Q760,46 770,38 L770,4 Z M790,4 L790,38 Q800,46 810,38 Q820,46 830,38 L830,4 Z M850,4 L850,38 Q860,46 870,38 Q880,46 890,38 L890,4 Z M910,4 L910,38 Q920,46 930,38 Q940,46 950,38 L950,4 Z"/>
-    <!-- Cutout patterns: circles and diamonds inside flags -->
-    <path class="pp-cut" d="M30,16 L35,22 L30,28 L25,22 Z M90,16 L95,22 L90,28 L85,22 Z M150,18 A4,4 0 1,1 150,18.01 M210,16 L215,22 L210,28 L205,22 Z M270,18 A4,4 0 1,1 270,18.01 M330,16 L335,22 L330,28 L325,22 Z M390,18 A4,4 0 1,1 390,18.01 M450,16 L455,22 L450,28 L445,22 Z M510,18 A4,4 0 1,1 510,18.01 M570,16 L575,22 L570,28 L565,22 Z M630,18 A4,4 0 1,1 630,18.01 M690,16 L695,22 L690,28 L685,22 Z M750,18 A4,4 0 1,1 750,18.01 M810,16 L815,22 L810,28 L805,22 Z M870,18 A4,4 0 1,1 870,18.01 M930,16 L935,22 L930,28 L925,22 Z"/>
-  </svg></div>
-
-  <div class="pre-line"></div>
-  <div class="pre-names">Laura <span class="pre-ampersand">&</span> Diego</div>
-  <div class="pre-date">Mayo 15, 2027</div>
-  <div class="pre-line-bottom"></div>
-
-  <!-- Maguey / Agave plant -->
-  <div class="pre-agave"><svg viewBox="0 0 120 140">
-    <!-- Emerging central spear -->
-    <path class="agave-quiote" d="M58,104 C57,88 57,68 58,50 C58,36 59,24 60,16 C61,24 62,36 62,50 C63,68 63,88 62,104 Z"/>
-    <!-- Central upright leaf -->
-    <path class="agave-leaf leaf-c" d="M56,128 C54,112 53,86 54,58 C55,38 57,22 60,10 C63,22 65,38 66,58 C67,86 66,112 64,128 Z"/>
-    <!-- Inner leaves -->
-    <path class="agave-leaf leaf-il" d="M57,128 C52,116 47,98 41,76 C38,62 38,46 44,28 C50,42 56,58 60,80 C62,100 61,116 60,128 Z"/>
-    <path class="agave-leaf leaf-ir" d="M63,128 C68,116 73,98 79,76 C82,62 82,46 76,28 C70,42 64,58 60,80 C58,100 59,116 60,128 Z"/>
-    <!-- Mid leaves -->
-    <path class="agave-leaf leaf-ml" d="M56,128 C48,118 40,104 30,86 C24,74 22,58 28,42 C37,52 46,66 54,84 C59,101 59,116 58,128 Z"/>
-    <path class="agave-leaf leaf-mr" d="M64,128 C72,118 80,104 90,86 C96,74 98,58 92,42 C83,52 74,66 66,84 C61,101 61,116 62,128 Z"/>
-    <!-- Outer skirt -->
-    <path class="agave-leaf leaf-ol" d="M55,129 C45,122 34,112 22,98 C14,88 10,74 14,60 C26,68 38,80 48,95 C54,109 56,121 56,129 Z"/>
-    <path class="agave-leaf leaf-or" d="M65,129 C75,122 86,112 98,98 C106,88 110,74 106,60 C94,68 82,80 72,95 C66,109 64,121 64,129 Z"/>
-    <!-- Lower outer leaves -->
-    <path class="agave-leaf leaf-fl" d="M54,129 C42,125 30,120 16,112 C8,108 4,98 6,88 C20,94 34,102 46,112 C52,118 55,124 56,129 Z"/>
-    <path class="agave-leaf leaf-fr" d="M66,129 C78,125 90,120 104,112 C112,108 116,98 114,88 C100,94 86,102 74,112 C68,118 65,124 64,129 Z"/>
-    <!-- Basal leaves -->
-    <path class="agave-leaf leaf-gl" d="M55,130 C45,130 34,128 22,124 C14,122 10,116 10,108 C24,110 38,116 48,122 C53,126 56,128 57,130 Z"/>
-    <path class="agave-leaf leaf-gr" d="M65,130 C75,130 86,128 98,124 C106,122 110,116 110,108 C96,110 82,116 72,122 C67,126 64,128 63,130 Z"/>
-    <!-- Terminal spines -->
-    <path class="agave-spine" d="M60,10 L60,5 M44,28 L42,23 M76,28 L78,23 M28,42 L24,38 M92,42 L96,38 M14,60 L10,57 M106,60 L110,57 M6,88 L2,86 M114,88 L118,86 M10,108 L6,108 M110,108 L114,108"/>
-  </svg></div>
-  <div class="pre-location">Oaxaca, Mexico</div>
-
-  <!-- Papel picado bottom -->
-  <div class="pre-papel"><svg viewBox="0 0 1000 60" preserveAspectRatio="none">
-    <path class="pp-string" d="M0,4 C20,8 40,4 60,4 C80,4 100,8 120,4 C140,4 160,8 180,4 C200,4 220,8 240,4 C260,4 280,8 300,4 C320,4 340,8 360,4 C380,4 400,8 420,4 C440,4 460,8 480,4 C500,4 520,8 540,4 C560,4 580,8 600,4 C620,4 640,8 660,4 C680,4 700,8 720,4 C740,4 760,8 780,4 C800,4 820,8 840,4 C860,4 880,8 900,4 C920,4 940,8 960,4 C980,4 990,6 1000,4"/>
-    <path class="pp-flag" d="M10,4 L10,38 Q20,46 30,38 Q40,46 50,38 L50,4 Z M70,4 L70,38 Q80,46 90,38 Q100,46 110,38 L110,4 Z M130,4 L130,38 Q140,46 150,38 Q160,46 170,38 L170,4 Z M190,4 L190,38 Q200,46 210,38 Q220,46 230,38 L230,4 Z M250,4 L250,38 Q260,46 270,38 Q280,46 290,38 L290,4 Z M310,4 L310,38 Q320,46 330,38 Q340,46 350,38 L350,4 Z M370,4 L370,38 Q380,46 390,38 Q400,46 410,38 L410,4 Z M430,4 L430,38 Q440,46 450,38 Q460,46 470,38 L470,4 Z M490,4 L490,38 Q500,46 510,38 Q520,46 530,38 L530,4 Z M550,4 L550,38 Q560,46 570,38 Q580,46 590,38 L590,4 Z M610,4 L610,38 Q620,46 630,38 Q640,46 650,38 L650,4 Z M670,4 L670,38 Q680,46 690,38 Q700,46 710,38 L710,4 Z M730,4 L730,38 Q740,46 750,38 Q760,46 770,38 L770,4 Z M790,4 L790,38 Q800,46 810,38 Q820,46 830,38 L830,4 Z M850,4 L850,38 Q860,46 870,38 Q880,46 890,38 L890,4 Z M910,4 L910,38 Q920,46 930,38 Q940,46 950,38 L950,4 Z"/>
-    <path class="pp-cut" d="M30,16 L35,22 L30,28 L25,22 Z M90,18 A4,4 0 1,1 90,18.01 M150,16 L155,22 L150,28 L145,22 Z M210,18 A4,4 0 1,1 210,18.01 M270,16 L275,22 L270,28 L265,22 Z M330,18 A4,4 0 1,1 330,18.01 M390,16 L395,22 L390,28 L385,22 Z M450,18 A4,4 0 1,1 450,18.01 M510,16 L515,22 L510,28 L505,22 Z M570,18 A4,4 0 1,1 570,18.01 M630,16 L635,22 L630,28 L625,22 Z M690,18 A4,4 0 1,1 690,18.01 M750,16 L755,22 L750,28 L745,22 Z M810,18 A4,4 0 1,1 810,18.01 M870,16 L875,22 L870,28 L865,22 Z M930,18 A4,4 0 1,1 930,18.01"/>
-  </svg></div>
 </div>
 
 <div class="page-content" id="pageContent">
@@ -926,8 +742,6 @@
   <ul class="nav-links">
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#historia">Nuestra Historia</a></li>
-    <li><a href="#detalles">Detalles</a></li>
-    <li><a href="#hospedaje">Hospedaje</a></li>
     <li><a href="#confirmar">Confirmar</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -936,221 +750,87 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#inicio">Inicio</a>
     <a href="#historia">Nuestra Historia</a>
-    <a href="#detalles">Detalles</a>
-    <a href="#hospedaje">Hospedaje</a>
     <a href="#confirmar">Confirmar</a>
   </div>
 </nav>
 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero" id="inicio">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-enter">
-      <h1>Laura<span class="ampersand">&</span>Diego</h1>
+  <div class="hero-inner">
+
+    <h1 class="hero-names-line hero-fade">
+      Laura <span class="hero-amp">&amp;</span> Diego
+    </h1>
+
+    <div class="hero-photo hero-fade hero-fade-2">
+      <img src="photos/couple-photo.png" alt="Laura y Diego" id="heroArchImg">
     </div>
-    <div class="hero-enter hero-enter-delay">
+
+    <div class="hero-fade hero-fade-3">
+      <div class="hero-rule"></div>
       <p class="hero-date">Mayo 15, 2027</p>
       <p class="hero-location">Oaxaca, Mexico</p>
     </div>
-    <div class="hero-enter hero-enter-delay2 hero-scroll">
-      <span>Scroll</span>
-      <svg width="14" height="22" viewBox="0 0 16 24" fill="none"><path d="M8 0v20M1 14l7 7 7-7" stroke="currentColor" stroke-width="1"/></svg>
+
+    <div class="hero-scroll hero-fade hero-fade-4">
+      <div class="hero-scroll-line"></div>
     </div>
+
   </div>
+
   <div class="countdown-bar">
     <div class="countdown" id="countdown"></div>
   </div>
 </section>
 
-<!-- Papel picado banner -->
-<div class="papel-picado"><svg viewBox="0 0 800 32" preserveAspectRatio="none"><path d="M0,0 L800,0 L800,4 L0,4 Z" fill="currentColor"/><path d="M0,4 Q10,16 20,4 Q30,16 40,4 Q50,16 60,4 Q70,16 80,4 Q90,16 100,4 Q110,16 120,4 Q130,16 140,4 Q150,16 160,4 Q170,16 180,4 Q190,16 200,4 Q210,16 220,4 Q230,16 240,4 Q250,16 260,4 Q270,16 280,4 Q290,16 300,4 Q310,16 320,4 Q330,16 340,4 Q350,16 360,4 Q370,16 380,4 Q390,16 400,4 Q410,16 420,4 Q430,16 440,4 Q450,16 460,4 Q470,16 480,4 Q490,16 500,4 Q510,16 520,4 Q530,16 540,4 Q550,16 560,4 Q570,16 580,4 Q590,16 600,4 Q610,16 620,4 Q630,16 640,4 Q650,16 660,4 Q670,16 680,4 Q690,16 700,4 Q710,16 720,4 Q730,16 740,4 Q750,16 760,4 Q770,16 780,4 Q790,16 800,4" fill="none" stroke="currentColor" stroke-width=".8"/></svg></div>
-
 <!-- ═══════ OUR STORY ═══════ -->
-<section class="section" id="historia" style="position:relative;overflow:hidden">
-  <!-- Floating accent: stepped fret pattern -->
-  <div class="oax-float oax-float-alt" style="top:100px;right:20px;width:50px;height:50px;animation-duration:9s;"><svg viewBox="0 0 32 32" stroke="currentColor" fill="none" stroke-width=".7"><path d="M4 28 L4 20 L12 20 L12 12 L20 12 L20 4 L28 4"/></svg></div>
+<section class="section" id="historia">
   <div class="container">
-    <div class="text-center reveal" style="margin-bottom:72px">
-      <p class="label" style="margin-bottom:14px">Nuestra Historia</p>
-      <h2 class="heading-serif">El Camino Hacia el Sí</h2>
-      <!-- Agave ornament -->
-      <div class="section-ornament" style="margin-top:28px">
-        <div class="orn-line"></div>
-        <div class="oax-icon oax-draw reveal"><svg viewBox="0 0 32 32"><path d="M16 28 C16 28 16 18 16 14 M16 14 C14 8 8 4 6 6 C4 8 10 14 16 14 M16 14 C18 8 24 4 26 6 C28 8 22 14 16 14 M16 18 C12 14 4 14 4 16 C4 18 12 18 16 18 M16 18 C20 14 28 14 28 16 C28 18 20 18 16 18 M16 22 C13 20 7 20 6 22 C5 24 13 22 16 22 M16 22 C19 20 25 20 26 22 C27 24 19 22 16 22"/></svg></div>
-        <div class="orn-line"></div>
+
+    <!-- Row 1: title + prose -->
+    <div class="story-header reveal">
+      <h2 class="story-title">Nuestra<br>Historia</h2>
+      <div class="story-prose">
+        <p>Un encuentro inesperado en 2019 que cambió nuestras vidas para siempre. Desde el primer momento, supimos que había algo especial entre nosotros.</p>
+        <p>Juntos aprendimos que explorar el mundo era nuestra forma favorita de crecer. Cada aventura, cada ciudad nueva, nos acercó un poco más.</p>
+        <p>En 2024, frente a la pirámide del Louvre, sellamos una promesa que llevaremos en el corazón por siempre. Ahora, en la hermosa Oaxaca, queremos celebrarlo rodeados de las personas que más amamos.</p>
       </div>
     </div>
 
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <div class="tl-year">2019</div>
-          <h3 class="tl-title">Nos Conocimos</h3>
-          <p class="body-text">Un encuentro inesperado que cambió nuestras vidas para siempre. Desde el primer momento, supimos que había algo especial entre nosotros.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <div class="tl-year">2021</div>
-          <h3 class="tl-title">Primer Viaje Juntos</h3>
-          <p class="body-text">Descubrimos que explorar el mundo juntos era nuestra forma favorita de crear recuerdos. Cada aventura nos acercó más.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <div class="tl-year">2024</div>
-          <h3 class="tl-title">París</h3>
-          <p class="body-text">Frente a la pirámide del Louvre, en la ciudad del amor, sellamos una promesa que llevaremos en el corazón por siempre.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <div class="tl-year">2027</div>
-          <h3 class="tl-title">Nuestra Boda</h3>
-          <p class="body-text">En la hermosa Oaxaca, rodeados de familia y amigos, celebraremos el inicio de nuestra vida juntos.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Photo groups — intercalated, scroll-triggered -->
+    <div class="story-groups">
 
-<!-- ═══════ EVENT DETAILS ═══════ -->
-<div class="textile-border"></div>
-<section class="section section-alt" id="detalles" style="position:relative;overflow:hidden">
-  <!-- Floating accent: small arch -->
-  <div class="oax-float" style="top:60px;right:40px;width:60px;height:60px;"><svg viewBox="0 0 32 32" stroke="currentColor" fill="none" stroke-width=".7"><path d="M6 28 L6 14 A10 10 0 0 1 26 14 L26 28 M10 28 L10 18 A6 6 0 0 1 22 18 L22 28"/></svg></div>
-  <div class="container">
-    <div class="text-center reveal" style="margin-bottom:56px">
-      <p class="label" style="margin-bottom:14px">Celebración</p>
-      <h2 class="heading-serif">Detalles del Evento</h2>
-      <!-- Church arch ornament -->
-      <div class="section-ornament" style="margin-top:28px">
-        <div class="orn-line"></div>
-        <div class="oax-icon oax-draw reveal"><svg viewBox="0 0 32 32"><path d="M4 28 L4 14 A12 12 0 0 1 28 14 L28 28 M12 28 L12 20 A4 4 0 0 1 20 20 L20 28 M16 2 L16 8 M13 5 L19 5"/></svg></div>
-        <div class="orn-line"></div>
+      <!-- Group A: Large portrait left + smaller offset right -->
+      <div class="story-group story-group--a reveal">
+        <div class="story-img"></div>
+        <div class="story-img"></div>
       </div>
+
+      <!-- Group B: 3 photos — diagonal stagger -->
+      <div class="story-group story-group--b reveal">
+        <div class="story-img"></div>
+        <div class="story-img"></div>
+        <div class="story-img"></div>
+      </div>
+
+      <!-- Group C: Mirrored — small left, large portrait right -->
+      <div class="story-group story-group--c reveal">
+        <div class="story-img"></div>
+        <div class="story-img"></div>
+      </div>
+
     </div>
 
-    <div class="text-center reveal date-banner" style="margin-bottom:16px">
-      <p class="label-day">Sábado</p>
-      <p class="day">15</p>
-      <p class="label-day">Mayo, 2027</p>
-    </div>
-
-    <div class="cards-grid">
-      <div class="event-card reveal">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <h3>Ceremonia</h3>
-        <p class="label" style="margin:8px 0 20px">5:00 PM</p>
-        <div class="divider" style="margin-bottom:20px"></div>
-        <p class="venue">Templo de Santo Domingo de Guzmán</p>
-        <p class="body-text" style="font-size:.85rem">Calle Macedonio Alcalá s/n, Centro<br>Oaxaca de Juárez, Oaxaca</p>
-        <a href="#" class="map-link">Ver en Google Maps</a>
-      </div>
-      <div class="event-card reveal">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
-        <h3>Recepción</h3>
-        <p class="label" style="margin:8px 0 20px">7:30 PM</p>
-        <div class="divider" style="margin-bottom:20px"></div>
-        <p class="venue">Hacienda Los Laureles</p>
-        <p class="body-text" style="font-size:.85rem">Hidalgo 21, San Felipe del Agua<br>Oaxaca de Juárez, Oaxaca</p>
-        <a href="#" class="map-link">Ver en Google Maps</a>
-      </div>
-    </div>
-
-    <div class="dress-code reveal">
-      <p class="label">Código de Vestimenta</p>
-      <h3>Formal / Etiqueta</h3>
-      <p class="body-text" style="font-size:.85rem">Te invitamos a vestir de manera formal para acompañarnos en esta celebración tan especial.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ TRAVEL ═══════ -->
-<div class="textile-border"></div>
-<section class="section" id="hospedaje" style="position:relative;overflow:hidden">
-  <!-- Floating accent: agave -->
-  <div class="oax-float oax-float-alt" style="bottom:80px;left:24px;width:70px;height:70px;"><svg viewBox="0 0 32 32" stroke="currentColor" fill="none" stroke-width=".7"><path d="M16 30 C16 30 16 18 16 14 M16 14 C14 8 8 4 6 6 C4 8 10 14 16 14 M16 14 C18 8 24 4 26 6 C28 8 22 14 16 14 M16 18 C12 14 4 14 4 16 C4 18 12 18 16 18 M16 18 C20 14 28 14 28 16 C28 18 20 18 16 18"/></svg></div>
-  <div class="container">
-    <div class="text-center reveal" style="margin-bottom:72px">
-      <p class="label" style="margin-bottom:14px">Para Nuestros Invitados</p>
-      <h2 class="heading-serif">Hospedaje y Viaje</h2>
-      <!-- Mezcal jicara ornament -->
-      <div class="section-ornament" style="margin-top:28px">
-        <div class="orn-line"></div>
-        <div class="oax-icon oax-draw reveal"><svg viewBox="0 0 32 32"><path d="M8 14 Q8 22 16 24 Q24 22 24 14 M6 14 L26 14 M14 10 Q14 6 16 4 Q18 6 18 10 M11 12 Q10 8 12 6 M21 12 Q22 8 20 6"/></svg></div>
-        <div class="orn-line"></div>
-      </div>
-    </div>
-
-    <div class="hotel-grid">
-      <div class="hotel-card reveal">
-        <p class="label" style="font-size:.55rem">10 min de la ceremonia</p>
-        <h3>Hotel Quinta Real Oaxaca</h3>
-        <p class="body-text" style="font-size:.85rem">Un hotel boutique ubicado en un antiguo convento del siglo XVI. A pasos del centro histórico.</p>
-        <a href="#" class="book-link">Reservar</a>
-      </div>
-      <div class="hotel-card reveal">
-        <p class="label" style="font-size:.55rem">5 min de la ceremonia</p>
-        <h3>Casa Oaxaca</h3>
-        <p class="body-text" style="font-size:.85rem">Elegante hotel con terraza y alberca, en el corazón del centro histórico de Oaxaca.</p>
-        <a href="#" class="book-link">Reservar</a>
-      </div>
-      <div class="hotel-card reveal">
-        <p class="label" style="font-size:.55rem">Sede de la recepción</p>
-        <h3>Hacienda Los Laureles</h3>
-        <p class="body-text" style="font-size:.85rem">Spa resort en San Felipe del Agua. Sede de la recepción — ideal para no tener que trasladarse.</p>
-        <a href="#" class="book-link">Reservar</a>
-      </div>
-    </div>
-
-    <div class="tips container-sm">
-      <div class="tip reveal">
-        <div class="tip-line"></div>
-        <div>
-          <h3>Cómo Llegar</h3>
-          <p class="body-text" style="font-size:.85rem">El Aeropuerto Internacional de Oaxaca (OAX) recibe vuelos directos desde la Ciudad de México, Guadalajara y otras ciudades. Recomendamos llegar el jueves o viernes previo a la boda.</p>
-        </div>
-      </div>
-      <div class="tip reveal">
-        <div class="tip-line"></div>
-        <div>
-          <h3>Transporte Local</h3>
-          <p class="body-text" style="font-size:.85rem">Proporcionaremos transporte entre la ceremonia y la recepción. Para otros traslados, recomendamos servicios de taxi o aplicaciones de transporte.</p>
-        </div>
-      </div>
-      <div class="tip reveal">
-        <div class="tip-line"></div>
-        <div>
-          <h3>Qué Hacer en Oaxaca</h3>
-          <p class="body-text" style="font-size:.85rem">No te pierdas Monte Albán, el Árbol del Tule, Hierve el Agua y, por supuesto, la increíble gastronomía oaxaqueña.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ═══════ RSVP ═══════ -->
-<div class="textile-border"></div>
 <section class="section section-alt" id="confirmar" style="position:relative;overflow:hidden">
   <!-- Floating accent: stepped fret -->
-  <div class="oax-float" style="top:40px;right:30px;width:50px;height:50px;animation-duration:10s;"><svg viewBox="0 0 32 32" stroke="currentColor" fill="none" stroke-width=".7"><path d="M4 28 L4 20 L12 20 L12 12 L20 12 L20 4 L28 4 M4 24 L8 24 L8 16 L16 16 L16 8 L24 8 L24 4"/></svg></div>
   <div class="container-sm">
     <div class="text-center reveal" style="margin-bottom:48px">
       <p class="label" style="margin-bottom:14px">Confirma tu Asistencia</p>
       <h2 class="heading-serif">RSVP</h2>
-      <!-- Interlocked rings ornament -->
-      <div class="section-ornament" style="margin-top:28px">
-        <div class="orn-line"></div>
-        <div class="oax-icon oax-draw reveal"><svg viewBox="0 0 32 32"><circle cx="12" cy="16" r="7"/><circle cx="20" cy="16" r="7"/></svg></div>
-        <div class="orn-line"></div>
-      </div>
       <p class="body-text" style="margin-top:28px;max-width:480px;margin-left:auto;margin-right:auto">
         Esperamos contar con tu presencia en este día tan especial. Por favor confirma antes del 15 de marzo de 2027.
       </p>
@@ -1206,7 +886,6 @@
   </div>
 </section>
 
-<div class="textile-border"></div>
 <!-- ═══════ FOOTER ═══════ -->
 <footer class="footer">
   <h2>Laura & Diego</h2>
@@ -1230,7 +909,7 @@
       document.getElementById('preloader').classList.add('done');
       document.getElementById('pageContent').classList.add('visible');
       document.documentElement.classList.remove('loading');
-    }, 7500);
+    }, 200);
   });
 
   /* ── Navigation ── */
@@ -1240,7 +919,7 @@
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 80);
-  });
+  }, { passive: true });
 
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('open');
@@ -1268,14 +947,14 @@
     const s = Math.floor((diff / 1e3) % 60);
 
     const units = [
-      { v: d, l: 'Días' },
-      { v: h, l: 'Horas' },
-      { v: m, l: 'Minutos' },
-      { v: s, l: 'Segundos' },
+      { v: d, l: 'Días', hide: false },
+      { v: h, l: 'Horas', hide: false },
+      { v: m, l: 'Minutos', hide: true },
+      { v: s, l: 'Segundos', hide: true },
     ];
 
     document.getElementById('countdown').innerHTML = units.map(u =>
-      `<div class="countdown-unit">
+      `<div class="countdown-unit${u.hide ? ' hide-mobile' : ''}">
         <div class="countdown-value">${String(u.v).padStart(2,'0')}</div>
         <div class="countdown-label">${u.l}</div>
       </div>`
