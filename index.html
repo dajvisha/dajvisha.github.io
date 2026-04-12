@@ -89,17 +89,27 @@
 
     .preloader-monogram {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: clamp(2rem, 7vw, 3.6rem);
       font-weight: 400;
-      letter-spacing: .14em;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
       color: var(--ink);
+      opacity: 0.88;
+      line-height: 1;
+    }
+
+    .preloader-monogram em {
+      color: var(--crimson);
+      opacity: 0.8;
+      font-size: 0.55em;
+      line-height: 1.15;
+      display: block;
+      font-style: normal;
+      letter-spacing: 0.28em;
     }
 
     .preloader-rule {
-      width: 36px;
-      height: 1px;
-      background: rgba(160, 88, 44, .45);
-      margin: 22px auto;
+      display: none;
     }
 
     .preloader-date {
@@ -109,7 +119,9 @@
       letter-spacing: .35em;
       font-variant-caps: all-small-caps;
       font-feature-settings: "smcp" 1, "c2sc" 1;
-      color: #6B6560;
+      color: var(--sienna);
+      opacity: 0.75;
+      margin-top: 28px;
     }
 
     /* ── Reset & Base ── */
@@ -127,7 +139,7 @@
     }
 
     ::selection {
-      background: rgba(92, 26, 34, .18);
+      background: color-mix(in srgb, var(--crimson) 18%, transparent);
     }
 
     :root {
@@ -270,7 +282,7 @@
       z-index: 10000;
       padding: 12px 24px;
       background: var(--crimson);
-      color: #F5EDE8;
+      color: var(--cream);
       font-family: var(--font-sans);
       font-size: .75rem;
       font-weight: 400;
@@ -282,7 +294,7 @@
 
     .skip-link:focus {
       top: 16px;
-      outline: 2px solid #F5EDE8;
+      outline: 2px solid var(--cream);
       outline-offset: 3px;
     }
 
@@ -300,7 +312,7 @@
     }
 
     .hero-cta:focus-visible {
-      outline: 2px solid #F5EDE8;
+      outline: 2px solid var(--cream);
       outline-offset: 4px;
     }
 
@@ -319,7 +331,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(92, 26, 34, .22);
+      background: color-mix(in srgb, var(--crimson) 22%, transparent);
       border-radius: 8px;
     }
 
@@ -354,25 +366,35 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--ink);
-      transition: color .4s;
+      opacity: 0.88;
+      transition: color .4s, opacity .4s;
+      line-height: 1;
+    }
+
+    .nav-logo em {
+      color: var(--crimson);
+      opacity: 0.8;
+      font-size: 0.55em;
+      font-style: normal;
+      letter-spacing: 0.28em;
     }
 
     /* Tablet/mobile: nav sits over the photo — switch to white */
     @media (max-width: 900px) {
       .nav:not(.scrolled) .nav-logo {
-        color: #F5EDE8;
+        color: var(--cream);
       }
 
       .nav:not(.scrolled) .nav-links a {
-        color: #F5EDE8;
+        color: var(--cream);
       }
 
       .nav:not(.scrolled) .nav-links a:hover {
-        color: rgba(245, 237, 232, .7);
+        color: color-mix(in srgb, var(--cream) 70%, transparent);
       }
 
       .nav:not(.scrolled) .nav-toggle span {
-        background: #F5EDE8;
+        background: var(--cream);
       }
     }
 
@@ -563,7 +585,7 @@
     .hero-text h1 em {
       font-style: italic;
       font-weight: 400;
-      color: var(--sienna);
+      color: var(--crimson);
     }
 
     .hero-divider {
@@ -590,7 +612,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: #F5EDE8;
+      color: var(--cream);
       background: var(--crimson);
       border: none;
       padding: 18px 44px;
@@ -711,12 +733,10 @@
     /* ── Countdown Bar ── */
     .countdown-bar {
       position: relative;
-      background: rgba(249, 246, 242, .88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      padding: 80px 0 60px 0;
-      min-height: 320px;
-      border-top: 1px solid rgba(90, 94, 48, .18);
+      background: var(--crimson);
+      padding: 120px 0 100px 0;
+      min-height: 480px;
+      border-top: none;
       overflow: hidden;
     }
 
@@ -736,7 +756,7 @@
       font-family: var(--font-display);
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 300;
-      color: var(--ink);
+      color: var(--cream);
       font-variant-numeric: tabular-nums;
       line-height: 1;
     }
@@ -748,7 +768,8 @@
       letter-spacing: .35em;
       font-variant-caps: all-small-caps;
       font-feature-settings: "smcp" 1, "c2sc" 1;
-      color: var(--sienna);
+      color: var(--blush);
+      opacity: 0.75;
       margin-top: 6px;
     }
 
@@ -817,8 +838,8 @@
       }
 
       .countdown-bar {
-        padding: 48px 0 32px 0;
-        min-height: 220px;
+        padding: 80px 0 64px 0;
+        min-height: 340px;
       }
 
       .agave-field {
@@ -986,7 +1007,7 @@
 
     .attend-btn.selected {
       background: var(--crimson);
-      color: #F5EDE8;
+      color: var(--cream);
       border-color: var(--crimson);
     }
 
@@ -994,7 +1015,7 @@
       width: 100%;
       padding: 18px;
       background: var(--crimson);
-      color: #F5EDE8;
+      color: var(--cream);
       border: none;
       cursor: pointer;
       font-family: var(--font-sans);
@@ -1033,6 +1054,41 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* ──────────────────────────────────────
+       PHRASE
+    ────────────────────────────────────── */
+    .phrase-section {
+      background: var(--crimson);
+      position: relative; overflow: hidden;
+      padding: 72px var(--page-x) 64px;
+      border-top: none;
+    }
+    .phrase-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E");
+      background-size: 220px; opacity: 0.35; mix-blend-mode: overlay; pointer-events: none;
+    }
+    .phrase-section-label {
+      font-family: var(--font-sans); font-weight: 300;
+      font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--blush); opacity: 0.85;
+      display: block; margin-bottom: 48px;
+      position: relative; z-index: 1;
+    }
+    .phrase-section-line {
+      font-family: var(--font-display);
+      font-style: italic; font-weight: 400;
+      font-size: clamp(20px, 4vw, 28px); line-height: 1.48;
+      color: var(--cream); opacity: 0.82; display: block;
+      padding: 24px 0;
+      border-top: 0.5px solid rgba(253,250,245,0.12);
+      position: relative; z-index: 1;
+      max-width: 640px;
+    }
+    .phrase-section-line:last-of-type {
+      border-bottom: 0.5px solid rgba(253,250,245,0.12);
     }
 
     /* ──────────────────────────────────────
@@ -1111,8 +1167,13 @@
       left: 0;
       width: 100%;
       height: 300px;
-      opacity: 0.28;
+      opacity: 0.65;
       z-index: 2;
+    }
+
+    /* Agave fill on colored countdown background — cream per style guide */
+    .countdown-bar .agave-field path {
+      fill: #FDFAF5;
     }
 
     /* ──────────────────────────────────────
@@ -1144,7 +1205,7 @@
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
     <div class="preloader-inner">
-      <div class="preloader-monogram">L &amp; D</div>
+      <div class="preloader-monogram">LAURA<em>&amp;</em>DIEGO</div>
       <div class="preloader-rule"></div>
       <div class="preloader-date">Mayo &middot; 2027 &middot; Oaxaca</div>
     </div>
@@ -1154,7 +1215,7 @@
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
-      <a href="#inicio" class="nav-logo">LAURA & DIEGO</a>
+      <a href="#inicio" class="nav-logo">LAURA<em>&amp;</em>DIEGO</a>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#confirmacion">Confirmar</a></li>
@@ -1201,7 +1262,7 @@
       <svg class="agave-svg agave-field" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice"
         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <g id="agv" fill="#6B6440">
+          <g id="agv" fill="#FDFAF5">
             <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z" />
             <g transform="rotate(20) scale(.88)">
               <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z" />
@@ -1337,12 +1398,17 @@
       </div>
     </section>
 
+    <!-- PHRASE -->
+    <section class="phrase-section">
+      <span class="phrase-section-line">Con el agave entendimos la espera de la tierra.</span>
+      <span class="phrase-section-line">Con la distancia entendimos la fuerza de elegirnos.</span>
+      <span class="phrase-section-line">Con el mezcal celebramos la eternidad.</span>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer">
       <h2>L &amp; D</h2>
       <p class="sub">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
-      <div class="divider-f"></div>
-      <p class="quote">Con el agave entendimos la espera de la tierra.<br>Con la distancia entendimos la fuerza de elegirnos.<br>Con el mezcal celebramos la eternidad.</p>
       <p class="made">Hecho con mezcal</p>
     </footer>
 
