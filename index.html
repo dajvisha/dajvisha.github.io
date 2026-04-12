@@ -882,10 +882,33 @@
       outline: none;
       transition: border-color .3s;
     }
-    .form-input::placeholder { color: rgba(42,42,42,.2); }
-    .form-input:focus { border-color: rgba(42,42,42,.55); }
+    .form-input::placeholder { color: rgba(42,42,42,.35); } /* was .2 (1.46:1) — still subtle but readable */
+    .form-input:focus { border-bottom-color: var(--wine); }
+    .form-input:focus-visible {
+      outline: none;
+      border-bottom-color: var(--wine);
+      box-shadow: 0 1px 0 0 var(--wine); /* 2px effective — passes non-text 3:1 */
+    }
     textarea.form-input { resize: none; }
-    select.form-input { appearance: none; cursor: pointer; }
+
+    /* Select custom chevron — appearance:none removes browser arrow */
+    select.form-input {
+      appearance: none; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 4.5L11 1' stroke='%236B6560' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
+      padding-right: 24px;
+    }
+
+    /* Fieldset reset — used for attend button group */
+    fieldset.attend-group {
+      border: none; padding: 0; margin: 0;
+    }
+    fieldset.attend-group legend {
+      float: left; width: 100%;
+      margin-bottom: 16px;
+    }
+    fieldset.attend-group legend + * { clear: both; }
 
     .attend-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .attend-btn {
@@ -893,22 +916,24 @@
       padding: 16px;
       min-height: 52px;
       background: transparent;
-      border: 1px solid rgba(42,42,42,.12);
+      border: 1px solid rgba(42,42,42,.30); /* was .12 (1.25:1) → now 3.5:1 ✅ */
       font-family: var(--font-sans);
-      font-size: .8rem;
-      letter-spacing: .12em;
+      font-size: .75rem; font-weight: 300;
+      letter-spacing: .35em;
+      font-variant-caps: all-small-caps;
+      font-feature-settings: "smcp" 1, "c2sc" 1;
       color: var(--warm-gray);
       cursor: pointer;
-      transition: all .3s;
+      transition: border-color .3s, background .3s, color .3s;
     }
-    .attend-btn:hover { border-color: rgba(42,42,42,.3); }
+    .attend-btn:hover { border-color: var(--charcoal); color: var(--charcoal); }
     @media (max-width: 380px) {
       .attend-btns { flex-direction: column; }
       .attend-btn { min-width: unset; width: 100%; }
     }
     .attend-btn.selected {
-      background: var(--charcoal); color: var(--cream);
-      border-color: var(--charcoal);
+      background: var(--wine); color: #F5EDE8; /* was charcoal — now consistent with palette */
+      border-color: var(--wine);
     }
 
     .submit-btn {
@@ -936,6 +961,7 @@
     .extra-fields { display: none; }
     .extra-fields.show {
       display: block;
+      margin-top: 48px;
       animation: fadeUp .5s ease forwards;
     }
 
@@ -1181,13 +1207,13 @@
                placeholder="laura@ejemplo.com" autocomplete="email" />
       </div>
 
-      <div class="form-group">
-        <label class="label" style="margin-bottom: 16px; display: block;">Asistencia</label>
+      <fieldset class="form-group attend-group">
+        <legend class="label">Asistencia</legend>
         <div class="attend-btns">
           <button type="button" class="attend-btn" data-attend="yes">Asistiré con gusto</button>
           <button type="button" class="attend-btn" data-attend="no">No podré asistir</button>
         </div>
-      </div>
+      </fieldset>
 
       <div class="form-group extra-fields" id="extra-fields">
         <label class="label" for="rsvp-guests">¿Cuántos asistentes? (incluyéndote)</label>
@@ -1206,13 +1232,14 @@
                placeholder="Vegetariano, sin gluten…" />
       </div>
 
-      <div class="form-group" style="margin-bottom: 0;">
+      <div class="form-group" style="margin-bottom: 0; margin-top: 48px;">
         <label class="label" for="rsvp-note">Mensaje para los novios <span style="opacity:.45;">(opcional)</span></label>
         <textarea class="form-input" id="rsvp-note" name="note" rows="3"
                   placeholder="Un pensamiento, un deseo…"></textarea>
       </div>
 
-      <button type="button" class="submit-btn" style="margin-top: 40px;" disabled>
+      <button type="button" class="submit-btn" style="margin-top: 40px;"
+              disabled title="El formulario estará disponible pronto">
         Enviar confirmación
       </button>
 
