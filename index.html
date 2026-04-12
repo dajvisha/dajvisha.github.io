@@ -1,3 +1,16 @@
+    /* Restore sway classes for styling, but remove animation */
+    .sway {
+      /* animation-name: agave-sway; */
+      /* animation-timing-function: ease-in-out; */
+      /* animation-iteration-count: infinite; */
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+    }
+    .sway-a {}
+    .sway-b {}
+    .sway-c {}
+    .sway-d {}
+    .sway-e {}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -391,7 +404,8 @@
       background: rgba(249,246,242,.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      padding: 20px 0;
+      padding: 80px 0 60px 0;
+      min-height: 320px;
       border-top: 1px solid rgba(42,42,42,.05);
     }
     .countdown {
@@ -453,6 +467,8 @@
         background: transparent;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
+        padding: 48px 0 32px 0;
+        min-height: 180px;
       }
     }
 
@@ -842,17 +858,11 @@
     /* ──────────────────────────────────────
        AGAVE DECORATIONS
     ────────────────────────────────────── */
-    @keyframes agave-sway {
-      0%, 100% { transform: rotate(-1.2deg); }
-      50%       { transform: rotate(1.2deg); }
-    }
-
     .agave-svg {
       pointer-events: none;
       position: absolute;
       z-index: 2;
     }
-
     /* Hero — full-width agave field along the bottom */
     .agave-field {
       bottom: 0;
@@ -865,20 +875,6 @@
     @media (max-width: 900px) {
       .agave-field { display: none; }
     }
-
-    /* Per-plant sway — different durations & delays for organic feel */
-    .sway {
-      animation-name: agave-sway;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      transform-box: fill-box;
-      transform-origin: 50% 100%;
-    }
-    .sway-a { animation-duration: 11s;   animation-delay: 0s; }
-    .sway-b { animation-duration: 13.5s; animation-delay: -4.5s; }
-    .sway-c { animation-duration: 9.5s;  animation-delay: -2s; }
-    .sway-d { animation-duration: 14s;   animation-delay: -7s; }
-    .sway-e { animation-duration: 10.5s; animation-delay: -1.3s; }
 
     /* Footer — two small agaves flanking the text */
     .agave-footer-l,
@@ -962,6 +958,15 @@
   </div>
 
   <!-- Agave field -->
+  <!-- Agave field moved to countdown bar below -->
+
+  <!-- Countdown -->
+  <!-- ...existing code... -->
+
+</section>
+
+<!-- Countdown bar moved below hero -->
+<div class="countdown-bar" style="position:relative;">
   <svg class="agave-svg agave-field" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <!-- Single agave plant definition, base at origin pointing up -->
@@ -983,48 +988,47 @@
     <g transform="translate(480,295) scale(0.37)"><use href="#agv" class="sway sway-e" opacity="0.48"/></g>
     <g transform="translate(750,295) scale(0.31)"><use href="#agv" class="sway sway-a" opacity="0.44"/></g>
     <g transform="translate(1020,295) scale(0.35)"><use href="#agv" class="sway sway-c" opacity="0.5"/></g>
-    <g transform="translate(1310,295) scale(0.38)"><use href="#agv" class="sway sway-d" opacity="0.46"/></g>
+    <g transform="translate(200,295) scale(0.34)"><use href="#agv" opacity="0.5"/></g>
+    <g transform="translate(480,295) scale(0.37)"><use href="#agv" opacity="0.48"/></g>
+    <g transform="translate(750,295) scale(0.31)"><use href="#agv" opacity="0.44"/></g>
+    <g transform="translate(1020,295) scale(0.35)"><use href="#agv" opacity="0.5"/></g>
+    <g transform="translate(1310,295) scale(0.38)"><use href="#agv" opacity="0.46"/></g>
 
     <!-- Mid row: medium size -->
-    <g transform="translate(100,295) scale(0.52)"><use href="#agv" class="sway sway-c" opacity="0.68"/></g>
-    <g transform="translate(350,295) scale(0.56)"><use href="#agv" class="sway sway-a" opacity="0.7"/></g>
-    <g transform="translate(620,295) scale(0.5)"><use href="#agv" class="sway sway-d" opacity="0.65"/></g>
-    <g transform="translate(890,295) scale(0.54)"><use href="#agv" class="sway sway-b" opacity="0.68"/></g>
-    <g transform="translate(1150,295) scale(0.57)"><use href="#agv" class="sway sway-e" opacity="0.66"/></g>
-    <g transform="translate(1400,295) scale(0.51)"><use href="#agv" class="sway sway-c" opacity="0.62"/></g>
+    <g transform="translate(100,295) scale(0.52)"><use href="#agv" opacity="0.68"/></g>
+    <g transform="translate(350,295) scale(0.56)"><use href="#agv" opacity="0.7"/></g>
+    <g transform="translate(620,295) scale(0.5)"><use href="#agv" opacity="0.65"/></g>
+    <g transform="translate(890,295) scale(0.54)"><use href="#agv" opacity="0.68"/></g>
+    <g transform="translate(1150,295) scale(0.57)"><use href="#agv" opacity="0.66"/></g>
+    <g transform="translate(1400,295) scale(0.51)"><use href="#agv" opacity="0.62"/></g>
 
     <!-- Front row: largest, most visible — sense of foreground -->
-    <g transform="translate(60,295) scale(0.76)"><use href="#agv" class="sway sway-e" opacity="0.88"/></g>
-    <g transform="translate(270,295) scale(0.8)"><use href="#agv" class="sway sway-b" opacity="0.92"/></g>
-    <g transform="translate(530,295) scale(0.84)"><use href="#agv" class="sway sway-a" opacity="1"/></g>
-    <g transform="translate(790,295) scale(0.78)"><use href="#agv" class="sway sway-d" opacity="0.9"/></g>
-    <g transform="translate(1060,295) scale(0.82)"><use href="#agv" class="sway sway-c" opacity="0.94"/></g>
-    <g transform="translate(1310,295) scale(0.74)"><use href="#agv" class="sway sway-b" opacity="0.86"/></g>
+    <g transform="translate(60,295) scale(0.76)"><use href="#agv" opacity="0.88"/></g>
+    <g transform="translate(270,295) scale(0.8)"><use href="#agv" opacity="0.92"/></g>
+    <g transform="translate(530,295) scale(0.84)"><use href="#agv" opacity="1"/></g>
+    <g transform="translate(790,295) scale(0.78)"><use href="#agv" opacity="0.9"/></g>
+    <g transform="translate(1060,295) scale(0.82)"><use href="#agv" opacity="0.94"/></g>
+    <g transform="translate(1310,295) scale(0.74)"><use href="#agv" opacity="0.86"/></g>
   </svg>
-
-  <!-- Countdown -->
-  <div class="countdown-bar">
-    <div class="countdown">
-      <div class="countdown-unit">
-        <div class="countdown-value" id="cd-days">---</div>
-        <div class="countdown-label">Dias</div>
-      </div>
-      <div class="countdown-unit">
-        <div class="countdown-value" id="cd-hours">--</div>
-        <div class="countdown-label">Horas</div>
-      </div>
-      <div class="countdown-unit hide-mobile">
-        <div class="countdown-value" id="cd-mins">--</div>
-        <div class="countdown-label">Minutos</div>
-      </div>
-      <div class="countdown-unit hide-mobile">
-        <div class="countdown-value" id="cd-secs">--</div>
-        <div class="countdown-label">Segundos</div>
-      </div>
+  <div class="countdown">
+    <div class="countdown-unit">
+      <div class="countdown-value" id="cd-days">---</div>
+      <div class="countdown-label">Dias</div>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-value" id="cd-hours">--</div>
+      <div class="countdown-label">Horas</div>
+    </div>
+    <div class="countdown-unit hide-mobile">
+      <div class="countdown-value" id="cd-mins">--</div>
+      <div class="countdown-label">Minutos</div>
+    </div>
+    <div class="countdown-unit hide-mobile">
+      <div class="countdown-value" id="cd-secs">--</div>
+      <div class="countdown-label">Segundos</div>
     </div>
   </div>
-
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer" style="position:relative;overflow:hidden;">
@@ -1035,30 +1039,18 @@
   <p class="made">Hecho con mezcal</p>
 
   <!-- Agave decorations -->
-  <svg class="agave-svg agave-footer-l" viewBox="0 0 240 290" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
-    <g transform="translate(120,285)">
-      <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
-      <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-    </g>
-  </svg>
-  <svg class="agave-svg agave-footer-r" viewBox="0 0 240 290" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
-    <g transform="translate(120,285)">
-      <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
-      <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+  <!-- Single large agave, centered -->
+  <svg class="agave-svg" style="left:50%;transform:translateX(-50%);bottom:0;width:340px;max-width:90vw;opacity:0.13;" viewBox="0 0 340 410" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+    <g transform="translate(170,405)">
+      <path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/>
+      <g transform="rotate(18) scale(.92)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
+      <g transform="rotate(-18) scale(.92)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
+      <g transform="rotate(36) scale(.8)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
+      <g transform="rotate(-36) scale(.8)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
+      <g transform="rotate(54) scale(.65)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
+      <g transform="rotate(-54) scale(.65)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
+      <g transform="rotate(72) scale(.5)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
+      <g transform="rotate(-72) scale(.5)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
     </g>
   </svg>
 </footer>
