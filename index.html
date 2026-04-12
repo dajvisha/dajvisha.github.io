@@ -448,16 +448,12 @@
         max-width: 560px;
         margin: 0 auto;
       }
-      /* Countdown: break out of absolute positioning on tablet */
       .countdown-bar {
-        position: static;
-        margin-top: 0;
-        border-top: 1px solid rgba(42,42,42,.08);
-        background: transparent;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
         padding: 48px 0 32px 0;
-        min-height: 180px;
+        min-height: 220px;
+      }
+      .agave-field {
+        height: 160px;
       }
     }
 
@@ -861,10 +857,6 @@
       opacity: 0.28;
       z-index: 2;
     }
-    @media (max-width: 900px) {
-      .agave-field { display: none; }
-    }
-
     /* Footer — two small agaves flanking the text */
     .agave-footer-l,
     .agave-footer-r {
@@ -967,31 +959,12 @@
       </g>
     </defs>
 
-    <!-- Back row -->
-    <g transform="translate(120,295) scale(0.32)"><use href="#agv" opacity="0.38"/></g>
-    <g transform="translate(360,295) scale(0.34)"><use href="#agv" opacity="0.36"/></g>
-    <g transform="translate(600,295) scale(0.33)"><use href="#agv" opacity="0.38"/></g>
-    <g transform="translate(840,295) scale(0.35)"><use href="#agv" opacity="0.36"/></g>
-    <g transform="translate(1080,295) scale(0.34)"><use href="#agv" opacity="0.38"/></g>
-    <g transform="translate(1320,295) scale(0.32)"><use href="#agv" opacity="0.36"/></g>
-
-    <!-- Middle row -->
-    <g transform="translate(60,295) scale(0.48)"><use href="#agv" opacity="0.56"/></g>
-    <g transform="translate(240,295) scale(0.52)"><use href="#agv" opacity="0.60"/></g>
-    <g transform="translate(480,295) scale(0.54)"><use href="#agv" opacity="0.62"/></g>
-    <g transform="translate(720,295) scale(0.56)"><use href="#agv" opacity="0.64"/></g>
-    <g transform="translate(960,295) scale(0.54)"><use href="#agv" opacity="0.62"/></g>
-    <g transform="translate(1200,295) scale(0.52)"><use href="#agv" opacity="0.60"/></g>
-    <g transform="translate(1380,295) scale(0.48)"><use href="#agv" opacity="0.56"/></g>
-
-    <!-- Front row -->
-    <g transform="translate(0,295) scale(0.70)"><use href="#agv" opacity="0.82"/></g>
-    <g transform="translate(180,295) scale(0.74)"><use href="#agv" opacity="0.88"/></g>
-    <g transform="translate(420,295) scale(0.78)"><use href="#agv" opacity="0.92"/></g>
-    <g transform="translate(720,295) scale(0.80)"><use href="#agv" opacity="1"/></g>
-    <g transform="translate(1020,295) scale(0.78)"><use href="#agv" opacity="0.92"/></g>
-    <g transform="translate(1260,295) scale(0.74)"><use href="#agv" opacity="0.88"/></g>
-    <g transform="translate(1440,295) scale(0.70)"><use href="#agv" opacity="0.82"/></g>
+    <!-- Five plants, symmetric around center, graduated scale -->
+    <g transform="translate(340,295) scale(0.34)"><use href="#agv" opacity="0.35"/></g>
+    <g transform="translate(530,295) scale(0.55)"><use href="#agv" opacity="0.55"/></g>
+    <g transform="translate(720,295) scale(0.92)"><use href="#agv" opacity="1.00"/></g>
+    <g transform="translate(910,295) scale(0.55)"><use href="#agv" opacity="0.55"/></g>
+    <g transform="translate(1100,295) scale(0.34)"><use href="#agv" opacity="0.35"/></g>
   </svg>
   <div class="countdown">
     <div class="countdown-unit">
@@ -1020,21 +993,6 @@
   <div class="divider-f"></div>
   <p class="quote">&ldquo;Con el agave entendimos la espera. Con el mezcal celebramos el tenernos.&rdquo;</p>
   <p class="made">Hecho con mezcal</p>
-
-  <!-- Single large agave, centered -->
-  <svg class="agave-svg" style="left:50%;transform:translateX(-50%);bottom:0;width:340px;max-width:90vw;opacity:0.13;" viewBox="0 0 340 410" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
-    <g transform="translate(170,405)">
-      <path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/>
-      <g transform="rotate(18) scale(.92)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-      <g transform="rotate(-18) scale(.92)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-      <g transform="rotate(36) scale(.8)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-      <g transform="rotate(-36) scale(.8)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-      <g transform="rotate(54) scale(.65)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-      <g transform="rotate(-54) scale(.65)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-      <g transform="rotate(72) scale(.5)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-      <g transform="rotate(-72) scale(.5)"><path d="M0,0 C-28,-50,-22,-180,0,-320 C22,-180,28,-50,0,0Z M0,-320 L-2.5,-340 L0,-355 L2.5,-340Z"/></g>
-    </g>
-  </svg>
 </footer>
 
 </div><!-- /page-content -->
