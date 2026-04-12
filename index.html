@@ -1,16 +1,3 @@
-    /* Restore sway classes for styling, but remove animation */
-    .sway {
-      /* animation-name: agave-sway; */
-      /* animation-timing-function: ease-in-out; */
-      /* animation-iteration-count: infinite; */
-      transform-box: fill-box;
-      transform-origin: 50% 100%;
-    }
-    .sway-a {}
-    .sway-b {}
-    .sway-c {}
-    .sway-d {}
-    .sway-e {}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -400,16 +387,18 @@
 
     /* ── Countdown Bar ── */
     .countdown-bar {
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+      position: relative;
       background: rgba(249,246,242,.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       padding: 80px 0 60px 0;
       min-height: 320px;
       border-top: 1px solid rgba(42,42,42,.05);
+      overflow: hidden;
     }
     .countdown {
       display: flex; justify-content: center; gap: clamp(28px, 5vw, 60px);
+      position: relative; z-index: 3;
     }
     .countdown-unit { text-align: center; }
     .countdown-value {
@@ -957,19 +946,14 @@
     </div>
   </div>
 
-  <!-- Agave field -->
-  <!-- Agave field moved to countdown bar below -->
-
-  <!-- Countdown -->
-  <!-- ...existing code... -->
 
 </section>
 
-<!-- Countdown bar moved below hero -->
-<div class="countdown-bar" style="position:relative;">
+
+<!-- Countdown bar with agave field -->
+<div class="countdown-bar">
   <svg class="agave-svg agave-field" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
-      <!-- Single agave plant definition, base at origin pointing up -->
       <g id="agv" fill="#6B7A58">
         <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
         <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
@@ -983,32 +967,31 @@
       </g>
     </defs>
 
-    <!-- Back row: smallest, most faded — sense of distance -->
-    <g transform="translate(200,295) scale(0.34)"><use href="#agv" class="sway sway-b" opacity="0.5"/></g>
-    <g transform="translate(480,295) scale(0.37)"><use href="#agv" class="sway sway-e" opacity="0.48"/></g>
-    <g transform="translate(750,295) scale(0.31)"><use href="#agv" class="sway sway-a" opacity="0.44"/></g>
-    <g transform="translate(1020,295) scale(0.35)"><use href="#agv" class="sway sway-c" opacity="0.5"/></g>
-    <g transform="translate(200,295) scale(0.34)"><use href="#agv" opacity="0.5"/></g>
-    <g transform="translate(480,295) scale(0.37)"><use href="#agv" opacity="0.48"/></g>
-    <g transform="translate(750,295) scale(0.31)"><use href="#agv" opacity="0.44"/></g>
-    <g transform="translate(1020,295) scale(0.35)"><use href="#agv" opacity="0.5"/></g>
-    <g transform="translate(1310,295) scale(0.38)"><use href="#agv" opacity="0.46"/></g>
+    <!-- Back row -->
+    <g transform="translate(120,295) scale(0.32)"><use href="#agv" opacity="0.38"/></g>
+    <g transform="translate(360,295) scale(0.34)"><use href="#agv" opacity="0.36"/></g>
+    <g transform="translate(600,295) scale(0.33)"><use href="#agv" opacity="0.38"/></g>
+    <g transform="translate(840,295) scale(0.35)"><use href="#agv" opacity="0.36"/></g>
+    <g transform="translate(1080,295) scale(0.34)"><use href="#agv" opacity="0.38"/></g>
+    <g transform="translate(1320,295) scale(0.32)"><use href="#agv" opacity="0.36"/></g>
 
-    <!-- Mid row: medium size -->
-    <g transform="translate(100,295) scale(0.52)"><use href="#agv" opacity="0.68"/></g>
-    <g transform="translate(350,295) scale(0.56)"><use href="#agv" opacity="0.7"/></g>
-    <g transform="translate(620,295) scale(0.5)"><use href="#agv" opacity="0.65"/></g>
-    <g transform="translate(890,295) scale(0.54)"><use href="#agv" opacity="0.68"/></g>
-    <g transform="translate(1150,295) scale(0.57)"><use href="#agv" opacity="0.66"/></g>
-    <g transform="translate(1400,295) scale(0.51)"><use href="#agv" opacity="0.62"/></g>
+    <!-- Middle row -->
+    <g transform="translate(60,295) scale(0.48)"><use href="#agv" opacity="0.56"/></g>
+    <g transform="translate(240,295) scale(0.52)"><use href="#agv" opacity="0.60"/></g>
+    <g transform="translate(480,295) scale(0.54)"><use href="#agv" opacity="0.62"/></g>
+    <g transform="translate(720,295) scale(0.56)"><use href="#agv" opacity="0.64"/></g>
+    <g transform="translate(960,295) scale(0.54)"><use href="#agv" opacity="0.62"/></g>
+    <g transform="translate(1200,295) scale(0.52)"><use href="#agv" opacity="0.60"/></g>
+    <g transform="translate(1380,295) scale(0.48)"><use href="#agv" opacity="0.56"/></g>
 
-    <!-- Front row: largest, most visible — sense of foreground -->
-    <g transform="translate(60,295) scale(0.76)"><use href="#agv" opacity="0.88"/></g>
-    <g transform="translate(270,295) scale(0.8)"><use href="#agv" opacity="0.92"/></g>
-    <g transform="translate(530,295) scale(0.84)"><use href="#agv" opacity="1"/></g>
-    <g transform="translate(790,295) scale(0.78)"><use href="#agv" opacity="0.9"/></g>
-    <g transform="translate(1060,295) scale(0.82)"><use href="#agv" opacity="0.94"/></g>
-    <g transform="translate(1310,295) scale(0.74)"><use href="#agv" opacity="0.86"/></g>
+    <!-- Front row -->
+    <g transform="translate(0,295) scale(0.70)"><use href="#agv" opacity="0.82"/></g>
+    <g transform="translate(180,295) scale(0.74)"><use href="#agv" opacity="0.88"/></g>
+    <g transform="translate(420,295) scale(0.78)"><use href="#agv" opacity="0.92"/></g>
+    <g transform="translate(720,295) scale(0.80)"><use href="#agv" opacity="1"/></g>
+    <g transform="translate(1020,295) scale(0.78)"><use href="#agv" opacity="0.92"/></g>
+    <g transform="translate(1260,295) scale(0.74)"><use href="#agv" opacity="0.88"/></g>
+    <g transform="translate(1440,295) scale(0.70)"><use href="#agv" opacity="0.82"/></g>
   </svg>
   <div class="countdown">
     <div class="countdown-unit">
@@ -1031,14 +1014,13 @@
 </div>
 
 <!-- FOOTER -->
-<footer class="footer" style="position:relative;overflow:hidden;">
-  <h2>L & D</h2>
+<footer class="footer">
+  <h2>L &amp; D</h2>
   <p class="sub">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
   <div class="divider-f"></div>
   <p class="quote">&ldquo;Con el agave entendimos la espera. Con el mezcal celebramos el tenernos.&rdquo;</p>
   <p class="made">Hecho con mezcal</p>
 
-  <!-- Agave decorations -->
   <!-- Single large agave, centered -->
   <svg class="agave-svg" style="left:50%;transform:translateX(-50%);bottom:0;width:340px;max-width:90vw;opacity:0.13;" viewBox="0 0 340 410" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
     <g transform="translate(170,405)">
@@ -1059,7 +1041,7 @@
 
 <!-- JS -->
 <script>
-  /* ── Preloader ── */
+  /* Preloader */
   document.documentElement.classList.add('loading');
 
   window.addEventListener('load', () => {
@@ -1068,7 +1050,6 @@
       document.getElementById('pageContent').classList.add('visible');
       document.documentElement.classList.remove('loading');
 
-      // Trigger hero entrance animations
       setTimeout(() => {
         document.querySelectorAll('.hero-enter').forEach(el => el.classList.add('visible'));
         document.querySelectorAll('.hero-photo').forEach(el => el.classList.add('visible'));
@@ -1076,7 +1057,7 @@
     }, 200);
   });
 
-  /* ── Navigation ── */
+  /* Navigation */
   const nav = document.getElementById('nav');
   const toggle = document.getElementById('navToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1097,7 +1078,7 @@
     });
   });
 
-  /* ── Scroll Reveal ── */
+  /* Scroll Reveal */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -1109,7 +1090,7 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  /* ── Countdown ── */
+  /* Countdown */
   const weddingDate = new Date('2027-05-15T17:00:00-06:00');
 
   function updateCountdown() {
