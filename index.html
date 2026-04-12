@@ -32,20 +32,25 @@
     /* ── Reset & Base ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    ::selection { background: rgba(42,42,42,.18); }
+    ::selection { background: rgba(92,26,34,.18); }
 
     :root {
-      --cream: #E8E4DE;
-      --cream-light: #F0EDE8;
-      --cream-dark: #D5D0C8;
+      --cream: #EAE5DC;
+      --cream-light: #F0EDE6;
+      --cream-dark: #D4CDBF;
       --charcoal: #2A2A2A;
       --warm-gray: #6B6560;
       --soft-black: #1A1A1A;
-      --page-bg: #F9F6F2;
-      --headline: #3A2E26;
+      --page-bg: #F5F1EA;
+      --headline: #2C1810;
       --text-muted: #6B5E54;
-      --accent: #8A7B52;
-      --accent-hover: #6E6342;
+      --wine: #5C1A22;
+      --wine-dark: #3E1017;
+      --olive: #5A5E30;
+      --olive-dark: #474A25;
+      --terra: #A0582C;
+      --accent: #5C1A22;
+      --accent-hover: #3E1017;
       --placeholder-1: #E8E2D5;
       --placeholder-2: #D9CFC1;
       --placeholder-3: #C4B5A0;
@@ -126,7 +131,7 @@
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--cream); }
-    ::-webkit-scrollbar-thumb { background: rgba(42,42,42,.18); border-radius: 8px; }
+    ::-webkit-scrollbar-thumb { background: rgba(92,26,34,.22); border-radius: 8px; }
 
     /* ──────────────────────────────────────
        NAVIGATION
@@ -270,7 +275,7 @@
     .hero-text h1 em {
       font-style: italic;
       font-weight: 400;
-      color: var(--accent);
+      color: var(--terra);
     }
 
     .hero-divider {
@@ -296,8 +301,8 @@
       font-size: 0.72rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: #fff;
-      background: var(--charcoal);
+      color: #F5EDE8;
+      background: var(--wine);
       border: none;
       padding: 16px 40px;
       cursor: pointer;
@@ -307,7 +312,7 @@
     }
 
     .hero-text .hero-cta:hover {
-      background: var(--soft-black);
+      background: var(--wine-dark);
       transform: translateY(-1px);
     }
 
@@ -393,7 +398,7 @@
       -webkit-backdrop-filter: blur(14px);
       padding: 80px 0 60px 0;
       min-height: 320px;
-      border-top: 1px solid rgba(42,42,42,.05);
+      border-top: 1px solid rgba(90,94,48,.18);
       overflow: hidden;
     }
     .countdown {
@@ -797,8 +802,8 @@
        FOOTER
     ────────────────────────────────────── */
     .footer {
-      background: #1C1C1C;
-      color: #F0EBE1;
+      background: #130709;
+      color: #F0E8E0;
       padding: clamp(56px, 8vw, 80px) 24px;
       text-align: center;
       position: relative;
@@ -816,7 +821,7 @@
     }
     .footer .divider-f {
       width: 64px; height: 1px;
-      background: rgba(240,235,225,.2);
+      background: rgba(160,88,44,.35);
       margin: 40px auto;
     }
     .footer .quote {
@@ -946,7 +951,7 @@
 <div class="countdown-bar">
   <svg class="agave-svg agave-field" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
-      <g id="agv" fill="#6B7A58">
+      <g id="agv" fill="#5A5E30">
         <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
         <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
         <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
