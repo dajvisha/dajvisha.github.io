@@ -78,7 +78,7 @@
       background: var(--cream);
       color: var(--charcoal);
       font-family: var(--font-sans);
-      line-height: 1.6;
+      line-height: 1.75;
     }
 
     img { display: block; max-width: 100%; }
@@ -88,16 +88,17 @@
     .label {
       font-family: var(--font-sans);
       font-size: .65rem;
-      font-weight: 200;
-      letter-spacing: .45em;
-      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: .35em;
+      font-variant-caps: all-small-caps;
+      font-feature-settings: "smcp" 1, "c2sc" 1;
       color: var(--warm-gray);
     }
     .body-text {
       font-family: var(--font-sans);
       font-size: .95rem;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.85;
       color: var(--warm-gray);
     }
     .divider {
@@ -218,8 +219,9 @@
       font-family: var(--font-sans);
       font-size: .6rem;
       font-weight: 300;
-      letter-spacing: .4em;
-      text-transform: uppercase;
+      letter-spacing: .35em;
+      font-variant-caps: all-small-caps;
+      font-feature-settings: "smcp" 1, "c2sc" 1;
       color: var(--warm-gray); /* was rgba(42,42,42,.45) = 2.59:1 ❌ → now 5.1:1 ✅ */
       transition: color .3s;
     }
@@ -344,8 +346,9 @@
       font-family: var(--font-sans);
       font-size: 0.8rem;
       font-weight: 300;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-variant-caps: all-small-caps;
+      font-feature-settings: "smcp" 1, "c2sc" 1;
       color: var(--warm-gray);
       margin-bottom: 2.5rem;
     }
@@ -465,8 +468,10 @@
     }
     .countdown-label {
       font-family: var(--font-sans);
-      font-size: .6rem; font-weight: 300; /* was .5rem/200 (8px) — too small */
-      letter-spacing: .45em; text-transform: uppercase;
+      font-size: .6rem; font-weight: 300;
+      letter-spacing: .35em;
+      font-variant-caps: all-small-caps;
+      font-feature-settings: "smcp" 1, "c2sc" 1;
       color: var(--warm-gray);
       margin-top: 6px;
     }
@@ -865,7 +870,9 @@
       margin-bottom: 12px;
     }
     .footer .sub {
-      font-size: .75rem; letter-spacing: .45em; text-transform: uppercase;
+      font-size: .75rem; letter-spacing: .35em;
+      font-variant-caps: all-small-caps;
+      font-feature-settings: "smcp" 1, "c2sc" 1;
       font-weight: 300;
       opacity: .7;
     }
@@ -879,9 +886,11 @@
       font-size: 1.15rem;
       font-weight: 300;
       font-style: italic;
+      line-height: 1.8;
       opacity: .6;
       max-width: 420px;
       margin: 0 auto 40px;
+      hanging-punctuation: first last;
     }
     .footer .hashtag {
       font-size: .75rem;
