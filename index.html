@@ -166,6 +166,9 @@
     }
 
     /* ── Focus Indicators ── */
+    /* Skip-link target: suppress outline (not interactive) */
+    [tabindex="-1"]:focus { outline: none; }
+
     a:focus-visible,
     button:focus-visible {
       outline: 2px solid var(--wine);
@@ -390,12 +393,6 @@
       object-fit: cover;
       display: block;
       filter: saturate(0.88) contrast(1.03) brightness(0.99);
-      transition: transform 6s cubic-bezier(.25,.46,.45,.94), filter .6s ease;
-    }
-
-    .hero-photo:hover img {
-      transform: scale(1.03);
-      filter: saturate(1) contrast(1.02) brightness(1);
     }
 
     /* Photo 1: left column, spans both rows, vertically centered */
