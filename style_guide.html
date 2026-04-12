@@ -413,15 +413,15 @@ body {
 .std-frame-label { position: absolute; bottom: 6px; right: 8px; font-family:'Montserrat',sans-serif; font-weight:300; font-size:7px; letter-spacing:0.1em; color:var(--cream); opacity:0.15; }
 .std-text { background: var(--cream); padding: 56px 52px; display: flex; flex-direction: column; justify-content: space-between; border-left: 0.5px solid rgba(26,22,18,0.08); }
 .std-top-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.36em; text-transform:uppercase; color:var(--sienna); opacity:0.45; }
-.std-names { font-family:'Playfair Display',serif; font-weight:400; font-size:68px; line-height:0.84; color:var(--ink); letter-spacing:0.28em; text-transform:uppercase; opacity:0.88; }
-.std-names em { font-style:italic; color:var(--crimson); display:block; }
+.std-names { font-family:'Playfair Display',serif; font-weight:400; font-size:68px; line-height:0.84; color:var(--ink); letter-spacing:0.28em; text-transform:uppercase; opacity:0.88; white-space:nowrap; }
+.std-names em { font-style:normal; color:var(--crimson); }
 .std-foot { border-top: 0.5px solid rgba(26,22,18,0.09); padding-top: 22px; }
 .std-date { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--sienna); opacity:0.6; display:block; margin-bottom:5px; }
 .std-location { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:var(--ink); opacity:0.38; }
 
 .web { border-top: 0.5px solid rgba(26,22,18,0.08); border-bottom: 0.5px solid rgba(26,22,18,0.08); margin-bottom: 72px; }
 .web-nav { display:flex; justify-content:space-between; align-items:center; padding:18px 48px; border-bottom:0.5px solid rgba(26,22,18,0.07); background:var(--cream); }
-.web-logo { font-family:'Playfair Display',serif; font-style:normal; font-weight:400; font-size:13px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.85; }
+.web-logo { font-family:'Playfair Display',serif; font-style:normal; font-weight:400; font-size:13px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.88; }
 .web-links { display:flex; gap:32px; }
 .web-link { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); opacity:0.72; }
 .web-hero { background:var(--crimson); padding:72px 64px 60px; position:relative; overflow:hidden; }
@@ -514,7 +514,7 @@ body {
     </div>
     <div>
       <span class="concept-col-head">El universo visual</span>
-      <div class="concept-col-body">Crimson profundo en rosas y dalias. Velas como única fuente de luz en la noche. Cristalería tallada sobre mesas vestidas. El interior de El Cardenal como escenario — sus muros, su arquitectura, su atmósfera contenida. <span style="color:var(--olive);">El agave como testigo silencioso.</span><br><br>No es decoración. Es <em>puesta en escena.</em></div>
+      <div class="concept-col-body">Crimson profundo en rosas y dalias. Velas y luz cálida como protagonistas de la noche — sin luz fría. Cristalería tallada sobre mesas vestidas. El interior de El Cardenal como escenario — sus muros, su arquitectura, su atmósfera contenida. <span style="color:var(--olive);">El agave como testigo silencioso.</span><br><br>No es decoración. Es <em>puesta en escena.</em></div>
     </div>
   </div>
 </div>
@@ -581,7 +581,7 @@ body {
     <div class="type-row"><div><span class="type-row-role">Nombres<br>Playfair Display<br>Regular · 400 · Caps</span><div class="type-row-note">Mayúsculas · tracking +0.28em. Portada y títulos principales. 72–120px impreso.</div></div><div class="spec-names">Laura & Diego</div></div>
     <div class="type-row"><div><span class="type-row-role">Encabezados<br>Playfair Display<br>Regular · 400</span><div class="type-row-note">36–64px. Minúsculas. El contraste de escala es editorial e intencional.</div></div><div class="spec-heading">Nuestra Historia<br>La Ceremonia</div></div>
     <div class="type-row"><div><span class="type-row-role">Etiquetas<br>Montserrat · Light<br>+0.28em · Caps</span><div class="type-row-note">Fechas, secciones, pies de foto. Siempre mayúsculas.</div></div><div class="spec-label">SÁBADO · 15 DE MAYO · 2027<br>OAXACA, MÉXICO</div></div>
-    <div class="type-row"><div><span class="type-row-role">Cuerpo<br>Playfair Display<br>Regular · 1.85</span><div class="type-row-note">16–18px web. Interlineado 1.85× obligatorio.</div></div><div class="spec-body">Nos encontramos en lo cotidiano,<br>e hicimos de ello algo extraordinario.</div></div>
+    <div class="type-row"><div><span class="type-row-role">Cuerpo<br>Playfair Display<br>Regular · 1.85</span><div class="type-row-note">16–18px web. Interlineado 1.85× obligatorio.</div></div><div class="spec-body">Con el mezcal celebramos<br>la eternidad en Oaxaca.</div></div>
   </div>
 </div>
 
@@ -626,13 +626,13 @@ body {
     <div class="deco-cell">
       <span class="deco-cell-label">Floral</span>
       <span class="deco-cell-name">Crimson & Burgundy</span>
-      <div class="deco-cell-body">Rosas crimson en cascada. Dalias burgundy. Calla lilies blush. Follaje oscuro como contraste. <em>Sin pasteles. Sin blanco puro.</em> La abundancia es intencional — los arreglos deben sentirse casi excesivos.</div>
+      <div class="deco-cell-body">Rosas crimson en cascada. Dalias burgundy. Calla lilies blush. Follaje oscuro como contraste. <em>Sin pasteles. Sin blanco puro.</em> Los arreglos son minimalistas y elegantes — cada pieza tiene su lugar y su silencio.</div>
       <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#3D1019;"></div><div class="deco-swatch-dot" style="background:#6B1A2A;"></div><div class="deco-swatch-dot" style="background:#C8A4B8;"></div><div class="deco-swatch-dot" style="background:#2D4A1E;"></div></div>
     </div>
     <div class="deco-cell">
       <span class="deco-cell-label">Mesa</span>
       <span class="deco-cell-name">Cristal & Plata</span>
-      <div class="deco-cell-body">Cristalería tallada. Cubiertos de plata antigua. Velas taper como protagonistas de la mesa. <em>La luz de la vela es el centro.</em> Vajilla blanca simple. Sin elementos que compitan con el floral y la luz.</div>
+      <div class="deco-cell-body">Cristalería tallada. Cubiertos en tonos plata. Velas taper como protagonistas de la mesa. <em>La luz de la vela es el centro.</em> Vajilla blanca simple. Sin elementos que compitan con el floral y la luz.</div>
       <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#C8C8C0;"></div><div class="deco-swatch-dot" style="background:#8C7B6B;"></div><div class="deco-swatch-dot" style="background:#F5E0C0;"></div></div>
     </div>
     <div class="deco-cell">
@@ -662,7 +662,7 @@ body {
     </div>
     <div class="std-text">
       <span class="std-top-label">Save the date</span>
-      <div class="std-names">Laura<br><em>&</em>Diego</div>
+      <div class="std-names">LAURA <em>&</em> DIEGO</div>
       <div class="std-foot">
         <span class="std-date">Sábado · 15 de Mayo · 2027</span>
         <span class="std-location">El Cardenal · Oaxaca, México</span>
@@ -671,7 +671,7 @@ body {
   </div>
   <span class="app-item-label" style="padding-top:0;">Sitio web</span>
   <div class="web">
-    <div class="web-nav"><span class="web-logo">Laura & Diego</span><div class="web-links"><span class="web-link">Nuestra historia</span><span class="web-link">La boda</span><span class="web-link">Confirmar</span></div></div>
+    <div class="web-nav"><span class="web-logo">LAURA & DIEGO</span><div class="web-links"><span class="web-link">Nuestra historia</span><span class="web-link">La boda</span><span class="web-link">Confirmar</span></div></div>
     <div class="web-hero"><div class="web-hl">En Oaxaca<br>hay un mezcal<br><em>esperándote.</em></div><div class="web-meta">Mayo 15, 2027 · El Cardenal · Oaxaca</div></div>
     <div class="web-lower">
       <div class="web-lower-cell"><span class="web-cell-label">Confirmación</span><div class="web-cell-heading">¿Nos acompañas?</div><div class="web-cell-body">Confirma tu asistencia antes del 15 de febrero de 2027.</div><span class="web-cell-btn">Confirmar asistencia</span></div>
@@ -699,8 +699,8 @@ body {
         <li>Espacio en blanco generoso en papel. El silencio visual es parte del lujo.</li>
         <li>Fotografía editorial siempre en tonos cálidos y color.</li>
         <li>B&N permitido solo en modo íntimo — fotobooth, analógico, save the date.</li>
-        <li>Velas como única fuente de luz — taper, votivas y faroles de cristal.</li>
-        <li>Abundancia floral — el exceso es intencional y bienvenido.</li>
+        <li>Velas y luz cálida — taper, votivas y faroles de cristal. Sin luz fría.</li>
+        <li>Arreglos florales minimalistas y elegantes — cada pieza tiene su lugar y su silencio.</li>
         <li>El interior de El Cardenal como fondo activo en fotografía y decoración.</li>
         <li>La frase completa o solo la variante corta aprobada.</li>
       </ul>
