@@ -90,8 +90,8 @@
       --text-muted: #6B5E54;
       --wine: #5C1A22;
       --wine-dark: #3E1017;
-      --olive: #5A5E30;
-      --olive-dark: #474A25;
+      --olive: #6B6440;
+      --olive-dark: #544E28;
       --terra: #A0582C;
       --accent: #5C1A22;
       --accent-hover: #3E1017;
@@ -432,7 +432,19 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: saturate(0.88) contrast(1.03) brightness(0.99);
+      filter: saturate(0.78) contrast(1.05) brightness(0.96);
+    }
+
+    /* Editorial overlay: warm vignette + terracotta tint — all photos */
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 55%, transparent 42%, rgba(44,24,16,.30) 100%),
+        linear-gradient(rgba(160,88,44,.05), rgba(160,88,44,.05));
+      pointer-events: none;
+      z-index: 1;
     }
 
     /* Photo 1: left column, spans both rows, vertically centered */
@@ -479,20 +491,13 @@
     .hero-photo:nth-child(2) { transition-delay: .45s; }
     .hero-photo:nth-child(3) { transition-delay: .65s; }
 
-    /* Gradient scrim on first photo for nav legibility on mobile */
+    /* On mobile/tablet: add nav scrim on top of the shared vignette+tint */
     @media (max-width: 900px) {
       .hero-photo:nth-child(1)::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to bottom,
-          rgba(12,4,6,.38) 0%,
-          rgba(12,4,6,.10) 35%,
-          transparent 60%
-        );
-        pointer-events: none;
-        z-index: 1;
+        background:
+          linear-gradient(to bottom, rgba(12,4,6,.38) 0%, rgba(12,4,6,.10) 35%, transparent 60%),
+          radial-gradient(ellipse at 50% 55%, transparent 42%, rgba(44,24,16,.30) 100%),
+          linear-gradient(rgba(160,88,44,.05), rgba(160,88,44,.05));
       }
     }
 
@@ -591,8 +596,9 @@
     }
 
     @media (max-width: 520px) {
-      .hero {
-        padding: 0;
+      .agave-field {
+        height: 100px;
+      }
         gap: 0;
       }
 
@@ -1118,7 +1124,7 @@
 <div class="countdown-bar">
   <svg class="agave-svg agave-field" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
-      <g id="agv" fill="#5A5E30">
+      <g id="agv" fill="#6B6440">
         <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
         <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
         <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
