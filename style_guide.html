@@ -433,6 +433,141 @@ body {
 .deco-swatches-inline { display: flex; gap: 6px; margin-top: 18px; }
 .deco-swatch-dot { width: 20px; height: 20px; border-radius: 50%; }
 
+/* ── ICONOGRAPHY ── */
+.icon-section { background: var(--cream3); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 48px 0 0; }
+.icon-label { color: var(--sienna); opacity: 0.9; padding: 0 24px; margin-bottom: 40px; }
+.icon-headline {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(30px, 8vw, 48px); line-height: 0.87;
+  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82;
+  padding: 0 24px; margin-bottom: 40px;
+}
+.icon-headline em { font-style: italic; color: var(--crimson); }
+.icon-intro {
+  font-family: 'Playfair Display', serif; font-size: 16px; line-height: 1.9;
+  color: var(--ink); opacity: 0.72; padding: 0 24px; max-width: 640px; margin-bottom: 48px;
+}
+.icon-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+}
+.icon-cell {
+  padding: 40px 24px;
+  border-right: 0.5px solid rgba(26,22,18,0.07);
+  border-bottom: 0.5px solid rgba(26,22,18,0.07);
+  display: flex; flex-direction: column; gap: 24px;
+}
+.icon-cell:nth-child(2n) { border-right: none; }
+.icon-cell:last-child { border-bottom: none; }
+.icon-cell-label {
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.9; display: block;
+}
+.icon-specimen {
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+}
+.icon-box {
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.icon-cell-note {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.65;
+}
+.icon-sizes {
+  display: flex; align-items: flex-end; gap: 24px;
+  padding: 24px 0 8px;
+}
+.icon-size-label {
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.45; display: block; margin-top: 8px;
+}
+
+/* ── LOGO ── */
+.logo-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 48px 0 0; }
+.logo-label { color: var(--sienna); opacity: 0.9; padding: 0 24px; margin-bottom: 40px; }
+.logo-headline {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(30px, 8vw, 48px); line-height: 0.87;
+  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82;
+  padding: 0 24px; margin-bottom: 40px;
+}
+.logo-headline em { font-style: italic; color: var(--crimson); }
+.logo-intro {
+  font-family: 'Playfair Display', serif; font-size: 16px; line-height: 1.9;
+  color: var(--ink); opacity: 0.72; padding: 0 24px; max-width: 640px; margin-bottom: 48px;
+}
+.logo-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+}
+.logo-cell {
+  padding: 40px 24px;
+  border-right: 0.5px solid rgba(26,22,18,0.07);
+  border-bottom: 0.5px solid rgba(26,22,18,0.07);
+  display: flex; flex-direction: column; gap: 24px;
+}
+.logo-cell:nth-child(2n) { border-right: none; }
+.logo-cell:last-child { border-bottom: none; }
+.logo-cell-label {
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.9; display: block;
+}
+.logo-specimen {
+  display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+}
+.logo-mark {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  letter-spacing: .06em; line-height: 1;
+}
+.logo-cell-note {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.65;
+}
+
+/* ── MARCA COMBINADA ── */
+.marca-section {
+  background: var(--cream2);
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 480px;
+  padding: 80px 24px;
+  text-align: center;
+}
+.marca-agave {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.065;
+}
+.marca-content {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 28px;
+}
+.marca-label {
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.9;
+}
+.marca-wordmark {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(4rem, 16vw, 10rem);
+  letter-spacing: 0.06em; line-height: 1;
+  color: var(--crimson);
+}
+.marca-date {
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.45;
+}
+
 /* ── APPLICATIONS ── */
 .apps { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
 .apps-label { color: var(--sienna); opacity: 0.9; padding: 48px 24px 36px; display: block; font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.42em; text-transform:uppercase; }
@@ -592,6 +727,20 @@ body {
   .closing-phrase { font-size: 23px; margin-bottom: 56px; }
   .closing-names  { font-size: 22px; letter-spacing: 0.24em; }
 
+  .icon-section   { padding: 72px 0 0; }
+  .icon-label     { padding: 0 40px; margin-bottom: 56px; }
+  .icon-headline  { font-size: clamp(40px, 7vw, 64px); padding: 0 40px; margin-bottom: 56px; }
+  .icon-intro     { padding: 0 40px; }
+  .icon-cell      { padding: 48px 40px; }
+
+  .logo-section   { padding: 72px 0 0; }
+  .logo-label     { padding: 0 40px; margin-bottom: 56px; }
+  .logo-headline  { padding: 0 40px; margin-bottom: 56px; }
+  .logo-intro     { padding: 0 40px; }
+  .logo-cell      { padding: 48px 40px; }
+
+  .marca-section  { min-height: 560px; padding: 100px 40px; }
+
   .accent-toggle  { bottom: 28px; right: 32px; transform: none; }
 }
 
@@ -604,6 +753,22 @@ body {
   .phrase       { padding: 100px 64px 88px; }
   .phrase-label { margin-bottom: 84px; }
   .phrase-line  { font-size: 38px; }
+
+  .icon-section   { padding: 96px 0 0; }
+  .icon-label     { padding: 0 64px; margin-bottom: 72px; }
+  .icon-headline  { font-size: 96px; padding: 0 64px; margin-bottom: 80px; }
+  .icon-intro     { padding: 0 64px; }
+  .icon-grid      { grid-template-columns: 1fr 1fr; }
+  .icon-cell      { padding: 52px 64px; }
+
+  .logo-section   { padding: 96px 0 0; }
+  .logo-label     { padding: 0 64px; margin-bottom: 72px; }
+  .logo-headline  { padding: 0 64px; margin-bottom: 80px; }
+  .logo-intro     { padding: 0 64px; }
+  .logo-cell      { padding: 52px 64px; }
+
+  .marca-section  { min-height: 640px; padding: 120px 64px; }
+  .marca-date     { letter-spacing: 0.5em; }
 
   .concept           { padding: 100px 64px; }
   .concept-label     { margin-bottom: 72px; }
@@ -842,6 +1007,246 @@ body {
       <div class="deco-cell-body">El Cardenal es un espacio interior. Sus muros, su arquitectura y su atmósfera son parte activa del diseño. <em>No intervenir en exceso.</em> Las flores y las velas completan el espacio — no lo transforman. El venue define el carácter. La decoración lo intensifica.</div>
       <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#1C1814;"></div><div class="deco-swatch-dot" style="background:#8C7B6B;"></div><div class="deco-swatch-dot" style="background:#F5E0C0;"></div></div>
     </div>
+  </div>
+</div>
+
+<!-- ICONOGRAPHY -->
+<div class="icon-section">
+  <span class="sec-label icon-label">Iconografía</span>
+  <div class="icon-headline">El agave<br>como <em>símbolo.</em></div>
+  <div class="icon-intro">El agave oaxaqueño es el testigo silencioso de la identidad. Aparece como icono en favicon, sellos y elementos digitales. Siempre monocromático, siempre centrado. Nunca decorativo por sí solo — siempre con significado.</div>
+  <div class="icon-grid">
+
+    <!-- On cream -->
+    <div class="icon-cell">
+      <span class="icon-cell-label">Sobre fondo claro · Cream</span>
+      <div class="icon-specimen">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" aria-label="Agave icon on cream">
+            <g transform="translate(40,68) scale(0.265)" fill="#5C1A22" opacity="0.88">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-label="Agave icon on cream medium">
+            <g transform="translate(24,42) scale(0.16)" fill="#5C1A22" opacity="0.88">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="icon-cell-note">Crimson sobre Cream — uso principal en piezas gráficas.</div>
+    </div>
+
+    <!-- On crimson -->
+    <div class="icon-cell" style="background:var(--crimson);">
+      <span class="icon-cell-label" style="color:var(--blush); opacity:0.85;">Sobre fondo Crimson</span>
+      <div class="icon-specimen">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" aria-label="Agave icon on crimson">
+            <g transform="translate(40,68) scale(0.265)" fill="#F5EFE4" opacity="0.92">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-label="Agave icon on crimson medium">
+            <g transform="translate(24,42) scale(0.16)" fill="#F5EFE4" opacity="0.92">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Crimson — sobres, contraportadas, sellos de cera.</div>
+    </div>
+
+    <!-- On olive -->
+    <div class="icon-cell" style="background:var(--olive);">
+      <span class="icon-cell-label" style="color:#D4E0A0; opacity:0.9;">Sobre fondo Olive · Botánica</span>
+      <div class="icon-specimen">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" aria-label="Agave icon on olive">
+            <rect width="80" height="80" fill="#6B6440" rx="0"/>
+            <g transform="translate(40,68) scale(0.265)" fill="#FDFAF5" opacity="0.88">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-label="Agave icon on olive medium">
+            <rect width="48" height="48" fill="#6B6440" rx="0"/>
+            <g transform="translate(24,42) scale(0.16)" fill="#FDFAF5" opacity="0.88">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Olive — etiquetas botánicas, mezcalería, follaje.</div>
+    </div>
+
+    <!-- On ink -->
+    <div class="icon-cell" style="background:var(--ink);">
+      <span class="icon-cell-label" style="color:var(--cream); opacity:0.55;">Sobre fondo oscuro · Ink</span>
+      <div class="icon-specimen">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" aria-label="Agave icon on ink">
+            <rect width="80" height="80" fill="#1A1612" rx="0"/>
+            <g transform="translate(40,68) scale(0.265)" fill="#F5EFE4" opacity="0.85">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-label="Agave icon on ink medium">
+            <rect width="48" height="48" fill="#1A1612" rx="0"/>
+            <g transform="translate(24,42) scale(0.16)" fill="#F5EFE4" opacity="0.85">
+              <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+              <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+              <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Ink — elementos nocturnos, menú, interior oscuro.</div>
+    </div>
+
+  </div><!-- /icon-grid -->
+</div>
+
+<!-- MONOGRAMA -->
+<div class="logo-section">
+  <span class="sec-label logo-label">Monograma</span>
+  <div class="logo-headline">L &amp; D —<br>el <em>monograma.</em></div>
+  <div class="logo-intro">La marca de la pareja se expresa en Playfair Display, el mismo trazo que lleva la historia de la boda. Aparece en el footer, invitaciones y sellos. Siempre tipográfico — nunca icónico solo.</div>
+  <div class="logo-grid">
+
+    <!-- On cream -->
+    <div class="logo-cell">
+      <span class="logo-cell-label">Sobre fondo claro · Cream</span>
+      <div class="logo-specimen">
+        <span class="logo-mark" style="font-size:3rem; color:var(--crimson);">L &amp; D</span>
+        <span class="logo-mark" style="font-size:2rem; color:var(--crimson);">L &amp; D</span>
+      </div>
+      <div class="logo-cell-note">Crimson sobre Cream — uso principal en invitaciones y web.</div>
+    </div>
+
+    <!-- On crimson -->
+    <div class="logo-cell" style="background:var(--crimson);">
+      <span class="logo-cell-label" style="color:var(--blush); opacity:0.85;">Sobre fondo Crimson</span>
+      <div class="logo-specimen">
+        <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
+        <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
+      </div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Crimson — sellos y piezas de acento.</div>
+    </div>
+
+    <!-- On olive -->
+    <div class="logo-cell" style="background:var(--olive);">
+      <span class="logo-cell-label" style="color:var(--blush); opacity:0.85;">Sobre fondo Olive</span>
+      <div class="logo-specimen">
+        <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
+        <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
+      </div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Olive — modo alternativo, menú temporada.</div>
+    </div>
+
+    <!-- On ink -->
+    <div class="logo-cell" style="background:var(--ink);">
+      <span class="logo-cell-label" style="color:var(--blush); opacity:0.85;">Sobre fondo oscuro · Ink</span>
+      <div class="logo-specimen">
+        <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
+        <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
+      </div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Ink — footer, elementos nocturnos, interior oscuro.</div>
+    </div>
+
+  </div><!-- /logo-grid -->
+</div>
+
+<!-- MARCA COMBINADA -->
+<div class="marca-section">
+  <!-- Agave de fondo, centrado, escala grande -->
+  <svg class="marca-agave" xmlns="http://www.w3.org/2000/svg" viewBox="-220 -317 440 440" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <g transform="translate(0,0) scale(1)" fill="var(--ink)">
+      <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
+      <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+      <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+      <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+      <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+      <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+      <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+      <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+      <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
+    </g>
+  </svg>
+  <!-- Contenido encima -->
+  <div class="marca-content">
+    <span class="marca-label">Sello de pareja</span>
+    <span class="marca-wordmark">L &amp; D</span>
+    <span class="marca-date">Mayo 15 &middot; 2027 &middot; Oaxaca</span>
   </div>
 </div>
 
