@@ -889,6 +889,167 @@
     }
 
     /* ──────────────────────────────────────
+       STORY
+    ────────────────────────────────────── */
+    .story {
+      background: var(--cream2);
+      border-top: 0.5px solid rgba(26,22,18,0.07);
+      padding: clamp(56px, 8vw, 96px) var(--page-x);
+    }
+
+    .story-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .story-label {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.44em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 36px;
+    }
+
+    .story-headline {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      opacity: 0.85;
+      margin-bottom: 56px;
+    }
+
+    .story-headline em {
+      font-style: italic;
+      color: var(--crimson);
+    }
+
+    /* milestones */
+    .story-milestones {
+      border-top: 0.5px solid rgba(26,22,18,0.10);
+      margin-bottom: 72px;
+    }
+
+    .story-milestone {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 0.5px solid rgba(26,22,18,0.07);
+    }
+
+    .story-milestone-num {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--sienna);
+      opacity: 0.45;
+      flex-shrink: 0;
+      width: 36px;
+      text-align: right;
+    }
+
+    .story-milestone-body { flex: 1; }
+
+    .story-milestone-city {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--ink);
+      opacity: 0.88;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .story-milestone-event {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      opacity: 0.80;
+      display: block;
+    }
+
+    /* sub-sections: homes + travels */
+    .story-sub {
+      margin-top: 0;
+    }
+
+    .story-sub + .story-sub {
+      margin-top: 52px;
+    }
+
+    .story-sub-label {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.40em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.70;
+      display: block;
+      margin-bottom: 22px;
+    }
+
+    .story-homes {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 36px;
+      row-gap: 2px;
+    }
+
+    .story-home-item {
+      font-family: var(--font-display);
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      font-style: italic;
+      color: var(--ink);
+      opacity: 0.70;
+      line-height: 2;
+    }
+
+    .story-travels {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 0;
+    }
+
+    .story-travel-item {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.55;
+      padding-right: 18px;
+      margin-right: 18px;
+      border-right: 0.5px solid rgba(26,22,18,0.20);
+      line-height: 2.4;
+    }
+
+    .story-travel-item:last-child {
+      border-right: none;
+      padding-right: 0;
+      margin-right: 0;
+    }
+
+    @media (min-width: 681px) {
+      .story-milestones { display: grid; grid-template-columns: 1fr 1fr; }
+      .story-milestone { border-right: none; }
+      .story-milestone:nth-child(odd) { padding-right: 32px; }
+      .story-milestone:nth-child(even) { padding-left: 32px; border-left: 0.5px solid rgba(26,22,18,0.07); }
+    }
+
+    /* ──────────────────────────────────────
        RSVP
     ────────────────────────────────────── */
     .rsvp-form {
@@ -1327,6 +1488,88 @@
         </div>
       </div>
     </div>
+
+    <!-- STORY -->
+    <section class="story reveal" id="historia">
+      <div class="story-inner">
+
+        <span class="story-label">Nuestra historia</span>
+        <h2 class="story-headline">De Monterrey<br>a <em>Oaxaca.</em></h2>
+
+        <div class="story-milestones">
+
+          <div class="story-milestone">
+            <span class="story-milestone-num">2021</span>
+            <div class="story-milestone-body">
+              <span class="story-milestone-city">Monterrey, México</span>
+              <span class="story-milestone-event">nos conocimos</span>
+            </div>
+          </div>
+
+          <div class="story-milestone">
+            <span class="story-milestone-num">2022</span>
+            <div class="story-milestone-body">
+              <span class="story-milestone-city">San Francisco, Estados Unidos</span>
+              <span class="story-milestone-event">nos hicimos novios</span>
+            </div>
+          </div>
+
+          <div class="story-milestone">
+            <span class="story-milestone-num">2024</span>
+            <div class="story-milestone-body">
+              <span class="story-milestone-city">París, Francia</span>
+              <span class="story-milestone-event">nos comprometimos</span>
+            </div>
+          </div>
+
+          <div class="story-milestone">
+            <span class="story-milestone-num">2025</span>
+            <div class="story-milestone-body">
+              <span class="story-milestone-city">Toluca, México</span>
+              <span class="story-milestone-event">nos casamos por lo civil</span>
+            </div>
+          </div>
+
+          <div class="story-milestone">
+            <span class="story-milestone-num">2027</span>
+            <div class="story-milestone-body">
+              <span class="story-milestone-city">Oaxaca, México</span>
+              <span class="story-milestone-event">nos casamos por la iglesia</span>
+            </div>
+          </div>
+
+        </div><!-- /milestones -->
+
+        <div class="story-sub">
+          <span class="story-sub-label">Hemos vivido juntos en</span>
+          <div class="story-homes">
+            <span class="story-home-item">Monclova, México</span>
+            <span class="story-home-item">Ciudad de México, México</span>
+            <span class="story-home-item">San Francisco, Estados Unidos</span>
+          </div>
+        </div>
+
+        <div class="story-sub">
+          <span class="story-sub-label">Hemos viajado a</span>
+          <div class="story-travels">
+            <span class="story-travel-item">Cuatro Ciénagas</span>
+            <span class="story-travel-item">Parras</span>
+            <span class="story-travel-item">Huatulco</span>
+            <span class="story-travel-item">Riviera Maya</span>
+            <span class="story-travel-item">Tahití</span>
+            <span class="story-travel-item">París</span>
+            <span class="story-travel-item">Estrasburgo</span>
+            <span class="story-travel-item">Colmar</span>
+            <span class="story-travel-item">Colonia</span>
+            <span class="story-travel-item">Ámsterdam</span>
+            <span class="story-travel-item">Brujas</span>
+            <span class="story-travel-item">Bruselas</span>
+            <span class="story-travel-item">Nueva York</span>
+          </div>
+        </div>
+
+      </div><!-- /story-inner -->
+    </section>
 
     <!-- RSVP -->
     <section class="section section-alt" id="confirmacion">
