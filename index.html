@@ -142,6 +142,44 @@
       opacity: 1;
     }
 
+    /* ── Skip Link ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      z-index: 10000;
+      padding: 12px 24px;
+      background: var(--wine);
+      color: #F5EDE8;
+      font-family: var(--font-sans);
+      font-size: .75rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: top .2s;
+    }
+    .skip-link:focus {
+      top: 16px;
+      outline: 2px solid #F5EDE8;
+      outline-offset: 3px;
+    }
+
+    /* ── Focus Indicators ── */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--wine);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+    .hero-cta:focus-visible {
+      outline: 2px solid #F5EDE8;
+      outline-offset: 4px;
+    }
+    .form-input:focus-visible {
+      outline: none; /* border-bottom handles focus state */
+    }
+
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--cream); }
@@ -179,7 +217,7 @@
       font-weight: 300;
       letter-spacing: .4em;
       text-transform: uppercase;
-      color: rgba(42,42,42,.45);
+      color: var(--warm-gray); /* was rgba(42,42,42,.45) = 2.59:1 ❌ → now 5.1:1 ✅ */
       transition: color .3s;
     }
     .nav-links a:hover { color: var(--charcoal); }
@@ -301,9 +339,9 @@
 
     .hero-info {
       font-family: var(--font-sans);
-      font-size: 0.65rem;
-      font-weight: 200;
-      letter-spacing: 0.5em;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
       color: var(--warm-gray);
       margin-bottom: 2.5rem;
@@ -430,7 +468,7 @@
     }
     .countdown-label {
       font-family: var(--font-sans);
-      font-size: .5rem; font-weight: 200;
+      font-size: .6rem; font-weight: 300; /* was .5rem/200 (8px) — too small */
       letter-spacing: .45em; text-transform: uppercase;
       color: var(--warm-gray);
       margin-top: 6px;
@@ -509,7 +547,7 @@
       .countdown-unit.hide-mobile { display: block; }
       .countdown { gap: clamp(16px, 6vw, 32px); }
       .countdown-value { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-      .countdown-label { font-size: .5rem; letter-spacing: .25em; }
+      .countdown-label { font-size: .6rem; letter-spacing: .25em; } /* was .5rem (8px) */
     }
 
     /* ──────────────────────────────────────
@@ -830,9 +868,9 @@
       margin-bottom: 12px;
     }
     .footer .sub {
-      font-size: .6rem; letter-spacing: .55em; text-transform: uppercase;
-      font-weight: 200;
-      opacity: .5;
+      font-size: .75rem; letter-spacing: .45em; text-transform: uppercase;
+      font-weight: 300;
+      opacity: .7;
     }
     .footer .divider-f {
       width: 64px; height: 1px;
@@ -855,10 +893,10 @@
       margin-bottom: 40px;
     }
     .footer .made {
-      font-size: .5rem;
-      font-weight: 200;
+      font-size: .65rem; /* was .5rem = 8px */
+      font-weight: 300;  /* was 200 */
       letter-spacing: .25em;
-      opacity: .18;
+      opacity: .45; /* was .18 = 1.53:1 ❌ → now ~4.8:1 ✅ */
     }
 
     /* ──────────────────────────────────────
@@ -916,6 +954,8 @@
 </head>
 <body>
 
+<a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
 <!-- PRELOADER -->
 <div class="preloader" id="preloader"></div>
 
@@ -936,14 +976,14 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="inicio">
+<section class="hero" id="inicio" tabindex="-1">
 
   <!-- Left column: text -->
   <div class="hero-text">
     <h1 class="hero-enter">En Oaxaca hay un mezcal <em>esperándote.</em></h1>
     <div class="hero-divider hero-enter delay-1"></div>
     <p class="hero-info hero-enter delay-2">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
-    <button class="hero-cta hero-enter delay-3">Confirmar Asistencia</button>
+    <button type="button" class="hero-cta hero-enter delay-3">Confirmar Asistencia</button>
   </div>
 
   <!-- Right column: Photos — photo 1 centered left, photos 2+3 stacked right -->
@@ -987,7 +1027,7 @@
     <g transform="translate(910,295) scale(0.55)"><use href="#agv" opacity="0.55"/></g>
     <g transform="translate(1100,295) scale(0.34)"><use href="#agv" opacity="0.35"/></g>
   </svg>
-  <div class="countdown">
+  <div class="countdown" aria-live="polite" aria-label="Cuenta regresiva para la boda">
     <div class="countdown-unit">
       <div class="countdown-value" id="cd-days">---</div>
       <div class="countdown-label">Dias</div>
