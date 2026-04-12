@@ -11,38 +11,6 @@
   <style>
     /* ── Local Fonts ── */
     @font-face {
-      font-family: 'Cormorant Garamond';
-      src: url('fonts/CormorantGaramond-Light.ttf') format('truetype');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Cormorant Garamond';
-      src: url('fonts/CormorantGaramond-LightItalic.ttf') format('truetype');
-      font-weight: 300;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Cormorant Garamond';
-      src: url('fonts/CormorantGaramond-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Cormorant Garamond';
-      src: url('fonts/CormorantGaramond-Italic.ttf') format('truetype');
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
       font-family: 'Playfair Display';
       src: url('fonts/PlayfairDisplay-Regular.ttf') format('truetype');
       font-weight: 400;
@@ -93,7 +61,7 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: #F7F4EF;
+      background: #FDFAF5;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -124,7 +92,7 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       font-weight: 400;
       letter-spacing: .14em;
-      color: #2C1810;
+      color: var(--ink);
     }
 
     .preloader-rule {
@@ -163,25 +131,62 @@
     }
 
     :root {
-      --cream: #fdfaf5;
-      --cream-light: #fefcf9;
-      --cream-dark: #f0ebe0;
-      --charcoal: #2A2A2A;
-      --warm-gray: #6B6560;
-      --headline: #2C1810;
-      --wine: #5C1A22;
-      --wine-dark: #3E1017;
+      --cream: #FDFAF5;
+      --cream2: #F5EFE4;
+      --cream3: #EDE5D4;
+      --ink: #1A1612;
+      --sienna: #A0582C;
+      --crimson: #5C1A22;
+      --crimson-dark: #3E1017;
+      --blush: #E8C4BC;
       --olive: #6B6440;
-      --terra: #A0582C;
-      --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-sans: 'Montserrat', Helvetica, Arial, sans-serif;
       --page-x: clamp(24px, 6vw, 80px);
     }
 
+    :root.olive-mode {
+      --crimson: #6B6440;
+      --crimson-dark: #4A4A28;
+      --blush: #D4E0A0;
+    }
+
+    /* ── Accent toggle ── */
+    .accent-toggle {
+      position: fixed; bottom: 20px; right: 50%; transform: translateX(50%); z-index: 9999;
+      display: flex; align-items: center; gap: 0;
+      border: 0.5px solid rgba(26,22,18,0.18);
+      background: var(--cream); overflow: hidden;
+      box-shadow: 0 2px 16px rgba(26,22,18,0.10);
+      cursor: pointer;
+    }
+    .accent-toggle-opt {
+      padding: 11px 20px;
+      font-family: 'Montserrat', sans-serif; font-weight: 300;
+      font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--ink); opacity: 0.38;
+      transition: opacity 0.3s, background 0.3s, color 0.3s;
+      user-select: none;
+    }
+    .accent-toggle-opt.active {
+      opacity: 1;
+      color: var(--cream);
+      background: var(--crimson);
+    }
+    .accent-toggle-divider {
+      width: 0.5px; height: 18px;
+      background: rgba(26,22,18,0.15); flex-shrink: 0;
+    }
+    @media (min-width: 681px) {
+      .accent-toggle { bottom: 28px; right: 32px; transform: none; }
+    }
+    @media (min-width: 1025px) {
+      .accent-toggle { bottom: 32px; right: 32px; }
+    }
+
     body {
       background: var(--cream);
-      color: var(--charcoal);
+      color: var(--ink);
       font-family: var(--font-sans);
       line-height: 1.75;
     }
@@ -204,7 +209,7 @@
       letter-spacing: .35em;
       font-variant-caps: all-small-caps;
       font-feature-settings: "smcp" 1, "c2sc" 1;
-      color: var(--warm-gray);
+      color: var(--sienna);
     }
 
     .body-text {
@@ -212,7 +217,7 @@
       font-size: .95rem;
       font-weight: 300;
       line-height: 1.85;
-      color: var(--warm-gray);
+      color: var(--sienna);
     }
 
     .divider {
@@ -227,7 +232,7 @@
     }
 
     .section-alt {
-      background: var(--cream-light);
+      background: var(--cream);
     }
 
     .container-sm {
@@ -240,11 +245,11 @@
     }
 
     .heading-serif {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 300;
       letter-spacing: .06em;
-      color: var(--charcoal);
+      color: var(--ink);
     }
 
     /* ── Scroll Reveal ── */
@@ -264,7 +269,7 @@
       left: 16px;
       z-index: 10000;
       padding: 12px 24px;
-      background: var(--wine);
+      background: var(--crimson);
       color: #F5EDE8;
       font-family: var(--font-sans);
       font-size: .75rem;
@@ -289,7 +294,7 @@
 
     a:focus-visible,
     button:focus-visible {
-      outline: 2px solid var(--wine);
+      outline: 2px solid var(--crimson);
       outline-offset: 3px;
       border-radius: 1px;
     }
@@ -346,8 +351,9 @@
     .nav-logo {
       font-family: var(--font-display);
       font-size: clamp(.85rem, 2vw, 1.15rem);
-      letter-spacing: clamp(.15em, 1vw, .4em);
-      color: var(--charcoal);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ink);
       transition: color .4s;
     }
 
@@ -383,20 +389,20 @@
       letter-spacing: .35em;
       font-variant-caps: all-small-caps;
       font-feature-settings: "smcp" 1, "c2sc" 1;
-      color: var(--warm-gray);
+      color: var(--sienna);
       transition: color .3s;
     }
 
     .nav-links a:hover {
-      color: var(--charcoal);
+      color: var(--ink);
     }
 
     .nav.scrolled .nav-links a {
-      color: var(--warm-gray);
+      color: var(--sienna);
     }
 
     .nav.scrolled .nav-links a:hover {
-      color: var(--charcoal);
+      color: var(--ink);
     }
 
     .nav-toggle {
@@ -413,7 +419,7 @@
       display: block;
       width: 24px;
       height: 1px;
-      background: var(--charcoal);
+      background: var(--ink);
       transition: transform .3s, opacity .3s, background .3s;
     }
 
@@ -459,7 +465,7 @@
       font-weight: 500;
       letter-spacing: .35em;
       text-transform: uppercase;
-      color: var(--warm-gray);
+      color: var(--sienna);
     }
 
     @media (max-width: 768px) {
@@ -542,9 +548,9 @@
     }
 
     .hero-text h1 {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: clamp(2.4rem, 3.8vw, 3.6rem);
-      color: var(--headline);
+      color: var(--ink);
       line-height: 1.15;
       font-weight: 300;
       letter-spacing: 0.02em;
@@ -557,7 +563,7 @@
     .hero-text h1 em {
       font-style: italic;
       font-weight: 400;
-      color: var(--terra);
+      color: var(--sienna);
     }
 
     .hero-divider {
@@ -574,7 +580,7 @@
       letter-spacing: 0.35em;
       font-variant-caps: all-small-caps;
       font-feature-settings: "smcp" 1, "c2sc" 1;
-      color: var(--warm-gray);
+      color: var(--sienna);
       margin-bottom: 2.5rem;
     }
 
@@ -585,7 +591,7 @@
       letter-spacing: 0.4em;
       text-transform: uppercase;
       color: #F5EDE8;
-      background: var(--wine);
+      background: var(--crimson);
       border: none;
       padding: 18px 44px;
       cursor: pointer;
@@ -595,7 +601,7 @@
     }
 
     .hero-text .hero-cta:hover {
-      background: var(--wine-dark);
+      background: var(--crimson-dark);
       transform: translateY(-1px);
     }
 
@@ -612,7 +618,7 @@
     .hero-photo {
       overflow: hidden;
       position: relative;
-      background: var(--cream-dark);
+      background: var(--cream2);
     }
 
     .hero-photo img {
@@ -727,10 +733,10 @@
     }
 
     .countdown-value {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 300;
-      color: var(--charcoal);
+      color: var(--ink);
       font-variant-numeric: tabular-nums;
       line-height: 1;
     }
@@ -742,7 +748,7 @@
       letter-spacing: .35em;
       font-variant-caps: all-small-caps;
       font-feature-settings: "smcp" 1, "c2sc" 1;
-      color: var(--warm-gray);
+      color: var(--sienna);
       margin-top: 6px;
     }
 
@@ -885,9 +891,9 @@
       border: none;
       border-bottom: 1px solid rgba(42, 42, 42, .18);
       padding: 12px 0;
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 1.1rem;
-      color: var(--charcoal);
+      color: var(--ink);
       outline: none;
       transition: border-color .3s;
     }
@@ -897,13 +903,13 @@
     }
 
     .form-input:focus {
-      border-bottom-color: var(--wine);
+      border-bottom-color: var(--crimson);
     }
 
     .form-input:focus-visible {
       outline: none;
-      border-bottom-color: var(--wine);
-      box-shadow: 0 1px 0 0 var(--wine);
+      border-bottom-color: var(--crimson);
+      box-shadow: 0 1px 0 0 var(--crimson);
       /* 2px effective — passes non-text 3:1 */
     }
 
@@ -957,14 +963,14 @@
       letter-spacing: .35em;
       font-variant-caps: all-small-caps;
       font-feature-settings: "smcp" 1, "c2sc" 1;
-      color: var(--warm-gray);
+      color: var(--sienna);
       cursor: pointer;
       transition: border-color .3s, background .3s, color .3s;
     }
 
     .attend-btn:hover {
-      border-color: var(--charcoal);
-      color: var(--charcoal);
+      border-color: var(--ink);
+      color: var(--ink);
     }
 
     @media (max-width: 380px) {
@@ -979,15 +985,15 @@
     }
 
     .attend-btn.selected {
-      background: var(--wine);
+      background: var(--crimson);
       color: #F5EDE8;
-      border-color: var(--wine);
+      border-color: var(--crimson);
     }
 
     .submit-btn {
       width: 100%;
       padding: 18px;
-      background: var(--wine);
+      background: var(--crimson);
       color: #F5EDE8;
       border: none;
       cursor: pointer;
@@ -1003,7 +1009,7 @@
     }
 
     .submit-btn:hover {
-      background: var(--wine-dark);
+      background: var(--crimson-dark);
       transform: translateY(-1px);
     }
 
@@ -1033,8 +1039,8 @@
        FOOTER
     ────────────────────────────────────── */
     .footer {
-      background: #130709;
-      color: #F0E8E0;
+      background: var(--ink);
+      color: var(--cream);
       padding: clamp(56px, 8vw, 80px) 24px;
       text-align: center;
       position: relative;
@@ -1065,7 +1071,7 @@
     }
 
     .footer .quote {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 1.15rem;
       font-weight: 300;
       font-style: italic;
@@ -1270,7 +1276,7 @@
           <h2 class="heading-serif" style="margin-bottom: 1rem;">¿Nos acompañas?</h2>
           <div class="divider"></div>
           <p class="body-text" style="margin-top: 1.8rem; max-width: 420px; margin-left: auto; margin-right: auto;">
-            Confirma tu asistencia antes del <em style="font-style: italic; color: var(--terra);">15 de febrero de
+            Confirma tu asistencia antes del <em style="font-style: italic; color: var(--sienna);">15 de febrero de
               2027.</em>
           </p>
         </div>
@@ -1336,7 +1342,7 @@
       <h2>L &amp; D</h2>
       <p class="sub">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
       <div class="divider-f"></div>
-      <p class="quote">&ldquo;Con el agave entendimos la espera. Con el mezcal celebramos la eternidad.&rdquo;</p>
+      <p class="quote">Con el agave entendimos la espera de la tierra.<br>Con la distancia entendimos la fuerza de elegirnos.<br>Con el mezcal celebramos la eternidad.</p>
       <p class="made">Hecho con mezcal</p>
     </footer>
 
@@ -1443,6 +1449,36 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+  </script>
+
+  <!-- Accent toggle -->
+  <div class="accent-toggle" id="accentToggle" title="Cambiar color primario">
+    <span class="accent-toggle-opt active" id="optCrimson">Crimson</span>
+    <span class="accent-toggle-divider"></span>
+    <span class="accent-toggle-opt" id="optOlive">Olive</span>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const optCrimson = document.getElementById('optCrimson');
+      const optOlive = document.getElementById('optOlive');
+
+      function setMode(mode) {
+        if (mode === 'olive') {
+          root.classList.add('olive-mode');
+          optOlive.classList.add('active');
+          optCrimson.classList.remove('active');
+        } else {
+          root.classList.remove('olive-mode');
+          optCrimson.classList.add('active');
+          optOlive.classList.remove('active');
+        }
+      }
+
+      optCrimson.addEventListener('click', () => setMode('crimson'));
+      optOlive.addEventListener('click', () => setMode('olive'));
+    })();
   </script>
 </body>
 
