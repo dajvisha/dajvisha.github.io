@@ -45,6 +45,14 @@
   --blush: #D4E0A0;
 }
 
+/* Sections that document fixed palette values — never change with toggle */
+:root.olive-mode .palette,
+:root.olive-mode .icon-grid,
+:root.olive-mode .logo-grid {
+  --crimson: #5C1A22;
+  --blush: #E8C4BC;
+}
+
 /* ── Toggle button ── */
 .accent-toggle {
   position: fixed; bottom: 20px; right: 50%; transform: translateX(50%); z-index: 9999;
@@ -580,7 +588,7 @@ body {
   position: relative; overflow: hidden;
 }
 .std-frame { flex: 1; background: #2A2218; position: relative; overflow: hidden; }
-.std-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(92,26,34,0.1) 0%, transparent 60%); }
+.std-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, color-mix(in srgb, var(--crimson) 10%, transparent) 0%, transparent 60%); }
 .std-frame-label { position: absolute; bottom: 6px; right: 8px; font-family:'Montserrat',sans-serif; font-weight:300; font-size:7px; letter-spacing:0.1em; color:var(--cream); opacity:0.15; }
 .std-text { background: var(--cream); padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; border-left: none; border-top: 0.5px solid rgba(26,22,18,0.08); }
 .std-top-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.36em; text-transform:uppercase; color:var(--sienna); opacity:0.45; }
