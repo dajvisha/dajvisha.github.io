@@ -2,8 +2,29 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Estilo · Laura & Diego · 2027</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,20 +35,20 @@
   --cream2: #F5EFE4;
   --cream3: #EDE5D4;
   --sienna: #A0582C;
-  --olive: #5A5E30;
+  --olive: #6B6440;
   --ink: #1A1612;
 }
 
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .sec-label {
-  font-family: 'Jost', sans-serif;
-  font-weight: 200; font-size: 11px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300; font-size: 11px;
   letter-spacing: 0.42em; text-transform: uppercase;
   display: block;
 }
@@ -53,14 +74,16 @@ body {
 }
 .cover-label { color: var(--sienna); opacity: 0.5; margin-bottom: 72px; }
 .cover-names {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-weight: 300;
-  font-size: 130px; line-height: 0.82;
-  color: var(--ink); letter-spacing: -0.03em; opacity: 0.88;
+  font-family: 'Playfair Display', serif;
+  font-style: normal; font-weight: 400;
+  font-size: clamp(28px, 6vw, 72px); line-height: 1;
+  color: var(--ink); letter-spacing: 0.28em; opacity: 0.88; text-transform: uppercase;
+  white-space: nowrap;
 }
 .cover-names em {
   color: var(--crimson); opacity: 0.8;
   font-size: 0.55em; line-height: 1.15; display: block;
+  font-style: normal;
 }
 .cover-foot {
   position: relative; z-index: 2;
@@ -70,13 +93,13 @@ body {
   margin-top: 56px;
 }
 .cover-caption {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-style: italic; font-size: 15px;
   line-height: 1.8; color: var(--ink); opacity: 0.72;
   max-width: 300px;
 }
 .cover-pg {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.26em;
   color: var(--sienna); opacity: 0.82; text-align: right;
 }
@@ -95,8 +118,8 @@ body {
 }
 .phrase-label { color: var(--blush); opacity: 0.85; margin-bottom: 84px; position: relative; z-index: 1; }
 .phrase-line {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-weight: 300;
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 400;
   font-size: 38px; line-height: 1.48;
   color: var(--cream); opacity: 0.82; display: block;
   padding: 24px 0;
@@ -108,7 +131,7 @@ body {
 }
 .phrase-short {
   margin-top: 52px;
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
   color: var(--cream); opacity: 0.72;
   position: relative; z-index: 1;
@@ -122,7 +145,7 @@ body {
 }
 .concept-label { color: var(--sienna); opacity: 0.9; margin-bottom: 72px; }
 .concept-headline {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: 96px; line-height: 0.88;
   color: var(--ink); letter-spacing: -0.025em; opacity: 0.85;
   margin-bottom: 72px;
@@ -134,12 +157,12 @@ body {
   padding-top: 52px;
 }
 .concept-col-head {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 20px;
 }
 .concept-col-body {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 16px; line-height: 1.9;
   color: var(--ink); opacity: 0.75;
 }
@@ -148,7 +171,7 @@ body {
   display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
 }
 .concept-word {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--ink); opacity: 0.65;
   border: 0.5px solid rgba(26,22,18,0.30);
@@ -159,14 +182,14 @@ body {
 .palette { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
 .palette-hl-wrap { padding: 96px 64px 72px; }
 .palette-hl {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: 104px; line-height: 0.87;
   color: var(--ink); letter-spacing: -0.03em; opacity: 0.82;
 }
 .palette-hl em { font-style: italic; color: var(--crimson); opacity: 0.9; }
 .palette-label-inline { color: var(--sienna); opacity: 0.9; margin-bottom: 40px; }
 .palette-section-head {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.9;
   padding: 28px 64px 0; display: block;
@@ -179,52 +202,52 @@ body {
 }
 .swatch:last-child .swatch-info { border-right: none; }
 .swatch-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-weight: 300; font-size: 17px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 400; font-size: 17px;
   color: var(--ink); opacity: 0.7; display: block; margin-bottom: 4px;
 }
 .swatch-hex {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.16em;
   color: var(--ink); opacity: 0.6; display: block; margin-bottom: 8px;
 }
 .swatch-role {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 12px; color: var(--ink); opacity: 0.72; line-height: 1.6;
 }
 .deco-palette { border-top: 0.5px solid rgba(26,22,18,0.07); background: var(--cream3); }
 .deco-palette-inner { padding: 40px 64px 56px; }
 .deco-palette-head {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 32px;
 }
 .deco-swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; margin-bottom: 32px; }
 .deco-swatch-fill { width: 100%; aspect-ratio: 1/1.4; }
 .deco-swatch-name {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--ink); opacity: 0.72; display: block; margin-top: 10px; line-height: 1.6;
 }
 .deco-note {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-style: italic; font-size: 15px; line-height: 1.9;
   color: var(--ink); opacity: 0.72; max-width: 560px;
 }
 .palette-combos { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 0.5px solid rgba(26,22,18,0.07); }
 .combo { padding: 56px 64px; }
 .combo-label {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
   opacity: 0.38; display: block; margin-bottom: 32px;
 }
 .combo-specimen {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-weight: 300;
-  font-size: 60px; line-height: 0.88; margin-bottom: 28px;
+  font-family: 'Playfair Display', serif;
+  font-style: normal; font-weight: 400;
+  font-size: 60px; line-height: 0.88; margin-bottom: 28px; text-transform: uppercase; letter-spacing: 0.28em;
 }
 .combo-note {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 15px; line-height: 1.9; max-width: 280px;
 }
 
@@ -232,7 +255,7 @@ body {
 .type-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); }
 .type-inner { padding: 96px 0 0; }
 .type-label {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.9;
   display: block; padding: 0 64px; margin-bottom: 72px;
@@ -245,34 +268,34 @@ body {
 }
 .type-row:last-child { border-bottom: 0.5px solid rgba(26,22,18,0.07); margin-bottom: 96px; }
 .type-row-role {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.6;
   display: block; margin-bottom: 12px; line-height: 1.9;
 }
 .type-row-note {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 14px; line-height: 1.85;
   color: var(--ink); opacity: 0.72;
 }
 .spec-names {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-weight: 300;
+  font-family: 'Playfair Display', serif;
+  font-style: normal; font-weight: 400;
   font-size: 88px; line-height: 0.88;
-  color: var(--crimson); letter-spacing: -0.02em;
+  color: var(--crimson); letter-spacing: 0.28em; text-transform: uppercase;
 }
 .spec-heading {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: 60px; line-height: 0.92;
   color: var(--ink); opacity: 0.78; letter-spacing: -0.015em;
 }
 .spec-label {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--sienna); padding-top: 8px; line-height: 2.2;
 }
 .spec-body {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 18px; line-height: 1.85; color: var(--ink); opacity: 0.80;
 }
 
@@ -281,7 +304,7 @@ body {
 .photo-header { padding: 96px 64px 0; }
 .photo-label { color: var(--sienna); opacity: 0.9; margin-bottom: 64px; }
 .photo-headline {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: 88px; line-height: 0.86;
   color: var(--ink); letter-spacing: -0.025em; opacity: 0.82; margin-bottom: 72px;
 }
@@ -293,35 +316,35 @@ body {
 .photo-mode { padding: 56px 64px; border-right: 0.5px solid rgba(26,22,18,0.07); }
 .photo-mode:last-child { border-right: none; }
 .photo-mode-num {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 52px;
+  font-family: 'Playfair Display', serif; font-weight: 400; font-size: 52px;
   line-height: 1; color: var(--ink); opacity: 0.06; margin-bottom: -16px;
 }
 .photo-mode-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-weight: 300; font-size: 32px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 400; font-size: 32px;
   line-height: 1; color: var(--ink); opacity: 0.7;
   margin-bottom: 20px; display: block;
 }
 .photo-mode-label {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 20px;
 }
 .photo-mode-body {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 15px; line-height: 1.9;
   color: var(--ink); opacity: 0.72; margin-bottom: 28px;
 }
 .photo-mode-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .photo-tag {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--ink); opacity: 0.65;
   border: 0.5px solid rgba(26,22,18,0.30); padding: 6px 14px;
 }
 .film-strip { border-top: 0.5px solid rgba(26,22,18,0.07); padding: 56px 64px; }
 .film-strip-label {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 32px;
 }
@@ -333,7 +356,7 @@ body {
 }
 .film-frame-num {
   position: absolute; bottom: 6px; right: 8px;
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 7px; letter-spacing: 0.12em;
   color: var(--ink); opacity: 0.18;
 }
@@ -342,7 +365,7 @@ body {
 .deco-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 96px 0; }
 .deco-label { color: var(--sienna); opacity: 0.9; padding: 0 64px; margin-bottom: 72px; }
 .deco-headline {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: 96px; line-height: 0.87;
   color: var(--ink); letter-spacing: -0.025em; opacity: 0.82;
   padding: 0 64px; margin-bottom: 80px;
@@ -357,17 +380,17 @@ body {
 .deco-cell:nth-child(2n) { border-right: none; }
 .deco-cell:nth-last-child(-n+2) { border-bottom: none; }
 .deco-cell-label {
-  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 20px;
 }
 .deco-cell-name {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: 28px; line-height: 1.1; color: var(--ink); opacity: 0.78;
   margin-bottom: 14px; display: block;
 }
 .deco-cell-body {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 15px; line-height: 1.9; color: var(--ink); opacity: 0.72;
 }
 .deco-cell-body em { font-style: italic; }
@@ -376,8 +399,8 @@ body {
 
 /* ── APPLICATIONS ── */
 .apps { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
-.apps-label { color: var(--sienna); opacity: 0.9; padding: 96px 64px 72px; display: block; font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.42em; text-transform:uppercase; }
-.app-item-label { color: var(--sienna); opacity: 0.9; padding: 0 64px 36px; display: block; font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; }
+.apps-label { color: var(--sienna); opacity: 0.9; padding: 96px 64px 72px; display: block; font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.42em; text-transform:uppercase; }
+.app-item-label { color: var(--sienna); opacity: 0.9; padding: 0 64px 36px; display: block; font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; }
 
 .std { display: grid; grid-template-columns: 1fr 1fr; border-top: 0.5px solid rgba(26,22,18,0.08); border-bottom: 0.5px solid rgba(26,22,18,0.08); margin-bottom: 72px; }
 .std-film-side {
@@ -387,38 +410,38 @@ body {
 }
 .std-frame { flex: 1; background: #2A2218; position: relative; overflow: hidden; }
 .std-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(92,26,34,0.1) 0%, transparent 60%); }
-.std-frame-label { position: absolute; bottom: 6px; right: 8px; font-family:'Jost',sans-serif; font-weight:200; font-size:7px; letter-spacing:0.1em; color:var(--cream); opacity:0.15; }
+.std-frame-label { position: absolute; bottom: 6px; right: 8px; font-family:'Montserrat',sans-serif; font-weight:300; font-size:7px; letter-spacing:0.1em; color:var(--cream); opacity:0.15; }
 .std-text { background: var(--cream); padding: 56px 52px; display: flex; flex-direction: column; justify-content: space-between; border-left: 0.5px solid rgba(26,22,18,0.08); }
-.std-top-label { font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.36em; text-transform:uppercase; color:var(--sienna); opacity:0.45; }
-.std-names { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:68px; line-height:0.84; color:var(--ink); letter-spacing:-0.025em; opacity:0.88; }
+.std-top-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.36em; text-transform:uppercase; color:var(--sienna); opacity:0.45; }
+.std-names { font-family:'Playfair Display',serif; font-weight:400; font-size:68px; line-height:0.84; color:var(--ink); letter-spacing:0.28em; text-transform:uppercase; opacity:0.88; }
 .std-names em { font-style:italic; color:var(--crimson); display:block; }
 .std-foot { border-top: 0.5px solid rgba(26,22,18,0.09); padding-top: 22px; }
-.std-date { font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--sienna); opacity:0.6; display:block; margin-bottom:5px; }
-.std-location { font-family:'EB Garamond',serif; font-style:italic; font-size:15px; color:var(--ink); opacity:0.38; }
+.std-date { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--sienna); opacity:0.6; display:block; margin-bottom:5px; }
+.std-location { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:var(--ink); opacity:0.38; }
 
 .web { border-top: 0.5px solid rgba(26,22,18,0.08); border-bottom: 0.5px solid rgba(26,22,18,0.08); margin-bottom: 72px; }
 .web-nav { display:flex; justify-content:space-between; align-items:center; padding:18px 48px; border-bottom:0.5px solid rgba(26,22,18,0.07); background:var(--cream); }
-.web-logo { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:16px; color:var(--ink); opacity:0.85; }
+.web-logo { font-family:'Playfair Display',serif; font-style:normal; font-weight:400; font-size:13px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.85; }
 .web-links { display:flex; gap:32px; }
-.web-link { font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); opacity:0.72; }
+.web-link { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); opacity:0.72; }
 .web-hero { background:var(--crimson); padding:72px 64px 60px; position:relative; overflow:hidden; }
 .web-hero::before { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E"); background-size:220px; opacity:0.35; mix-blend-mode:overlay; pointer-events:none; }
-.web-hl { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:72px; line-height:0.86; color:var(--cream); letter-spacing:-0.025em; opacity:0.92; margin-bottom:28px; position:relative; z-index:1; }
+.web-hl { font-family:'Playfair Display',serif; font-weight:400; font-size:72px; line-height:0.86; color:var(--cream); letter-spacing:-0.025em; opacity:0.92; margin-bottom:28px; position:relative; z-index:1; }
 .web-hl em { font-style:italic; color:var(--blush); opacity:0.88; }
-.web-meta { font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--cream); opacity:0.82; position:relative; z-index:1; }
+.web-meta { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--cream); opacity:0.82; position:relative; z-index:1; }
 .web-lower { display:grid; grid-template-columns:1fr 1fr; border-top:0.5px solid rgba(26,22,18,0.07); }
 .web-lower-cell { padding:40px 48px; border-right:0.5px solid rgba(26,22,18,0.07); background:var(--cream); }
 .web-lower-cell:last-child { border-right:none; background:var(--cream2); }
-.web-cell-label { font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; display:block; margin-bottom:18px; }
-.web-cell-heading { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:30px; line-height:1.05; color:var(--ink); opacity:0.75; margin-bottom:14px; }
-.web-cell-body { font-family:'EB Garamond',serif; font-style:italic; font-size:15px; line-height:1.85; color:var(--ink); opacity:0.72; }
-.web-cell-btn { display:inline-block; margin-top:20px; font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.72; border-bottom:0.5px solid rgba(26,22,18,0.35); padding-bottom:3px; }
+.web-cell-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; display:block; margin-bottom:18px; }
+.web-cell-heading { font-family:'Playfair Display',serif; font-weight:400; font-size:30px; line-height:1.05; color:var(--ink); opacity:0.75; margin-bottom:14px; }
+.web-cell-body { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:1.85; color:var(--ink); opacity:0.72; }
+.web-cell-btn { display:inline-block; margin-top:20px; font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.72; border-bottom:0.5px solid rgba(26,22,18,0.35); padding-bottom:3px; }
 
 .labels { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; border-top:0.5px solid rgba(26,22,18,0.08); border-bottom:0.5px solid rgba(26,22,18,0.08); margin-bottom:96px; }
 .label-cell { padding:36px 52px; border-right:0.5px solid rgba(26,22,18,0.07); display:flex; flex-direction:column; gap:18px; background:var(--cream); }
 .label-cell:last-child { border-right:none; }
-.label-cell-type { font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; }
-.label-cell-spec { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:var(--sienna); opacity:0.9; line-height:2.1; }
+.label-cell-type { font-family:'Montserrat',sans-serif; font-weight:300; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; }
+.label-cell-spec { font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:var(--sienna); opacity:0.9; line-height:2.1; }
 .label-cell.on-crimson { background:var(--crimson); }
 .label-cell.on-crimson .label-cell-type { color:var(--cream); opacity:0.75; }
 .label-cell.on-crimson .label-cell-spec { color:var(--cream); opacity:0.92; }
@@ -428,24 +451,24 @@ body {
 
 /* ── RULES ── */
 .rules { background: var(--cream3); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 96px 64px; }
-.rules-label { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.42em; text-transform:uppercase; color:var(--sienna); opacity:0.9; display:block; margin-bottom:80px; }
+.rules-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.42em; text-transform:uppercase; color:var(--sienna); opacity:0.9; display:block; margin-bottom:80px; }
 .rules-cols { display:grid; grid-template-columns:1fr 1fr; gap:80px; }
-.rules-col-head { font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; margin-bottom:32px; padding-bottom:20px; border-bottom:0.5px solid rgba(26,22,18,0.1); }
+.rules-col-head { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; margin-bottom:32px; padding-bottom:20px; border-bottom:0.5px solid rgba(26,22,18,0.1); }
 .do-head { color:var(--olive); }
 .dont-head { color:var(--crimson); opacity:0.75; }
 .rules-list { list-style:none; }
-.rules-list li { font-family:'EB Garamond',serif; font-size:16px; line-height:1.75; color:var(--ink); opacity:0.75; padding:13px 0; border-bottom:0.5px solid rgba(26,22,18,0.12); display:flex; gap:16px; align-items:baseline; }
-.rules-list li::before { font-family:'Jost',sans-serif; font-weight:200; font-size:10px; min-width:12px; flex-shrink:0; opacity:0.55; }
+.rules-list li { font-family:'Playfair Display',serif; font-size:16px; line-height:1.75; color:var(--ink); opacity:0.75; padding:13px 0; border-bottom:0.5px solid rgba(26,22,18,0.12); display:flex; gap:16px; align-items:baseline; }
+.rules-list li::before { font-family:'Montserrat',sans-serif; font-weight:300; font-size:10px; min-width:12px; flex-shrink:0; opacity:0.55; }
 .do-list li::before { content:'→'; color:var(--olive); }
 .dont-list li::before { content:'×'; color:var(--crimson); }
 
 /* ── CLOSING ── */
 .closing { background:var(--cream); padding:120px 64px 100px; border-top:0.5px solid rgba(26,22,18,0.07); }
 .closing-inner { max-width:560px; margin:0 auto; text-align:center; }
-.closing-phrase { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:26px; color:var(--ink); opacity:0.72; line-height:1.85; margin-bottom:64px; }
+.closing-phrase { font-family:'Playfair Display',serif; font-style:italic; font-weight:400; font-size:26px; color:var(--ink); opacity:0.72; line-height:1.85; margin-bottom:64px; }
 .closing-vr { width:1px; height:52px; background:var(--crimson); opacity:0.35; margin:0 auto 36px; }
-.closing-names { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:26px; color:var(--crimson); opacity:0.85; display:block; margin-bottom:18px; }
-.closing-credit { font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink); opacity:0.65; }
+.closing-names { font-family:'Playfair Display',serif; font-style:normal; font-weight:400; font-size:26px; color:var(--crimson); opacity:0.85; display:block; margin-bottom:18px; text-transform:uppercase; letter-spacing:0.28em; }
+.closing-credit { font-family:'Montserrat',sans-serif; font-weight:300; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink); opacity:0.65; }
 </style>
 </head>
 <body>
@@ -455,7 +478,7 @@ body {
   <div class="cover-accent"></div>
   <div class="cover-top">
     <div class="sec-label cover-label">Guía de Estilo · El Cardenal Oaxaca · 2027</div>
-    <div class="cover-names">Laura<br><em>&</em>Diego</div>
+    <div class="cover-names">Laura <em>&</em> Diego</div>
   </div>
   <div class="cover-foot">
     <div class="cover-caption">Una historia de amor escrita con la lentitud del mezcal y la luz de Oaxaca.</div>
@@ -509,7 +532,7 @@ body {
       <div class="swatch"><div class="swatch-fill" style="background:#E8C4BC;"></div><div class="swatch-info"><span class="swatch-name">Blush</span><span class="swatch-hex">#E8C4BC</span><span class="swatch-role">Acentos sobre fondos oscuros.</span></div></div>
       <div class="swatch"><div class="swatch-fill" style="background:#FDFAF5; outline:0.5px solid rgba(26,22,18,0.08);"></div><div class="swatch-info"><span class="swatch-name">Cream</span><span class="swatch-hex">#FDFAF5</span><span class="swatch-role">La base. Papel, fondos, superficies.</span></div></div>
       <div class="swatch"><div class="swatch-fill" style="background:#A0582C;"></div><div class="swatch-info"><span class="swatch-name">Sienna</span><span class="swatch-hex">#A0582C</span><span class="swatch-role">Etiquetas, fechas, texto secundario.</span></div></div>
-      <div class="swatch"><div class="swatch-fill" style="background:#5A5E30;"></div><div class="swatch-info"><span class="swatch-name">Olive</span><span class="swatch-hex">#5A5E30</span><span class="swatch-role">Agave y follaje. El alma botánica de la identidad visual.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#6B6440;"></div><div class="swatch-info"><span class="swatch-name">Olive</span><span class="swatch-hex">#6B6440</span><span class="swatch-role">Agave y follaje. El alma botánica de la identidad visual.</span></div></div>
     </div>
   </div>
   <div class="deco-palette">
@@ -555,10 +578,10 @@ body {
 <div class="type-section">
   <div class="type-inner">
     <span class="type-label">Tipografía</span>
-    <div class="type-row"><div><span class="type-row-role">Nombres<br>Cormorant Garamond<br>Italic · 300</span><div class="type-row-note">Exclusivo para los nombres. Nunca en cuerpo. 72–120px impreso.</div></div><div class="spec-names">Laura & Diego</div></div>
-    <div class="type-row"><div><span class="type-row-role">Encabezados<br>Cormorant Garamond<br>Regular · 300</span><div class="type-row-note">36–64px. El contraste de escala es editorial e intencional.</div></div><div class="spec-heading">Nuestra Historia<br>La Ceremonia</div></div>
-    <div class="type-row"><div><span class="type-row-role">Etiquetas<br>Jost · Light<br>+0.28em · Caps</span><div class="type-row-note">Fechas, secciones, pies de foto. Siempre mayúsculas.</div></div><div class="spec-label">SÁBADO · 15 DE MAYO · 2027<br>OAXACA, MÉXICO</div></div>
-    <div class="type-row"><div><span class="type-row-role">Cuerpo<br>EB Garamond<br>Regular · 1.85</span><div class="type-row-note">16–18px web. Interlineado 1.85× obligatorio.</div></div><div class="spec-body">Nos encontramos en lo cotidiano,<br>e hicimos de ello algo extraordinario.</div></div>
+    <div class="type-row"><div><span class="type-row-role">Nombres<br>Playfair Display<br>Regular · 400 · Caps</span><div class="type-row-note">Mayúsculas · tracking +0.28em. Portada y títulos principales. 72–120px impreso.</div></div><div class="spec-names">Laura & Diego</div></div>
+    <div class="type-row"><div><span class="type-row-role">Encabezados<br>Playfair Display<br>Regular · 400</span><div class="type-row-note">36–64px. Minúsculas. El contraste de escala es editorial e intencional.</div></div><div class="spec-heading">Nuestra Historia<br>La Ceremonia</div></div>
+    <div class="type-row"><div><span class="type-row-role">Etiquetas<br>Montserrat · Light<br>+0.28em · Caps</span><div class="type-row-note">Fechas, secciones, pies de foto. Siempre mayúsculas.</div></div><div class="spec-label">SÁBADO · 15 DE MAYO · 2027<br>OAXACA, MÉXICO</div></div>
+    <div class="type-row"><div><span class="type-row-role">Cuerpo<br>Playfair Display<br>Regular · 1.85</span><div class="type-row-note">16–18px web. Interlineado 1.85× obligatorio.</div></div><div class="spec-body">Nos encontramos en lo cotidiano,<br>e hicimos de ello algo extraordinario.</div></div>
   </div>
 </div>
 
@@ -671,7 +694,7 @@ body {
     <div>
       <div class="rules-col-head do-head">Sí</div>
       <ul class="rules-list do-list">
-        <li>Cormorant Garamond italic exclusivamente para los nombres, a gran escala.</li>
+        <li>Playfair Display para nombres (mayúsculas, tracking amplio), titulares y cuerpo de texto.</li>
         <li>Contraste de escala tipográfica — titulares grandes, cuerpo pequeño.</li>
         <li>Espacio en blanco generoso en papel. El silencio visual es parte del lujo.</li>
         <li>Fotografía editorial siempre en tonos cálidos y color.</li>
