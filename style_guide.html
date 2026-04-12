@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --crimson: #5C1A22;
+  --blush: #E8C4BC;
+  --cream: #FDFAF5;
+  --cream2: #F5EFE4;
+  --cream3: #EDE5D4;
+  --sienna: #A0582C;
+  --olive: #5A5E30;
+  --ink: #1A1612;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sec-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200; font-size: 9px;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  display: block;
+}
+
+/* ── COVER ── */
+.cover {
+  min-height: 100vh;
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  border-bottom: 0.5px solid rgba(26,22,18,0.08);
+}
+.cover-accent {
+  position: absolute; top: 0; right: 0;
+  width: 36%; height: 100%;
+  background: var(--cream2);
+  border-left: 0.5px solid rgba(26,22,18,0.06);
+}
+.cover-top {
+  flex: 1; padding: 64px 64px 0;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+.cover-label { color: var(--sienna); opacity: 0.5; margin-bottom: 72px; }
+.cover-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 130px; line-height: 0.82;
+  color: var(--ink); letter-spacing: -0.03em; opacity: 0.88;
+}
+.cover-names em {
+  color: var(--crimson); opacity: 0.8;
+  font-size: 0.55em; line-height: 1.15; display: block;
+}
+.cover-foot {
+  position: relative; z-index: 2;
+  padding: 36px 64px 56px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+  margin-top: 56px;
+}
+.cover-caption {
+  font-family: 'EB Garamond', serif;
+  font-style: italic; font-size: 15px;
+  line-height: 1.8; color: var(--ink); opacity: 0.35;
+  max-width: 300px;
+}
+.cover-pg {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 9px; letter-spacing: 0.26em;
+  color: var(--sienna); opacity: 0.35; text-align: right;
+}
+
+/* ── PHRASE ── */
+.phrase {
+  background: var(--crimson);
+  position: relative; overflow: hidden;
+  padding: 100px 64px 88px;
+  border-top: 0.5px solid rgba(26,22,18,0.05);
+}
+.phrase::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E");
+  background-size: 220px; opacity: 0.35; mix-blend-mode: overlay; pointer-events: none;
+}
+.phrase-label { color: var(--blush); opacity: 0.5; margin-bottom: 84px; position: relative; z-index: 1; }
+.phrase-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 38px; line-height: 1.48;
+  color: var(--cream); opacity: 0.6; display: block;
+  padding: 24px 0;
+  border-top: 0.5px solid rgba(253,250,245,0.12);
+  position: relative; z-index: 1;
+}
+.phrase-line:last-of-type {
+  border-bottom: 0.5px solid rgba(253,250,245,0.12);
+  opacity: 0.95; color: var(--blush);
+}
+.phrase-short {
+  margin-top: 52px;
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--cream); opacity: 0.2;
+  position: relative; z-index: 1;
+}
+
+/* ── CONCEPT ── */
+.concept {
+  background: var(--cream);
+  padding: 100px 64px;
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+}
+.concept-label { color: var(--sienna); opacity: 0.45; margin-bottom: 72px; }
+.concept-headline {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 96px; line-height: 0.88;
+  color: var(--ink); letter-spacing: -0.025em; opacity: 0.85;
+  margin-bottom: 72px;
+}
+.concept-headline em { font-style: italic; color: var(--crimson); opacity: 0.85; }
+.concept-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+  padding-top: 52px;
+}
+.concept-col-head {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.45; display: block; margin-bottom: 20px;
+}
+.concept-col-body {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px; line-height: 1.9;
+  color: var(--ink); opacity: 0.5;
+}
+.concept-col-body em { font-style: italic; color: var(--crimson); opacity: 0.8; }
+.concept-words {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+}
+.concept-word {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.25;
+  border: 0.5px solid rgba(26,22,18,0.14);
+  padding: 8px 16px;
+}
+
+/* ── PALETTE ── */
+.palette { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
+.palette-hl-wrap { padding: 96px 64px 72px; }
+.palette-hl {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 104px; line-height: 0.87;
+  color: var(--ink); letter-spacing: -0.03em; opacity: 0.82;
+}
+.palette-hl em { font-style: italic; color: var(--crimson); opacity: 0.9; }
+.palette-label-inline { color: var(--sienna); opacity: 0.45; margin-bottom: 40px; }
+.palette-section-head {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.4;
+  padding: 28px 64px 0; display: block;
+}
+.swatches { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 0.5px solid rgba(26,22,18,0.07); }
+.swatch-fill { width: 100%; aspect-ratio: 1/1.9; }
+.swatch-info {
+  padding: 20px 24px 32px;
+  border-right: 0.5px solid rgba(26,22,18,0.06);
+}
+.swatch:last-child .swatch-info { border-right: none; }
+.swatch-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300; font-size: 17px;
+  color: var(--ink); opacity: 0.7; display: block; margin-bottom: 4px;
+}
+.swatch-hex {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 9px; letter-spacing: 0.16em;
+  color: var(--ink); opacity: 0.28; display: block; margin-bottom: 8px;
+}
+.swatch-role {
+  font-family: 'EB Garamond', serif;
+  font-size: 12px; color: var(--ink); opacity: 0.38; line-height: 1.6;
+}
+.deco-palette { border-top: 0.5px solid rgba(26,22,18,0.07); background: var(--cream3); }
+.deco-palette-inner { padding: 40px 64px 56px; }
+.deco-palette-head {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.4; display: block; margin-bottom: 32px;
+}
+.deco-swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; margin-bottom: 32px; }
+.deco-swatch-fill { width: 100%; aspect-ratio: 1/1.4; }
+.deco-swatch-name {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.32; display: block; margin-top: 10px; line-height: 1.6;
+}
+.deco-note {
+  font-family: 'EB Garamond', serif;
+  font-style: italic; font-size: 14px; line-height: 1.9;
+  color: var(--ink); opacity: 0.38; max-width: 560px;
+}
+.palette-combos { display: grid; grid-template-columns: 1fr 1fr; border-top: 0.5px solid rgba(26,22,18,0.07); }
+.combo { padding: 56px 64px; }
+.combo-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  opacity: 0.38; display: block; margin-bottom: 32px;
+}
+.combo-specimen {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 60px; line-height: 0.88; margin-bottom: 28px;
+}
+.combo-note {
+  font-family: 'EB Garamond', serif;
+  font-size: 14px; line-height: 1.9; max-width: 280px;
+}
+
+/* ── TYPOGRAPHY ── */
+.type-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); }
+.type-inner { padding: 96px 0 0; }
+.type-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 9px; letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.45;
+  display: block; padding: 0 64px; margin-bottom: 72px;
+}
+.type-row {
+  padding: 52px 64px;
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 56px; align-items: start;
+}
+.type-row:last-child { border-bottom: 0.5px solid rgba(26,22,18,0.07); margin-bottom: 96px; }
+.type-row-role {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 9px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.6;
+  display: block; margin-bottom: 12px; line-height: 1.9;
+}
+.type-row-note {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px; line-height: 1.85;
+  color: var(--ink); opacity: 0.32;
+}
+.spec-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 88px; line-height: 0.88;
+  color: var(--crimson); letter-spacing: -0.02em;
+}
+.spec-heading {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 60px; line-height: 0.92;
+  color: var(--ink); opacity: 0.78; letter-spacing: -0.015em;
+}
+.spec-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sienna); padding-top: 8px; line-height: 2.2;
+}
+.spec-body {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px; line-height: 1.85; color: var(--ink); opacity: 0.55;
+}
+
+/* ── PHOTOGRAPHY ── */
+.photo-section { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
+.photo-header { padding: 96px 64px 0; }
+.photo-label { color: var(--sienna); opacity: 0.45; margin-bottom: 64px; }
+.photo-headline {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 88px; line-height: 0.86;
+  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82; margin-bottom: 72px;
+}
+.photo-headline em { font-style: italic; color: var(--crimson); opacity: 0.85; }
+.photo-modes {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 0.5px solid rgba(26,22,18,0.07);
+}
+.photo-mode { padding: 56px 64px; border-right: 0.5px solid rgba(26,22,18,0.07); }
+.photo-mode:last-child { border-right: none; }
+.photo-mode-num {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 52px;
+  line-height: 1; color: var(--ink); opacity: 0.06; margin-bottom: -16px;
+}
+.photo-mode-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300; font-size: 32px;
+  line-height: 1; color: var(--ink); opacity: 0.7;
+  margin-bottom: 20px; display: block;
+}
+.photo-mode-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.4; display: block; margin-bottom: 20px;
+}
+.photo-mode-body {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px; line-height: 1.9;
+  color: var(--ink); opacity: 0.42; margin-bottom: 28px;
+}
+.photo-mode-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.photo-tag {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.22;
+  border: 0.5px solid rgba(26,22,18,0.12); padding: 6px 14px;
+}
+.film-strip { border-top: 0.5px solid rgba(26,22,18,0.07); padding: 56px 64px; }
+.film-strip-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.35; display: block; margin-bottom: 32px;
+}
+.film-strip-frames { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; max-width: 480px; }
+.film-frame {
+  background: var(--cream3); aspect-ratio: 3/4;
+  position: relative; overflow: hidden;
+  border: 0.5px solid rgba(26,22,18,0.08);
+}
+.film-frame-num {
+  position: absolute; bottom: 6px; right: 8px;
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 7px; letter-spacing: 0.12em;
+  color: var(--ink); opacity: 0.18;
+}
+
+/* ── DECORATION ── */
+.deco-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 96px 0; }
+.deco-label { color: var(--sienna); opacity: 0.45; padding: 0 64px; margin-bottom: 72px; }
+.deco-headline {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 96px; line-height: 0.87;
+  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82;
+  padding: 0 64px; margin-bottom: 80px;
+}
+.deco-headline em { font-style: italic; color: var(--crimson); }
+.deco-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 0.5px solid rgba(26,22,18,0.07); }
+.deco-cell {
+  padding: 52px 64px;
+  border-right: 0.5px solid rgba(26,22,18,0.07);
+  border-bottom: 0.5px solid rgba(26,22,18,0.07);
+}
+.deco-cell:nth-child(2n) { border-right: none; }
+.deco-cell:nth-last-child(-n+2) { border-bottom: none; }
+.deco-cell-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 8px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sienna); opacity: 0.45; display: block; margin-bottom: 20px;
+}
+.deco-cell-name {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 28px; line-height: 1.1; color: var(--ink); opacity: 0.78;
+  margin-bottom: 14px; display: block;
+}
+.deco-cell-body {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px; line-height: 1.9; color: var(--ink); opacity: 0.42;
+}
+.deco-cell-body em { font-style: italic; }
+.deco-swatches-inline { display: flex; gap: 6px; margin-top: 18px; }
+.deco-swatch-dot { width: 20px; height: 20px; border-radius: 50%; }
+
+/* ── APPLICATIONS ── */
+.apps { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
+.apps-label { color: var(--sienna); opacity: 0.35; padding: 96px 64px 72px; display: block; font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.42em; text-transform:uppercase; }
+.app-item-label { color: var(--sienna); opacity: 0.28; padding: 0 64px 36px; display: block; font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.32em; text-transform:uppercase; }
+
+.std { display: grid; grid-template-columns: 1fr 1fr; border-top: 0.5px solid rgba(26,22,18,0.08); border-bottom: 0.5px solid rgba(26,22,18,0.08); margin-bottom: 72px; }
+.std-film-side {
+  background: var(--ink); min-height: 480px;
+  display: flex; flex-direction: column; padding: 28px; gap: 3px;
+  position: relative; overflow: hidden;
+}
+.std-frame { flex: 1; background: #2A2218; position: relative; overflow: hidden; }
+.std-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(92,26,34,0.1) 0%, transparent 60%); }
+.std-frame-label { position: absolute; bottom: 6px; right: 8px; font-family:'Jost',sans-serif; font-weight:200; font-size:7px; letter-spacing:0.1em; color:var(--cream); opacity:0.15; }
+.std-text { background: var(--cream); padding: 56px 52px; display: flex; flex-direction: column; justify-content: space-between; border-left: 0.5px solid rgba(26,22,18,0.08); }
+.std-top-label { font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.36em; text-transform:uppercase; color:var(--sienna); opacity:0.45; }
+.std-names { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:68px; line-height:0.84; color:var(--ink); letter-spacing:-0.025em; opacity:0.88; }
+.std-names em { font-style:italic; color:var(--crimson); display:block; }
+.std-foot { border-top: 0.5px solid rgba(26,22,18,0.09); padding-top: 22px; }
+.std-date { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--sienna); opacity:0.6; display:block; margin-bottom:5px; }
+.std-location { font-family:'EB Garamond',serif; font-style:italic; font-size:15px; color:var(--ink); opacity:0.38; }
+
+.web { border-top: 0.5px solid rgba(26,22,18,0.08); border-bottom: 0.5px solid rgba(26,22,18,0.08); margin-bottom: 72px; }
+.web-nav { display:flex; justify-content:space-between; align-items:center; padding:18px 48px; border-bottom:0.5px solid rgba(26,22,18,0.07); background:var(--cream); }
+.web-logo { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:15px; color:var(--ink); opacity:0.6; }
+.web-links { display:flex; gap:32px; }
+.web-link { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); opacity:0.28; }
+.web-hero { background:var(--crimson); padding:72px 64px 60px; position:relative; overflow:hidden; }
+.web-hero::before { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E"); background-size:220px; opacity:0.35; mix-blend-mode:overlay; pointer-events:none; }
+.web-hl { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:72px; line-height:0.86; color:var(--cream); letter-spacing:-0.025em; opacity:0.92; margin-bottom:28px; position:relative; z-index:1; }
+.web-hl em { font-style:italic; color:var(--blush); opacity:0.88; }
+.web-meta { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--cream); opacity:0.32; position:relative; z-index:1; }
+.web-lower { display:grid; grid-template-columns:1fr 1fr; border-top:0.5px solid rgba(26,22,18,0.07); }
+.web-lower-cell { padding:40px 48px; border-right:0.5px solid rgba(26,22,18,0.07); background:var(--cream); }
+.web-lower-cell:last-child { border-right:none; background:var(--cream2); }
+.web-cell-label { font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.4; display:block; margin-bottom:18px; }
+.web-cell-heading { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:30px; line-height:1.05; color:var(--ink); opacity:0.75; margin-bottom:14px; }
+.web-cell-body { font-family:'EB Garamond',serif; font-style:italic; font-size:14px; line-height:1.85; color:var(--ink); opacity:0.35; }
+.web-cell-btn { display:inline-block; margin-top:20px; font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.4; border-bottom:0.5px solid rgba(26,22,18,0.2); padding-bottom:3px; }
+
+.labels { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:0.5px solid rgba(26,22,18,0.08); border-bottom:0.5px solid rgba(26,22,18,0.08); margin-bottom:96px; }
+.label-cell { padding:36px 52px; border-right:0.5px solid rgba(26,22,18,0.07); display:flex; flex-direction:column; gap:18px; background:var(--cream); }
+.label-cell:last-child { border-right:none; }
+.label-cell-type { font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.35; }
+.label-cell-spec { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:var(--sienna); opacity:0.6; line-height:2.1; }
+.label-cell.on-crimson { background:var(--crimson); }
+.label-cell.on-crimson .label-cell-type { color:var(--cream); opacity:0.32; }
+.label-cell.on-crimson .label-cell-spec { color:var(--cream); opacity:0.68; }
+
+/* ── RULES ── */
+.rules { background: var(--cream3); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 96px 64px; }
+.rules-label { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.42em; text-transform:uppercase; color:var(--sienna); opacity:0.4; display:block; margin-bottom:80px; }
+.rules-cols { display:grid; grid-template-columns:1fr 1fr; gap:80px; }
+.rules-col-head { font-family:'Jost',sans-serif; font-weight:200; font-size:9px; letter-spacing:0.32em; text-transform:uppercase; margin-bottom:32px; padding-bottom:20px; border-bottom:0.5px solid rgba(26,22,18,0.1); }
+.do-head { color:var(--olive); }
+.dont-head { color:var(--crimson); opacity:0.75; }
+.rules-list { list-style:none; }
+.rules-list li { font-family:'EB Garamond',serif; font-size:16px; line-height:1.75; color:var(--ink); opacity:0.42; padding:13px 0; border-bottom:0.5px solid rgba(26,22,18,0.06); display:flex; gap:16px; align-items:baseline; }
+.rules-list li::before { font-family:'Jost',sans-serif; font-weight:200; font-size:10px; min-width:12px; flex-shrink:0; opacity:0.55; }
+.do-list li::before { content:'→'; color:var(--olive); }
+.dont-list li::before { content:'×'; color:var(--crimson); }
+
+/* ── CLOSING ── */
+.closing { background:var(--cream); padding:120px 64px 100px; border-top:0.5px solid rgba(26,22,18,0.07); }
+.closing-inner { max-width:560px; margin:0 auto; text-align:center; }
+.closing-phrase { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:26px; color:var(--ink); opacity:0.38; line-height:1.85; margin-bottom:64px; }
+.closing-vr { width:1px; height:52px; background:var(--crimson); opacity:0.18; margin:0 auto 36px; }
+.closing-names { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:26px; color:var(--crimson); opacity:0.4; display:block; margin-bottom:18px; }
+.closing-credit { font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink); opacity:0.18; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-accent"></div>
+  <div class="cover-top">
+    <div class="sec-label cover-label">Guía de Estilo · El Cardenal Oaxaca · 2027</div>
+    <div class="cover-names">Laura<br><em>&</em>Diego</div>
+  </div>
+  <div class="cover-foot">
+    <div class="cover-caption">Una historia de amor escrita con la lentitud del mezcal y la luz de Oaxaca.</div>
+    <div class="cover-pg">15 · 05 · 2027<br><br>1 / 7</div>
+  </div>
+</div>
+
+<!-- PHRASE -->
+<div class="phrase">
+  <span class="sec-label phrase-label">La frase de la boda</span>
+  <span class="phrase-line">Con el agave entendimos la espera de la tierra.</span>
+  <span class="phrase-line">Con la distancia entendimos la fuerza de elegirnos.</span>
+  <span class="phrase-line">Con el mezcal celebramos la eternidad.</span>
+  <div class="phrase-short">— Variante corta · Con el mezcal celebramos la eternidad · Etiquetas, menú, detalles</div>
+</div>
+
+<!-- CONCEPT -->
+<div class="concept">
+  <span class="sec-label concept-label">Concepto</span>
+  <div class="concept-headline">Teatro<br>íntimo.<br><em>Raíz.</em></div>
+  <div class="concept-cols">
+    <div>
+      <span class="concept-col-head">La identidad</span>
+      <div class="concept-col-body">Una boda que vive en dos registros simultáneos. El objeto — invitación, papel, digital — es <em>contenido, editorial, atemporal.</em> El espacio — flores, luz, mesa, interior de El Cardenal — es <em>dramático, cinematográfico.</em> El contraste entre ambos es intencional. La quietud del papel hace que la abundancia del espacio resulte más poderosa.</div>
+      <div class="concept-words">
+        <span class="concept-word">Editorial</span>
+        <span class="concept-word">Cinematográfico</span>
+        <span class="concept-word">Atemporal</span>
+        <span class="concept-word">Oaxaqueño</span>
+        <span class="concept-word">Film</span>
+        <span class="concept-word">Íntimo</span>
+      </div>
+    </div>
+    <div>
+      <span class="concept-col-head">El universo visual</span>
+      <div class="concept-col-body">Crimson profundo en rosas y dalias. Velas como única fuente de luz en la noche. Cristalería tallada sobre mesas vestidas. El interior de El Cardenal como escenario — sus muros, su arquitectura, su atmósfera contenida. El agave como testigo silencioso.<br><br>No es decoración. Es <em>puesta en escena.</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- PALETTE -->
+<div class="palette">
+  <div class="palette-hl-wrap">
+    <div class="sec-label palette-label-inline">Paleta de Colores</div>
+    <div class="palette-hl">Cinco<br>colores.<br><em>Una tierra.</em></div>
+  </div>
+  <div style="border-top:0.5px solid rgba(26,22,18,0.07);">
+    <span class="palette-section-head">Paleta gráfica — papel y pantalla</span>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-fill" style="background:#5C1A22;"></div><div class="swatch-info"><span class="swatch-name">Crimson</span><span class="swatch-hex">#5C1A22</span><span class="swatch-role">Nombres y títulos. Nunca como fondo principal.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#E8C4BC;"></div><div class="swatch-info"><span class="swatch-name">Blush</span><span class="swatch-hex">#E8C4BC</span><span class="swatch-role">Acentos sobre fondos oscuros.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#FDFAF5; outline:0.5px solid rgba(26,22,18,0.08);"></div><div class="swatch-info"><span class="swatch-name">Cream</span><span class="swatch-hex">#FDFAF5</span><span class="swatch-role">La base. Papel, fondos, superficies.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#A0582C;"></div><div class="swatch-info"><span class="swatch-name">Sienna</span><span class="swatch-hex">#A0582C</span><span class="swatch-role">Etiquetas, fechas, texto secundario.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#5A5E30;"></div><div class="swatch-info"><span class="swatch-name">Olive</span><span class="swatch-hex">#5A5E30</span><span class="swatch-role">Solo en botánica. Nunca en texto.</span></div></div>
+    </div>
+  </div>
+  <div class="deco-palette">
+    <div class="deco-palette-inner">
+      <span class="deco-palette-head">Paleta de decoración — espacio y flores</span>
+      <div class="deco-swatches">
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#3D1019;"></div><span class="deco-swatch-name">Rosa Crimson</span></div>
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#6B1A2A;"></div><span class="deco-swatch-name">Dalia Burgundy</span></div>
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#C8A4B8;"></div><span class="deco-swatch-name">Calla Blush</span></div>
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#F5E0C0;"></div><span class="deco-swatch-name">Vela Marfil</span></div>
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#8C7B6B;"></div><span class="deco-swatch-name">Plata Vieja</span></div>
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#1C1814;"></div><span class="deco-swatch-name">Noche</span></div>
+      </div>
+      <div class="deco-note">La paleta de decoración es la extensión tridimensional de la paleta gráfica. El crimson de las rosas es el mismo crimson de los nombres. La noche del interior de El Cardenal es el mismo ink del sobre.</div>
+    </div>
+  </div>
+  <div class="palette-combos">
+    <div class="combo" style="background:var(--ink); border-right:0.5px solid rgba(253,250,245,0.05);">
+      <span class="combo-label" style="color:var(--blush);">Sobre fondo oscuro</span>
+      <div class="combo-specimen" style="color:var(--blush);">Laura & Diego</div>
+      <div class="combo-note" style="color:var(--cream); opacity:0.38;">Ink o Crimson como fondo solo en sobres, contraportadas y detalles. Tipografía en Blush o Cream.</div>
+    </div>
+    <div class="combo" style="background:var(--cream);">
+      <span class="combo-label" style="color:var(--sienna); opacity:0.45;">Sobre fondo claro</span>
+      <div class="combo-specimen" style="color:var(--crimson);">Laura & Diego</div>
+      <div class="combo-note" style="color:var(--ink); opacity:0.4;">Cream #FDFAF5 es la base predeterminada. Crimson en tipografía, Sienna en etiquetas.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="type-section">
+  <div class="type-inner">
+    <span class="type-label">Tipografía</span>
+    <div class="type-row"><div><span class="type-row-role">Nombres<br>Cormorant Garamond<br>Italic · 300</span><div class="type-row-note">Exclusivo para los nombres. Nunca en cuerpo. 72–120px impreso.</div></div><div class="spec-names">Laura & Diego</div></div>
+    <div class="type-row"><div><span class="type-row-role">Encabezados<br>Cormorant Garamond<br>Regular · 300</span><div class="type-row-note">36–64px. El contraste de escala es editorial e intencional.</div></div><div class="spec-heading">Nuestra Historia<br>La Ceremonia</div></div>
+    <div class="type-row"><div><span class="type-row-role">Etiquetas<br>Jost · Light<br>+0.28em · Caps</span><div class="type-row-note">Fechas, secciones, pies de foto. Siempre mayúsculas.</div></div><div class="spec-label">SÁBADO · 15 DE MAYO · 2027<br>OAXACA, MÉXICO</div></div>
+    <div class="type-row"><div><span class="type-row-role">Cuerpo<br>EB Garamond<br>Regular · 1.85</span><div class="type-row-note">16–18px web. Interlineado 1.85× obligatorio.</div></div><div class="spec-body">Nos encontramos en lo cotidiano,<br>e hicimos de ello algo extraordinario.</div></div>
+  </div>
+</div>
+
+<!-- PHOTOGRAPHY -->
+<div class="photo-section">
+  <div class="photo-header">
+    <span class="sec-label photo-label">Dirección fotográfica</span>
+    <div class="photo-headline">Dos<br>modos.<br><em>Una verdad.</em></div>
+  </div>
+  <div class="photo-modes">
+    <div class="photo-mode">
+      <div class="photo-mode-num">01</div>
+      <span class="photo-mode-name">Editorial</span>
+      <span class="photo-mode-label">Fotografía de boda · interior · El Cardenal</span>
+      <div class="photo-mode-body">Tonos cálidos. Color siempre. Luz de vela como fuente principal. Composición cinematográfica — el interior de El Cardenal como fondo activo. La cámara observa, no posa. 35mm o medio formato digital con tratamiento análogo.</div>
+      <div class="photo-mode-tags"><span class="photo-tag">Tono cálido</span><span class="photo-tag">Siempre color</span><span class="photo-tag">Luz de vela</span><span class="photo-tag">35mm · Medio formato</span><span class="photo-tag">El Cardenal como fondo</span></div>
+    </div>
+    <div class="photo-mode">
+      <div class="photo-mode-num">02</div>
+      <span class="photo-mode-name">Íntima</span>
+      <span class="photo-mode-label">Save the date · piezas personales</span>
+      <div class="photo-mode-body">Alto contraste. Blanco y negro permitido solo en este modo. Momentos reales, no posados. Formato fotobooth, polaroid o carrete análogo. La imperfección es parte de la autenticidad. Sin flash plano. Granulado visible.</div>
+      <div class="photo-mode-tags"><span class="photo-tag">Alto contraste</span><span class="photo-tag">B&N permitido</span><span class="photo-tag">Analógico</span><span class="photo-tag">Fotobooth · Polaroid</span><span class="photo-tag">Sin posado</span></div>
+    </div>
+  </div>
+  <div class="film-strip">
+    <span class="film-strip-label">Modo íntimo — referencia de encuadre análogo</span>
+    <div class="film-strip-frames">
+      <div class="film-frame"><span class="film-frame-num">01</span></div>
+      <div class="film-frame"><span class="film-frame-num">02</span></div>
+      <div class="film-frame"><span class="film-frame-num">03</span></div>
+      <div class="film-frame"><span class="film-frame-num">04</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DECORATION -->
+<div class="deco-section">
+  <span class="sec-label deco-label">Dirección de decoración · El Cardenal Oaxaca</span>
+  <div class="deco-headline">El espacio<br>como <em>escenario.</em></div>
+  <div class="deco-grid">
+    <div class="deco-cell">
+      <span class="deco-cell-label">Floral</span>
+      <span class="deco-cell-name">Crimson & Burgundy</span>
+      <div class="deco-cell-body">Rosas crimson en cascada. Dalias burgundy. Calla lilies blush. Follaje oscuro como contraste. <em>Sin pasteles. Sin blanco puro.</em> La abundancia es intencional — los arreglos deben sentirse casi excesivos.</div>
+      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#3D1019;"></div><div class="deco-swatch-dot" style="background:#6B1A2A;"></div><div class="deco-swatch-dot" style="background:#C8A4B8;"></div><div class="deco-swatch-dot" style="background:#2D4A1E;"></div></div>
+    </div>
+    <div class="deco-cell">
+      <span class="deco-cell-label">Mesa</span>
+      <span class="deco-cell-name">Cristal & Plata</span>
+      <div class="deco-cell-body">Cristalería tallada. Cubiertos de plata antigua. Velas taper como protagonistas de la mesa. <em>La luz de la vela es el centro.</em> Vajilla blanca simple. Sin elementos que compitan con el floral y la luz.</div>
+      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#C8C8C0;"></div><div class="deco-swatch-dot" style="background:#8C7B6B;"></div><div class="deco-swatch-dot" style="background:#F5E0C0;"></div></div>
+    </div>
+    <div class="deco-cell">
+      <span class="deco-cell-label">Luz</span>
+      <span class="deco-cell-name">Vela como protagonista</span>
+      <div class="deco-cell-body">Velas taper en marfil o crimson oscuro. Velas votivas agrupadas. Faroles de cristal al piso. <em>Sin luz artificial directa.</em> El interior de El Cardenal debe sentirse iluminado únicamente por el fuego.</div>
+      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#F5E0C0;"></div><div class="deco-swatch-dot" style="background:#3D1019;"></div><div class="deco-swatch-dot" style="background:#F0D080;"></div></div>
+    </div>
+    <div class="deco-cell">
+      <span class="deco-cell-label">Espacio · El Cardenal</span>
+      <span class="deco-cell-name">Interior contenido</span>
+      <div class="deco-cell-body">El Cardenal es un espacio interior. Sus muros, su arquitectura y su atmósfera son parte activa del diseño. <em>No intervenir en exceso.</em> Las flores y las velas completan el espacio — no lo transforman. El venue define el carácter. La decoración lo intensifica.</div>
+      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#1C1814;"></div><div class="deco-swatch-dot" style="background:#8C7B6B;"></div><div class="deco-swatch-dot" style="background:#F5E0C0;"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- APPLICATIONS -->
+<div class="apps">
+  <span class="apps-label">Aplicaciones</span>
+  <span class="app-item-label">Save the date — modo íntimo</span>
+  <div class="std">
+    <div class="std-film-side">
+      <div class="std-frame"><span class="std-frame-label">L&D · 01</span></div>
+      <div class="std-frame"><span class="std-frame-label">L&D · 02</span></div>
+      <div class="std-frame"><span class="std-frame-label">L&D · 03</span></div>
+    </div>
+    <div class="std-text">
+      <span class="std-top-label">Save the date</span>
+      <div class="std-names">Laura<br><em>&</em>Diego</div>
+      <div class="std-foot">
+        <span class="std-date">Sábado · 15 de Mayo · 2027</span>
+        <span class="std-location">El Cardenal · Oaxaca, México</span>
+      </div>
+    </div>
+  </div>
+  <span class="app-item-label" style="padding-top:0;">Sitio web</span>
+  <div class="web">
+    <div class="web-nav"><span class="web-logo">Laura & Diego</span><div class="web-links"><span class="web-link">Nuestra historia</span><span class="web-link">La boda</span><span class="web-link">Confirmar</span></div></div>
+    <div class="web-hero"><div class="web-hl">En Oaxaca<br>hay un mezcal<br><em>esperándote.</em></div><div class="web-meta">Mayo 15, 2027 · El Cardenal · Oaxaca</div></div>
+    <div class="web-lower">
+      <div class="web-lower-cell"><span class="web-cell-label">Confirmación</span><div class="web-cell-heading">¿Nos acompañas?</div><div class="web-cell-body">Confirma tu asistencia antes del 15 de febrero de 2027.</div><span class="web-cell-btn">Confirmar asistencia</span></div>
+      <div class="web-lower-cell"><span class="web-cell-label">La frase</span><div class="web-cell-body" style="font-size:16px;margin-top:4px;font-style:italic;">Con el mezcal<br>celebramos la eternidad.</div></div>
+    </div>
+  </div>
+  <span class="app-item-label" style="padding-top:0;">Etiquetas</span>
+  <div class="labels">
+    <div class="label-cell"><span class="label-cell-type">Menú</span><span class="label-cell-spec">Menú de boda<br>El Cardenal · Oaxaca · Mayo 2027</span></div>
+    <div class="label-cell on-crimson"><span class="label-cell-type">Etiqueta de botella</span><span class="label-cell-spec">Con el mezcal<br>celebramos la eternidad<br>L & D · 15 · 05 · 2027</span></div>
+    <div class="label-cell"><span class="label-cell-type">Sobre · Remitente</span><span class="label-cell-spec">Laura & Diego<br>Oaxaca, México<br>15 de Mayo · 2027</span></div>
+  </div>
+</div>
+
+<!-- RULES -->
+<div class="rules">
+  <span class="rules-label">Reglas de Uso</span>
+  <div class="rules-cols">
+    <div>
+      <div class="rules-col-head do-head">Sí</div>
+      <ul class="rules-list do-list">
+        <li>Cormorant Garamond italic exclusivamente para los nombres, a gran escala.</li>
+        <li>Contraste de escala tipográfica — titulares grandes, cuerpo pequeño.</li>
+        <li>Espacio en blanco generoso en papel. El silencio visual es parte del lujo.</li>
+        <li>Fotografía editorial siempre en tonos cálidos y color.</li>
+        <li>B&N permitido solo en modo íntimo — fotobooth, analógico, save the date.</li>
+        <li>Velas como única fuente de luz — taper, votivas y faroles de cristal.</li>
+        <li>Abundancia floral — el exceso es intencional y bienvenido.</li>
+        <li>El interior de El Cardenal como fondo activo en fotografía y decoración.</li>
+        <li>La frase completa o solo la variante corta aprobada.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="rules-col-head dont-head">No</div>
+      <ul class="rules-list dont-list">
+        <li>Más de dos tipografías en una misma pieza gráfica.</li>
+        <li>Nombres en peso regular o bold. Siempre italic 300.</li>
+        <li>Colores fuera de la paleta — especialmente blancos puros o rosas pastel.</li>
+        <li>Crimson como fondo en piezas gráficas principales.</li>
+        <li>Flores artificiales o en tonos pastel en la decoración.</li>
+        <li>Candelabros. La vela sola es suficiente protagonista.</li>
+        <li>Luz artificial directa o LED fría en el espacio.</li>
+        <li>Decoración que compita con la arquitectura de El Cardenal.</li>
+        <li>Frases de la boda modificadas o parafraseadas.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-phrase">Con el agave entendimos la espera de la tierra.<br>Con la distancia entendimos la fuerza de elegirnos.<br>Con el mezcal celebramos la eternidad.</div>
+    <div class="closing-vr"></div>
+    <span class="closing-names">Laura & Diego</span>
+    <div class="closing-credit">Guía de Estilo · El Cardenal Oaxaca · 2027</div>
+  </div>
+</div>
+
+</body>
+</html>
