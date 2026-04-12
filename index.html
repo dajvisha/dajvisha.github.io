@@ -41,6 +41,13 @@
       --charcoal: #2A2A2A;
       --warm-gray: #6B6560;
       --soft-black: #1A1A1A;
+      --page-bg: #F9F6F2;
+      --headline: #3A2E26;
+      --text-muted: #6B5E54;
+      --accent: #9A8B5D;
+      --placeholder-1: #E8E2D5;
+      --placeholder-2: #D9CFC1;
+      --placeholder-3: #C4B5A0;
       --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-sans: 'Montserrat', Helvetica, Arial, sans-serif;
@@ -198,116 +205,200 @@
     }
 
     /* ──────────────────────────────────────
-       HERO — editorial
+       HERO — flexbox + CSS Grid, zero overlap
     ────────────────────────────────────── */
     .hero {
-      position: relative;
-      min-height: 100vh;
+      min-height: 85vh;
+      background: #F9F6F2;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background: #F7F4EF;
-      padding: 120px 40px 160px;
+      justify-content: space-between;
+      padding: 14vh 7vw 12vh 7vw;
+      gap: 5vw;
     }
 
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-      max-width: 860px;
+    /* Left column: text only */
+    .hero-text {
+      flex: 0 1 45%;
+      max-width: 520px;
     }
 
-    /* Names — light Cormorant, wide tracking */
-    .hero-names-line {
+    .hero-text h1 {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 5.5vw, 5rem);
+      font-size: clamp(36px, 4vw, 54px);
+      color: var(--headline);
+      line-height: 1.13;
       font-weight: 300;
-      letter-spacing: .22em;
-      color: #1C1C1C;
-      text-transform: uppercase;
-      line-height: 1;
-      margin-bottom: clamp(40px, 5vw, 64px);
+      letter-spacing: 0.025em;
+      margin: 0 0 2rem 0;
+      text-align: left;
+      font-variant-ligatures: common-ligatures discretionary-ligatures;
+      font-feature-settings: "ss01" on, "ss02" on;
     }
-    .hero-amp {
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: rgba(42, 42, 42, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .hero-info {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(28, 28, 28, 0.32);
+      margin-bottom: 2.2rem;
       font-style: italic;
-      font-weight: 300;
-      opacity: .5;
-      margin: 0 .25em;
-      letter-spacing: 0;
     }
 
-    /* Photo — clean, no effects */
-    .hero-photo {
-      width: clamp(260px, 42vw, 500px);
-      aspect-ratio: 2 / 3;
-      overflow: hidden;
-      background: #111;
-    }
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: grayscale(100%);
-      display: block;
-    }
-
-    /* Thin vertical rule + date */
-    .hero-rule {
-      width: 1px;
-      height: 40px;
-      background: rgba(28,28,28,.2);
-      margin: clamp(32px, 4vw, 48px) auto 0;
-    }
-
-    .hero-date {
-      margin-top: 20px;
+    .hero-text .hero-cta {
+      display: inline-block;
       font-family: var(--font-sans);
-      font-size: .6rem;
-      font-weight: 400;
-      letter-spacing: .5em;
+      font-size: 0.85rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: rgba(28,28,28,.45);
-    }
-    .hero-location {
-      margin-top: 8px;
-      font-family: var(--font-sans);
-      font-size: .6rem;
-      font-weight: 300;
-      letter-spacing: .45em;
-      text-transform: uppercase;
-      color: rgba(28,28,28,.3);
+      color: var(--accent);
+      border: none;
+      border-bottom: 2px solid var(--accent);
+      padding: 0 0 7px 0;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s, border-bottom-color 0.3s, padding-bottom 0.3s;
     }
 
-    /* Static scroll line — no bounce */
-    .hero-scroll {
-      margin-top: 56px;
+    .hero-text .hero-cta:hover {
+      color: var(--headline);
+      border-bottom-color: var(--headline);
+      padding-bottom: 10px;
+    }
+
+    /* Right column: CSS Grid image layout */
+    .hero-images {
+      flex: 0 1 48%;
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      grid-template-rows: 1.2fr 0.7fr;
+      gap: 2.2rem 1.2rem;
+      align-items: start;
+    }
+
+    /* Portfolio Card Component */
+    .portfolio-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(42, 42, 42, 0.12);
+      border-radius: 0;
+      padding: 1.75rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 0;
-      color: rgba(28,28,28,.25);
-    }
-    .hero-scroll-line {
-      width: 1px;
-      height: 48px;
-      background: rgba(28,28,28,.2);
+      gap: 1rem;
+      /* box-shadow removed for a cleaner look */
+      overflow: hidden;
+      position: relative;
+      /* Faint paper texture overlay */
+      background-image: url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="white"/><g opacity=".13"><circle cx="20" cy="20" r="1.2" fill="gray"/><circle cx="60" cy="40" r=".8" fill="gray"/><circle cx="100" cy="80" r="1.1" fill="gray"/><circle cx="80" cy="100" r=".7" fill="gray"/><circle cx="30" cy="90" r=".9" fill="gray"/><circle cx="90" cy="30" r=".7" fill="gray"/></g></svg>');
+      background-size: 180px 180px;
+      background-blend-mode: multiply;
     }
 
-    /* Fade only — no slide */
-    .hero-fade { opacity: 0; animation: heroFade 1.6s ease forwards; }
-    .hero-fade-2 { animation-delay: .5s; }
-    .hero-fade-3 { animation-delay: 1s; }
-    .hero-fade-4 { animation-delay: 1.4s; }
-    @keyframes heroFade { to { opacity: 1; } }
+    .portfolio-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 12% 15%, rgba(255,255,255,0.28), transparent 12%),
+                  radial-gradient(circle at 85% 80%, rgba(255,255,255,0.22), transparent 10%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
 
-    /* Mobile */
+    .card-image {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.1) brightness(0.98) contrast(1.05) saturate(0.9);
+      border: none;
+      background: #FFFFFF;
+    }
+
+    .card-image.portrait { aspect-ratio: 2 / 3; }
+    .card-image.landscape { aspect-ratio: 16 / 10; }
+
+    .card-meta {
+      border-top: 1px solid rgba(58, 46, 38, 0.12);
+      padding-top: 0.8rem;
+      min-height: 1.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(58, 46, 38, 0.8);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Grid placement for cards */
+    .portfolio-card:nth-child(1) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      z-index: 2;
+      padding: 2.2rem 2rem 2.2rem 2.2rem;
+    }
+
+    .portfolio-card:nth-child(2) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      z-index: 1;
+      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
+    }
+
+    .portfolio-card:nth-child(3) {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      z-index: 1;
+      padding: 0.8rem 1.1rem 1.1rem 1.1rem;
+      margin-top: -1.2rem;
+    }
+
+    /* Individual card image backgrounds */
+    .portfolio-card:nth-child(1) .card-image,
+    .portfolio-card:nth-child(2) .card-image,
+    .portfolio-card:nth-child(3) .card-image {
+      background: #FFFFFF;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        padding: 6vh 5vw;
+        gap: 3rem;
+        text-align: center;
+      }
+      .hero-text {
+        max-width: 100%;
+      }
+      .hero-text h1 {
+        text-align: center;
+      }
+      .hero-images {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+
     @media (max-width: 600px) {
-      .hero { padding: 100px 24px 160px; }
-      .hero-photo { width: clamp(240px, 78vw, 340px); }
+      .hero-images {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .hero-images > div {
+        grid-column: 1 / 2 !important;
+        aspect-ratio: 16 / 10 !important;
+      }
     }
 
     /* ── Countdown Bar ── */
@@ -741,149 +832,45 @@
   <a href="#inicio" class="nav-logo">L & D</a>
   <ul class="nav-links">
     <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#historia">Nuestra Historia</a></li>
-    <li><a href="#confirmar">Confirmar</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#inicio">Inicio</a>
-    <a href="#historia">Nuestra Historia</a>
-    <a href="#confirmar">Confirmar</a>
   </div>
 </nav>
-
-<!-- ═══════ HERO ═══════ -->
 <section class="hero" id="inicio">
-  <div class="hero-inner">
 
-    <h1 class="hero-names-line hero-fade">
-      Laura <span class="hero-amp">&amp;</span> Diego
-    </h1>
-
-    <div class="hero-photo hero-fade hero-fade-2">
-      <img src="photos/couple-photo.png" alt="Laura y Diego" id="heroArchImg">
-    </div>
-
-    <div class="hero-fade hero-fade-3">
-      <div class="hero-rule"></div>
-      <p class="hero-date">Mayo 15, 2027</p>
-      <p class="hero-location">Oaxaca, Mexico</p>
-    </div>
-
-    <div class="hero-scroll hero-fade hero-fade-4">
-      <div class="hero-scroll-line"></div>
-    </div>
-
+  <!-- Left column: text -->
+  <div class="hero-text">
+    <h1>Laura & Diego te invitan a celebrar el amor, la risa y nuevos comienzos en Oaxaca.</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-info">Mayo 15, 2027 · Oaxaca, México</p>
+    <button class="hero-cta">Confirmar Asistencia</button>
   </div>
 
-  <div class="countdown-bar">
-    <div class="countdown" id="countdown"></div>
+  <!-- Right column: CSS Grid portfolio cards -->
+  <div class="hero-images">
+    <!-- Card 1: Portrait photo -->
+    <article class="portfolio-card">
+      <img class="card-image portrait" src="photos/photo_1.jpeg" alt="Retrato de boda" />
+      <div class="card-meta"></div>
+    </article>
+
+    <!-- Card 2: Portrait photo -->
+    <article class="portfolio-card">
+      <img class="card-image portrait" src="photos/photo_2.jpeg" alt="Momento al aire libre" />
+      <div class="card-meta"></div>
+    </article>
+
+    <!-- Card 3: Portrait photo -->
+    <article class="portfolio-card">
+      <img class="card-image portrait" src="photos/photo_3.jpeg" alt="Retrato íntimo" />
+      <div class="card-meta"></div>
+    </article>
   </div>
-</section>
 
-<!-- ═══════ OUR STORY ═══════ -->
-<section class="section" id="historia">
-  <div class="container">
-
-    <!-- Row 1: title + prose -->
-    <div class="story-header reveal">
-      <h2 class="story-title">Nuestra<br>Historia</h2>
-      <div class="story-prose">
-        <p>Un encuentro inesperado en 2019 que cambió nuestras vidas para siempre. Desde el primer momento, supimos que había algo especial entre nosotros.</p>
-        <p>Juntos aprendimos que explorar el mundo era nuestra forma favorita de crecer. Cada aventura, cada ciudad nueva, nos acercó un poco más.</p>
-        <p>En 2024, frente a la pirámide del Louvre, sellamos una promesa que llevaremos en el corazón por siempre. Ahora, en la hermosa Oaxaca, queremos celebrarlo rodeados de las personas que más amamos.</p>
-      </div>
-    </div>
-
-    <!-- Photo groups — intercalated, scroll-triggered -->
-    <div class="story-groups">
-
-      <!-- Group A: Large portrait left + smaller offset right -->
-      <div class="story-group story-group--a reveal">
-        <div class="story-img"></div>
-        <div class="story-img"></div>
-      </div>
-
-      <!-- Group B: 3 photos — diagonal stagger -->
-      <div class="story-group story-group--b reveal">
-        <div class="story-img"></div>
-        <div class="story-img"></div>
-        <div class="story-img"></div>
-      </div>
-
-      <!-- Group C: Mirrored — small left, large portrait right -->
-      <div class="story-group story-group--c reveal">
-        <div class="story-img"></div>
-        <div class="story-img"></div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════ RSVP ═══════ -->
-<section class="section section-alt" id="confirmar" style="position:relative;overflow:hidden">
-  <!-- Floating accent: stepped fret -->
-  <div class="container-sm">
-    <div class="text-center reveal" style="margin-bottom:48px">
-      <p class="label" style="margin-bottom:14px">Confirma tu Asistencia</p>
-      <h2 class="heading-serif">RSVP</h2>
-      <p class="body-text" style="margin-top:28px;max-width:480px;margin-left:auto;margin-right:auto">
-        Esperamos contar con tu presencia en este día tan especial. Por favor confirma antes del 15 de marzo de 2027.
-      </p>
-    </div>
-
-    <div class="rsvp-form reveal" id="rsvpForm">
-      <form id="rsvpFormEl" onsubmit="return false;">
-        <div class="form-group">
-          <label class="label">Nombre Completo</label>
-          <input type="text" class="form-input" placeholder="Tu nombre" required />
-        </div>
-        <div class="form-group">
-          <label class="label">Correo Electrónico</label>
-          <input type="email" class="form-input" placeholder="tu@email.com" required />
-        </div>
-        <div class="form-group">
-          <label class="label" style="margin-bottom:14px">¿Nos Acompañarás?</label>
-          <div class="attend-btns">
-            <button type="button" class="attend-btn" data-value="yes" onclick="selectAttend(this)">Con mucho gusto</button>
-            <button type="button" class="attend-btn" data-value="no" onclick="selectAttend(this)">No podré asistir</button>
-          </div>
-        </div>
-        <div class="extra-fields" id="extraFields">
-          <div class="form-group">
-            <label class="label">Número de Invitados</label>
-            <select class="form-input">
-              <option>1 persona</option>
-              <option>2 personas</option>
-              <option>3 personas</option>
-              <option>4 personas</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="label">Restricciones Alimentarias</label>
-            <input type="text" class="form-input" placeholder="Vegetariano, vegano, alergias, etc." />
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="label">Mensaje para los Novios</label>
-          <textarea class="form-input" rows="3" placeholder="Un mensaje especial..."></textarea>
-        </div>
-        <button type="button" class="submit-btn" onclick="submitRSVP()">Confirmar Asistencia</button>
-      </form>
-    </div>
-
-    <div class="text-center reveal" id="thankYou" style="display:none;padding:56px 0">
-      <div style="font-family:var(--font-serif);font-size:1.6rem;color:rgba(42,42,42,.45);margin-bottom:28px">♥</div>
-      <div class="thank-you">
-        <h3>¡Gracias!</h3>
-        <p class="body-text">Hemos recibido tu confirmación. Nos emociona mucho celebrar contigo.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
@@ -933,37 +920,6 @@
     });
   });
 
-  /* ── Countdown ── */
-  const weddingDate = new Date('2027-05-15T17:00:00-06:00');
-
-  function updateCountdown() {
-    const now = new Date();
-    let diff = weddingDate - now;
-    if (diff < 0) diff = 0;
-
-    const d = Math.floor(diff / 864e5);
-    const h = Math.floor((diff / 36e5) % 24);
-    const m = Math.floor((diff / 6e4) % 60);
-    const s = Math.floor((diff / 1e3) % 60);
-
-    const units = [
-      { v: d, l: 'Días', hide: false },
-      { v: h, l: 'Horas', hide: false },
-      { v: m, l: 'Minutos', hide: true },
-      { v: s, l: 'Segundos', hide: true },
-    ];
-
-    document.getElementById('countdown').innerHTML = units.map(u =>
-      `<div class="countdown-unit${u.hide ? ' hide-mobile' : ''}">
-        <div class="countdown-value">${String(u.v).padStart(2,'0')}</div>
-        <div class="countdown-label">${u.l}</div>
-      </div>`
-    ).join('');
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
   /* ── Scroll Reveal ── */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -976,23 +932,6 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  /* ── RSVP ── */
-  let attending = '';
-
-  function selectAttend(btn) {
-    document.querySelectorAll('.attend-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    attending = btn.dataset.value;
-    document.getElementById('extraFields').classList.toggle('show', attending === 'yes');
-  }
-
-  function submitRSVP() {
-    // In production, send data to your backend here
-    document.getElementById('rsvpForm').style.display = 'none';
-    const ty = document.getElementById('thankYou');
-    ty.style.display = 'block';
-    setTimeout(() => ty.classList.add('visible'), 50);
-  }
 </script>
 </body>
 </html>
