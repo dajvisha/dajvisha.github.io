@@ -39,7 +39,38 @@
   --ink: #1A1612;
 }
 
-body {
+:root.olive-mode {
+  --crimson: #6B6440;
+  --wine-dark: #4A4A28;
+  --blush: #D4E0A0;
+}
+
+/* ── Toggle button ── */
+.accent-toggle {
+  position: fixed; bottom: 32px; right: 32px; z-index: 9999;
+  display: flex; align-items: center; gap: 0;
+  border: 0.5px solid rgba(26,22,18,0.18);
+  background: var(--cream); overflow: hidden;
+  box-shadow: 0 2px 16px rgba(26,22,18,0.10);
+  cursor: pointer;
+}
+.accent-toggle-opt {
+  padding: 11px 20px;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.38;
+  transition: opacity 0.3s, background 0.3s, color 0.3s;
+  user-select: none;
+}
+.accent-toggle-opt.active {
+  opacity: 1;
+  color: var(--cream);
+  background: var(--crimson);
+}
+.accent-toggle-divider {
+  width: 0.5px; height: 18px;
+  background: rgba(26,22,18,0.15); flex-shrink: 0;
+}
   background: var(--cream);
   color: var(--ink);
   font-family: 'Playfair Display', serif;
@@ -731,6 +762,37 @@ body {
     <div class="closing-credit">Guía de Estilo · El Cardenal Oaxaca · 2027</div>
   </div>
 </div>
+
+<!-- Accent toggle -->
+<div class="accent-toggle" id="accentToggle" title="Cambiar color primario">
+  <span class="accent-toggle-opt active" id="optCrimson">Crimson</span>
+  <span class="accent-toggle-divider"></span>
+  <span class="accent-toggle-opt" id="optOlive">Olive</span>
+</div>
+
+<script>
+  (function () {
+    const root = document.documentElement;
+    const toggle = document.getElementById('accentToggle');
+    const optCrimson = document.getElementById('optCrimson');
+    const optOlive = document.getElementById('optOlive');
+
+    function setMode(mode) {
+      if (mode === 'olive') {
+        root.classList.add('olive-mode');
+        optOlive.classList.add('active');
+        optCrimson.classList.remove('active');
+      } else {
+        root.classList.remove('olive-mode');
+        optCrimson.classList.add('active');
+        optOlive.classList.remove('active');
+      }
+    }
+
+    optCrimson.addEventListener('click', () => setMode('crimson'));
+    optOlive.addEventListener('click', () => setMode('olive'));
+  })();
+</script>
 
 </body>
 </html>
