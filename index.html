@@ -913,15 +913,18 @@
 
     .submit-btn {
       width: 100%; padding: 18px;
-      background: var(--charcoal); color: var(--cream);
+      background: var(--wine); color: #F5EDE8;
       border: none; cursor: pointer;
       font-family: var(--font-sans);
-      font-size: .75rem; font-weight: 500;
-      letter-spacing: .35em; text-transform: uppercase;
-      transition: background .3s;
+      font-size: .75rem; font-weight: 400;
+      letter-spacing: .4em;
+      font-variant-caps: all-small-caps;
+      font-feature-settings: "smcp" 1, "c2sc" 1;
+      transition: background .4s, transform .3s;
       margin-top: 8px;
+      min-height: 52px;
     }
-    .submit-btn:hover { background: var(--soft-black); }
+    .submit-btn:hover { background: var(--wine-dark); transform: translateY(-1px); }
 
     .thank-you h3 {
       font-family: var(--font-display);
@@ -1067,12 +1070,14 @@
   <a href="#inicio" class="nav-logo">LAURA & DIEGO</a>
   <ul class="nav-links">
     <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#confirmacion">Confirmar</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#inicio">Inicio</a>
+    <a href="#confirmacion">Confirmar</a>
   </div>
 </nav>
 
@@ -1148,6 +1153,73 @@
   </div>
 </div>
 
+<!-- RSVP -->
+<section class="section section-alt" id="confirmacion">
+  <div class="container-sm">
+
+    <div class="text-center reveal" style="margin-bottom: 3.5rem;">
+      <p class="label" style="margin-bottom: 1.2rem;">Confirmación de asistencia</p>
+      <h2 class="heading-serif" style="margin-bottom: 1rem;">¿Nos acompañas?</h2>
+      <div class="divider"></div>
+      <p class="body-text" style="margin-top: 1.8rem; max-width: 420px; margin-left: auto; margin-right: auto;">
+        Confirma tu asistencia antes del <em style="font-style: italic; color: var(--terra);">15 de febrero de 2027.</em>
+        Cada lugar en nuestra mesa es un lugar reservado para ti.
+      </p>
+    </div>
+
+    <div class="rsvp-form reveal">
+
+      <div class="form-group">
+        <label class="label" for="rsvp-name">Nombre completo</label>
+        <input class="form-input" type="text" id="rsvp-name" name="name"
+               placeholder="Laura" autocomplete="name" />
+      </div>
+
+      <div class="form-group">
+        <label class="label" for="rsvp-email">Correo electrónico</label>
+        <input class="form-input" type="email" id="rsvp-email" name="email"
+               placeholder="laura@ejemplo.com" autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label class="label" style="margin-bottom: 16px; display: block;">Asistencia</label>
+        <div class="attend-btns">
+          <button type="button" class="attend-btn" data-attend="yes">Asistiré con gusto</button>
+          <button type="button" class="attend-btn" data-attend="no">No podré asistir</button>
+        </div>
+      </div>
+
+      <div class="form-group extra-fields" id="extra-fields">
+        <label class="label" for="rsvp-guests">¿Cuántos asistentes? (incluyéndote)</label>
+        <select class="form-input" id="rsvp-guests" name="guests">
+          <option value="">— Selecciona —</option>
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+        </select>
+      </div>
+
+      <div class="form-group extra-fields" id="extra-dietary">
+        <label class="label" for="rsvp-dietary">Restricciones alimentarias</label>
+        <input class="form-input" type="text" id="rsvp-dietary" name="dietary"
+               placeholder="Vegetariano, sin gluten…" />
+      </div>
+
+      <div class="form-group" style="margin-bottom: 0;">
+        <label class="label" for="rsvp-note">Mensaje para los novios <span style="opacity:.45;">(opcional)</span></label>
+        <textarea class="form-input" id="rsvp-note" name="note" rows="3"
+                  placeholder="Un pensamiento, un deseo…"></textarea>
+      </div>
+
+      <button type="button" class="submit-btn" style="margin-top: 40px;" disabled>
+        Enviar confirmación
+      </button>
+
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <h2>L &amp; D</h2>
@@ -1218,6 +1290,17 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* RSVP — attend toggle */
+  document.querySelectorAll('.attend-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.attend-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      const attending = btn.dataset.attend === 'yes';
+      document.getElementById('extra-fields').classList.toggle('show', attending);
+      document.getElementById('extra-dietary').classList.toggle('show', attending);
+    });
+  });
 
   /* Countdown */
   const weddingDate = new Date('2027-05-15T17:00:00-06:00');
