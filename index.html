@@ -5,10 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Laura & Diego — Mayo 15, 2027</title>
   <meta name="description" content="Acompañanos a celebrar nuestra boda el 15 de mayo de 2027 en Oaxaca, Mexico." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+    /* ── Local Fonts ── */
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CormorantGaramond-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CormorantGaramond-LightItalic.ttf') format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CormorantGaramond-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CormorantGaramond-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CormorantGaramond-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CormorantGaramond-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-ExtraLight.ttf') format('truetype'); font-weight: 200; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
     /* ── Page fade-in ── */
     .page-content {
       opacity: 0;
@@ -73,9 +87,9 @@
     /* ── Utility ── */
     .label {
       font-family: var(--font-sans);
-      font-size: .7rem;
-      font-weight: 500;
-      letter-spacing: .35em;
+      font-size: .65rem;
+      font-weight: 200;
+      letter-spacing: .45em;
       text-transform: uppercase;
       color: var(--warm-gray);
     }
@@ -161,9 +175,9 @@
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a {
       font-family: var(--font-sans);
-      font-size: .65rem;
-      font-weight: 500;
-      letter-spacing: .35em;
+      font-size: .6rem;
+      font-weight: 300;
+      letter-spacing: .4em;
       text-transform: uppercase;
       color: rgba(42,42,42,.45);
       transition: color .3s;
@@ -287,9 +301,9 @@
 
     .hero-info {
       font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.4em;
+      font-size: 0.65rem;
+      font-weight: 200;
+      letter-spacing: 0.5em;
       text-transform: uppercase;
       color: var(--warm-gray);
       margin-bottom: 2.5rem;
@@ -298,16 +312,16 @@
     .hero-text .hero-cta {
       display: inline-block;
       font-family: var(--font-sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.3em;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
       color: #F5EDE8;
       background: var(--wine);
       border: none;
-      padding: 16px 40px;
+      padding: 18px 44px;
       cursor: pointer;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 400;
       transition: background 0.4s, transform 0.3s;
     }
 
@@ -416,8 +430,8 @@
     }
     .countdown-label {
       font-family: var(--font-sans);
-      font-size: .55rem; font-weight: 500;
-      letter-spacing: .35em; text-transform: uppercase;
+      font-size: .5rem; font-weight: 200;
+      letter-spacing: .45em; text-transform: uppercase;
       color: var(--warm-gray);
       margin-top: 6px;
     }
@@ -816,7 +830,8 @@
       margin-bottom: 12px;
     }
     .footer .sub {
-      font-size: .65rem; letter-spacing: .5em; text-transform: uppercase;
+      font-size: .6rem; letter-spacing: .55em; text-transform: uppercase;
+      font-weight: 200;
       opacity: .5;
     }
     .footer .divider-f {
@@ -840,8 +855,9 @@
       margin-bottom: 40px;
     }
     .footer .made {
-      font-size: .55rem;
-      letter-spacing: .15em;
+      font-size: .5rem;
+      font-weight: 200;
+      letter-spacing: .25em;
       opacity: .18;
     }
 
