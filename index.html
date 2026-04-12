@@ -4,10 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laura & Diego — Mayo 15, 2027</title>
-  <meta name="description" content="Acompañanos a celebrar nuestra boda el 15 de mayo de 2027 en Oaxaca, Mexico." />
+  <title>Laura &amp; Diego — Mayo 15, 2027</title>
+  <meta name="description" content="Acompáñanos a celebrar nuestra boda el 15 de mayo de 2027 en Oaxaca, México." />
+
+  <!-- Open Graph / WhatsApp / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Laura &amp; Diego — 15 de Mayo, 2027 · Oaxaca" />
+  <meta property="og:description" content="Acompáñanos a celebrar nuestra boda el 15 de mayo de 2027 en Oaxaca, México." />
+  <meta property="og:image" content="photos/photo_1.jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_MX" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Laura &amp; Diego — 15 de Mayo, 2027 · Oaxaca" />
+  <meta name="twitter:description" content="Acompáñanos a celebrar nuestra boda el 15 de mayo de 2027 en Oaxaca, México." />
+  <meta name="twitter:image" content="photos/photo_1.jpeg" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.svg" />
+
+  <!-- Font preload -->
+  <link rel="preload" href="fonts/PlayfairDisplay-Regular.ttf" as="font" type="font/truetype" crossorigin />
   <style>
     /* ── Local Fonts ── */
     @font-face {
@@ -267,11 +285,13 @@
     /* ── Scroll Reveal ── */
     .reveal {
       opacity: 0;
-      transition: opacity 1s ease;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .reveal.visible {
       opacity: 1;
+      transform: translateY(0);
     }
 
     /* ── Skip Link ── */
@@ -914,6 +934,41 @@
       margin-bottom: 36px;
     }
 
+    /* story agave accent */
+    .story-agave {
+      display: block;
+      width: 28px;
+      height: 52px;
+      margin-bottom: 28px;
+      opacity: 0.22;
+    }
+
+    /* story headline connector */
+    .story-connector {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+      margin-bottom: 42px;
+    }
+
+    .story-connector-line {
+      flex: 1;
+      height: 0.5px;
+      background: rgba(26,22,18,0.14);
+    }
+
+    .story-connector-text {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 8px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.60;
+      white-space: nowrap;
+    }
+
     .story-headline {
       font-family: var(--font-display);
       font-weight: 400;
@@ -922,7 +977,7 @@
       letter-spacing: -0.01em;
       color: var(--ink);
       opacity: 0.85;
-      margin-bottom: 56px;
+      margin-bottom: 0;
     }
 
     .story-headline em {
@@ -939,7 +994,7 @@
     .story-milestone {
       display: flex;
       align-items: baseline;
-      gap: 20px;
+      gap: 16px;
       padding: 22px 0;
       border-bottom: 0.5px solid rgba(26,22,18,0.07);
     }
@@ -947,12 +1002,12 @@
     .story-milestone-num {
       font-family: var(--font-sans);
       font-weight: 300;
-      font-size: 9px;
-      letter-spacing: 0.18em;
+      font-size: 8px;
+      letter-spacing: 0.12em;
       color: var(--sienna);
       opacity: 0.45;
       flex-shrink: 0;
-      width: 36px;
+      width: 30px;
       text-align: right;
     }
 
@@ -1047,6 +1102,12 @@
       .story-milestone { border-right: none; }
       .story-milestone:nth-child(odd) { padding-right: 32px; }
       .story-milestone:nth-child(even) { padding-left: 32px; border-left: 0.5px solid rgba(26,22,18,0.07); }
+      /* 5th milestone spans both columns, centered */
+      .story-milestone:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        padding-right: 0;
+      }
     }
 
     /* ──────────────────────────────────────
@@ -1490,15 +1551,21 @@
     </div>
 
     <!-- STORY -->
-    <section class="story reveal" id="historia">
+    <section class="story" id="historia">
       <div class="story-inner">
 
-        <span class="story-label">Nuestra historia</span>
-        <h2 class="story-headline">De Monterrey<br>a <em>Oaxaca.</em></h2>
+        <span class="story-label reveal" data-delay="80">Nuestra historia</span>
+        <h2 class="story-headline reveal" data-delay="160">De Monterrey<br>a <em>Oaxaca.</em></h2>
+
+        <div class="story-connector reveal" data-delay="240">
+          <span class="story-connector-line"></span>
+          <span class="story-connector-text">6 años · 5 ciudades · 1 historia</span>
+          <span class="story-connector-line"></span>
+        </div>
 
         <div class="story-milestones">
 
-          <div class="story-milestone">
+          <div class="story-milestone reveal" data-delay="320">
             <span class="story-milestone-num">2021</span>
             <div class="story-milestone-body">
               <span class="story-milestone-city">Monterrey, México</span>
@@ -1506,7 +1573,7 @@
             </div>
           </div>
 
-          <div class="story-milestone">
+          <div class="story-milestone reveal" data-delay="400">
             <span class="story-milestone-num">2022</span>
             <div class="story-milestone-body">
               <span class="story-milestone-city">San Francisco, Estados Unidos</span>
@@ -1514,7 +1581,7 @@
             </div>
           </div>
 
-          <div class="story-milestone">
+          <div class="story-milestone reveal" data-delay="480">
             <span class="story-milestone-num">2024</span>
             <div class="story-milestone-body">
               <span class="story-milestone-city">París, Francia</span>
@@ -1522,7 +1589,7 @@
             </div>
           </div>
 
-          <div class="story-milestone">
+          <div class="story-milestone reveal" data-delay="560">
             <span class="story-milestone-num">2025</span>
             <div class="story-milestone-body">
               <span class="story-milestone-city">Toluca, México</span>
@@ -1530,7 +1597,7 @@
             </div>
           </div>
 
-          <div class="story-milestone">
+          <div class="story-milestone reveal" data-delay="640">
             <span class="story-milestone-num">2027</span>
             <div class="story-milestone-body">
               <span class="story-milestone-city">Oaxaca, México</span>
@@ -1540,7 +1607,7 @@
 
         </div><!-- /milestones -->
 
-        <div class="story-sub">
+        <div class="story-sub reveal" data-delay="80">
           <span class="story-sub-label">Hemos vivido juntos en</span>
           <div class="story-homes">
             <span class="story-home-item">Monclova, México</span>
@@ -1549,7 +1616,7 @@
           </div>
         </div>
 
-        <div class="story-sub">
+        <div class="story-sub reveal" data-delay="160">
           <span class="story-sub-label">Hemos viajado a</span>
           <div class="story-travels">
             <span class="story-travel-item">Cuatro Ciénagas</span>
@@ -1707,9 +1774,11 @@
 
     /* Scroll Reveal */
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          const delay = parseInt(entry.target.dataset.delay || '0', 10);
+          entry.target.style.transitionDelay = delay + 'ms';
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
