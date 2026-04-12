@@ -105,7 +105,6 @@ body {
 }
 .phrase-line:last-of-type {
   border-bottom: 0.5px solid rgba(253,250,245,0.12);
-  opacity: 0.95; color: var(--blush);
 }
 .phrase-short {
   margin-top: 52px;
@@ -212,7 +211,7 @@ body {
   font-style: italic; font-size: 15px; line-height: 1.9;
   color: var(--ink); opacity: 0.72; max-width: 560px;
 }
-.palette-combos { display: grid; grid-template-columns: 1fr 1fr; border-top: 0.5px solid rgba(26,22,18,0.07); }
+.palette-combos { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 0.5px solid rgba(26,22,18,0.07); }
 .combo { padding: 56px 64px; }
 .combo-label {
   font-family: 'Jost', sans-serif; font-weight: 200;
@@ -415,7 +414,7 @@ body {
 .web-cell-body { font-family:'EB Garamond',serif; font-style:italic; font-size:15px; line-height:1.85; color:var(--ink); opacity:0.72; }
 .web-cell-btn { display:inline-block; margin-top:20px; font-family:'Jost',sans-serif; font-weight:200; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.72; border-bottom:0.5px solid rgba(26,22,18,0.35); padding-bottom:3px; }
 
-.labels { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:0.5px solid rgba(26,22,18,0.08); border-bottom:0.5px solid rgba(26,22,18,0.08); margin-bottom:96px; }
+.labels { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; border-top:0.5px solid rgba(26,22,18,0.08); border-bottom:0.5px solid rgba(26,22,18,0.08); margin-bottom:96px; }
 .label-cell { padding:36px 52px; border-right:0.5px solid rgba(26,22,18,0.07); display:flex; flex-direction:column; gap:18px; background:var(--cream); }
 .label-cell:last-child { border-right:none; }
 .label-cell-type { font-family:'Jost',sans-serif; font-weight:200; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; }
@@ -423,6 +422,9 @@ body {
 .label-cell.on-crimson { background:var(--crimson); }
 .label-cell.on-crimson .label-cell-type { color:var(--cream); opacity:0.75; }
 .label-cell.on-crimson .label-cell-spec { color:var(--cream); opacity:0.92; }
+.label-cell.on-olive { background:var(--olive); }
+.label-cell.on-olive .label-cell-type { color:var(--cream); opacity:0.75; }
+.label-cell.on-olive .label-cell-spec { color:#D4E0A0; opacity:0.95; }
 
 /* ── RULES ── */
 .rules { background: var(--cream3); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 96px 64px; }
@@ -489,7 +491,7 @@ body {
     </div>
     <div>
       <span class="concept-col-head">El universo visual</span>
-      <div class="concept-col-body">Crimson profundo en rosas y dalias. Velas como única fuente de luz en la noche. Cristalería tallada sobre mesas vestidas. El interior de El Cardenal como escenario — sus muros, su arquitectura, su atmósfera contenida. El agave como testigo silencioso.<br><br>No es decoración. Es <em>puesta en escena.</em></div>
+      <div class="concept-col-body">Crimson profundo en rosas y dalias. Velas como única fuente de luz en la noche. Cristalería tallada sobre mesas vestidas. El interior de El Cardenal como escenario — sus muros, su arquitectura, su atmósfera contenida. <span style="color:var(--olive);">El agave como testigo silencioso.</span><br><br>No es decoración. Es <em>puesta en escena.</em></div>
     </div>
   </div>
 </div>
@@ -507,7 +509,7 @@ body {
       <div class="swatch"><div class="swatch-fill" style="background:#E8C4BC;"></div><div class="swatch-info"><span class="swatch-name">Blush</span><span class="swatch-hex">#E8C4BC</span><span class="swatch-role">Acentos sobre fondos oscuros.</span></div></div>
       <div class="swatch"><div class="swatch-fill" style="background:#FDFAF5; outline:0.5px solid rgba(26,22,18,0.08);"></div><div class="swatch-info"><span class="swatch-name">Cream</span><span class="swatch-hex">#FDFAF5</span><span class="swatch-role">La base. Papel, fondos, superficies.</span></div></div>
       <div class="swatch"><div class="swatch-fill" style="background:#A0582C;"></div><div class="swatch-info"><span class="swatch-name">Sienna</span><span class="swatch-hex">#A0582C</span><span class="swatch-role">Etiquetas, fechas, texto secundario.</span></div></div>
-      <div class="swatch"><div class="swatch-fill" style="background:#5A5E30;"></div><div class="swatch-info"><span class="swatch-name">Olive</span><span class="swatch-hex">#5A5E30</span><span class="swatch-role">Solo en botánica. Nunca en texto.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#5A5E30;"></div><div class="swatch-info"><span class="swatch-name">Olive</span><span class="swatch-hex">#5A5E30</span><span class="swatch-role">Agave y follaje. El alma botánica de la identidad visual.</span></div></div>
     </div>
   </div>
   <div class="deco-palette">
@@ -521,19 +523,30 @@ body {
         <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#8C7B6B;"></div><span class="deco-swatch-name">Plata Vieja</span></div>
         <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#1C1814;"></div><span class="deco-swatch-name">Noche</span></div>
       </div>
-      <div class="deco-note">La paleta de decoración es la extensión tridimensional de la paleta gráfica. El crimson de las rosas es el mismo crimson de los nombres. La noche del interior de El Cardenal es el mismo ink del sobre.</div>
+      <span class="deco-palette-head" style="margin-top:28px; display:block;">Botánica · Agave</span>
+      <div class="deco-swatches" style="grid-template-columns:repeat(3,1fr); max-width:400px; margin-bottom:32px;">
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#6B6440;"></div><span class="deco-swatch-name">Agave Terroso</span></div>
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#2D4A1E;"></div><span class="deco-swatch-name">Follaje Oscuro</span></div>
+        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#8B8A4E;"></div><span class="deco-swatch-name">Maguey Claro</span></div>
+      </div>
+      <div class="deco-note">La paleta de decoración es la extensión tridimensional de la paleta gráfica. El crimson de las rosas es el mismo crimson de los nombres. El olive del agave conecta la identidad visual con la naturaleza viva de Oaxaca — el follaje oscuro como testigo silencioso de cada pieza gráfica y cada arreglo floral.</div>
     </div>
   </div>
   <div class="palette-combos">
     <div class="combo" style="background:var(--ink); border-right:0.5px solid rgba(253,250,245,0.05);">
-      <span class="combo-label" style="color:var(--blush);">Sobre fondo oscuro</span>
+      <span class="combo-label" style="color:var(--blush); opacity:0.9;">Sobre fondo oscuro</span>
       <div class="combo-specimen" style="color:var(--blush);">Laura & Diego</div>
-      <div class="combo-note" style="color:var(--cream); opacity:0.38;">Ink o Crimson como fondo solo en sobres, contraportadas y detalles. Tipografía en Blush o Cream.</div>
+      <div class="combo-note" style="color:var(--cream); opacity:0.72;">Ink o Crimson como fondo solo en sobres, contraportadas y detalles. Tipografía en Blush o Cream.</div>
     </div>
-    <div class="combo" style="background:var(--cream);">
-      <span class="combo-label" style="color:var(--sienna); opacity:0.45;">Sobre fondo claro</span>
+    <div class="combo" style="background:var(--cream); border-right:0.5px solid rgba(26,22,18,0.07);">
+      <span class="combo-label" style="color:var(--sienna); opacity:0.9;">Sobre fondo claro</span>
       <div class="combo-specimen" style="color:var(--crimson);">Laura & Diego</div>
-      <div class="combo-note" style="color:var(--ink); opacity:0.4;">Cream #FDFAF5 es la base predeterminada. Crimson en tipografía, Sienna en etiquetas.</div>
+      <div class="combo-note" style="color:var(--ink); opacity:0.72;">Cream #FDFAF5 es la base predeterminada. Crimson en tipografía, Sienna en etiquetas.</div>
+    </div>
+    <div class="combo" style="background:var(--olive);">
+      <span class="combo-label" style="color:#D4E0A0; opacity:0.9;">Sobre botánica</span>
+      <div class="combo-specimen" style="color:var(--cream); opacity:0.92;">Agave</div>
+      <div class="combo-note" style="color:var(--cream); opacity:0.72;">Olive como fondo en piezas botánicas — agave, follaje, etiquetas de mezcalería. Cream en tipografía. Solo para elementos decorativos.</div>
     </div>
   </div>
 </div>
@@ -647,6 +660,7 @@ body {
     <div class="label-cell"><span class="label-cell-type">Menú</span><span class="label-cell-spec">Menú de boda<br>El Cardenal · Oaxaca · Mayo 2027</span></div>
     <div class="label-cell on-crimson"><span class="label-cell-type">Etiqueta de botella</span><span class="label-cell-spec">Con el mezcal<br>celebramos la eternidad<br>L & D · 15 · 05 · 2027</span></div>
     <div class="label-cell"><span class="label-cell-type">Sobre · Remitente</span><span class="label-cell-spec">Laura & Diego<br>Oaxaca, México<br>15 de Mayo · 2027</span></div>
+    <div class="label-cell on-olive"><span class="label-cell-type">Botánica · Agave</span><span class="label-cell-spec">Agave oaxaqueño<br>Testigo silencioso<br>#6B6440</span></div>
   </div>
 </div>
 
@@ -689,7 +703,7 @@ body {
 <div class="closing">
   <div class="closing-inner">
     <div class="closing-phrase">Con el agave entendimos la espera de la tierra.<br>Con la distancia entendimos la fuerza de elegirnos.<br>Con el mezcal celebramos la eternidad.</div>
-    <div class="closing-vr"></div>
+    <div class="closing-vr" style="background:linear-gradient(to bottom, var(--olive), var(--crimson));"></div>
     <span class="closing-names">Laura & Diego</span>
     <div class="closing-credit">Guía de Estilo · El Cardenal Oaxaca · 2027</div>
   </div>
