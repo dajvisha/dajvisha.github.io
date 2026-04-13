@@ -1,7 +1,7 @@
-    /* ── Page fade-in ── */
+    /* -- Page fade-in -- */
     .page-content {
       opacity: 0;
-      transition: opacity .8s ease;
+      transition: opacity 0.6s ease;
     }
 
     .page-content.visible {
@@ -12,7 +12,7 @@
       overflow: hidden;
     }
 
-    /* Preloader */
+    /* Preloader -- fast 2s total */
     .preloader {
       position: fixed;
       inset: 0;
@@ -21,7 +21,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 1.4s cubic-bezier(.76, 0, .24, 1);
+      transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
     }
 
     .preloader.done {
@@ -32,8 +32,8 @@
     .preloader-inner {
       text-align: center;
       opacity: 0;
-      transform: translateY(14px);
-      animation: preloaderIn 1.4s cubic-bezier(.22, 1, .36, 1) .3s forwards;
+      transform: translateY(12px);
+      animation: preloaderIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
     }
 
     @keyframes preloaderIn {
@@ -62,22 +62,42 @@
       letter-spacing: 0.28em;
     }
 
-    .preloader-rule {
-      display: none;
-    }
-
     .preloader-date {
       font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-      font-size: .72rem;
+      font-size: 0.72rem;
       font-weight: 400;
-      letter-spacing: .35em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--sienna);
       opacity: 0.88;
-      margin-top: 28px;
+      margin-top: 20px;
     }
 
-    /* ── Reset & Base ── */
+    /* Hero entrance animations */
+    .hero-enter {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .hero-enter.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-divider {
+      transition-delay: 0.05s;
+    }
+
+    .hero-info {
+      transition-delay: 0.1s;
+    }
+
+    .hero-cta {
+      transition-delay: 0.15s;
+    }
+
+    /* -- Reset & Base -- */
     *,
     *::before,
     *::after {
@@ -178,18 +198,6 @@
       font-weight: 300;
       letter-spacing: .06em;
       color: var(--ink);
-    }
-
-    /* ── Scroll Reveal ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* ── Skip Link ── */
@@ -531,34 +539,6 @@
       padding: 2.8rem var(--page-x) 3.5rem;
     }
 
-    /* Hero entrance animations */
-    .hero-enter {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .9s cubic-bezier(.22, 1, .36, 1), transform .9s cubic-bezier(.22, 1, .36, 1);
-    }
-
-    .hero-enter.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero-enter.delay-1 {
-      transition-delay: .15s;
-    }
-
-    .hero-enter.delay-2 {
-      transition-delay: .3s;
-    }
-
-    .hero-enter.delay-3 {
-      transition-delay: .5s;
-    }
-
-    .hero-enter.delay-4 {
-      transition-delay: .7s;
-    }
-
     .hero-text h1 {
       font-family: var(--font-display);
       font-size: clamp(2.1rem, 8vw, 2.8rem);
@@ -680,30 +660,6 @@
     .hero-photo:nth-child(2),
     .hero-photo:nth-child(3) {
       display: none;
-    }
-
-    /* Photo entrance stagger */
-    .hero-photo {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s cubic-bezier(.22, 1, .36, 1), transform 1s cubic-bezier(.22, 1, .36, 1);
-    }
-
-    .hero-photo.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero-photo:nth-child(1) {
-      transition-delay: .2s;
-    }
-
-    .hero-photo:nth-child(2) {
-      transition-delay: .45s;
-    }
-
-    .hero-photo:nth-child(3) {
-      transition-delay: .65s;
     }
 
     /* ── Countdown Bar ── */
@@ -1724,19 +1680,6 @@
     .extra-fields.show {
       display: block;
       margin-top: 48px;
-      animation: fadeUp .5s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     /* ──────────────────────────────────────

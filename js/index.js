@@ -109,7 +109,7 @@
           'travel-air-val': 'Aeropuerto Internacional de Oaxaca (OAX) · ~9 km del Centro Histórico. Vuelos directos desde Ciudad de México con Aeroméxico, VivaAerobus y Volaris.',
           'travel-taxi-label': 'Del aeropuerto',
           'travel-taxi-val': 'Taxi (200–250 MXN aprox., 20 min aprox.). Renta de auto disponible, aunque el Centro se recorre mejor caminando.',
-          'travel-local-label': 'En el Centro',
+          'travel-local-label': 'Centro Histórico',
           'travel-local-val': 'El Centro Histórico de Oaxaca es completamente peatonal. El Cardenal se ubica en el andador Macedonio Alcalá.',
           // explore
           'explore-label': 'Explora',
@@ -239,7 +239,7 @@
           'travel-air-val': 'Oaxaca International Airport (OAX) · ~9 km from Centro Histórico. Direct flights from Mexico City with Aeroméxico, VivaAerobus, and Volaris.',
           'travel-taxi-label': 'Airport → Hotel',
           'travel-taxi-val': 'Taxi (200–250 MXN approx., 20 min approx.). Car rental available, though the center is best explored on foot.',
-          'travel-local-label': 'In Centro',
+          'travel-local-label': 'Downtown',
           'travel-local-val': 'Oaxaca\'s historic center is fully pedestrian. El Cardenal is located on the Macedonio Alcalá pedestrian street.',
           // explore
           'explore-label': 'Explore',
@@ -324,7 +324,7 @@
       document.querySelectorAll('[data-optional]').forEach(el => el.removeAttribute('hidden'));
     }
 
-/* Preloader */
+    /* Preloader — fast 2s total */
     document.documentElement.classList.add('loading');
 
     window.addEventListener('load', () => {
@@ -340,13 +340,12 @@
         setTimeout(() => {
           document.getElementById('preloader').classList.add('done');
 
-          // Hero animations fire as curtain finishes (1.4s)
+          // Hero animations fire as curtain finishes
           setTimeout(() => {
             document.querySelectorAll('.hero-enter').forEach(el => el.classList.add('visible'));
-            document.querySelectorAll('.hero-photo').forEach(el => el.classList.add('visible'));
-          }, 1300);
-        }, 400);
-      }, 1900);
+          }, 500);
+        }, 300);
+      }, 800);
     });
 
     /* Navigation */
@@ -412,10 +411,6 @@
       const panel = document.getElementById('tab-panel-' + tabKey);
       if (panel) {
         panel.hidden = false;
-        panel.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-          el.style.transitionDelay = (parseInt(el.dataset.delay || '0', 10)) + 'ms';
-          el.classList.add('visible');
-        });
       }
 
       const activeTrigger = document.querySelector(`.oax-acc-trigger[data-tab="${tabKey}"], .oax-accordion[data-tab="${tabKey}"] .oax-acc-trigger`);
@@ -450,20 +445,6 @@
     if (window.matchMedia('(min-width: 760px)').matches) {
       activateTab('travel');
     }
-
-    /* Scroll Reveal */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const delay = parseInt(entry.target.dataset.delay || '0', 10);
-          entry.target.style.transitionDelay = delay + 'ms';
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     /* RSVP — attend toggle */
     document.querySelectorAll('.attend-btn').forEach(btn => {
