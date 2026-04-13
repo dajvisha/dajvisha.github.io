@@ -1035,32 +1035,6 @@
       line-height: 2;
     }
 
-    .story-travels {
-      display: flex;
-      flex-wrap: wrap;
-      row-gap: 0;
-    }
-
-    .story-travel-item {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: 0.55;
-      padding-right: 18px;
-      margin-right: 18px;
-      border-right: 0.5px solid rgba(26,22,18,0.20);
-      line-height: 2.4;
-    }
-
-    .story-travel-item:last-child {
-      border-right: none;
-      padding-right: 0;
-      margin-right: 0;
-    }
-
     @media (min-width: 681px) {
       .story-milestones { display: grid; grid-template-columns: 1fr 1fr; }
       .story-milestone { border-right: none; }
@@ -1368,6 +1342,56 @@
     /* ──────────────────────────────────────
        ACCESSIBILITY
     ────────────────────────────────────── */
+    /* ── Phrase section: center on tablet/desktop ── */
+    @media (min-width: 769px) {
+      .phrase-section { text-align: center; }
+      .phrase-section-line { margin-left: auto; margin-right: auto; }
+    }
+
+    /* ── Language toggle ── */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .lang-opt {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: .58rem;
+      font-weight: 300;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      padding: 4px 3px;
+      opacity: 0.45;
+      transition: color .3s, opacity .3s;
+    }
+    .lang-opt.active {
+      opacity: 1;
+      color: var(--ink);
+    }
+    .lang-opt:hover { opacity: 0.8; }
+    .lang-sep {
+      font-family: var(--font-sans);
+      font-size: .55rem;
+      color: var(--sienna);
+      opacity: 0.30;
+      pointer-events: none;
+    }
+    /* Adapt lang toggle for transparent (mobile hero) nav */
+    .nav:not(.scrolled) .lang-opt { color: var(--cream); }
+    .nav:not(.scrolled) .lang-opt.active { opacity: 1; }
+    .nav:not(.scrolled) .lang-opt:not(.active) { opacity: 0.55; }
+    .nav:not(.scrolled) .lang-sep { color: var(--cream); }
+    /* On desktop nav (light bg always), revert to ink */
+    @media (min-width: 901px) {
+      .nav:not(.scrolled) .lang-opt { color: var(--sienna); }
+      .nav:not(.scrolled) .lang-opt.active { color: var(--ink); opacity: 1; }
+      .nav:not(.scrolled) .lang-sep { color: var(--sienna); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
 
       *,
@@ -1389,14 +1413,14 @@
 
 <body>
 
-  <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+  <a href="#inicio" class="skip-link" data-i18n="skip-link">Saltar al contenido principal</a>
 
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
     <div class="preloader-inner">
       <div class="preloader-monogram">L<em>&amp;</em>D</div>
       <div class="preloader-rule"></div>
-      <div class="preloader-date">Mayo &middot; 2027 &middot; Oaxaca</div>
+      <div class="preloader-date" data-i18n="preloader-date">Mayo &middot; 2027 &middot; Oaxaca</div>
     </div>
   </div>
 
@@ -1406,15 +1430,21 @@
     <nav class="nav" id="nav">
       <a href="#inicio" class="nav-logo">LAURA<em>&amp;</em>DIEGO</a>
       <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#confirmacion">Confirmar</a></li>
+        <li><a href="#inicio" data-i18n="nav-home">Inicio</a></li>
+        <li><a href="#confirmacion" data-i18n="nav-rsvp">Confirmar</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <!-- Language toggle -->
+      <div class="lang-toggle" id="langToggle" aria-label="Idioma / Language">
+        <button class="lang-opt" data-lang="es" aria-pressed="false">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-opt" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" data-i18n-aria="nav-toggle-label">
         <span></span><span></span><span></span>
       </button>
       <div class="mobile-menu" id="mobileMenu">
-        <a href="#inicio">Inicio</a>
-        <a href="#confirmacion">Confirmar</a>
+        <a href="#inicio" data-i18n="nav-home">Inicio</a>
+        <a href="#confirmacion" data-i18n="nav-rsvp">Confirmar</a>
       </div>
     </nav>
 
@@ -1423,22 +1453,22 @@
 
       <!-- Left column: text -->
       <div class="hero-text">
-        <h1 class="hero-enter">En Oaxaca hay un mezcal <em>esperándote.</em></h1>
+        <h1 class="hero-enter" data-i18n="hero-h1">En Oaxaca hay un mezcal <em>esperándote.</em></h1>
         <div class="hero-divider hero-enter delay-1"></div>
-        <p class="hero-info hero-enter delay-2">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
-        <a href="#confirmacion" class="hero-cta hero-enter delay-3">Confirmar Asistencia</a>
+        <p class="hero-info hero-enter delay-2" data-i18n="hero-info">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
+        <a href="#confirmacion" class="hero-cta hero-enter delay-3" data-i18n="hero-cta">Confirmar Asistencia</a>
       </div>
 
       <!-- Right column: Photos — photo 1 centered left, photos 2+3 stacked right -->
       <div class="hero-images">
         <div class="hero-photo">
-          <img src="photos/photo_1.jpeg" alt="Laura y Diego en Paris" />
+          <img src="photos/photo_1.jpeg" alt="Laura y Diego en Paris" data-i18n-alt="photo-1-alt" />
         </div>
         <div class="hero-photo">
-          <img src="photos/photo_2.jpeg" alt="Laura y Diego en un cafe parisino" />
+          <img src="photos/photo_2.jpeg" alt="Laura y Diego en un cafe parisino" data-i18n-alt="photo-2-alt" />
         </div>
         <div class="hero-photo">
-          <img src="photos/photo_3.jpeg" alt="Retrato intimo en blanco y negro" />
+          <img src="photos/photo_3.jpeg" alt="Retrato intimo en blanco y negro" data-i18n-alt="photo-3-alt" />
         </div>
       </div>
 
@@ -1448,22 +1478,22 @@
 
     <!-- Countdown bar -->
     <div class="countdown-bar">
-      <div class="countdown" aria-live="polite" aria-label="Cuenta regresiva para la boda">
+      <div class="countdown" aria-live="polite" aria-label="Cuenta regresiva para la boda" data-i18n-aria="cd-aria">
         <div class="countdown-unit">
           <div class="countdown-value" id="cd-days">---</div>
-          <div class="countdown-label">Dias</div>
+          <div class="countdown-label" data-i18n="cd-days-label">Dias</div>
         </div>
         <div class="countdown-unit">
           <div class="countdown-value" id="cd-hours">--</div>
-          <div class="countdown-label">Horas</div>
+          <div class="countdown-label" data-i18n="cd-hours-label">Horas</div>
         </div>
         <div class="countdown-unit hide-mobile">
           <div class="countdown-value" id="cd-mins">--</div>
-          <div class="countdown-label">Minutos</div>
+          <div class="countdown-label" data-i18n="cd-mins-label">Minutos</div>
         </div>
         <div class="countdown-unit hide-mobile">
           <div class="countdown-value" id="cd-secs">--</div>
-          <div class="countdown-label">Segundos</div>
+          <div class="countdown-label" data-i18n="cd-secs-label">Segundos</div>
         </div>
       </div>
     </div>
@@ -1472,12 +1502,12 @@
     <section class="story" id="historia">
       <div class="story-inner">
 
-        <span class="story-label reveal" data-delay="80">Nuestra historia</span>
-        <h2 class="story-headline reveal" data-delay="160">De Monterrey<br>a <em>Oaxaca.</em></h2>
+        <span class="story-label reveal" data-delay="80" data-i18n="story-label">Nuestra historia</span>
+        <h2 class="story-headline reveal" data-delay="160" data-i18n="story-headline">De Monterrey<br>a <em>Oaxaca.</em></h2>
 
         <div class="story-connector reveal" data-delay="240">
           <span class="story-connector-line"></span>
-          <span class="story-connector-text">6 años · 5 ciudades · 1 historia</span>
+          <span class="story-connector-text" data-i18n="story-connector-text">6 años · 5 ciudades · 1 historia</span>
           <span class="story-connector-line"></span>
         </div>
 
@@ -1486,70 +1516,51 @@
           <div class="story-milestone reveal" data-delay="320">
             <span class="story-milestone-num">2021</span>
             <div class="story-milestone-body">
-              <span class="story-milestone-city">Monterrey, México</span>
-              <span class="story-milestone-event">nos conocimos</span>
+              <span class="story-milestone-city" data-i18n="m1-city">Monterrey, México</span>
+              <span class="story-milestone-event" data-i18n="m1-event">nos conocimos</span>
             </div>
           </div>
 
           <div class="story-milestone reveal" data-delay="400">
             <span class="story-milestone-num">2022</span>
             <div class="story-milestone-body">
-              <span class="story-milestone-city">San Francisco, Estados Unidos</span>
-              <span class="story-milestone-event">nos hicimos novios</span>
+              <span class="story-milestone-city" data-i18n="m2-city">San Francisco, Estados Unidos</span>
+              <span class="story-milestone-event" data-i18n="m2-event">nos hicimos novios</span>
             </div>
           </div>
 
           <div class="story-milestone reveal" data-delay="480">
             <span class="story-milestone-num">2024</span>
             <div class="story-milestone-body">
-              <span class="story-milestone-city">París, Francia</span>
-              <span class="story-milestone-event">nos comprometimos</span>
+              <span class="story-milestone-city" data-i18n="m3-city">París, Francia</span>
+              <span class="story-milestone-event" data-i18n="m3-event">nos comprometimos</span>
             </div>
           </div>
 
           <div class="story-milestone reveal" data-delay="560">
             <span class="story-milestone-num">2025</span>
             <div class="story-milestone-body">
-              <span class="story-milestone-city">Toluca, México</span>
-              <span class="story-milestone-event">nos casamos por lo civil</span>
+              <span class="story-milestone-city" data-i18n="m4-city">Toluca, México</span>
+              <span class="story-milestone-event" data-i18n="m4-event">nos casamos por lo civil</span>
             </div>
           </div>
 
           <div class="story-milestone reveal" data-delay="640">
             <span class="story-milestone-num">2027</span>
             <div class="story-milestone-body">
-              <span class="story-milestone-city">Oaxaca, México</span>
-              <span class="story-milestone-event">nos casamos por la iglesia</span>
+              <span class="story-milestone-city" data-i18n="m5-city">Oaxaca, México</span>
+              <span class="story-milestone-event" data-i18n="m5-event">nos casamos por la iglesia</span>
             </div>
           </div>
 
         </div><!-- /milestones -->
 
         <div class="story-sub reveal" data-delay="80">
-          <span class="story-sub-label">Hemos vivido juntos en</span>
+          <span class="story-sub-label" data-i18n="homes-label">Hemos vivido juntos en</span>
           <div class="story-homes">
-            <span class="story-home-item">Monclova, México</span>
-            <span class="story-home-item">Ciudad de México, México</span>
-            <span class="story-home-item">San Francisco, Estados Unidos</span>
-          </div>
-        </div>
-
-        <div class="story-sub reveal" data-delay="160">
-          <span class="story-sub-label">Hemos viajado a</span>
-          <div class="story-travels">
-            <span class="story-travel-item">Cuatro Ciénagas</span>
-            <span class="story-travel-item">Parras</span>
-            <span class="story-travel-item">Huatulco</span>
-            <span class="story-travel-item">Riviera Maya</span>
-            <span class="story-travel-item">Tahití</span>
-            <span class="story-travel-item">París</span>
-            <span class="story-travel-item">Estrasburgo</span>
-            <span class="story-travel-item">Colmar</span>
-            <span class="story-travel-item">Colonia</span>
-            <span class="story-travel-item">Ámsterdam</span>
-            <span class="story-travel-item">Brujas</span>
-            <span class="story-travel-item">Bruselas</span>
-            <span class="story-travel-item">Nueva York</span>
+            <span class="story-home-item" data-i18n="home-1">Monclova, México</span>
+            <span class="story-home-item" data-i18n="home-2">Ciudad de México, México</span>
+            <span class="story-home-item" data-i18n="home-3">San Francisco, Estados Unidos</span>
           </div>
         </div>
 
@@ -1558,9 +1569,9 @@
 
     <!-- PHRASE -->
     <section class="phrase-section">
-      <span class="phrase-section-line">Con el agave entendimos la espera de la tierra.</span>
-      <span class="phrase-section-line">Con la distancia entendimos la fuerza de elegirnos.</span>
-      <span class="phrase-section-line">Con el mezcal celebramos la eternidad.</span>
+      <span class="phrase-section-line" data-i18n="phrase-1">Con el agave entendimos la espera de la tierra.</span>
+      <span class="phrase-section-line" data-i18n="phrase-2">Con la distancia entendimos la fuerza de elegirnos.</span>
+      <span class="phrase-section-line" data-i18n="phrase-3">Con el mezcal celebramos la eternidad.</span>
     </section>
 
     <!-- RSVP -->
@@ -1568,61 +1579,59 @@
       <div class="container-sm">
 
         <div class="text-center reveal" style="margin-bottom: 3.5rem;">
-          <p class="label" style="margin-bottom: 1.2rem;">Confirmación de asistencia</p>
-          <h2 class="heading-serif" style="margin-bottom: 1rem;">¿Nos acompañas?</h2>
+          <p class="label" style="margin-bottom: 1.2rem;" data-i18n="rsvp-section-label">Confirmación de asistencia</p>
+          <h2 class="heading-serif" style="margin-bottom: 1rem;" data-i18n="rsvp-heading">¿Nos acompañas?</h2>
           <div class="divider"></div>
-          <p class="body-text" style="margin-top: 1.8rem; max-width: 420px; margin-left: auto; margin-right: auto;">
-            Confirma tu asistencia antes del <em style="font-style: italic; color: var(--sienna);">15 de febrero de
-              2027.</em>
+          <p class="body-text" style="margin-top: 1.8rem; max-width: 420px; margin-left: auto; margin-right: auto;" data-i18n="rsvp-body">
+            Confirma tu asistencia antes del <em style="font-style: italic; color: var(--sienna);">15 de febrero de 2027.</em>
           </p>
         </div>
 
         <div class="rsvp-form reveal">
 
           <div class="form-group">
-            <label class="label" for="rsvp-name">Nombre completo</label>
-            <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="Laura" autocomplete="name" />
+            <label class="label" for="rsvp-name" data-i18n="rsvp-name-label">Nombre completo</label>
+            <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="Laura" autocomplete="name" data-i18n-placeholder="rsvp-name-placeholder" />
           </div>
 
           <div class="form-group">
-            <label class="label" for="rsvp-phone">Número de teléfono</label>
+            <label class="label" for="rsvp-phone" data-i18n="rsvp-phone-label">Número de teléfono</label>
             <input class="form-input" type="tel" id="rsvp-phone" name="phone" placeholder="+52 951 000 0000"
-              autocomplete="tel" />
+              autocomplete="tel" data-i18n-placeholder="rsvp-phone-placeholder" />
           </div>
 
           <fieldset class="form-group attend-group">
-            <legend class="label">Asistencia</legend>
+            <legend class="label" data-i18n="rsvp-attend-legend">Asistencia</legend>
             <div class="attend-btns">
-              <button type="button" class="attend-btn" data-attend="yes">Asistiré con gusto</button>
-              <button type="button" class="attend-btn" data-attend="no">No podré asistir</button>
+              <button type="button" class="attend-btn" data-attend="yes" data-i18n="rsvp-attend-yes">Asistiré con gusto</button>
+              <button type="button" class="attend-btn" data-attend="no" data-i18n="rsvp-attend-no">No podré asistir</button>
             </div>
           </fieldset>
 
           <div class="form-group extra-fields" id="extra-fields">
-            <label class="label" for="rsvp-guests">¿Cuántos asistentes? (incluyéndote)</label>
+            <label class="label" for="rsvp-guests" data-i18n="rsvp-guests-label">¿Cuántos asistentes? (incluyéndote)</label>
             <select class="form-input" id="rsvp-guests" name="guests">
-              <option value="">— Selecciona —</option>
-              <option value="1">1 persona</option>
-              <option value="2">2 personas</option>
-              <option value="3">3 personas</option>
-              <option value="4">4 personas</option>
+              <option value="" data-i18n="rsvp-guests-opt0">— Selecciona —</option>
+              <option value="1" data-i18n="rsvp-guests-opt1">1 persona</option>
+              <option value="2" data-i18n="rsvp-guests-opt2">2 personas</option>
+              <option value="3" data-i18n="rsvp-guests-opt3">3 personas</option>
+              <option value="4" data-i18n="rsvp-guests-opt4">4 personas</option>
             </select>
           </div>
 
           <div class="form-group extra-fields" id="extra-dietary">
-            <label class="label" for="rsvp-dietary">Restricciones alimentarias</label>
+            <label class="label" for="rsvp-dietary" data-i18n="rsvp-dietary-label">Restricciones alimentarias</label>
             <input class="form-input" type="text" id="rsvp-dietary" name="dietary"
-              placeholder="Vegetariano, sin gluten…" />
+              placeholder="Vegetariano, sin gluten…" data-i18n-placeholder="rsvp-dietary-placeholder" />
           </div>
 
           <div class="form-group" style="margin-bottom: 0; margin-top: 48px;">
-            <label class="label" for="rsvp-note">Mensaje para los novios <span
-                style="opacity:.45;">(opcional)</span></label>
+            <label class="label" for="rsvp-note" data-i18n="rsvp-note-label">Mensaje para los novios <span style="opacity:.45;">(opcional)</span></label>
             <textarea class="form-input" id="rsvp-note" name="note" rows="3"
-              placeholder="Un pensamiento, un deseo…"></textarea>
+              placeholder="Un pensamiento, un deseo…" data-i18n-placeholder="rsvp-note-placeholder"></textarea>
           </div>
 
-          <button type="button" class="submit-btn" id="rsvp-submit" style="margin-top: 40px;">
+          <button type="button" class="submit-btn" id="rsvp-submit" style="margin-top: 40px;" data-i18n="rsvp-submit">
             Enviar confirmación
           </button>
 
@@ -1657,12 +1666,196 @@
         <g transform="translate(1100,295) scale(0.34)"><use href="#agv" opacity="0.35" /></g>
       </svg>
       <h2>L &amp; D</h2>
-      <p class="sub">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
+      <p class="sub" data-i18n="footer-sub">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
     </footer>
 
   </div><!-- /page-content -->
 
   <!-- JS -->
+  <!-- i18n translations -->
+  <script>
+    (function () {
+      const i18n = {
+        es: {
+          'skip-link': 'Saltar al contenido principal',
+          'preloader-date': 'Mayo &middot; 2027 &middot; Oaxaca',
+          'nav-home': 'Inicio',
+          'nav-rsvp': 'Confirmar',
+          'nav-toggle-label': 'Menú',
+          'hero-h1': 'En Oaxaca hay un mezcal <em>esperándote.</em>',
+          'hero-info': 'Mayo 15, 2027 &middot; Oaxaca, Mexico',
+          'hero-cta': 'Confirmar Asistencia',
+          'photo-1-alt': 'Laura y Diego en Paris',
+          'photo-2-alt': 'Laura y Diego en un cafe parisino',
+          'photo-3-alt': 'Retrato íntimo en blanco y negro',
+          'cd-aria': 'Cuenta regresiva para la boda',
+          'cd-days-label': 'Dias',
+          'cd-hours-label': 'Horas',
+          'cd-mins-label': 'Minutos',
+          'cd-secs-label': 'Segundos',
+          'story-label': 'Nuestra historia',
+          'story-headline': 'De Monterrey<br>a <em>Oaxaca.</em>',
+          'story-connector-text': '6 años · 5 ciudades · 1 historia',
+          'm1-city': 'Monterrey, México',
+          'm1-event': 'nos conocimos',
+          'm2-city': 'San Francisco, Estados Unidos',
+          'm2-event': 'nos hicimos novios',
+          'm3-city': 'París, Francia',
+          'm3-event': 'nos comprometimos',
+          'm4-city': 'Toluca, México',
+          'm4-event': 'nos casamos por lo civil',
+          'm5-city': 'Oaxaca, México',
+          'm5-event': 'nos casamos por la iglesia',
+          'homes-label': 'Hemos vivido juntos en',
+          'home-1': 'Monclova, México',
+          'home-2': 'Ciudad de México, México',
+          'home-3': 'San Francisco, Estados Unidos',
+          'phrase-1': 'Con el agave entendimos la espera de la tierra.',
+          'phrase-2': 'Con la distancia entendimos la fuerza de elegirnos.',
+          'phrase-3': 'Con el mezcal celebramos la eternidad.',
+          'rsvp-section-label': 'Confirmación de asistencia',
+          'rsvp-heading': '¿Nos acompañas?',
+          'rsvp-body': 'Confirma tu asistencia antes del <em style="font-style:italic;color:var(--sienna);">15 de febrero de 2027.</em>',
+          'rsvp-name-label': 'Nombre completo',
+          'rsvp-name-placeholder': 'Laura',
+          'rsvp-phone-label': 'Número de teléfono',
+          'rsvp-phone-placeholder': '+52 951 000 0000',
+          'rsvp-attend-legend': 'Asistencia',
+          'rsvp-attend-yes': 'Asistiré con gusto',
+          'rsvp-attend-no': 'No podré asistir',
+          'rsvp-guests-label': '¿Cuántos asistentes? (incluyéndote)',
+          'rsvp-guests-opt0': '— Selecciona —',
+          'rsvp-guests-opt1': '1 persona',
+          'rsvp-guests-opt2': '2 personas',
+          'rsvp-guests-opt3': '3 personas',
+          'rsvp-guests-opt4': '4 personas',
+          'rsvp-dietary-label': 'Restricciones alimentarias',
+          'rsvp-dietary-placeholder': 'Vegetariano, sin gluten…',
+          'rsvp-note-label': 'Mensaje para los novios <span style="opacity:.45;">(opcional)</span>',
+          'rsvp-note-placeholder': 'Un pensamiento, un deseo…',
+          'rsvp-submit': 'Enviar confirmación',
+          'footer-sub': 'Mayo 15, 2027 &middot; Oaxaca, Mexico',
+        },
+        en: {
+          'skip-link': 'Skip to main content',
+          'preloader-date': 'May &middot; 2027 &middot; Oaxaca',
+          'nav-home': 'Home',
+          'nav-rsvp': 'Confirm',
+          'nav-toggle-label': 'Menu',
+          'hero-h1': 'In Oaxaca there\'s a mezcal <em>waiting for you.</em>',
+          'hero-info': 'May 15, 2027 &middot; Oaxaca, Mexico',
+          'hero-cta': 'Confirm Attendance',
+          'photo-1-alt': 'Laura and Diego in Paris',
+          'photo-2-alt': 'Laura and Diego at a Parisian café',
+          'photo-3-alt': 'Intimate black and white portrait',
+          'cd-aria': 'Countdown to the wedding',
+          'cd-days-label': 'Days',
+          'cd-hours-label': 'Hours',
+          'cd-mins-label': 'Minutes',
+          'cd-secs-label': 'Seconds',
+          'story-label': 'Our story',
+          'story-headline': 'From Monterrey<br>to <em>Oaxaca.</em>',
+          'story-connector-text': '6 years · 5 cities · 1 story',
+          'm1-city': 'Monterrey, Mexico',
+          'm1-event': 'we met',
+          'm2-city': 'San Francisco, United States',
+          'm2-event': 'we became a couple',
+          'm3-city': 'Paris, France',
+          'm3-event': 'we got engaged',
+          'm4-city': 'Toluca, Mexico',
+          'm4-event': 'civil wedding',
+          'm5-city': 'Oaxaca, Mexico',
+          'm5-event': 'church wedding',
+          'homes-label': 'We\'ve lived together in',
+          'home-1': 'Monclova, Mexico',
+          'home-2': 'Mexico City, Mexico',
+          'home-3': 'San Francisco, United States',
+          'phrase-1': 'With the agave we understood the patience of the earth.',
+          'phrase-2': 'With distance we understood the strength of choosing each other.',
+          'phrase-3': 'With mezcal we celebrate eternity.',
+          'rsvp-section-label': 'RSVP',
+          'rsvp-heading': 'Will you join us?',
+          'rsvp-body': 'Please confirm your attendance by <em style="font-style:italic;color:var(--sienna);">February 15, 2027.</em>',
+          'rsvp-name-label': 'Full name',
+          'rsvp-name-placeholder': 'Laura',
+          'rsvp-phone-label': 'Phone number',
+          'rsvp-phone-placeholder': '+52 951 000 0000',
+          'rsvp-attend-legend': 'Attendance',
+          'rsvp-attend-yes': 'I\'ll be there',
+          'rsvp-attend-no': 'Unable to attend',
+          'rsvp-guests-label': 'How many guests? (including you)',
+          'rsvp-guests-opt0': '— Select —',
+          'rsvp-guests-opt1': '1 person',
+          'rsvp-guests-opt2': '2 people',
+          'rsvp-guests-opt3': '3 people',
+          'rsvp-guests-opt4': '4 people',
+          'rsvp-dietary-label': 'Dietary restrictions',
+          'rsvp-dietary-placeholder': 'Vegetarian, gluten-free…',
+          'rsvp-note-label': 'Message for the couple <span style="opacity:.45;">(optional)</span>',
+          'rsvp-note-placeholder': 'A thought, a wish…',
+          'rsvp-submit': 'Send confirmation',
+          'footer-sub': 'May 15, 2027 &middot; Oaxaca, Mexico',
+        }
+      };
+
+      function detectDefaultLang() {
+        const saved = localStorage.getItem('lang');
+        if (saved === 'es' || saved === 'en') return saved;
+        // Detect via timezone (covers Mexico + Latin America + Spain)
+        const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+        if (/^america\/(mexico|argentina|bolivia|chile|colombia|costa_rica|cuba|dominican|ecuador|el_salvador|guatemala|havana|honduras|lima|managua|montevideo|panama|paraguay|peru|puerto_rico|caracas|bogota|guayaquil|la_paz|asuncion)|^europe\/madrid|^atlantic\/canary/.test(tz)) {
+          return 'es';
+        }
+        // Fall back to browser language
+        const lang = (navigator.language || 'en').toLowerCase();
+        return lang.startsWith('es') ? 'es' : 'en';
+      }
+
+      function applyLanguage(lang) {
+        const t = i18n[lang];
+        if (!t) return;
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        // Update toggle button states
+        document.querySelectorAll('.lang-opt').forEach(btn => {
+          const active = btn.dataset.lang === lang;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
+        // innerHTML / textContent updates
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const val = t[el.dataset.i18n];
+          if (val !== undefined) el.innerHTML = val;
+        });
+        // placeholder attributes
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const val = t[el.dataset.i18nPlaceholder];
+          if (val !== undefined) el.placeholder = val;
+        });
+        // aria-label attributes
+        document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+          const val = t[el.dataset.i18nAria];
+          if (val !== undefined) el.setAttribute('aria-label', val);
+        });
+        // alt attributes
+        document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+          const val = t[el.dataset.i18nAlt];
+          if (val !== undefined) el.alt = val;
+        });
+      }
+
+      // Wire toggle buttons
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.lang-opt').forEach(btn => {
+          btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+        });
+      });
+
+      // Apply immediately (before DOM interactive is fine for data-i18n)
+      applyLanguage(detectDefaultLang());
+    })();
+  </script>
+
   <script>
     /* Preloader */
     document.documentElement.classList.add('loading');
