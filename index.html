@@ -466,6 +466,7 @@
     @media (min-width: 769px) {
       .nav-links {
         display: flex;
+        margin-left: auto;
       }
 
       .nav-toggle {
@@ -474,6 +475,20 @@
 
       .mobile-menu {
         display: none;
+      }
+
+      /* Lang toggle sits right next to nav-links with a pipe separator */
+      .lang-toggle {
+        margin-left: 28px;
+        padding-left: 28px;
+        border-left: 0.5px solid rgba(26,22,18,0.14);
+      }
+      .lang-opt {
+        letter-spacing: .35em;
+        padding: 4px 5px;
+      }
+      .nav.scrolled .lang-toggle {
+        border-left-color: rgba(26,22,18,0.14);
       }
     }
 
@@ -1347,11 +1362,13 @@
     .nav:not(.scrolled) .lang-opt.active { opacity: 1; }
     .nav:not(.scrolled) .lang-opt:not(.active) { opacity: 0.55; }
     .nav:not(.scrolled) .lang-sep { color: var(--cream); }
+    .nav:not(.scrolled) .lang-toggle { border-left-color: rgba(253,250,245,0.25); }
     /* On desktop nav (light bg always), revert to ink */
     @media (min-width: 901px) {
       .nav:not(.scrolled) .lang-opt { color: var(--sienna); }
       .nav:not(.scrolled) .lang-opt.active { color: var(--ink); opacity: 1; }
       .nav:not(.scrolled) .lang-sep { color: var(--sienna); }
+      .nav:not(.scrolled) .lang-toggle { border-left-color: rgba(26,22,18,0.14); }
     }
 
     @media (prefers-reduced-motion: reduce) {
