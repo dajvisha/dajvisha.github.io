@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laura &amp; Diego — Mayo 15, 2027</title>
+  <title>Laura &amp; Diego — 15 de mayo de 2027</title>
   <meta name="description" content="Acompáñanos a celebrar nuestra boda el 15 de mayo de 2027 en Oaxaca, México." />
 
   <!-- Open Graph / WhatsApp / Social -->
@@ -48,33 +48,11 @@
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
       <a href="#inicio" class="nav-logo">LAURA<em>&amp;</em>DIEGO</a>
-      <ul class="nav-links">
-        <li><a href="#inicio" data-i18n="nav-home">Inicio</a></li>
-        <li class="nav-more" data-optional hidden>
-          <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false" data-i18n="nav-more">Más</button>
-          <ul class="nav-dropdown">
-            <li><a href="#lugar" data-i18n="nav-venue">Lugar</a></li>
-            <li><a href="#oaxaca" data-i18n="nav-oaxaca">Oaxaca</a></li>
-            <li><a href="#regalos" data-i18n="nav-registry">Regalos</a></li>
-          </ul>
-        </li>
-        <li><a href="#confirmacion" data-i18n="nav-rsvp">Confirmar</a></li>
-      </ul>
       <!-- Language toggle -->
       <div class="lang-toggle" id="langToggle" aria-label="Idioma / Language">
         <button class="lang-opt" data-lang="es" aria-pressed="false">ES</button>
         <span class="lang-sep">/</span>
         <button class="lang-opt" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" data-i18n-aria="nav-toggle-label">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#inicio" data-i18n="nav-home">Inicio</a>
-        <a href="#lugar" data-i18n="nav-venue" data-optional hidden>Lugar</a>
-        <a href="#oaxaca" data-i18n="nav-oaxaca" data-optional hidden>Oaxaca</a>
-        <a href="#regalos" data-i18n="nav-registry" data-optional hidden>Regalos</a>
-        <a href="#confirmacion" data-i18n="nav-rsvp">Confirmar</a>
       </div>
     </nav>
 
@@ -85,7 +63,7 @@
       <div class="hero-text">
         <h1 class="hero-enter" data-i18n="hero-h1">En Oaxaca hay un mezcal <em>esperándote.</em></h1>
         <div class="hero-divider hero-enter delay-1"></div>
-        <p class="hero-info hero-enter delay-2" data-i18n="hero-info">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
+        <p class="hero-info hero-enter delay-2" data-i18n="hero-info">15 de mayo de 2027 &middot; Oaxaca, México</p>
         <a href="#confirmacion" class="hero-cta hero-enter delay-3" data-i18n="hero-cta">Confirmar Asistencia</a>
       </div>
 
@@ -109,7 +87,7 @@
       <div class="countdown" aria-live="polite" aria-label="Cuenta regresiva para la boda" data-i18n-aria="cd-aria">
         <div class="countdown-unit">
           <div class="countdown-value" id="cd-days">---</div>
-          <div class="countdown-label" data-i18n="cd-days-label">Dias</div>
+          <div class="countdown-label" data-i18n="cd-days-label">Días</div>
         </div>
         <div class="countdown-unit">
           <div class="countdown-value" id="cd-hours">--</div>
@@ -131,7 +109,7 @@
       <div class="story-inner">
 
         <span class="story-label reveal" data-delay="80" data-i18n="story-label">Nuestra historia</span>
-        <h2 class="story-headline reveal" data-delay="160" data-i18n="story-headline">De Monterrey<br>a <em>Oaxaca.</em></h2>
+        <h2 class="story-headline reveal" data-delay="160" data-i18n="story-headline">De Monterrey<br>a <em>Oaxaca</em></h2>
 
         <div class="story-connector reveal" data-delay="240">
           <span class="story-connector-line"></span>
@@ -177,20 +155,11 @@
             <span class="story-milestone-num">2027</span>
             <div class="story-milestone-body">
               <span class="story-milestone-city" data-i18n="m5-city">Oaxaca, México</span>
-              <span class="story-milestone-event" data-i18n="m5-event">nos casamos por la iglesia</span>
+              <span class="story-milestone-event" data-i18n="m5-event">la boda</span>
             </div>
           </div>
 
         </div><!-- /milestones -->
-
-        <div class="story-sub reveal" data-delay="80">
-          <span class="story-sub-label" data-i18n="homes-label">Hemos vivido juntos en</span>
-          <div class="story-homes">
-            <span class="story-home-item" data-i18n="home-1">Monclova, México</span>
-            <span class="story-home-item" data-i18n="home-2">Ciudad de México, México</span>
-            <span class="story-home-item" data-i18n="home-3">San Francisco, Estados Unidos</span>
-          </div>
-        </div>
 
       </div><!-- /story-inner -->
     </section>
@@ -203,48 +172,49 @@
     </section>
 
     <!-- VENUE -->
-    <section class="venue" id="lugar" data-optional hidden>
+    <section class="venue" id="lugar">
       <div class="venue-inner">
 
-        <span class="story-label reveal" data-delay="80" data-i18n="venue-label">El lugar</span>
-        <h2 class="story-headline reveal" data-delay="160">El Cardenal <em data-i18n="venue-name-em">Oaxaca</em></h2>
+        <div class="venue-cols">
 
-        <div class="venue-rows">
-          <div class="venue-row reveal" data-delay="160">
-            <span class="venue-row-key" data-i18n="venue-address-label">Dirección</span>
-            <span class="venue-row-val">
-              Calle Macedonio Alcalá 407, Centro Histórico
-              <a class="venue-map-link"
-                 href="https://maps.google.com/?q=El+Cardenal+Oaxaca,+Calle+Macedonio+Alcal%C3%A1+407,+Centro,+Oaxaca+de+Ju%C3%A1rez"
-                 target="_blank" rel="noopener noreferrer"
-                 data-i18n="venue-map-label"
-                 data-i18n-aria="venue-map-link-aria">Ver en mapa ↗</a>
-            </span>
+          <div class="venue-col">
+            <span class="venue-col-label reveal" data-delay="100" data-i18n="venue-col-label">El lugar</span>
+            <div class="venue-rows">
+              <div class="venue-row reveal" data-delay="140">
+                <span class="venue-row-key" data-i18n="venue-space-label">Salón</span>
+                <a class="venue-row-val venue-name-link" href="https://maps.google.com/?q=El+Cardenal+Oaxaca,+Calle+Macedonio+Alcal%C3%A1+407,+Centro,+Oaxaca+de+Ju%C3%A1rez" target="_blank" rel="noopener noreferrer" data-i18n="venue-name">El Cardenal Oaxaca</a>
+              </div>
+              <div class="venue-row reveal" data-delay="180">
+                <span class="venue-row-key" data-i18n="venue-address-label">Dirección</span>
+                <span class="venue-row-val">Calle Macedonio Alcalá 407<br>Centro Histórico</span>
+              </div>
+              <div class="venue-row reveal" data-delay="220" data-optional hidden>
+                <span class="venue-row-key" data-i18n="attire-label">Vestimenta</span>
+                <span class="venue-row-val">Cóctel elegante · Formal o semiformal
+                  <span class="venue-row-note" data-i18n="attire-note">Telas ligeras y calzado cómodo recomendados.</span>
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="venue-row reveal" data-delay="240">
-            <span class="venue-row-key" data-i18n="venue-reception-label">Recepción</span>
-            <span class="venue-row-val venue-row-tbd" data-i18n="venue-time-tbd">Por confirmar</span>
+
+          <div class="venue-col" data-optional hidden>
+            <span class="venue-col-label reveal" data-delay="100" data-i18n="program-label">Programa</span>
+            <div class="venue-rows">
+              <div class="venue-row reveal" data-delay="140">
+                <span class="venue-row-key" data-i18n="sched-ceremony-name">Ceremonia</span>
+                <span class="venue-row-val venue-row-tbd" data-i18n="sched-ceremony-time">Por confirmar</span>
+              </div>
+              <div class="venue-row reveal" data-delay="180">
+                <span class="venue-row-key" data-i18n="sched-cocktail-name">Cóctel</span>
+                <span class="venue-row-val venue-row-tbd" data-i18n="sched-cocktail-time">Por confirmar</span>
+              </div>
+              <div class="venue-row reveal" data-delay="220">
+                <span class="venue-row-key" data-i18n="sched-reception-name">Recepción</span>
+                <span class="venue-row-val venue-row-tbd" data-i18n="sched-reception-time">Por confirmar</span>
+              </div>
+            </div>
           </div>
-          <div class="venue-row reveal" data-delay="320" data-optional hidden>
-            <span class="venue-row-key" data-i18n="attire-label">Vestimenta</span>
-            <span class="venue-row-val" data-i18n="attire-val">Cóctel elegante · Telas ligeras y calzado cómodo para los adoquines del Centro.</span>
-          </div>
-          <div class="venue-row reveal" data-delay="400" data-optional hidden>
-            <span class="venue-row-key" data-i18n="sched-ceremony-name">Ceremonia religiosa</span>
-            <span class="venue-row-val venue-row-tbd" data-i18n="sched-ceremony-time">Por confirmar</span>
-          </div>
-          <div class="venue-row reveal" data-delay="440" data-optional hidden>
-            <span class="venue-row-key" data-i18n="sched-cocktail-name">Cóctel de bienvenida</span>
-            <span class="venue-row-val venue-row-tbd" data-i18n="sched-cocktail-time">Por confirmar</span>
-          </div>
-          <div class="venue-row reveal" data-delay="480" data-optional hidden>
-            <span class="venue-row-key" data-i18n="sched-reception-name">Recepción y cena</span>
-            <span class="venue-row-val venue-row-tbd" data-i18n="sched-reception-time">Por confirmar</span>
-          </div>
-          <div class="venue-row reveal" data-delay="520" data-optional hidden>
-            <span class="venue-row-key" data-i18n="sched-party-name">Baile y fiesta</span>
-            <span class="venue-row-val" data-i18n="sched-party-note">¡Hasta que la música decida!</span>
-          </div>
+
         </div>
 
       </div>
@@ -253,56 +223,65 @@
     <!-- OAXACA -->
     <section class="info-section info-section--cream2" id="oaxaca" data-optional hidden>
       <div class="info-inner">
-        <span class="story-label reveal" data-delay="80" data-i18n="oaxaca-label">Oaxaca</span>
+        <h2 class="heading-serif reveal" data-delay="80" data-i18n="oaxaca-heading">Tu guía de <em>Oaxaca</em></h2>
 
+        <!-- Tab bar (desktop only) -->
         <div class="tab-bar" role="tablist">
           <button class="tab-btn active" role="tab" aria-selected="true" data-tab="hotels" data-i18n="tab-hotels">Hospedarse</button>
           <button class="tab-btn" role="tab" aria-selected="false" data-tab="travel" data-i18n="tab-travel">Llegar</button>
           <button class="tab-btn" role="tab" aria-selected="false" data-tab="explore" data-i18n="tab-explore">Explorar</button>
         </div>
 
-        <div class="tab-panel" id="tab-panel-hotels" role="tabpanel">
-          <div class="hotel-list">
+        <!-- Accordion item: Hospedarse -->
+        <div class="oax-accordion" data-tab="hotels">
+          <button class="oax-acc-trigger" aria-expanded="false" data-i18n="tab-hotels">Hospedarse</button>
+          <div class="tab-panel" id="tab-panel-hotels" role="tabpanel" hidden>
+            <div class="hotel-list">
             <div class="hotel-item reveal" data-delay="80">
-              <span class="hotel-name">Quinta Real Oaxaca</span>
+              <a class="hotel-name" href="https://www.quintareal.com/oaxaca" target="_blank" rel="noopener noreferrer">Quinta Real Oaxaca</a>
               <span class="hotel-meta" data-i18n="hotel-1-meta">Ex-convento del siglo XVI · Av. 5 de Mayo 300, Centro Histórico</span>
-              <a class="venue-map-link" href="https://www.quintareal.com/oaxaca" target="_blank" rel="noopener noreferrer" data-i18n="hotels-book-link">Reservar ↗</a>
             </div>
             <div class="hotel-item reveal" data-delay="160">
-              <span class="hotel-name">Casa Oaxaca Hotel</span>
+              <a class="hotel-name" href="https://www.casaoaxaca.com.mx" target="_blank" rel="noopener noreferrer">Casa Oaxaca Hotel</a>
               <span class="hotel-meta" data-i18n="hotel-2-meta">Diseño contemporáneo oaxaqueño · García Vigil 407, Centro</span>
-              <a class="venue-map-link" href="https://www.casaoaxaca.com.mx" target="_blank" rel="noopener noreferrer" data-i18n="hotels-book-link">Reservar ↗</a>
             </div>
             <div class="hotel-item reveal" data-delay="240">
-              <span class="hotel-name">Parador de Alcalá</span>
-              <span class="hotel-meta" data-i18n="hotel-3-meta">Sobre el andador Macedonio Alcalá · a pasos del venue</span>
-              <a class="venue-map-link" href="https://maps.google.com/?q=Parador+de+Alcala+Oaxaca+Macedonio+Alcala" target="_blank" rel="noopener noreferrer" data-i18n="hotels-map-link">Ver en mapa ↗</a>
+              <a class="hotel-name" href="https://maps.google.com/?q=Parador+del+Dominico+Macedonio+Alcala+407+Oaxaca" target="_blank" rel="noopener noreferrer">Parador de Alcalá</a>
+              <span class="hotel-meta" data-i18n="hotel-3-meta">Sobre el andador Macedonio Alcalá 407, Centro Histórico</span>
             </div>
           </div>
-          <p class="info-note reveal" data-delay="320" data-i18n="hotels-note">Bloque de habitaciones por confirmar. Te avisaremos si hay tarifa especial para invitados.</p>
+          <p class="info-note reveal" data-delay="320" data-i18n="hotels-note">Bloque de habitaciones por confirmar. Se informará si se confirma una tarifa especial para invitados.</p>
+          </div>
         </div>
 
-        <div class="tab-panel" id="tab-panel-travel" role="tabpanel" hidden>
+        <!-- Accordion item: Llegar -->
+        <div class="oax-accordion" data-tab="travel">
+          <button class="oax-acc-trigger" aria-expanded="false" data-i18n="tab-travel">Llegar</button>
+          <div class="tab-panel" id="tab-panel-travel" role="tabpanel" hidden>
           <div class="venue-rows">
             <div class="venue-row reveal" data-delay="80">
               <span class="venue-row-key" data-i18n="travel-air-label">Vuelo</span>
-              <span class="venue-row-val" data-i18n="travel-air-val">Aeropuerto Internacional de Oaxaca (OAX) · ~9 km del Centro Histórico. Vuelos directos desde Ciudad de México con Aeroméxico, VivaAerobus y Volaris.</span>
+              <span class="venue-row-val" data-i18n="travel-air-val">Aeropuerto Internacional de Oaxaca (OAX) · a 9 km del Centro Histórico. Vuelos directos desde Ciudad de México con Aeroméxico, VivaAerobus y Volaris.</span>
             </div>
             <div class="venue-row reveal" data-delay="160">
               <span class="venue-row-key" data-i18n="travel-taxi-label">Del aeropuerto</span>
-              <span class="venue-row-val" data-i18n="travel-taxi-val">Taxi autorizado (~200–250 MXN, ~20 min) o Uber desde fuera de las instalaciones. Renta de auto disponible, aunque el Centro se recorre mejor a pie.</span>
+              <span class="venue-row-val" data-i18n="travel-taxi-val">Taxi (200–250 MXN aprox., 20 min aprox.). Renta de auto disponible, aunque el Centro se recorre mejor a pie.</span>
             </div>
             <div class="venue-row reveal" data-delay="240">
               <span class="venue-row-key" data-i18n="travel-local-label">En el Centro</span>
               <span class="venue-row-val" data-i18n="travel-local-val">El Centro Histórico es eminentemente peatonal. El Cardenal se encuentra sobre el andador Macedonio Alcalá, a menos de 15 min caminando de los hoteles recomendados.</span>
             </div>
           </div>
+          </div>
         </div>
 
-        <div class="tab-panel" id="tab-panel-explore" role="tabpanel" hidden>
+        <!-- Accordion item: Explorar -->
+        <div class="oax-accordion" data-tab="explore">
+          <button class="oax-acc-trigger" aria-expanded="false" data-i18n="tab-explore">Explorar</button>
+          <div class="tab-panel" id="tab-panel-explore" role="tabpanel" hidden>
           <div class="explore-grid">
             <div class="explore-category reveal" data-delay="80">
-              <span class="story-sub-label" data-i18n="explore-culture-label">Cultura &amp; Historia</span>
+              <span class="story-sub-label" data-i18n="explore-culture-label">Cultura e Historia</span>
               <ul class="explore-list">
                 <li class="explore-item"><a class="explore-item-name" href="https://maps.google.com/?q=Monte+Alban+Oaxaca" target="_blank" rel="noopener noreferrer">Monte Albán</a><span class="explore-item-note" data-i18n="explore-monteAlban-note">Sitio arqueológico zapoteca · ~15 min en auto</span></li>
                 <li class="explore-item"><a class="explore-item-name" href="https://maps.google.com/?q=Ex+Convento+de+Santo+Domingo+Oaxaca" target="_blank" rel="noopener noreferrer">Ex-Convento de Santo Domingo</a><span class="explore-item-note" data-i18n="explore-santoDomingo-note">Museo de las Culturas de Oaxaca · a dos cuadras</span></li>
@@ -325,13 +304,14 @@
               </ul>
             </div>
           </div>
+          </div>
         </div>
 
       </div>
     </section>
 
     <!-- MESA DE REGALOS -->
-    <section class="info-section info-section--cream3" id="regalos" data-optional hidden>
+    <section class="info-section info-section--cream" id="regalos" data-optional hidden>
       <div class="info-inner">
         <span class="story-label reveal" data-delay="80" data-i18n="registry-label">Mesa de regalos</span>
         <h2 class="story-headline reveal" data-delay="160" data-i18n="registry-heading">Tu presencia es <em>el regalo</em></h2>
@@ -340,14 +320,13 @@
     </section>
 
     <!-- RSVP -->
-    <section class="section section-alt" id="confirmacion">
+    <section class="section section-alt-2" id="confirmacion">
       <div class="container-sm">
 
-        <div class="text-center reveal" style="margin-bottom: 3.5rem;">
-          <p class="label" style="margin-bottom: 1.2rem;" data-i18n="rsvp-section-label">Confirmación de asistencia</p>
-          <h2 class="heading-serif" style="margin-bottom: 1rem;" data-i18n="rsvp-heading">¿Nos acompañas?</h2>
+        <div class="text-center reveal rsvp-header">
+          <h2 class="heading-serif" data-i18n="rsvp-heading">¿Nos acompañas?</h2>
           <div class="divider"></div>
-          <p class="body-text" style="margin-top: 1.8rem; max-width: 420px; margin-left: auto; margin-right: auto;" data-i18n="rsvp-body">
+          <p class="body-text rsvp-body-intro" data-i18n="rsvp-body">
             Confirma tu asistencia antes del <em style="font-style: italic; color: var(--sienna);">15 de febrero de 2027.</em>
           </p>
         </div>
@@ -368,13 +347,13 @@
           <fieldset class="form-group attend-group">
             <legend class="label" data-i18n="rsvp-attend-legend">Asistencia</legend>
             <div class="attend-btns">
-              <button type="button" class="attend-btn" data-attend="yes" data-i18n="rsvp-attend-yes">Asistiré con gusto</button>
+              <button type="button" class="attend-btn" data-attend="yes" data-i18n="rsvp-attend-yes">Sí, asistiré</button>
               <button type="button" class="attend-btn" data-attend="no" data-i18n="rsvp-attend-no">No podré asistir</button>
             </div>
           </fieldset>
 
           <div class="form-group extra-fields" id="extra-fields">
-            <label class="label" for="rsvp-guests" data-i18n="rsvp-guests-label">¿Cuántos asistentes? (incluyéndote)</label>
+            <label class="label" for="rsvp-guests" data-i18n="rsvp-guests-label">¿Cuántos asistentes, incluyéndote?</label>
             <select class="form-input" id="rsvp-guests" name="guests">
               <option value="" data-i18n="rsvp-guests-opt0">— Selecciona —</option>
               <option value="1" data-i18n="rsvp-guests-opt1">1 persona</option>
@@ -390,13 +369,13 @@
               placeholder="Vegetariano, sin gluten…" data-i18n-placeholder="rsvp-dietary-placeholder" />
           </div>
 
-          <div class="form-group" style="margin-bottom: 0; margin-top: 48px;">
-            <label class="label" for="rsvp-note" data-i18n="rsvp-note-label">Mensaje para los novios <span style="opacity:.45;">(opcional)</span></label>
+          <div class="form-group form-group--cta">
+            <label class="label" for="rsvp-note" data-i18n="rsvp-note-label">Un mensaje <span style="opacity:.45;">(opcional)</span></label>
             <textarea class="form-input" id="rsvp-note" name="note" rows="3"
               placeholder="Un pensamiento, un deseo…" data-i18n-placeholder="rsvp-note-placeholder"></textarea>
           </div>
 
-          <button type="button" class="submit-btn" id="rsvp-submit" style="margin-top: 40px;" data-i18n="rsvp-submit">
+          <button type="button" class="submit-btn" id="rsvp-submit" data-i18n="rsvp-submit">
             Enviar confirmación
           </button>
 
@@ -410,7 +389,7 @@
       <svg class="agave-svg agave-field" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax meet"
         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <g id="agv" fill="#FDFAF5">
+          <g id="agv" fill="currentColor">
             <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z" />
             <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z" /></g>
             <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z" /></g>
@@ -429,7 +408,7 @@
         <g transform="translate(1100,295) scale(0.34)"><use href="#agv" opacity="0.35" /></g>
       </svg>
       <h2>L &amp; D</h2>
-      <p class="sub" data-i18n="footer-sub">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
+      <p class="sub" data-i18n="footer-sub">15 de mayo de 2027 &middot; Oaxaca, México</p>
     </footer>
 
   </div><!-- /page-content -->

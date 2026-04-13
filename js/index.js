@@ -19,7 +19,7 @@
           'cd-mins-label': 'Minutos',
           'cd-secs-label': 'Segundos',
           'story-label': 'Nuestra historia',
-          'story-headline': 'De Monterrey<br>a <em>Oaxaca.</em>',
+          'story-headline': 'De Monterrey<br>a <em>Oaxaca</em>',
           'story-connector-text': '6 años · 5 ciudades · 1 historia',
           'm1-city': 'Monterrey, México',
           'm1-event': 'nos conocimos',
@@ -85,7 +85,8 @@
           'sched-party-name': 'Baile y fiesta',
           'sched-party-note': '¡Hasta que la música decida!',
           // oaxaca guide
-          'oaxaca-label': 'Oaxaca',
+          'oaxaca-label': 'Tu guía de Oaxaca',
+          'oaxaca-heading': 'Tu guía de <em>Oaxaca</em>',
           'tab-hotels': 'Hospedarse',
           'tab-travel': 'Llegar',
           'tab-explore': 'Explorar',
@@ -107,7 +108,7 @@
           'travel-air-label': 'Vuelo',
           'travel-air-val': 'Aeropuerto Internacional de Oaxaca (OAX) · ~9 km del Centro Histórico. Vuelos directos desde Ciudad de México con Aeroméxico, VivaAerobus y Volaris.',
           'travel-taxi-label': 'Del aeropuerto',
-          'travel-taxi-val': 'Taxi autorizado (~200–250 MXN, ~20 min) o Uber desde fuera de las instalaciones. Renta de auto disponible, aunque el Centro se recorre mejor a pie.',
+          'travel-taxi-val': 'Taxi (200–250 MXN aprox., 20 min aprox.). Renta de auto disponible, aunque el Centro se recorre mejor a pie.',
           'travel-local-label': 'En el Centro',
           'travel-local-val': 'El Centro Histórico es eminentemente peatonal. El Cardenal se encuentra sobre el andador Macedonio Alcalá, a menos de 15 min caminando de los hoteles recomendados.',
           // explore
@@ -148,7 +149,7 @@
           'cd-mins-label': 'Minutes',
           'cd-secs-label': 'Seconds',
           'story-label': 'Our story',
-          'story-headline': 'From Monterrey<br>to <em>Oaxaca.</em>',
+          'story-headline': 'From Monterrey<br>to <em>Oaxaca</em>',
           'story-connector-text': '6 years · 5 cities · 1 story',
           'm1-city': 'Monterrey, Mexico',
           'm1-event': 'we met',
@@ -216,7 +217,8 @@
           'sched-party-name': 'Dancing & celebration',
           'sched-party-note': 'Until the music runs out!',
           // oaxaca guide
-          'oaxaca-label': 'Oaxaca',
+          'oaxaca-label': 'Your Oaxaca guide',
+          'oaxaca-heading': 'Your guide to <em>Oaxaca</em>',
           'tab-hotels': 'Hotels',
           'tab-travel': 'Getting Here',
           'tab-explore': 'Explore',
@@ -238,7 +240,7 @@
           'travel-air-label': 'By air',
           'travel-air-val': 'Oaxaca International Airport (OAX) · ~9 km from Centro Histórico. Direct flights from Mexico City with Aeroméxico, VivaAerobus, and Volaris.',
           'travel-taxi-label': 'Airport → Hotel',
-          'travel-taxi-val': 'Authorized taxi (~200–250 MXN, ~20 min) or Uber from outside the terminal. Car rental available, though Centro is best explored on foot.',
+          'travel-taxi-val': 'Taxi (200–250 MXN approx., 20 min approx.). Car rental available, though Centro is best explored on foot.',
           'travel-local-label': 'In Centro',
           'travel-local-val': 'The historic center is highly walkable. El Cardenal is on the Macedonio Alcalá pedestrian street, less than 15 min on foot from the recommended hotels.',
           // explore
@@ -358,17 +360,19 @@
       nav.classList.toggle('scrolled', window.scrollY > 80);
     }, { passive: true });
 
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        toggle.classList.remove('open');
-        mobileMenu.classList.remove('open');
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
       });
-    });
+
+      mobileMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          toggle.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
 
     /* More dropdown (desktop) */
     const navMore = document.querySelector('.nav-more');
@@ -393,27 +397,56 @@
       });
     }
 
-    /* Tabs */
+    /* Tabs + Accordion */
     const tabBtns = document.querySelectorAll('.tab-btn');
-    if (tabBtns.length) {
-      const allPanels = document.querySelectorAll('.tab-panel');
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-          allPanels.forEach(p => { p.hidden = true; });
-          btn.classList.add('active');
-          btn.setAttribute('aria-selected', 'true');
-          const panel = document.getElementById('tab-panel-' + btn.dataset.tab);
-          if (panel) {
-            panel.hidden = false;
-            panel.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-              el.style.transitionDelay = (parseInt(el.dataset.delay || '0', 10)) + 'ms';
-              el.classList.add('visible');
-            });
-          }
+    const accTriggers = document.querySelectorAll('.oax-acc-trigger');
+    const allPanels = document.querySelectorAll('.tab-panel');
+
+    // Shared: activate a tab/panel by data-tab key
+    function activateTab(tabKey) {
+      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      allPanels.forEach(p => { p.hidden = true; });
+      accTriggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+      const activeBtn = document.querySelector(`.tab-btn[data-tab="${tabKey}"]`);
+      if (activeBtn) { activeBtn.classList.add('active'); activeBtn.setAttribute('aria-selected', 'true'); }
+
+      const panel = document.getElementById('tab-panel-' + tabKey);
+      if (panel) {
+        panel.hidden = false;
+        panel.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+          el.style.transitionDelay = (parseInt(el.dataset.delay || '0', 10)) + 'ms';
+          el.classList.add('visible');
         });
+      }
+
+      const activeTrigger = document.querySelector(`.oax-acc-trigger[data-tab="${tabKey}"], .oax-accordion[data-tab="${tabKey}"] .oax-acc-trigger`);
+      if (activeTrigger) activeTrigger.setAttribute('aria-expanded', 'true');
+    }
+
+    // Desktop tab buttons
+    if (tabBtns.length) {
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => activateTab(btn.dataset.tab));
       });
     }
+
+    // Mobile accordion triggers — toggle open/close
+    accTriggers.forEach(trigger => {
+      const accordion = trigger.closest('.oax-accordion');
+      const tabKey = accordion.dataset.tab;
+      trigger.addEventListener('click', () => {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          // collapse
+          trigger.setAttribute('aria-expanded', 'false');
+          const panel = document.getElementById('tab-panel-' + tabKey);
+          if (panel) panel.hidden = true;
+        } else {
+          activateTab(tabKey);
+        }
+      });
+    });
 
     /* Scroll Reveal */
     const observer = new IntersectionObserver((entries) => {
