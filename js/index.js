@@ -75,7 +75,8 @@
           'nav-more': 'Más',
           // attire + schedule
           'attire-label': 'Vestimenta',
-          'attire-val': 'Cóctel elegante · Telas ligeras y calzado cómodo para los adoquines del Centro.',
+          'attire-val': 'Cóctel elegante',
+          'attire-note': 'Telas ligeras y calzado cómodo recomendados.',
           'sched-ceremony-time': 'Por confirmar',
           'sched-ceremony-name': 'Ceremonia religiosa',
           'sched-cocktail-time': 'Por confirmar',
@@ -205,7 +206,8 @@
           'nav-more': 'More',
           // attire + schedule
           'attire-label': 'Attire',
-          'attire-val': 'Cocktail attire · Light fabrics and comfortable shoes for the cobblestone streets of Centro.',
+          'attire-val': 'Cocktail attire',
+          'attire-note': 'Light fabrics and comfortable shoes recommended.',
           'sched-ceremony-time': 'To be confirmed',
           'sched-ceremony-name': 'Church ceremony',
           'sched-cocktail-time': 'To be confirmed',
