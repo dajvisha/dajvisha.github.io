@@ -188,16 +188,16 @@
                 <span class="venue-row-key" data-i18n="venue-address-label">Dirección</span>
                 <span class="venue-row-val">Calle Macedonio Alcalá 407<br>Centro Histórico</span>
               </div>
-              <div class="venue-row reveal" data-delay="220" data-optional hidden>
+              <div class="venue-row reveal" data-delay="220">
                 <span class="venue-row-key" data-i18n="attire-label">Vestimenta</span>
-                <span class="venue-row-val">Cóctel elegante · Formal o semiformal
+                <span class="venue-row-val">Cóctel elegante · Formal
                   <span class="venue-row-note" data-i18n="attire-note">Telas ligeras y calzado cómodo recomendados.</span>
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="venue-col" data-optional hidden>
+          <div class="venue-col">
             <span class="venue-col-label reveal" data-delay="100" data-i18n="program-label">Programa</span>
             <div class="venue-rows">
               <div class="venue-row reveal" data-delay="140">
@@ -221,19 +221,40 @@
     </section>
 
     <!-- OAXACA -->
-    <section class="info-section info-section--cream2" id="oaxaca" data-optional hidden>
+    <section class="info-section info-section--cream2" id="oaxaca">
       <div class="info-inner">
         <h2 class="heading-serif reveal" data-delay="80" data-i18n="oaxaca-heading">Tu guía de <em>Oaxaca</em></h2>
 
         <!-- Tab bar (desktop only) -->
         <div class="tab-bar" role="tablist">
-          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="hotels" data-i18n="tab-hotels">Hospedarse</button>
-          <button class="tab-btn" role="tab" aria-selected="false" data-tab="travel" data-i18n="tab-travel">Llegar</button>
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="travel" data-i18n="tab-travel">Llegar</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="hotels" data-i18n="tab-hotels" data-optional hidden>Hospedarse</button>
           <button class="tab-btn" role="tab" aria-selected="false" data-tab="explore" data-i18n="tab-explore">Explorar</button>
         </div>
 
+        <!-- Accordion item: Llegar -->
+        <div class="oax-accordion" data-tab="travel">
+          <button class="oax-acc-trigger" aria-expanded="false" data-i18n="tab-travel">Llegar</button>
+          <div class="tab-panel" id="tab-panel-travel" role="tabpanel" hidden>
+          <div class="venue-rows">
+            <div class="venue-row reveal" data-delay="80">
+              <span class="venue-row-key" data-i18n="travel-air-label">Vuelo</span>
+              <span class="venue-row-val" data-i18n="travel-air-val">Aeropuerto Internacional de Oaxaca (OAX), a 9 km del Centro Histórico. Vuelos directos desde Ciudad de México con Aeroméxico, VivaAerobus y Volaris.</span>
+            </div>
+            <div class="venue-row reveal" data-delay="160">
+              <span class="venue-row-key" data-i18n="travel-taxi-label">Del aeropuerto</span>
+              <span class="venue-row-val" data-i18n="travel-taxi-val">Taxi (200–250 MXN aprox., 20 min aprox.). Renta de auto disponible, aunque el Centro se recorre mejor caminando.</span>
+            </div>
+            <div class="venue-row reveal" data-delay="240">
+              <span class="venue-row-key" data-i18n="travel-local-label">En el Centro</span>
+              <span class="venue-row-val" data-i18n="travel-local-val">El Centro Histórico de Oaxaca es completamente peatonal. El Cardenal se ubica en el andador Macedonio Alcalá.</span>
+            </div>
+          </div>
+          </div>
+        </div>
+
         <!-- Accordion item: Hospedarse -->
-        <div class="oax-accordion" data-tab="hotels">
+        <div class="oax-accordion" data-tab="hotels" data-optional hidden>
           <button class="oax-acc-trigger" aria-expanded="false" data-i18n="tab-hotels">Hospedarse</button>
           <div class="tab-panel" id="tab-panel-hotels" role="tabpanel" hidden>
             <div class="hotel-list">
@@ -251,27 +272,6 @@
             </div>
           </div>
           <p class="info-note reveal" data-delay="320" data-i18n="hotels-note">Bloque de habitaciones por confirmar. Se informará si se confirma una tarifa especial para invitados.</p>
-          </div>
-        </div>
-
-        <!-- Accordion item: Llegar -->
-        <div class="oax-accordion" data-tab="travel">
-          <button class="oax-acc-trigger" aria-expanded="false" data-i18n="tab-travel">Llegar</button>
-          <div class="tab-panel" id="tab-panel-travel" role="tabpanel" hidden>
-          <div class="venue-rows">
-            <div class="venue-row reveal" data-delay="80">
-              <span class="venue-row-key" data-i18n="travel-air-label">Vuelo</span>
-              <span class="venue-row-val" data-i18n="travel-air-val">Aeropuerto Internacional de Oaxaca (OAX) · a 9 km del Centro Histórico. Vuelos directos desde Ciudad de México con Aeroméxico, VivaAerobus y Volaris.</span>
-            </div>
-            <div class="venue-row reveal" data-delay="160">
-              <span class="venue-row-key" data-i18n="travel-taxi-label">Del aeropuerto</span>
-              <span class="venue-row-val" data-i18n="travel-taxi-val">Taxi (200–250 MXN aprox., 20 min aprox.). Renta de auto disponible, aunque el Centro se recorre mejor a pie.</span>
-            </div>
-            <div class="venue-row reveal" data-delay="240">
-              <span class="venue-row-key" data-i18n="travel-local-label">En el Centro</span>
-              <span class="venue-row-val" data-i18n="travel-local-val">El Centro Histórico es eminentemente peatonal. El Cardenal se encuentra sobre el andador Macedonio Alcalá, a menos de 15 min caminando de los hoteles recomendados.</span>
-            </div>
-          </div>
           </div>
         </div>
 
@@ -311,7 +311,7 @@
     </section>
 
     <!-- MESA DE REGALOS -->
-    <section class="info-section info-section--cream" id="regalos" data-optional hidden>
+    <section class="info-section info-section--cream" id="regalos">
       <div class="info-inner">
         <span class="story-label reveal" data-delay="80" data-i18n="registry-label">Mesa de regalos</span>
         <h2 class="story-headline reveal" data-delay="160" data-i18n="registry-heading">Tu presencia es <em>el regalo</em></h2>

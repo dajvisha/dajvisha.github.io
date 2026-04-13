@@ -108,23 +108,23 @@
           'travel-air-label': 'Vuelo',
           'travel-air-val': 'Aeropuerto Internacional de Oaxaca (OAX) · ~9 km del Centro Histórico. Vuelos directos desde Ciudad de México con Aeroméxico, VivaAerobus y Volaris.',
           'travel-taxi-label': 'Del aeropuerto',
-          'travel-taxi-val': 'Taxi (200–250 MXN aprox., 20 min aprox.). Renta de auto disponible, aunque el Centro se recorre mejor a pie.',
+          'travel-taxi-val': 'Taxi (200–250 MXN aprox., 20 min aprox.). Renta de auto disponible, aunque el Centro se recorre mejor caminando.',
           'travel-local-label': 'En el Centro',
-          'travel-local-val': 'El Centro Histórico es eminentemente peatonal. El Cardenal se encuentra sobre el andador Macedonio Alcalá, a menos de 15 min caminando de los hoteles recomendados.',
+          'travel-local-val': 'El Centro Histórico de Oaxaca es completamente peatonal. El Cardenal se ubica en el andador Macedonio Alcalá.',
           // explore
           'explore-label': 'Explora',
           'explore-heading': 'Oaxaca más <em>allá</em>',
           'explore-culture-label': 'Cultura & Historia',
-          'explore-monteAlban-note': 'Sitio arqueológico zapoteca · ~15 min en auto',
-          'explore-santoDomingo-note': 'Museo de las Culturas de Oaxaca · a dos cuadras del venue',
+          'explore-monteAlban-note': 'Sitio arqueológico zapoteca, ~15 min en auto',
+          'explore-santoDomingo-note': 'Museo de las Culturas de Oaxaca, a dos cuadras del venue',
           'explore-maco-note': 'Museo de Arte Contemporáneo de Oaxaca',
           'explore-nature-label': 'Naturaleza',
-          'explore-hierve-note': 'Cascadas petrificadas · excursión de día ~70 km',
-          'explore-tule-note': 'El árbol más ancho del mundo · 13 km al este',
+          'explore-hierve-note': 'Cascadas petrificadas, excursión de día ~70 km',
+          'explore-tule-note': 'Ahuehuete milenario con el tronco más ancho del mundo, Santa María del Tule, 13 km',
           'explore-food-label': 'Gastronomía & Mezcal',
           'explore-market-note': 'Tamales, tlayudas, chocolate oaxaqueño',
-          'explore-insitu-note': 'Mezcal artesanal de la Sierra · Murguía 105',
-          'explore-danzantes-note': 'Cocina oaxaqueña contemporánea · Macedonio Alcalá 403',
+          'explore-insitu-note': 'Mezcal artesanal de la Sierra, Murguía 105',
+          'explore-danzantes-note': 'Cocina oaxaqueña contemporánea, Macedonio Alcalá 403',
           // registry
           'registry-label': 'Mesa de regalos',
           'registry-heading': 'Tu presencia es <em>el regalo</em>',
@@ -154,18 +154,18 @@
           'm1-city': 'Monterrey, Mexico',
           'm1-event': 'we met',
           'm2-city': 'San Francisco, United States',
-          'm2-event': 'we became a couple',
+          'm2-event': 'we started dating',
           'm3-city': 'Paris, France',
           'm3-event': 'we got engaged',
           'm4-city': 'Toluca, Mexico',
-          'm4-event': 'civil wedding',
+          'm4-event': 'civil ceremony',
           'm5-city': 'Oaxaca, Mexico',
-          'm5-event': 'church wedding',
+          'm5-event': 'the wedding',
           'homes-label': 'We\'ve lived together in',
           'home-1': 'Monclova, Mexico',
           'home-2': 'Mexico City, Mexico',
           'home-3': 'San Francisco, United States',
-          'phrase-1': 'With the agave we understood the patience of the earth.',
+          'phrase-1': 'With the agave we learned the earth’s long wait.',
           'phrase-2': 'With distance we understood the strength of choosing each other.',
           'phrase-3': 'With mezcal we celebrate eternity.',
           'venue-label': 'The venue',
@@ -203,8 +203,6 @@
           'nav-oaxaca': 'Oaxaca',
           'nav-registry': 'Registry',
           'nav-more': 'More',
-          // attire
-          'attire-label': 'Attire',
           // attire + schedule
           'attire-label': 'Attire',
           'attire-val': 'Cocktail attire · Light fabrics and comfortable shoes for the cobblestone streets of Centro.',
@@ -240,23 +238,23 @@
           'travel-air-label': 'By air',
           'travel-air-val': 'Oaxaca International Airport (OAX) · ~9 km from Centro Histórico. Direct flights from Mexico City with Aeroméxico, VivaAerobus, and Volaris.',
           'travel-taxi-label': 'Airport → Hotel',
-          'travel-taxi-val': 'Taxi (200–250 MXN approx., 20 min approx.). Car rental available, though Centro is best explored on foot.',
+          'travel-taxi-val': 'Taxi (200–250 MXN approx., 20 min approx.). Car rental available, though the center is best explored on foot.',
           'travel-local-label': 'In Centro',
-          'travel-local-val': 'The historic center is highly walkable. El Cardenal is on the Macedonio Alcalá pedestrian street, less than 15 min on foot from the recommended hotels.',
+          'travel-local-val': 'Oaxaca\'s historic center is fully pedestrian. El Cardenal is located on the Macedonio Alcalá pedestrian street.',
           // explore
           'explore-label': 'Explore',
           'explore-heading': 'Oaxaca beyond <em>the wedding</em>',
           'explore-culture-label': 'Culture & History',
-          'explore-monteAlban-note': 'Zapotec archaeological site · ~15 min by car',
-          'explore-santoDomingo-note': 'Museum of Oaxacan Cultures · two blocks from the venue',
+          'explore-monteAlban-note': 'Zapotec archaeological site, ~15 min by car',
+          'explore-santoDomingo-note': 'Museum of Oaxacan Cultures, two blocks from the venue',
           'explore-maco-note': 'Museum of Contemporary Art of Oaxaca',
           'explore-nature-label': 'Nature',
-          'explore-hierve-note': 'Petrified waterfalls · day trip ~70 km',
-          'explore-tule-note': 'The widest tree in the world · 13 km east',
+          'explore-hierve-note': 'Petrified waterfalls, day trip ~70 km',
+          'explore-tule-note': 'Ancient Montezuma cypress with the widest trunk in the world, Santa María del Tule, 13 km',
           'explore-food-label': 'Food & Mezcal',
           'explore-market-note': 'Tamales, tlayudas, Oaxacan chocolate',
-          'explore-insitu-note': 'Artisanal Sierra mezcal · Murguía 105',
-          'explore-danzantes-note': 'Contemporary Oaxacan cuisine · Macedonio Alcalá 403',
+          'explore-insitu-note': 'Artisanal Sierra mezcal, Murguía 105',
+          'explore-danzantes-note': 'Contemporary Oaxacan cuisine, Macedonio Alcalá 403',
           // registry
           'registry-label': 'Registry',
           'registry-heading': 'Your presence is <em>the gift</em>',
@@ -447,6 +445,11 @@
         }
       });
     });
+
+    // Initialize first tab on desktop
+    if (window.matchMedia('(min-width: 760px)').matches) {
+      activateTab('travel');
+    }
 
     /* Scroll Reveal */
     const observer = new IntersectionObserver((entries) => {
