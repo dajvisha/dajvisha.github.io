@@ -375,9 +375,16 @@
               placeholder="Un pensamiento, un deseo…" data-i18n-placeholder="rsvp-note-placeholder"></textarea>
           </div>
 
+          <!-- Honeypot — must stay empty -->
+          <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+
           <button type="button" class="submit-btn" id="rsvp-submit" data-i18n="rsvp-submit">
             Enviar confirmación
           </button>
+
+          <div class="rsvp-feedback" id="rsvp-feedback" hidden>
+            <p class="rsvp-feedback-msg" id="rsvp-feedback-msg"></p>
+          </div>
 
         </div>
 

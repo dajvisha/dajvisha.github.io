@@ -1615,6 +1615,33 @@
       transform: translateY(-1px);
     }
 
+    .submit-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .rsvp-feedback {
+      margin-top: 28px;
+      padding: 18px 20px;
+      font-family: var(--font-sans);
+      font-size: .75rem;
+      letter-spacing: .06em;
+      line-height: 1.6;
+    }
+
+    .rsvp-feedback--success {
+      background: color-mix(in srgb, var(--crimson) 8%, transparent);
+      border-left: 2px solid var(--crimson);
+      color: var(--crimson);
+    }
+
+    .rsvp-feedback--error {
+      background: color-mix(in srgb, var(--sienna) 8%, transparent);
+      border-left: 2px solid var(--sienna);
+      color: var(--sienna);
+    }
+
     .extra-fields {
       display: none;
     }

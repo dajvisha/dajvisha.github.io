@@ -478,7 +478,84 @@
       });
     });
 
-    /* RSVP — wire to backend when ready */
+    /* RSVP — submit to Google Apps Script */
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySa7GVy0qU9X1yFO1uOj7bb1c25-5Wo8vMsDBOBarXEVxeHE6UVk0fqeh2o0ZC7eZm/exec';
+
+    const submitBtn = document.getElementById('rsvp-submit');
+    const feedback = document.getElementById('rsvp-feedback');
+    const feedbackMsg = document.getElementById('rsvp-feedback-msg');
+
+    const rsvpMessages = {
+      es: {
+        sending: 'Enviando…',
+        success: '¡Confirmación recibida! Nos vemos en Oaxaca.',
+        error: 'Algo salió mal. Por favor intenta de nuevo.',
+        validation: 'Por favor completa tu nombre y selecciona tu asistencia.',
+      },
+      en: {
+        sending: 'Sending…',
+        success: 'Confirmation received! See you in Oaxaca.',
+        error: 'Something went wrong. Please try again.',
+        validation: 'Please enter your name and select your attendance.',
+      }
+    };
+
+    function getRsvpMsg(key) {
+      const lang = localStorage.getItem('lang') || 'es';
+      return (rsvpMessages[lang] || rsvpMessages.es)[key];
+    }
+
+    submitBtn.addEventListener('click', () => {
+      const name = document.getElementById('rsvp-name').value.trim();
+      const phone = document.getElementById('rsvp-phone').value.trim();
+      const attendBtn = document.querySelector('.attend-btn.selected');
+      const honeypot = document.querySelector('input[name="_honeypot"]').value;
+
+      // Honeypot check
+      if (honeypot) return;
+
+      // Basic validation
+      if (!name || !attendBtn) {
+        feedback.hidden = false;
+        feedback.className = 'rsvp-feedback rsvp-feedback--error';
+        feedbackMsg.textContent = getRsvpMsg('validation');
+        return;
+      }
+
+      const attending = attendBtn.dataset.attend === 'yes';
+      const guests = attending ? document.getElementById('rsvp-guests').value : '';
+      const dietary = attending ? document.getElementById('rsvp-dietary').value.trim() : '';
+      const note = document.getElementById('rsvp-note').value.trim();
+      const lang = localStorage.getItem('lang') || 'es';
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = getRsvpMsg('sending');
+      feedback.hidden = true;
+
+      const payload = { name, phone, attending, guests, dietary, note, lang, timestamp: new Date().toISOString() };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+        .then(() => {
+          feedback.hidden = false;
+          feedback.className = 'rsvp-feedback rsvp-feedback--success';
+          feedbackMsg.textContent = getRsvpMsg('success');
+          submitBtn.style.display = 'none';
+          document.querySelector('.rsvp-form').querySelectorAll('input, select, textarea, button:not(#rsvp-submit)').forEach(el => el.disabled = true);
+        })
+        .catch(() => {
+          feedback.hidden = false;
+          feedback.className = 'rsvp-feedback rsvp-feedback--error';
+          feedbackMsg.textContent = getRsvpMsg('error');
+          submitBtn.disabled = false;
+          submitBtn.setAttribute('data-i18n', 'rsvp-submit');
+          submitBtn.textContent = getRsvpMsg('submit') || 'Enviar confirmación';
+        });
+    });
 
     /* Countdown */
     const weddingDate = new Date('2027-05-15T17:00:00-06:00');
