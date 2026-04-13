@@ -338,14 +338,72 @@
       color: var(--ink);
     }
 
-    .nav-toggle {
-      display: flex;
+    /* ── More dropdown (desktop, ?info mode) ── */
+    .nav-more { position: relative; }
+
+    .nav-more-btn {
       background: none;
       border: none;
       cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      padding: 4px;
+      font-family: var(--font-sans);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      padding: 0;
+      transition: color .3s;
+    }
+
+    .nav-more-btn::after {
+      content: ' ↓';
+      font-size: .55rem;
+      letter-spacing: 0;
+      opacity: 0.6;
+    }
+
+    .nav.scrolled .nav-more-btn { color: var(--sienna); }
+    .nav:not(.scrolled) .nav-more-btn { color: var(--cream); }
+
+    @media (min-width: 901px) {
+      .nav:not(.scrolled) .nav-more-btn { color: var(--sienna); }
+    }
+
+    .nav-more-btn:hover { color: var(--ink); }
+
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      right: 0;
+      min-width: 180px;
+      background: rgba(245,239,228,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 0.5px solid rgba(26,22,18,0.10);
+      box-shadow: 0 8px 32px rgba(26,22,18,0.10);
+      list-style: none;
+      padding: 8px 0;
+      z-index: 200;
+    }
+
+    .nav-more.open .nav-dropdown { display: block; }
+
+    .nav-dropdown li a {
+      display: block;
+      padding: 10px 20px;
+      font-family: var(--font-sans);
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: .30em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      transition: color .2s, background .2s;
+    }
+
+    .nav-dropdown li a:hover {
+      color: var(--ink);
+      background: rgba(26,22,18,0.04);
     }
 
     .nav-toggle span {
@@ -827,8 +885,8 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-top: 18px;
-      margin-bottom: 42px;
+      margin-top: 0;
+      margin-bottom: 52px;
     }
 
     .story-connector-line {
@@ -856,7 +914,7 @@
       letter-spacing: -0.01em;
       color: var(--ink);
       opacity: 0.85;
-      margin-bottom: 0;
+      margin-bottom: clamp(28px, 4vw, 48px);
     }
 
     .story-headline em {
@@ -961,6 +1019,258 @@
         max-width: 50%;
         padding-right: 0;
       }
+    }
+
+    /* ──────────────────────────────────────
+       VENUE
+    ────────────────────────────────────── */
+    .venue {
+      background: var(--cream3);
+      border-top: 0.5px solid rgba(26,22,18,0.07);
+      padding: clamp(64px, 8vw, 100px) var(--page-x);
+    }
+
+    .venue-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .venue-map-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-family: var(--font-sans);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(160,88,44,0.40);
+      transition: text-decoration-color .2s, opacity .2s;
+    }
+
+    .venue-map-link:hover {
+      opacity: 1;
+      text-decoration-color: var(--sienna);
+    }
+
+    .venue-rows {
+      border-top: 0.5px solid rgba(26,22,18,0.10);
+    }
+
+    .venue-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 0.5px solid rgba(26,22,18,0.07);
+      align-items: baseline;
+    }
+
+    .venue-row-key {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.78;
+      padding-top: 3px;
+    }
+
+    .venue-row-val {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.7;
+      color: var(--ink);
+      opacity: 0.85;
+    }
+
+    .venue-row-tbd {
+      font-style: italic;
+      opacity: 0.45;
+    }
+
+    /* ──────────────────────────────────────
+       OPTIONAL SECTIONS  (?info)
+    ────────────────────────────────────── */
+    .info-section {
+      border-top: 0.5px solid rgba(26,22,18,0.07);
+      padding: clamp(56px, 7vw, 88px) var(--page-x);
+    }
+
+    .info-section--cream  { background: var(--cream); }
+    .info-section--cream2 { background: var(--cream2); }
+    .info-section--cream3 { background: var(--cream3); }
+
+    .info-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .info-note {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--ink);
+      opacity: 0.48;
+      margin-top: 32px;
+      line-height: 1.75;
+    }
+
+    /* ── Tabs ── */
+    .tab-bar {
+      display: flex;
+      border-bottom: 0.5px solid rgba(26,22,18,0.12);
+      margin-top: 0;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px 12px;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.40;
+      cursor: pointer;
+      white-space: nowrap;
+      position: relative;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5px;
+      left: 0; right: 0;
+      height: 1.5px;
+      background: var(--crimson);
+      transform: scaleX(0);
+      transition: transform 0.22s ease;
+    }
+
+    .tab-btn.active {
+      opacity: 1;
+      color: var(--crimson);
+    }
+
+    .tab-btn.active::after {
+      transform: scaleX(1);
+    }
+
+    .tab-panel {
+      padding-top: 32px;
+    }
+
+    /* ── Hotels (Alojamiento) ── */
+    .hotel-list {
+      border-top: 0.5px solid rgba(26,22,18,0.10);
+    }
+
+    .hotel-item {
+      padding: 20px 0;
+      border-bottom: 0.5px solid rgba(26,22,18,0.07);
+    }
+
+    .hotel-item:last-child { border-bottom: none; }
+
+    .hotel-tier {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.68;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .hotel-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--ink);
+      opacity: 0.88;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .hotel-meta {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--ink);
+      opacity: 0.55;
+      line-height: 1.7;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    /* ── Explore (Explora) ── */
+    .explore-grid { margin-top: 36px; }
+
+    .explore-category { margin-bottom: 36px; }
+    .explore-category:last-child { margin-bottom: 0; }
+
+    .explore-list {
+      list-style: none;
+      border-top: 0.5px solid rgba(26,22,18,0.07);
+      margin-top: 20px;
+    }
+
+    .explore-item {
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+      padding: 13px 0;
+      border-bottom: 0.5px solid rgba(26,22,18,0.06);
+    }
+
+    .explore-item-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--ink);
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    a.explore-item-name {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(26,22,18,0.25);
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+
+    a.explore-item-name:hover {
+      color: var(--sienna);
+      text-decoration-color: var(--sienna);
+      opacity: 1;
+    }
+
+    .explore-item-note {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--ink);
+      opacity: 0.48;
+      line-height: 1.6;
+    }
+
+    /* ── Registry ── */
+    .registry-note {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.85;
+      color: var(--ink);
+      opacity: 0.70;
+      margin-top: 36px;
+      max-width: 540px;
     }
 
     /* ──────────────────────────────────────
