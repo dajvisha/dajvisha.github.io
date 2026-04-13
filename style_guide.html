@@ -119,7 +119,7 @@ em { font-style: normal; }
   display: flex; flex-direction: column; justify-content: center;
   position: relative; z-index: 2;
 }
-.cover-label { color: var(--sienna); opacity: 0.5; margin-bottom: 40px; }
+.cover-label { color: var(--sienna); opacity: 0.75; margin-bottom: 40px; }
 .cover-names {
   font-family: 'Playfair Display', serif;
   font-style: normal; font-weight: 400;
@@ -163,14 +163,14 @@ em { font-style: normal; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E");
   background-size: 220px; opacity: 0.35; mix-blend-mode: overlay; pointer-events: none;
 }
-.phrase-label { color: var(--blush); opacity: 0.85; margin-bottom: 48px; position: relative; z-index: 1; }
+.phrase-label { color: var(--blush); opacity: 1; margin-bottom: 48px; position: relative; z-index: 1; }
 .phrase-line {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-weight: 400;
   font-size: clamp(20px, 5vw, 28px); line-height: 1.48;
-  color: var(--cream); opacity: 0.82; display: block;
+  color: var(--cream); opacity: 0.95; display: block;
   padding: 24px 0;
-  border-top: 0.5px solid rgba(253,250,245,0.12);
+  border-top: 0.5px solid rgba(253,250,245,0.20);
   position: relative; z-index: 1;
 }
 .phrase-line:last-of-type {
@@ -178,9 +178,9 @@ em { font-style: normal; }
 }
 .phrase-short {
   margin-top: 52px;
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-family: 'Montserrat', sans-serif; font-weight: 400;
   font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
-  color: var(--cream); opacity: 0.72;
+  color: var(--cream); opacity: 0.88;
   position: relative; z-index: 1;
 }
 
@@ -204,16 +204,16 @@ em { font-style: normal; }
 .swatch-name {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-weight: 400; font-size: 17px;
-  color: var(--ink); opacity: 0.7; display: block; margin-bottom: 4px;
+  color: var(--ink); opacity: 0.88; display: block; margin-bottom: 4px;
 }
 .swatch-hex {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-family: 'Montserrat', sans-serif; font-weight: 400;
   font-size: 11px; letter-spacing: 0.16em;
-  color: var(--ink); opacity: 0.6; display: block; margin-bottom: 8px;
+  color: var(--ink); opacity: 0.78; display: block; margin-bottom: 8px;
 }
 .swatch-role {
   font-family: 'Playfair Display', serif;
-  font-size: 12px; color: var(--ink); opacity: 0.72; line-height: 1.6;
+  font-size: 13px; color: var(--ink); opacity: 0.82; line-height: 1.6;
 }
 /* ── TYPOGRAPHY ── */
 .type-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); }
@@ -232,15 +232,15 @@ em { font-style: normal; }
 }
 .type-row:last-child { border-bottom: 0.5px solid rgba(26,22,18,0.07); margin-bottom: 48px; }
 .type-row-role {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-family: 'Montserrat', sans-serif; font-weight: 400;
   font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--sienna); opacity: 0.6;
+  color: var(--sienna); opacity: 0.80;
   display: block; margin-bottom: 12px; line-height: 1.9;
 }
 .type-row-note {
   font-family: 'Playfair Display', serif;
   font-size: 14px; line-height: 1.85;
-  color: var(--ink); opacity: 0.72;
+  color: var(--ink); opacity: 0.82;
 }
 .spec-names {
   font-family: 'Playfair Display', serif;
@@ -294,7 +294,7 @@ em { font-style: normal; }
 }
 .icon-cell-note {
   font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.65;
+  font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.80;
 }
 
 /* ── LOGO ── */
@@ -328,7 +328,7 @@ em { font-style: normal; }
 }
 .logo-cell-note {
   font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.65;
+  font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.80;
 }
 
 /* ── APPLICATIONS ── */
@@ -339,8 +339,8 @@ em { font-style: normal; }
 .labels { display:grid; grid-template-columns:1fr; border-top:0.5px solid rgba(26,22,18,0.08); border-bottom:0.5px solid rgba(26,22,18,0.08); margin-bottom:96px; }
 .label-cell { padding:20px 16px; border-bottom:0.5px solid rgba(26,22,18,0.07); display:flex; flex-direction:column; gap:18px; background:var(--cream); }
 .label-cell:last-child { border-bottom:none; }
-.label-cell-type { font-family:'Montserrat',sans-serif; font-weight:300; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; }
-.label-cell-spec { font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:var(--sienna); opacity:0.9; line-height:2.1; }
+.label-cell-type { font-family:'Montserrat',sans-serif; font-weight:400; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; }
+.label-cell-spec { font-family:'Montserrat',sans-serif; font-weight:400; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:var(--sienna); opacity:0.9; line-height:2.1; }
 .label-cell.on-crimson { background:var(--crimson); }
 .label-cell.on-crimson .label-cell-type { color:var(--cream); opacity:0.75; }
 .label-cell.on-crimson .label-cell-spec { color:var(--cream); opacity:0.92; }
@@ -357,10 +357,10 @@ em { font-style: normal; }
 .rules-cols { display:grid; grid-template-columns:1fr; gap:40px; }
 .rules-col-head { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; margin-bottom:32px; padding-bottom:20px; border-bottom:0.5px solid rgba(26,22,18,0.1); }
 .do-head { color:var(--olive); }
-.dont-head { color:var(--crimson); opacity:0.75; }
+.dont-head { color:var(--crimson); opacity:1; }
 .rules-list { list-style:none; }
 .rules-list li { font-family:'Playfair Display',serif; font-size:16px; line-height:1.75; color:var(--ink); opacity:0.75; padding:13px 0; border-bottom:0.5px solid rgba(26,22,18,0.12); display:flex; gap:16px; align-items:baseline; }
-.rules-list li::before { font-family:'Montserrat',sans-serif; font-weight:300; font-size:10px; min-width:12px; flex-shrink:0; opacity:0.55; }
+.rules-list li::before { font-family:'Montserrat',sans-serif; font-weight:400; font-size:10px; min-width:12px; flex-shrink:0; opacity:0.75; }
 .do-list li::before { content:'→'; color:var(--olive); }
 .dont-list li::before { content:'×'; color:var(--crimson); }
 
@@ -370,7 +370,7 @@ em { font-style: normal; }
 .closing-vr { width:1px; height:52px; background:var(--crimson); opacity:0.35; margin:0 auto 36px; }
 .closing-names { font-family:'Playfair Display',serif; font-style:normal; font-weight:400; font-size:18px; color:var(--crimson); opacity:0.85; display:block; margin-bottom:18px; text-transform:uppercase; letter-spacing:0.18em; }
 .closing-names em { font-style:normal; color:var(--crimson); }
-.closing-credit { font-family:'Montserrat',sans-serif; font-weight:300; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink); opacity:0.65; }
+.closing-credit { font-family:'Montserrat',sans-serif; font-weight:300; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink); opacity:0.75; }
 
 /* ══════════════════════════════════════════
    RESPONSIVE  (mobile-first)
@@ -618,7 +618,7 @@ em { font-style: normal; }
           </svg>
         </div>
       </div>
-      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Sobres y sellos.</div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.90;">Sobres y sellos.</div>
     </div>
 
     <!-- On olive -->
@@ -658,12 +658,12 @@ em { font-style: normal; }
           </svg>
         </div>
       </div>
-      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Elementos decorativos.</div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.90;">Elementos decorativos.</div>
     </div>
 
     <!-- On ink -->
     <div class="icon-cell" style="background:var(--ink);">
-      <span class="icon-cell-label" style="color:var(--cream); opacity:0.55;">Sobre fondo oscuro</span>
+      <span class="icon-cell-label" style="color:var(--cream); opacity:0.80;">Sobre fondo oscuro</span>
       <div class="icon-specimen">
         <div class="icon-box">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" aria-label="Agave icon on ink">
@@ -698,7 +698,7 @@ em { font-style: normal; }
           </svg>
         </div>
       </div>
-      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Piezas de noche.</div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.90;">Piezas de noche.</div>
     </div>
 
   </div><!-- /icon-grid -->
@@ -727,7 +727,7 @@ em { font-style: normal; }
         <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
         <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
       </div>
-      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Sellos y acento.</div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.90;">Sellos y acento.</div>
     </div>
 
     <!-- On olive -->
@@ -737,7 +737,7 @@ em { font-style: normal; }
         <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
         <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
       </div>
-      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Piezas botánicas.</div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.90;">Piezas botánicas.</div>
     </div>
 
     <!-- On ink -->
@@ -747,7 +747,7 @@ em { font-style: normal; }
         <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
         <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
       </div>
-      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Sobres y detalles.</div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.90;">Sobres y detalles.</div>
     </div>
 
   </div><!-- /logo-grid -->

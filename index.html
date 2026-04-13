@@ -130,12 +130,12 @@
 
     .preloader-date {
       font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-      font-size: .65rem;
-      font-weight: 300;
+      font-size: .72rem;
+      font-weight: 400;
       letter-spacing: .35em;
       text-transform: uppercase;
       color: var(--sienna);
-      opacity: 0.75;
+      opacity: 0.88;
       margin-top: 28px;
     }
 
@@ -171,44 +171,6 @@
       --page-x: clamp(24px, 6vw, 80px);
     }
 
-    :root.olive-mode {
-      --crimson: #6B6440;
-      --blush: #D4E0A0;
-    }
-
-    /* ── Accent toggle ── */
-    .accent-toggle {
-      position: fixed; bottom: 20px; right: 50%; transform: translateX(50%); z-index: 9999;
-      display: flex; align-items: center; gap: 0;
-      border: 0.5px solid rgba(26,22,18,0.18);
-      background: var(--cream); overflow: hidden;
-      box-shadow: 0 2px 16px rgba(26,22,18,0.10);
-      cursor: pointer;
-    }
-    .accent-toggle-opt {
-      padding: 11px 20px;
-      font-family: 'Montserrat', sans-serif; font-weight: 300;
-      font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--ink); opacity: 0.38;
-      transition: opacity 0.3s, background 0.3s, color 0.3s;
-      user-select: none;
-    }
-    .accent-toggle-opt.active {
-      opacity: 1;
-      color: var(--cream);
-      background: var(--crimson);
-    }
-    .accent-toggle-divider {
-      width: 0.5px; height: 18px;
-      background: rgba(26,22,18,0.15); flex-shrink: 0;
-    }
-    @media (min-width: 681px) {
-      .accent-toggle { bottom: 28px; right: 32px; transform: none; }
-    }
-    @media (min-width: 1025px) {
-      .accent-toggle { bottom: 32px; right: 32px; }
-    }
-
     body {
       background: var(--cream);
       color: var(--ink);
@@ -229,8 +191,8 @@
     /* ── Utility ── */
     .label {
       font-family: var(--font-sans);
-      font-size: .65rem;
-      font-weight: 300;
+      font-size: .72rem;
+      font-weight: 400;
       letter-spacing: .35em;
       text-transform: uppercase;
       color: var(--sienna);
@@ -418,8 +380,8 @@
 
     .nav-links a {
       font-family: var(--font-sans);
-      font-size: .6rem;
-      font-weight: 300;
+      font-size: .68rem;
+      font-weight: 400;
       letter-spacing: .35em;
       text-transform: uppercase;
       color: var(--sienna);
@@ -494,8 +456,8 @@
       display: block;
       padding: 12px 0;
       font-family: var(--font-sans);
-      font-size: .7rem;
-      font-weight: 300;
+      font-size: .75rem;
+      font-weight: 400;
       letter-spacing: .35em;
       text-transform: uppercase;
       color: var(--sienna);
@@ -611,7 +573,7 @@
     .hero-info {
       font-family: var(--font-sans);
       font-size: 0.8rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--sienna);
@@ -765,12 +727,12 @@
 
     .countdown-label {
       font-family: var(--font-sans);
-      font-size: .6rem;
-      font-weight: 300;
+      font-size: .72rem;
+      font-weight: 400;
       letter-spacing: .25em;
       text-transform: uppercase;
       color: var(--blush);
-      opacity: 0.75;
+      opacity: 0.92;
       margin-top: 6px;
     }
 
@@ -888,12 +850,12 @@
 
     .story-label {
       font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 10px;
+      font-weight: 400;
+      font-size: 11px;
       letter-spacing: 0.44em;
       text-transform: uppercase;
       color: var(--sienna);
-      opacity: 0.85;
+      opacity: 0.90;
       display: block;
       margin-bottom: 36px;
     }
@@ -924,12 +886,12 @@
 
     .story-connector-text {
       font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 8px;
+      font-weight: 400;
+      font-size: 10px;
       letter-spacing: 0.38em;
       text-transform: uppercase;
       color: var(--sienna);
-      opacity: 0.60;
+      opacity: 0.78;
       white-space: nowrap;
     }
 
@@ -965,11 +927,11 @@
 
     .story-milestone-num {
       font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 8px;
+      font-weight: 400;
+      font-size: 11px;
       letter-spacing: 0.12em;
       color: var(--sienna);
-      opacity: 0.45;
+      opacity: 0.70;
       flex-shrink: 0;
       width: 30px;
       text-align: right;
@@ -989,12 +951,12 @@
 
     .story-milestone-event {
       font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 9px;
+      font-weight: 400;
+      font-size: 11px;
       letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--crimson);
-      opacity: 0.80;
+      opacity: 0.88;
       display: block;
     }
 
@@ -1009,12 +971,12 @@
 
     .story-sub-label {
       font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 9px;
+      font-weight: 400;
+      font-size: 11px;
       letter-spacing: 0.40em;
       text-transform: uppercase;
       color: var(--sienna);
-      opacity: 0.70;
+      opacity: 0.85;
       display: block;
       margin-bottom: 22px;
     }
@@ -1082,11 +1044,11 @@
     .form-input::placeholder {
       font-family: var(--font-sans);
       font-weight: 300;
-      font-size: .65rem;
+      font-size: .72rem;
       letter-spacing: .28em;
       text-transform: uppercase;
       color: var(--sienna);
-      opacity: .45;
+      opacity: .58;
     }
 
     .form-input:focus {
@@ -1146,7 +1108,7 @@
       border: 1px solid rgba(42, 42, 42, .30);
       font-family: var(--font-sans);
       font-size: .75rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: .35em;
       text-transform: uppercase;
       color: var(--sienna);
@@ -1187,7 +1149,7 @@
       cursor: pointer;
       font-family: var(--font-sans);
       font-size: .75rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: .4em;
       text-transform: uppercase;
       transition: background .4s, transform .3s;
@@ -1247,7 +1209,7 @@
       font-family: var(--font-display);
       font-style: italic; font-weight: 400;
       font-size: clamp(20px, 4vw, 28px); line-height: 1.48;
-      color: var(--cream); opacity: 0.82; display: block;
+      color: var(--cream); opacity: 0.95; display: block;
       padding: 24px 0;
       position: relative; z-index: 1;
       max-width: 640px;
@@ -1278,8 +1240,8 @@
       font-size: .75rem;
       letter-spacing: .35em;
       text-transform: uppercase;
-      font-weight: 300;
-      opacity: .7;
+      font-weight: 400;
+      opacity: .88;
     }
 
     .footer .divider-f {
@@ -1309,10 +1271,10 @@
     }
 
     .footer .made {
-      font-size: .65rem;
+      font-size: .72rem;
       font-weight: 300;
       letter-spacing: .25em;
-      opacity: .45;
+      opacity: .65;
     }
 
     /* ──────────────────────────────────────
@@ -1359,25 +1321,25 @@
       border: none;
       cursor: pointer;
       font-family: var(--font-sans);
-      font-size: .58rem;
-      font-weight: 300;
+      font-size: .68rem;
+      font-weight: 400;
       letter-spacing: .28em;
       text-transform: uppercase;
       color: var(--sienna);
       padding: 4px 3px;
-      opacity: 0.45;
+      opacity: 0.55;
       transition: color .3s, opacity .3s;
     }
     .lang-opt.active {
       opacity: 1;
       color: var(--ink);
     }
-    .lang-opt:hover { opacity: 0.8; }
+    .lang-opt:hover { opacity: 0.85; }
     .lang-sep {
       font-family: var(--font-sans);
-      font-size: .55rem;
+      font-size: .65rem;
       color: var(--sienna);
-      opacity: 0.30;
+      opacity: 0.45;
       pointer-events: none;
     }
     /* Adapt lang toggle for transparent (mobile hero) nav */
@@ -1960,35 +1922,6 @@
     setInterval(updateCountdown, 1000);
   </script>
 
-  <!-- Accent toggle -->
-  <div class="accent-toggle" id="accentToggle" title="Cambiar color primario">
-    <span class="accent-toggle-opt active" id="optCrimson">Crimson</span>
-    <span class="accent-toggle-divider"></span>
-    <span class="accent-toggle-opt" id="optOlive">Olive</span>
-  </div>
-
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const optCrimson = document.getElementById('optCrimson');
-      const optOlive = document.getElementById('optOlive');
-
-      function setMode(mode) {
-        if (mode === 'olive') {
-          root.classList.add('olive-mode');
-          optOlive.classList.add('active');
-          optCrimson.classList.remove('active');
-        } else {
-          root.classList.remove('olive-mode');
-          optCrimson.classList.add('active');
-          optOlive.classList.remove('active');
-        }
-      }
-
-      optCrimson.addEventListener('click', () => setMode('crimson'));
-      optOlive.addEventListener('click', () => setMode('olive'));
-    })();
-  </script>
 </body>
 
 </html>
