@@ -119,9 +119,7 @@
     .preloader-monogram em {
       color: var(--crimson);
       opacity: 0.8;
-      font-size: 0.55em;
-      line-height: 1.15;
-      display: block;
+      font-size: 0.65em;
       font-style: normal;
       letter-spacing: 0.28em;
     }
@@ -135,8 +133,7 @@
       font-size: .65rem;
       font-weight: 300;
       letter-spacing: .35em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      text-transform: uppercase;
       color: var(--sienna);
       opacity: 0.75;
       margin-top: 28px;
@@ -167,7 +164,6 @@
       --ink: #1A1612;
       --sienna: #A0582C;
       --crimson: #5C1A22;
-      --crimson-dark: #3E1017;
       --blush: #E8C4BC;
       --olive: #6B6440;
       --font-display: 'Playfair Display', Georgia, serif;
@@ -177,7 +173,6 @@
 
     :root.olive-mode {
       --crimson: #6B6440;
-      --crimson-dark: #4A4A28;
       --blush: #D4E0A0;
     }
 
@@ -217,7 +212,7 @@
     body {
       background: var(--cream);
       color: var(--ink);
-      font-family: var(--font-sans);
+      font-family: var(--font-display);
       line-height: 1.75;
     }
 
@@ -237,17 +232,16 @@
       font-size: .65rem;
       font-weight: 300;
       letter-spacing: .35em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      text-transform: uppercase;
       color: var(--sienna);
     }
 
     .body-text {
-      font-family: var(--font-sans);
+      font-family: var(--font-display);
       font-size: .95rem;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.85;
-      color: var(--sienna);
+      color: var(--ink);
     }
 
     .divider {
@@ -399,27 +393,25 @@
       letter-spacing: 0.28em;
     }
 
-    /* Tablet/mobile: nav sits over the photo — switch to white */
-    @media (max-width: 900px) {
-      .nav:not(.scrolled) .nav-logo {
-        color: var(--cream);
-      }
+    /* Mobile: nav floats over full-bleed photo — use cream */
+    .nav:not(.scrolled) .nav-logo {
+      color: var(--cream);
+    }
 
-      .nav:not(.scrolled) .nav-links a {
-        color: var(--cream);
-      }
+    .nav:not(.scrolled) .nav-links a {
+      color: var(--cream);
+    }
 
-      .nav:not(.scrolled) .nav-links a:hover {
-        color: color-mix(in srgb, var(--cream) 70%, transparent);
-      }
+    .nav:not(.scrolled) .nav-links a:hover {
+      color: color-mix(in srgb, var(--cream) 70%, transparent);
+    }
 
-      .nav:not(.scrolled) .nav-toggle span {
-        background: var(--cream);
-      }
+    .nav:not(.scrolled) .nav-toggle span {
+      background: var(--cream);
     }
 
     .nav-links {
-      display: flex;
+      display: none;
       gap: 40px;
       list-style: none;
     }
@@ -429,8 +421,7 @@
       font-size: .6rem;
       font-weight: 300;
       letter-spacing: .35em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      text-transform: uppercase;
       color: var(--sienna);
       transition: color .3s;
     }
@@ -448,7 +439,7 @@
     }
 
     .nav-toggle {
-      display: none;
+      display: flex;
       background: none;
       border: none;
       cursor: pointer;
@@ -478,7 +469,7 @@
     }
 
     .mobile-menu {
-      display: none;
+      display: block;
       position: absolute;
       top: 100%;
       left: 0;
@@ -504,23 +495,23 @@
       padding: 12px 0;
       font-family: var(--font-sans);
       font-size: .7rem;
-      font-weight: 500;
+      font-weight: 300;
       letter-spacing: .35em;
       text-transform: uppercase;
       color: var(--sienna);
     }
 
-    @media (max-width: 768px) {
+    @media (min-width: 769px) {
       .nav-links {
-        display: none;
-      }
-
-      .nav-toggle {
         display: flex;
       }
 
+      .nav-toggle {
+        display: none;
+      }
+
       .mobile-menu {
-        display: block;
+        display: none;
       }
     }
 
@@ -528,13 +519,14 @@
        HERO
     ────────────────────────────────────── */
     .hero {
-      min-height: 100vh;
+      min-height: auto;
       background: var(--cream);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12vh var(--page-x) 10vh var(--page-x);
-      gap: 4vw;
+      flex-direction: column;
+      padding: 0;
+      gap: 0;
       position: relative;
       overflow: hidden;
     }
@@ -555,10 +547,11 @@
       z-index: 1;
     }
 
-    /* Left column: text */
+    /* Mobile: text block below full-bleed photo */
     .hero-text {
-      flex: 0 1 44%;
-      max-width: 500px;
+      max-width: 100%;
+      text-align: center;
+      padding: 2.8rem var(--page-x) 3.5rem;
     }
 
     /* Hero entrance animations */
@@ -591,13 +584,13 @@
 
     .hero-text h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+      font-size: clamp(2.1rem, 8vw, 2.8rem);
       color: var(--ink);
       line-height: 1.15;
       font-weight: 300;
       letter-spacing: 0.02em;
       margin: 0 0 2.2rem 0;
-      text-align: left;
+      text-align: center;
       font-variant-ligatures: common-ligatures discretionary-ligatures;
       font-feature-settings: "ss01" on, "ss02" on;
     }
@@ -612,7 +605,7 @@
       width: 48px;
       height: 1px;
       background: rgba(42, 42, 42, 0.18);
-      margin-bottom: 2rem;
+      margin: 0 auto 2rem;
     }
 
     .hero-info {
@@ -620,41 +613,45 @@
       font-size: 0.8rem;
       font-weight: 300;
       letter-spacing: 0.35em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      text-transform: uppercase;
       color: var(--sienna);
       margin-bottom: 2.5rem;
+      text-align: center;
     }
 
     .hero-text .hero-cta {
-      display: inline-block;
+      display: block;
       font-family: var(--font-sans);
-      font-size: 0.65rem;
+      font-size: .72rem;
       letter-spacing: 0.4em;
       text-transform: uppercase;
       color: var(--cream);
       background: var(--crimson);
       border: none;
-      padding: 18px 44px;
+      padding: 18px;
       cursor: pointer;
       text-decoration: none;
       font-weight: 400;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
       transition: background 0.4s, transform 0.3s;
     }
 
     .hero-text .hero-cta:hover {
-      background: var(--crimson-dark);
+      background: color-mix(in srgb, var(--crimson) 75%, #000);
       transform: translateY(-1px);
     }
 
-    /* Right column: 2-col layout — photo 1 centered left, photos 2+3 stacked right */
+    /* Mobile: full-bleed photo block */
     .hero-images {
-      flex: 0 1 50%;
+      order: -1;
+      width: 100%;
+      max-width: 100%;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 14px;
-      align-items: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 0;
     }
 
     .hero-photo {
@@ -683,37 +680,29 @@
       z-index: 1;
     }
 
-    /* Photo 1: left column, spans both rows, vertically centered */
+    /* Mobile: single full-bleed photo */
     .hero-photo:nth-child(1) {
-      grid-column: 1 / 2;
-      grid-row: 1 / 3;
-      align-self: center;
+      grid-column: 1;
+      grid-row: 1;
+      align-self: auto;
     }
 
     .hero-photo:nth-child(1) img {
-      aspect-ratio: 2 / 3;
-    }
-
-    /* Photo 2: right column, top row */
-    .hero-photo:nth-child(2) {
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
-      align-self: end;
-    }
-
-    .hero-photo:nth-child(2) img {
       aspect-ratio: 4 / 5;
     }
 
-    /* Photo 3: right column, bottom row */
-    .hero-photo:nth-child(3) {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-      align-self: start;
+    /* Mobile: nav gradient scrim on photo 1 */
+    .hero-photo:nth-child(1)::after {
+      background:
+        linear-gradient(to bottom, rgba(12, 4, 6, .38) 0%, rgba(12, 4, 6, .10) 35%, transparent 60%),
+        radial-gradient(ellipse at 50% 55%, transparent 42%, rgba(44, 24, 16, .30) 100%),
+        linear-gradient(rgba(160, 88, 44, .05), rgba(160, 88, 44, .05));
     }
 
-    .hero-photo:nth-child(3) img {
-      aspect-ratio: 3 / 4;
+    /* Photos 2 & 3: hidden on mobile */
+    .hero-photo:nth-child(2),
+    .hero-photo:nth-child(3) {
+      display: none;
     }
 
     /* Photo entrance stagger */
@@ -740,22 +729,12 @@
       transition-delay: .65s;
     }
 
-    /* On mobile/tablet: add nav scrim on top of the shared vignette+tint */
-    @media (max-width: 900px) {
-      .hero-photo:nth-child(1)::after {
-        background:
-          linear-gradient(to bottom, rgba(12, 4, 6, .38) 0%, rgba(12, 4, 6, .10) 35%, transparent 60%),
-          radial-gradient(ellipse at 50% 55%, transparent 42%, rgba(44, 24, 16, .30) 100%),
-          linear-gradient(rgba(160, 88, 44, .05), rgba(160, 88, 44, .05));
-      }
-    }
-
     /* ── Countdown Bar ── */
     .countdown-bar {
       position: relative;
       background: var(--crimson);
-      padding: 120px 0 100px 0;
-      min-height: 480px;
+      padding: 80px 0 64px 0;
+      min-height: 340px;
       border-top: none;
       overflow: hidden;
     }
@@ -763,7 +742,7 @@
     .countdown {
       display: flex;
       justify-content: center;
-      gap: clamp(28px, 5vw, 60px);
+      gap: clamp(16px, 6vw, 32px);
       position: relative;
       z-index: 3;
     }
@@ -774,7 +753,7 @@
 
     .countdown-value {
       font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-size: clamp(1.6rem, 7vw, 2.2rem);
       font-weight: 300;
       color: var(--cream);
       font-variant-numeric: tabular-nums;
@@ -785,127 +764,112 @@
       font-family: var(--font-sans);
       font-size: .6rem;
       font-weight: 300;
-      letter-spacing: .35em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      letter-spacing: .25em;
+      text-transform: uppercase;
       color: var(--blush);
       opacity: 0.75;
       margin-top: 6px;
     }
 
-    /* ── Hero Responsive ── */
-    @media (max-width: 900px) {
+    /* ── Hero Responsive — medium phones (≥521px) ── */
+    @media (min-width: 521px) {
+      .agave-field { height: 160px; }
+      .hero-text { padding: 3.5rem var(--page-x) 5rem; }
+      .hero-text h1 { font-size: clamp(2.2rem, 6vw, 3rem); }
+      .hero-text .hero-cta { width: auto; max-width: 280px; padding: 18px 44px; font-size: 0.65rem; }
+      .countdown { gap: clamp(28px, 5vw, 60px); }
+      .countdown-value { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+      .countdown-label { letter-spacing: .35em; }
+    }
+
+    /* ── Hero Responsive — desktop (≥901px) ── */
+    @media (min-width: 901px) {
+      .nav:not(.scrolled) .nav-logo { color: var(--ink); }
+      .nav:not(.scrolled) .nav-links a { color: var(--sienna); }
+      .nav:not(.scrolled) .nav-links a:hover { color: var(--ink); }
+
       .hero {
-        flex-direction: column;
-        padding: 0;
-        /* images bleed edge-to-edge */
-        gap: 0;
-        min-height: auto;
+        flex-direction: row;
+        padding: 12vh var(--page-x) 10vh var(--page-x);
+        gap: 4vw;
+        min-height: 100vh;
       }
 
-      /* Image block moves above text — single full-bleed photo */
-      .hero-images {
-        order: -1;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        gap: 0;
-      }
-
-      .hero-photo:nth-child(1) {
-        grid-column: 1;
-        grid-row: 1;
-        align-self: auto;
-      }
-
-      .hero-photo:nth-child(1) img {
-        aspect-ratio: 4 / 5;
-      }
-
-      .hero-photo:nth-child(2),
-      .hero-photo:nth-child(3) {
-        display: none;
-      }
-
-      /* Text block: own padding, acts as caption */
       .hero-text {
-        max-width: 100%;
-        text-align: center;
-        padding: 3.5rem var(--page-x) 5rem;
+        flex: 0 1 44%;
+        max-width: 500px;
+        text-align: left;
+        padding: 0;
       }
 
       .hero-text h1 {
-        text-align: center;
-        font-size: clamp(2.2rem, 6vw, 3rem);
+        text-align: left;
+        font-size: clamp(2.4rem, 3.8vw, 3.6rem);
       }
 
       .hero-divider {
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        margin-right: 0;
       }
 
-      .hero-info {
-        text-align: center;
-      }
+      .hero-info { text-align: left; }
 
       .hero-text .hero-cta {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        max-width: 280px;
+        display: inline-block;
+        width: auto;
+        max-width: none;
+        margin: 0;
       }
+
+      .hero-images {
+        order: 0;
+        flex: 0 1 50%;
+        width: auto;
+        max-width: none;
+        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .hero-photo:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+        align-self: center;
+      }
+
+      .hero-photo:nth-child(1) img { aspect-ratio: 2 / 3; }
+
+      .hero-photo:nth-child(1)::after {
+        background:
+          radial-gradient(ellipse at 50% 55%, transparent 42%, rgba(44, 24, 16, .30) 100%),
+          linear-gradient(rgba(160, 88, 44, .05), rgba(160, 88, 44, .05));
+      }
+
+      .hero-photo:nth-child(2) {
+        display: block;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        align-self: end;
+      }
+
+      .hero-photo:nth-child(2) img { aspect-ratio: 4 / 5; }
+
+      .hero-photo:nth-child(3) {
+        display: block;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        align-self: start;
+      }
+
+      .hero-photo:nth-child(3) img { aspect-ratio: 3 / 4; }
 
       .countdown-bar {
-        padding: 80px 0 64px 0;
-        min-height: 340px;
+        padding: 120px 0 100px 0;
+        min-height: 480px;
       }
 
-      .agave-field {
-        height: 160px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .agave-field {
-        height: 100px;
-      }
-
-      /* Text as typographic moment below the image */
-      .hero-text {
-        padding: 2.8rem var(--page-x) 3.5rem;
-      }
-
-      .hero-text h1 {
-        font-size: clamp(2.1rem, 8vw, 2.8rem);
-      }
-
-      .hero-text .hero-cta {
-        width: 100%;
-        max-width: none;
-        padding: 18px;
-        font-size: .72rem;
-        text-align: center;
-      }
-
-      /* Countdown: 4-unit row on phones */
-      .countdown-unit.hide-mobile {
-        display: block;
-      }
-
-      .countdown {
-        gap: clamp(16px, 6vw, 32px);
-      }
-
-      .countdown-value {
-        font-size: clamp(1.6rem, 7vw, 2.2rem);
-      }
-
-      .countdown-label {
-        font-size: .6rem;
-        letter-spacing: .25em;
-      }
+      .agave-field { height: 300px; }
     }
 
     /* ──────────────────────────────────────
@@ -1189,13 +1153,13 @@
 
     .attend-btns {
       display: flex;
+      flex-direction: column;
       gap: 16px;
-      flex-wrap: wrap;
     }
 
     .attend-btn {
-      flex: 1;
-      min-width: 140px;
+      min-width: unset;
+      width: 100%;
       padding: 16px;
       min-height: 52px;
       background: transparent;
@@ -1204,8 +1168,7 @@
       font-size: .75rem;
       font-weight: 300;
       letter-spacing: .35em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      text-transform: uppercase;
       color: var(--sienna);
       cursor: pointer;
       transition: border-color .3s, background .3s, color .3s;
@@ -1216,14 +1179,16 @@
       color: var(--ink);
     }
 
-    @media (max-width: 380px) {
+    @media (min-width: 381px) {
       .attend-btns {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
       }
 
       .attend-btn {
-        min-width: unset;
-        width: 100%;
+        flex: 1;
+        min-width: 140px;
+        width: auto;
       }
     }
 
@@ -1242,17 +1207,16 @@
       cursor: pointer;
       font-family: var(--font-sans);
       font-size: .75rem;
-      font-weight: 400;
+      font-weight: 300;
       letter-spacing: .4em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      text-transform: uppercase;
       transition: background .4s, transform .3s;
       margin-top: 8px;
       min-height: 52px;
     }
 
     .submit-btn:hover {
-      background: var(--crimson-dark);
+      background: color-mix(in srgb, var(--crimson) 75%, #000);
       transform: translateY(-1px);
     }
 
@@ -1335,8 +1299,7 @@
     .footer .sub {
       font-size: .75rem;
       letter-spacing: .35em;
-      font-variant-caps: all-small-caps;
-      font-feature-settings: "smcp" 1, "c2sc" 1;
+      text-transform: uppercase;
       font-weight: 300;
       opacity: .7;
     }
@@ -1388,7 +1351,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 300px;
+      height: 100px;
       opacity: 0.65;
       z-index: 2;
     }
@@ -1427,7 +1390,7 @@
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
     <div class="preloader-inner">
-      <div class="preloader-monogram">LAURA<em>&amp;</em>DIEGO</div>
+      <div class="preloader-monogram">L<em>&amp;</em>D</div>
       <div class="preloader-rule"></div>
       <div class="preloader-date">Mayo &middot; 2027 &middot; Oaxaca</div>
     </div>
@@ -1638,6 +1601,13 @@
       </div><!-- /story-inner -->
     </section>
 
+    <!-- PHRASE -->
+    <section class="phrase-section">
+      <span class="phrase-section-line">Con el agave entendimos la espera de la tierra.</span>
+      <span class="phrase-section-line">Con la distancia entendimos la fuerza de elegirnos.</span>
+      <span class="phrase-section-line">Con el mezcal celebramos la eternidad.</span>
+    </section>
+
     <!-- RSVP -->
     <section class="section section-alt" id="confirmacion">
       <div class="container-sm">
@@ -1708,18 +1678,10 @@
       </div>
     </section>
 
-    <!-- PHRASE -->
-    <section class="phrase-section">
-      <span class="phrase-section-line">Con el agave entendimos la espera de la tierra.</span>
-      <span class="phrase-section-line">Con la distancia entendimos la fuerza de elegirnos.</span>
-      <span class="phrase-section-line">Con el mezcal celebramos la eternidad.</span>
-    </section>
-
     <!-- FOOTER -->
     <footer class="footer">
       <h2>L &amp; D</h2>
       <p class="sub">Mayo 15, 2027 &middot; Oaxaca, Mexico</p>
-      <p class="made">Hecho con mezcal</p>
     </footer>
 
   </div><!-- /page-content -->

@@ -41,7 +41,6 @@
 
 :root.olive-mode {
   --crimson: #6B6440;
-  --wine-dark: #4A4A28;
   --blush: #D4E0A0;
 }
 
@@ -90,6 +89,8 @@ body {
   font-family: 'Playfair Display', serif;
   -webkit-font-smoothing: antialiased;
 }
+
+em { font-style: normal; }
 
 .sec-label {
   font-family: 'Montserrat', sans-serif;
@@ -183,56 +184,9 @@ body {
   position: relative; z-index: 1;
 }
 
-/* ── CONCEPT ── */
-.concept {
-  background: var(--cream);
-  padding: 56px 24px;
-  border-top: 0.5px solid rgba(26,22,18,0.07);
-}
-.concept-label { color: var(--sienna); opacity: 0.9; margin-bottom: 40px; }
-.concept-headline {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(36px, 9vw, 56px); line-height: 0.92;
-  color: var(--ink); letter-spacing: -0.025em; opacity: 0.85;
-  margin-bottom: 48px;
-}
-.concept-headline em { font-style: italic; color: var(--crimson); opacity: 0.85; }
-.concept-cols {
-  display: grid; grid-template-columns: 1fr; gap: 36px;
-  border-top: 0.5px solid rgba(26,22,18,0.07);
-  padding-top: 52px;
-}
-.concept-col-head {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 20px;
-}
-.concept-col-body {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px; line-height: 1.9;
-  color: var(--ink); opacity: 0.75;
-}
-.concept-col-body em { font-style: italic; color: var(--crimson); opacity: 0.8; }
-.concept-words {
-  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
-}
-.concept-word {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--ink); opacity: 0.65;
-  border: 0.5px solid rgba(26,22,18,0.30);
-  padding: 8px 16px;
-}
-
 /* ── PALETTE ── */
 .palette { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
-.palette-hl-wrap { padding: 48px 24px 36px; }
-.palette-hl {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(36px, 9vw, 56px); line-height: 0.87;
-  color: var(--ink); letter-spacing: -0.03em; opacity: 0.82;
-}
-.palette-hl em { font-style: italic; color: var(--crimson); opacity: 0.9; }
+.palette-hl-wrap { padding: 32px 24px 20px; }
 .palette-label-inline { color: var(--sienna); opacity: 0.9; margin-bottom: 40px; }
 .palette-section-head {
   font-family: 'Montserrat', sans-serif; font-weight: 300;
@@ -246,7 +200,7 @@ body {
   padding: 12px 12px 20px;
   border-right: 0.5px solid rgba(26,22,18,0.06);
 }
-.swatch:last-child .swatch-info { border-right: none; }
+.swatch:nth-child(2n) .swatch-info { border-right: none; }
 .swatch-name {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-weight: 400; font-size: 17px;
@@ -261,42 +215,6 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 12px; color: var(--ink); opacity: 0.72; line-height: 1.6;
 }
-.deco-palette { border-top: 0.5px solid rgba(26,22,18,0.07); background: var(--cream3); }
-.deco-palette-inner { padding: 24px 24px 36px; }
-.deco-palette-head {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
-  color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 32px;
-}
-.deco-swatches { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 32px; }
-.deco-swatch-fill { width: 100%; aspect-ratio: 1/1.4; }
-.deco-swatch-name {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink); opacity: 0.72; display: block; margin-top: 10px; line-height: 1.6;
-}
-.deco-note {
-  font-family: 'Playfair Display', serif;
-  font-style: italic; font-size: 15px; line-height: 1.9;
-  color: var(--ink); opacity: 0.72; max-width: 560px;
-}
-.palette-combos { display: grid; grid-template-columns: 1fr; border-top: 0.5px solid rgba(26,22,18,0.07); }
-.combo { padding: 36px 24px; }
-.combo-label {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
-  opacity: 0.38; display: block; margin-bottom: 32px;
-}
-.combo-specimen {
-  font-family: 'Playfair Display', serif;
-  font-style: normal; font-weight: 400;
-  font-size: clamp(24px, 6vw, 36px); line-height: 0.88; margin-bottom: 28px; text-transform: uppercase; letter-spacing: 0.10em;
-}
-.combo-note {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px; line-height: 1.9; max-width: 280px;
-}
-
 /* ── TYPOGRAPHY ── */
 .type-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); }
 .type-inner { padding: 48px 0 0; }
@@ -345,129 +263,22 @@ body {
   font-size: 18px; line-height: 1.85; color: var(--ink); opacity: 0.80;
 }
 
-/* ── PHOTOGRAPHY ── */
-.photo-section { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
-.photo-header { padding: 48px 24px 0; }
-.photo-label { color: var(--sienna); opacity: 0.9; margin-bottom: 36px; }
-.photo-headline {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(30px, 8vw, 48px); line-height: 0.86;
-  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82; margin-bottom: 40px;
-}
-.photo-headline em { font-style: italic; color: var(--crimson); opacity: 0.85; }
-.photo-modes {
-  display: grid; grid-template-columns: 1fr;
-  border-top: 0.5px solid rgba(26,22,18,0.07);
-}
-.photo-mode { padding: 32px 24px; border-right: none; border-bottom: 0.5px solid rgba(26,22,18,0.07); }
-.photo-mode:last-child { border-right: none; border-bottom: none; }
-.photo-mode-num {
-  font-family: 'Playfair Display', serif; font-weight: 400; font-size: 52px;
-  line-height: 1; color: var(--ink); opacity: 0.06; margin-bottom: -16px;
-}
-.photo-mode-name {
-  font-family: 'Playfair Display', serif;
-  font-style: italic; font-weight: 400; font-size: 32px;
-  line-height: 1; color: var(--ink); opacity: 0.7;
-  margin-bottom: 20px; display: block;
-}
-.photo-mode-label {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 20px;
-}
-.photo-mode-body {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px; line-height: 1.9;
-  color: var(--ink); opacity: 0.72; margin-bottom: 28px;
-}
-.photo-mode-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.photo-tag {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
-  color: var(--ink); opacity: 0.65;
-  border: 0.5px solid rgba(26,22,18,0.30); padding: 6px 14px;
-}
-.film-strip { border-top: 0.5px solid rgba(26,22,18,0.07); padding: 28px 24px; }
-.film-strip-label {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 32px;
-}
-.film-strip-frames { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; max-width: 480px; }
-.film-frame {
-  background: var(--cream3); aspect-ratio: 3/4;
-  position: relative; overflow: hidden;
-  border: 0.5px solid rgba(26,22,18,0.08);
-}
-.film-frame-num {
-  position: absolute; bottom: 6px; right: 8px;
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 7px; letter-spacing: 0.12em;
-  color: var(--ink); opacity: 0.18;
-}
-
-/* ── DECORATION ── */
-.deco-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 48px 0; }
-.deco-label { color: var(--sienna); opacity: 0.9; padding: 0 24px; margin-bottom: 40px; }
-.deco-headline {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(30px, 8vw, 48px); line-height: 0.87;
-  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82;
-  padding: 0 24px; margin-bottom: 40px;
-}
-.deco-headline em { font-style: italic; color: var(--crimson); }
-.deco-grid { display: grid; grid-template-columns: 1fr; border-top: 0.5px solid rgba(26,22,18,0.07); }
-.deco-cell {
-  padding: 32px 24px;
-  border-right: none;
-  border-bottom: 0.5px solid rgba(26,22,18,0.07);
-}
-.deco-cell:nth-child(2n) { border-right: none; }
-.deco-cell:last-child { border-bottom: none; }
-.deco-cell-label {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--sienna); opacity: 0.9; display: block; margin-bottom: 20px;
-}
-.deco-cell-name {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: 28px; line-height: 1.1; color: var(--ink); opacity: 0.78;
-  margin-bottom: 14px; display: block;
-}
-.deco-cell-body {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px; line-height: 1.9; color: var(--ink); opacity: 0.72;
-}
-.deco-cell-body em { font-style: italic; }
-.deco-swatches-inline { display: flex; gap: 6px; margin-top: 18px; }
-.deco-swatch-dot { width: 20px; height: 20px; border-radius: 50%; }
-
 /* ── ICONOGRAPHY ── */
 .icon-section { background: var(--cream3); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 48px 0 0; }
 .icon-label { color: var(--sienna); opacity: 0.9; padding: 0 24px; margin-bottom: 40px; }
-.icon-headline {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(30px, 8vw, 48px); line-height: 0.87;
-  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82;
-  padding: 0 24px; margin-bottom: 40px;
-}
-.icon-headline em { font-style: italic; color: var(--crimson); }
 .icon-intro {
   font-family: 'Playfair Display', serif; font-size: 16px; line-height: 1.9;
   color: var(--ink); opacity: 0.72; padding: 0 24px; max-width: 640px; margin-bottom: 48px;
 }
 .icon-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr;
   border-top: 0.5px solid rgba(26,22,18,0.07);
 }
 .icon-cell {
   padding: 40px 24px;
-  border-right: 0.5px solid rgba(26,22,18,0.07);
   border-bottom: 0.5px solid rgba(26,22,18,0.07);
   display: flex; flex-direction: column; gap: 24px;
 }
-.icon-cell:nth-child(2n) { border-right: none; }
 .icon-cell:last-child { border-bottom: none; }
 .icon-cell-label {
   font-family: 'Montserrat', sans-serif; font-weight: 300;
@@ -485,41 +296,23 @@ body {
   font-family: 'Playfair Display', serif; font-style: italic;
   font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.65;
 }
-.icon-sizes {
-  display: flex; align-items: flex-end; gap: 24px;
-  padding: 24px 0 8px;
-}
-.icon-size-label {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--ink); opacity: 0.45; display: block; margin-top: 8px;
-}
 
 /* ── LOGO ── */
 .logo-section { background: var(--cream); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 48px 0 0; }
 .logo-label { color: var(--sienna); opacity: 0.9; padding: 0 24px; margin-bottom: 40px; }
-.logo-headline {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(30px, 8vw, 48px); line-height: 0.87;
-  color: var(--ink); letter-spacing: -0.025em; opacity: 0.82;
-  padding: 0 24px; margin-bottom: 40px;
-}
-.logo-headline em { font-style: italic; color: var(--crimson); }
 .logo-intro {
   font-family: 'Playfair Display', serif; font-size: 16px; line-height: 1.9;
   color: var(--ink); opacity: 0.72; padding: 0 24px; max-width: 640px; margin-bottom: 48px;
 }
 .logo-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr;
   border-top: 0.5px solid rgba(26,22,18,0.07);
 }
 .logo-cell {
   padding: 40px 24px;
-  border-right: 0.5px solid rgba(26,22,18,0.07);
   border-bottom: 0.5px solid rgba(26,22,18,0.07);
   display: flex; flex-direction: column; gap: 24px;
 }
-.logo-cell:nth-child(2n) { border-right: none; }
 .logo-cell:last-child { border-bottom: none; }
 .logo-cell-label {
   font-family: 'Montserrat', sans-serif; font-weight: 300;
@@ -538,90 +331,14 @@ body {
   font-size: 14px; line-height: 1.85; color: var(--ink); opacity: 0.65;
 }
 
-/* ── MARCA COMBINADA ── */
-.marca-section {
-  background: var(--cream2);
-  border-top: 0.5px solid rgba(26,22,18,0.07);
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  min-height: 480px;
-  padding: 80px 24px;
-  text-align: center;
-}
-.marca-agave {
-  position: absolute;
-  inset: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  opacity: 0.065;
-}
-.marca-content {
-  position: relative; z-index: 1;
-  display: flex; flex-direction: column;
-  align-items: center; gap: 28px;
-}
-.marca-label {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
-  color: var(--sienna); opacity: 0.9;
-}
-.marca-wordmark {
-  font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(4rem, 16vw, 10rem);
-  letter-spacing: 0.06em; line-height: 1;
-  color: var(--crimson);
-}
-.marca-date {
-  font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
-  color: var(--ink); opacity: 0.45;
-}
-
 /* ── APPLICATIONS ── */
 .apps { background: var(--cream2); border-top: 0.5px solid rgba(26,22,18,0.07); }
 .apps-label { color: var(--sienna); opacity: 0.9; padding: 48px 24px 36px; display: block; font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.42em; text-transform:uppercase; }
 .app-item-label { color: var(--sienna); opacity: 0.9; padding: 0 24px 20px; display: block; font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; }
 
-.std { display: grid; grid-template-columns: 1fr; border-top: 0.5px solid rgba(26,22,18,0.08); border-bottom: 0.5px solid rgba(26,22,18,0.08); margin-bottom: 72px; }
-.std-film-side {
-  background: var(--ink); min-height: 220px;
-  display: flex; flex-direction: row; padding: 28px; gap: 3px;
-  position: relative; overflow: hidden;
-}
-.std-frame { flex: 1; background: #2A2218; position: relative; overflow: hidden; }
-.std-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, color-mix(in srgb, var(--crimson) 10%, transparent) 0%, transparent 60%); }
-.std-frame-label { position: absolute; bottom: 6px; right: 8px; font-family:'Montserrat',sans-serif; font-weight:300; font-size:7px; letter-spacing:0.1em; color:var(--cream); opacity:0.15; }
-.std-text { background: var(--cream); padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; border-left: none; border-top: 0.5px solid rgba(26,22,18,0.08); }
-.std-top-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.36em; text-transform:uppercase; color:var(--sienna); opacity:0.45; }
-.std-names { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(22px,6vw,40px); line-height:0.84; color:var(--ink); letter-spacing:0.10em; text-transform:uppercase; opacity:0.88; white-space:normal; }
-.std-names em { font-style:normal; color:var(--crimson); }
-.std-foot { border-top: 0.5px solid rgba(26,22,18,0.09); padding-top: 22px; }
-.std-date { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--sienna); opacity:0.6; display:block; margin-bottom:5px; }
-.std-location { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:var(--ink); opacity:0.38; }
-
-.web { border-top: 0.5px solid rgba(26,22,18,0.08); border-bottom: 0.5px solid rgba(26,22,18,0.08); margin-bottom: 72px; }
-.web-nav { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:0.5px solid rgba(26,22,18,0.07); background:var(--cream); }
-.web-logo { font-family:'Playfair Display',serif; font-style:normal; font-weight:400; font-size:13px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.88; }
-.web-links { display:none; gap:32px; }
-.web-link { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); opacity:0.72; }
-.web-hero { background:var(--crimson); padding:36px 24px 32px; position:relative; overflow:hidden; }
-.web-hero::before { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E"); background-size:220px; opacity:0.35; mix-blend-mode:overlay; pointer-events:none; }
-.web-hl { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(28px,7vw,48px); line-height:0.86; color:var(--cream); letter-spacing:-0.025em; opacity:0.92; margin-bottom:28px; position:relative; z-index:1; }
-.web-hl em { font-style:italic; color:var(--blush); opacity:0.88; }
-.web-meta { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--cream); opacity:0.82; position:relative; z-index:1; }
-.web-lower { display:grid; grid-template-columns:1fr; border-top:0.5px solid rgba(26,22,18,0.07); }
-.web-lower-cell { padding:28px 24px; border-right:none; border-bottom:0.5px solid rgba(26,22,18,0.07); background:var(--cream); }
-.web-lower-cell:last-child { border-right:none; border-bottom:none; background:var(--cream2); }
-.web-cell-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; display:block; margin-bottom:18px; }
-.web-cell-heading { font-family:'Playfair Display',serif; font-weight:400; font-size:22px; line-height:1.05; color:var(--ink); opacity:0.75; margin-bottom:14px; }
-.web-cell-body { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:1.85; color:var(--ink); opacity:0.72; }
-.web-cell-btn { display:inline-block; margin-top:20px; font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.72; border-bottom:0.5px solid rgba(26,22,18,0.35); padding-bottom:3px; }
-
-.labels { display:grid; grid-template-columns:1fr 1fr; border-top:0.5px solid rgba(26,22,18,0.08); border-bottom:0.5px solid rgba(26,22,18,0.08); margin-bottom:96px; }
-.label-cell { padding:20px 16px; border-right:0.5px solid rgba(26,22,18,0.07); display:flex; flex-direction:column; gap:18px; background:var(--cream); }
-.label-cell:last-child { border-right:none; }
-.label-cell:nth-child(2n) { border-right:none; }
+.labels { display:grid; grid-template-columns:1fr; border-top:0.5px solid rgba(26,22,18,0.08); border-bottom:0.5px solid rgba(26,22,18,0.08); margin-bottom:96px; }
+.label-cell { padding:20px 16px; border-bottom:0.5px solid rgba(26,22,18,0.07); display:flex; flex-direction:column; gap:18px; background:var(--cream); }
+.label-cell:last-child { border-bottom:none; }
 .label-cell-type { font-family:'Montserrat',sans-serif; font-weight:300; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sienna); opacity:0.9; }
 .label-cell-spec { font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:var(--sienna); opacity:0.9; line-height:2.1; }
 .label-cell.on-crimson { background:var(--crimson); }
@@ -630,10 +347,13 @@ body {
 .label-cell.on-olive { background:var(--olive); }
 .label-cell.on-olive .label-cell-type { color:var(--cream); opacity:0.75; }
 .label-cell.on-olive .label-cell-spec { color:#D4E0A0; opacity:0.95; }
+.label-cell.on-ink { background:var(--ink); }
+.label-cell.on-ink .label-cell-type { color:var(--blush); opacity:0.75; }
+.label-cell.on-ink .label-cell-spec { color:var(--cream); opacity:0.92; }
 
 /* ── RULES ── */
 .rules { background: var(--cream3); border-top: 0.5px solid rgba(26,22,18,0.07); padding: 48px 24px; }
-.rules-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.42em; text-transform:uppercase; color:var(--sienna); opacity:0.9; display:block; margin-bottom:48px; }
+.rules-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.42em; text-transform:uppercase; color:var(--sienna); opacity:0.9; display:block; margin-bottom:48px; }
 .rules-cols { display:grid; grid-template-columns:1fr; gap:40px; }
 .rules-col-head { font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; margin-bottom:32px; padding-bottom:20px; border-bottom:0.5px solid rgba(26,22,18,0.1); }
 .do-head { color:var(--olive); }
@@ -647,9 +367,9 @@ body {
 /* ── CLOSING ── */
 .closing { background:var(--cream); padding:56px 24px 48px; border-top:0.5px solid rgba(26,22,18,0.07); }
 .closing-inner { max-width:100%; margin:0 auto; text-align:center; }
-.closing-phrase { font-family:'Playfair Display',serif; font-style:italic; font-weight:400; font-size:20px; color:var(--ink); opacity:0.72; line-height:1.85; margin-bottom:48px; }
 .closing-vr { width:1px; height:52px; background:var(--crimson); opacity:0.35; margin:0 auto 36px; }
 .closing-names { font-family:'Playfair Display',serif; font-style:normal; font-weight:400; font-size:18px; color:var(--crimson); opacity:0.85; display:block; margin-bottom:18px; text-transform:uppercase; letter-spacing:0.18em; }
+.closing-names em { font-style:normal; color:var(--crimson); }
 .closing-credit { font-family:'Montserrat',sans-serif; font-weight:300; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink); opacity:0.65; }
 
 /* ══════════════════════════════════════════
@@ -669,21 +389,12 @@ body {
   .phrase-label   { margin-bottom: 64px; }
   .phrase-line    { font-size: clamp(24px, 4vw, 32px); }
 
-  .concept           { padding: 72px 40px; }
-  .concept-label     { margin-bottom: 56px; }
-  .concept-headline  { font-size: clamp(48px, 8vw, 64px); margin-bottom: 56px; }
-  .concept-cols      { grid-template-columns: 1fr 1fr; gap: 48px; }
-
-  .palette-hl-wrap       { padding: 72px 40px 56px; }
-  .palette-hl            { font-size: clamp(48px, 8vw, 72px); }
+  .palette-hl-wrap       { padding: 40px 40px 24px; }
   .palette-section-head  { padding: 20px 40px 0; }
   .swatches              { grid-template-columns: repeat(3, 1fr); }
   .swatch-info           { padding: 16px 18px 24px; }
-  .deco-palette-inner    { padding: 32px 40px 44px; }
-  .deco-swatches         { grid-template-columns: repeat(3, 1fr); }
-  .palette-combos        { grid-template-columns: 1fr 1fr; }
-  .combo                 { padding: 48px 40px; }
-  .combo-specimen        { font-size: clamp(30px, 5vw, 42px); letter-spacing: 0.18em; }
+  .swatch:nth-child(2n) .swatch-info { border-right: 0.5px solid rgba(26,22,18,0.06); }
+  .swatch:nth-child(3n) .swatch-info { border-right: none; }
 
   .type-inner   { padding: 72px 0 0; }
   .type-label   { padding: 0 40px; margin-bottom: 56px; }
@@ -692,41 +403,13 @@ body {
   .spec-names   { font-size: clamp(40px, 7vw, 60px); }
   .spec-heading { font-size: clamp(32px, 5vw, 44px); }
 
-  .photo-header   { padding: 72px 40px 0; }
-  .photo-label    { margin-bottom: 48px; }
-  .photo-headline { font-size: clamp(40px, 7vw, 64px); margin-bottom: 56px; }
-  .photo-modes    { grid-template-columns: 1fr 1fr; }
-  .photo-mode     { padding: 40px 40px; border-right: 0.5px solid rgba(26,22,18,0.07); border-bottom: none; }
-  .photo-mode:last-child { border-right: none; }
-  .film-strip     { padding: 40px 40px; }
-
-  .deco-section   { padding: 72px 0; }
-  .deco-label     { padding: 0 40px; margin-bottom: 56px; }
-  .deco-headline  { font-size: clamp(40px, 7vw, 64px); padding: 0 40px; margin-bottom: 56px; }
-  .deco-grid      { grid-template-columns: 1fr 1fr; }
-  .deco-cell      { padding: 40px 40px; border-right: 0.5px solid rgba(26,22,18,0.07); }
-  .deco-cell:nth-child(2n)       { border-right: none; }
-  .deco-cell:nth-last-child(-n+2){ border-bottom: none; }
-  .deco-cell:last-child          { border-bottom: none; }
-
   .apps-label     { padding: 72px 40px 56px; }
   .app-item-label { padding: 0 40px 28px; }
-  .std            { grid-template-columns: 1fr 1fr; }
-  .std-film-side  { min-height: 480px; flex-direction: column; }
-  .std-text       { padding: 40px 36px; border-left: 0.5px solid rgba(26,22,18,0.08); border-top: none; }
-  .std-names      { font-size: clamp(32px, 5vw, 48px); letter-spacing: 0.18em; white-space: nowrap; }
-  .web-nav        { padding: 16px 32px; }
-  .web-links      { display: flex; }
-  .web-hero       { padding: 52px 40px 44px; }
-  .web-hl         { font-size: clamp(36px, 6vw, 52px); }
-  .web-lower      { grid-template-columns: 1fr 1fr; }
-  .web-lower-cell { border-right: 0.5px solid rgba(26,22,18,0.07); border-bottom: none; padding: 32px 36px; }
-  .web-lower-cell:last-child { border-right: none; }
-  .web-cell-heading { font-size: 26px; }
   .labels         { grid-template-columns: 1fr 1fr; }
-  .label-cell     { padding: 28px 32px; }
+  .label-cell     { border-right: 0.5px solid rgba(26,22,18,0.07); border-bottom: 0.5px solid rgba(26,22,18,0.07); padding: 28px 32px; }
   .label-cell:nth-child(2n)   { border-right: none; }
   .label-cell:nth-child(2n+1) { border-right: 0.5px solid rgba(26,22,18,0.07); }
+  .label-cell:last-child      { border-bottom: none; }
 
   .rules          { padding: 72px 40px; }
   .rules-label    { margin-bottom: 60px; }
@@ -734,22 +417,25 @@ body {
 
   .closing        { padding: 88px 40px 72px; }
   .closing-inner  { max-width: 560px; }
-  .closing-phrase { font-size: 23px; margin-bottom: 56px; }
   .closing-names  { font-size: 22px; letter-spacing: 0.24em; }
 
   .icon-section   { padding: 72px 0 0; }
   .icon-label     { padding: 0 40px; margin-bottom: 56px; }
-  .icon-headline  { font-size: clamp(40px, 7vw, 64px); padding: 0 40px; margin-bottom: 56px; }
   .icon-intro     { padding: 0 40px; }
   .icon-cell      { padding: 48px 40px; }
+  .icon-grid                      { grid-template-columns: 1fr 1fr; }
+  .icon-cell                      { border-right: 0.5px solid rgba(26,22,18,0.07); }
+  .icon-cell:nth-child(2n)        { border-right: none; }
+  .icon-cell:nth-last-child(-n+2) { border-bottom: none; }
 
   .logo-section   { padding: 72px 0 0; }
   .logo-label     { padding: 0 40px; margin-bottom: 56px; }
-  .logo-headline  { padding: 0 40px; margin-bottom: 56px; }
   .logo-intro     { padding: 0 40px; }
   .logo-cell      { padding: 48px 40px; }
-
-  .marca-section  { min-height: 560px; padding: 100px 40px; }
+  .logo-grid                      { grid-template-columns: 1fr 1fr; }
+  .logo-cell                      { border-right: 0.5px solid rgba(26,22,18,0.07); }
+  .logo-cell:nth-child(2n)        { border-right: none; }
+  .logo-cell:nth-last-child(-n+2) { border-bottom: none; }
 
   .accent-toggle  { bottom: 28px; right: 32px; transform: none; }
 }
@@ -766,35 +452,20 @@ body {
 
   .icon-section   { padding: 96px 0 0; }
   .icon-label     { padding: 0 64px; margin-bottom: 72px; }
-  .icon-headline  { font-size: 96px; padding: 0 64px; margin-bottom: 80px; }
   .icon-intro     { padding: 0 64px; }
-  .icon-grid      { grid-template-columns: 1fr 1fr; }
   .icon-cell      { padding: 52px 64px; }
 
   .logo-section   { padding: 96px 0 0; }
   .logo-label     { padding: 0 64px; margin-bottom: 72px; }
-  .logo-headline  { padding: 0 64px; margin-bottom: 80px; }
   .logo-intro     { padding: 0 64px; }
   .logo-cell      { padding: 52px 64px; }
 
-  .marca-section  { min-height: 640px; padding: 120px 64px; }
-  .marca-date     { letter-spacing: 0.5em; }
-
-  .concept           { padding: 100px 64px; }
-  .concept-label     { margin-bottom: 72px; }
-  .concept-headline  { font-size: 96px; line-height: 0.88; margin-bottom: 72px; }
-  .concept-cols      { gap: 64px; }
-
-  .palette-hl-wrap       { padding: 96px 64px 72px; }
-  .palette-hl            { font-size: 104px; }
+  .palette-hl-wrap       { padding: 52px 64px 28px; }
   .palette-section-head  { padding: 28px 64px 0; }
-  .swatches              { grid-template-columns: repeat(5, 1fr); }
+  .swatches              { grid-template-columns: repeat(4, 1fr); }
   .swatch-info           { padding: 20px 24px 32px; }
-  .deco-palette-inner    { padding: 40px 64px 56px; }
-  .deco-swatches         { grid-template-columns: repeat(6, 1fr); }
-  .palette-combos        { grid-template-columns: 1fr 1fr 1fr; }
-  .combo                 { padding: 56px 64px; }
-  .combo-specimen        { font-size: 60px; letter-spacing: 0.28em; }
+  .swatch:nth-child(3n) .swatch-info { border-right: 0.5px solid rgba(26,22,18,0.06); }
+  .swatch:nth-child(4n) .swatch-info { border-right: none; }
 
   .type-inner   { padding: 96px 0 0; }
   .type-label   { padding: 0 64px; margin-bottom: 72px; }
@@ -803,30 +474,12 @@ body {
   .spec-names   { font-size: 88px; }
   .spec-heading { font-size: 60px; }
 
-  .photo-header   { padding: 96px 64px 0; }
-  .photo-label    { margin-bottom: 64px; }
-  .photo-headline { font-size: 88px; margin-bottom: 72px; }
-  .photo-mode     { padding: 56px 64px; }
-  .film-strip     { padding: 56px 64px; }
-
-  .deco-section   { padding: 96px 0; }
-  .deco-label     { padding: 0 64px; margin-bottom: 72px; }
-  .deco-headline  { font-size: 96px; padding: 0 64px; margin-bottom: 80px; }
-  .deco-cell      { padding: 52px 64px; }
-
   .apps-label     { padding: 96px 64px 72px; }
   .app-item-label { padding: 0 64px 36px; }
-  .std-text       { padding: 56px 52px; }
-  .std-names      { font-size: 68px; letter-spacing: 0.28em; }
-  .web-nav        { padding: 18px 48px; }
-  .web-hero       { padding: 72px 64px 60px; }
-  .web-hl         { font-size: 72px; }
-  .web-lower-cell { padding: 40px 48px; }
-  .web-cell-heading { font-size: 30px; }
-  .labels         { grid-template-columns: 1fr 1fr 1fr 1fr; }
-  .label-cell     { padding: 36px 52px; }
+  .labels         { grid-template-columns: 1fr 1fr 1fr; }
+  .label-cell     { border-right: 0.5px solid rgba(26,22,18,0.07); border-bottom: none; padding: 36px 52px; }
   .label-cell:nth-child(2n)   { border-right: 0.5px solid rgba(26,22,18,0.07); }
-  .label-cell:nth-child(2n+1) { border-right: 0.5px solid rgba(26,22,18,0.07); }
+  .label-cell:nth-child(3n)   { border-right: none; }
   .label-cell:last-child      { border-right: none; }
 
   .rules          { padding: 96px 64px; }
@@ -834,7 +487,6 @@ body {
   .rules-cols     { gap: 80px; }
 
   .closing        { padding: 120px 64px 100px; }
-  .closing-phrase { font-size: 26px; margin-bottom: 64px; }
   .closing-names  { font-size: 26px; letter-spacing: 0.28em; }
 
   .accent-toggle  { bottom: 32px; right: 32px; }
@@ -847,45 +499,12 @@ body {
 <div class="cover">
   <div class="cover-accent"></div>
   <div class="cover-top">
-    <div class="sec-label cover-label">Guía de Estilo · El Cardenal Oaxaca · 2027</div>
+    <div class="sec-label cover-label">Guía de Estilo · Oaxaca · 2027</div>
     <div class="cover-names">Laura <em>&</em> Diego</div>
   </div>
   <div class="cover-foot">
-    <div class="cover-caption">Una historia de amor escrita con la lentitud del mezcal y la luz de Oaxaca.</div>
-    <div class="cover-pg">15 · 05 · 2027<br><br>1 / 7</div>
-  </div>
-</div>
-
-<!-- PHRASE -->
-<div class="phrase">
-  <span class="sec-label phrase-label">La frase de la boda</span>
-  <span class="phrase-line">Con el agave entendimos la espera de la tierra.</span>
-  <span class="phrase-line">Con la distancia entendimos la fuerza de elegirnos.</span>
-  <span class="phrase-line">Con el mezcal celebramos la eternidad.</span>
-  <div class="phrase-short">— Variante corta · Con el mezcal celebramos la eternidad · Etiquetas, menú, detalles</div>
-</div>
-
-<!-- CONCEPT -->
-<div class="concept">
-  <span class="sec-label concept-label">Concepto</span>
-  <div class="concept-headline">Teatro<br>íntimo.<br><em>Raíz.</em></div>
-  <div class="concept-cols">
-    <div>
-      <span class="concept-col-head">La identidad</span>
-      <div class="concept-col-body">Una boda que vive en dos registros simultáneos. El objeto — invitación, papel, digital — es <em>contenido, editorial, atemporal.</em> El espacio — flores, luz, mesa, interior de El Cardenal — es <em>dramático, cinematográfico.</em> El contraste entre ambos es intencional. La quietud del papel hace que la abundancia del espacio resulte más poderosa.</div>
-      <div class="concept-words">
-        <span class="concept-word">Editorial</span>
-        <span class="concept-word">Cinematográfico</span>
-        <span class="concept-word">Atemporal</span>
-        <span class="concept-word">Oaxaqueño</span>
-        <span class="concept-word">Film</span>
-        <span class="concept-word">Íntimo</span>
-      </div>
-    </div>
-    <div>
-      <span class="concept-col-head">El universo visual</span>
-      <div class="concept-col-body">Crimson profundo en rosas y dalias. Velas y luz cálida como protagonistas de la noche — sin luz fría. Cristalería tallada sobre mesas vestidas. El interior de El Cardenal como escenario — sus muros, su arquitectura, su atmósfera contenida. <span style="color:var(--olive);">El agave como testigo silencioso.</span><br><br>No es decoración. Es <em>puesta en escena.</em></div>
-    </div>
+    <div class="cover-caption">Oaxaca · Mayo 2027</div>
+    <div class="cover-pg">15 · 05 · 2027</div>
   </div>
 </div>
 
@@ -893,53 +512,18 @@ body {
 <div class="palette">
   <div class="palette-hl-wrap">
     <div class="sec-label palette-label-inline">Paleta de Colores</div>
-    <div class="palette-hl">Cinco<br>colores.<br><em>Una tierra.</em></div>
   </div>
   <div style="border-top:0.5px solid rgba(26,22,18,0.07);">
     <span class="palette-section-head">Paleta gráfica — papel y pantalla</span>
     <div class="swatches">
-      <div class="swatch"><div class="swatch-fill" style="background:#5C1A22;"></div><div class="swatch-info"><span class="swatch-name">Crimson</span><span class="swatch-hex">#5C1A22</span><span class="swatch-role">Nombres y títulos. Nunca como fondo principal.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#5C1A22;"></div><div class="swatch-info"><span class="swatch-name">Crimson</span><span class="swatch-hex">#5C1A22</span><span class="swatch-role">Títulos y nombres.</span></div></div>
       <div class="swatch"><div class="swatch-fill" style="background:#E8C4BC;"></div><div class="swatch-info"><span class="swatch-name">Blush</span><span class="swatch-hex">#E8C4BC</span><span class="swatch-role">Acentos sobre fondos oscuros.</span></div></div>
       <div class="swatch"><div class="swatch-fill" style="background:#FDFAF5; outline:0.5px solid rgba(26,22,18,0.08);"></div><div class="swatch-info"><span class="swatch-name">Cream</span><span class="swatch-hex">#FDFAF5</span><span class="swatch-role">La base. Papel, fondos, superficies.</span></div></div>
       <div class="swatch"><div class="swatch-fill" style="background:#A0582C;"></div><div class="swatch-info"><span class="swatch-name">Sienna</span><span class="swatch-hex">#A0582C</span><span class="swatch-role">Etiquetas, fechas, texto secundario.</span></div></div>
-      <div class="swatch"><div class="swatch-fill" style="background:#6B6440;"></div><div class="swatch-info"><span class="swatch-name">Olive</span><span class="swatch-hex">#6B6440</span><span class="swatch-role">Agave y follaje. El alma botánica de la identidad visual.</span></div></div>
-    </div>
-  </div>
-  <div class="deco-palette">
-    <div class="deco-palette-inner">
-      <span class="deco-palette-head">Paleta de decoración — espacio y flores</span>
-      <div class="deco-swatches">
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#3D1019;"></div><span class="deco-swatch-name">Rosa Crimson</span></div>
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#6B1A2A;"></div><span class="deco-swatch-name">Dalia Burgundy</span></div>
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#C8A4B8;"></div><span class="deco-swatch-name">Calla Blush</span></div>
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#F5E0C0;"></div><span class="deco-swatch-name">Vela Marfil</span></div>
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#8C7B6B;"></div><span class="deco-swatch-name">Plata Vieja</span></div>
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#1C1814;"></div><span class="deco-swatch-name">Noche</span></div>
-      </div>
-      <span class="deco-palette-head" style="margin-top:28px; display:block;">Botánica · Agave</span>
-      <div class="deco-swatches" style="grid-template-columns:repeat(3,1fr); max-width:400px; margin-bottom:32px;">
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#6B6440;"></div><span class="deco-swatch-name">Agave Terroso</span></div>
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#2D4A1E;"></div><span class="deco-swatch-name">Follaje Oscuro</span></div>
-        <div class="deco-swatch"><div class="deco-swatch-fill" style="background:#8B8A4E;"></div><span class="deco-swatch-name">Maguey Claro</span></div>
-      </div>
-      <div class="deco-note">La paleta de decoración es la extensión tridimensional de la paleta gráfica. El crimson de las rosas es el mismo crimson de los nombres. El olive del agave conecta la identidad visual con la naturaleza viva de Oaxaca — el follaje oscuro como testigo silencioso de cada pieza gráfica y cada arreglo floral.</div>
-    </div>
-  </div>
-  <div class="palette-combos">
-    <div class="combo" style="background:var(--ink); border-right:0.5px solid rgba(253,250,245,0.05);">
-      <span class="combo-label" style="color:var(--blush); opacity:0.9;">Sobre fondo oscuro</span>
-      <div class="combo-specimen" style="color:var(--blush);">Laura & Diego</div>
-      <div class="combo-note" style="color:var(--cream); opacity:0.72;">Ink o Crimson como fondo solo en sobres, contraportadas y detalles. Tipografía en Blush o Cream.</div>
-    </div>
-    <div class="combo" style="background:var(--cream); border-right:0.5px solid rgba(26,22,18,0.07);">
-      <span class="combo-label" style="color:var(--sienna); opacity:0.9;">Sobre fondo claro</span>
-      <div class="combo-specimen" style="color:var(--crimson);">Laura & Diego</div>
-      <div class="combo-note" style="color:var(--ink); opacity:0.72;">Cream #FDFAF5 es la base predeterminada. Crimson en tipografía, Sienna en etiquetas.</div>
-    </div>
-    <div class="combo" style="background:var(--olive);">
-      <span class="combo-label" style="color:#D4E0A0; opacity:0.9;">Sobre botánica</span>
-      <div class="combo-specimen" style="color:var(--cream); opacity:0.92;">Agave</div>
-      <div class="combo-note" style="color:var(--cream); opacity:0.72;">Olive como fondo en piezas botánicas — agave, follaje, etiquetas de mezcalería. Cream en tipografía. Solo para elementos decorativos.</div>
+      <div class="swatch"><div class="swatch-fill" style="background:#6B6440;"></div><div class="swatch-info"><span class="swatch-name">Olive</span><span class="swatch-hex">#6B6440</span><span class="swatch-role">Agave y follaje.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#1A1612;"></div><div class="swatch-info"><span class="swatch-name">Ink</span><span class="swatch-hex">#1A1612</span><span class="swatch-role">Tipografía principal sobre fondos claros.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#F5EFE4; outline:0.5px solid rgba(26,22,18,0.08);"></div><div class="swatch-info"><span class="swatch-name">Cream 2</span><span class="swatch-hex">#F5EFE4</span><span class="swatch-role">Fondo de sección.</span></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#EDE5D4; outline:0.5px solid rgba(26,22,18,0.08);"></div><div class="swatch-info"><span class="swatch-name">Cream 3</span><span class="swatch-hex">#EDE5D4</span><span class="swatch-role">Fondo de referencia y contraste.</span></div></div>
     </div>
   </div>
 </div>
@@ -948,83 +532,17 @@ body {
 <div class="type-section">
   <div class="type-inner">
     <span class="type-label">Tipografía</span>
-    <div class="type-row"><div><span class="type-row-role">Nombres<br>Playfair Display<br>Regular · 400 · Caps</span><div class="type-row-note">Mayúsculas · tracking +0.28em. Portada y títulos principales. 72–120px impreso.</div></div><div class="spec-names">Laura & Diego</div></div>
-    <div class="type-row"><div><span class="type-row-role">Encabezados<br>Playfair Display<br>Regular · 400</span><div class="type-row-note">36–64px. Minúsculas. El contraste de escala es editorial e intencional.</div></div><div class="spec-heading">Nuestra Historia<br>La Ceremonia</div></div>
-    <div class="type-row"><div><span class="type-row-role">Etiquetas<br>Montserrat · Light<br>+0.28em · Caps</span><div class="type-row-note">Fechas, secciones, pies de foto. Siempre mayúsculas.</div></div><div class="spec-label">SÁBADO · 15 DE MAYO · 2027<br>OAXACA, MÉXICO</div></div>
-    <div class="type-row"><div><span class="type-row-role">Cuerpo<br>Playfair Display<br>Regular · 1.85</span><div class="type-row-note">16–18px web. Interlineado 1.85× obligatorio.</div></div><div class="spec-body">Con el mezcal celebramos<br>la eternidad en Oaxaca.</div></div>
-  </div>
-</div>
-
-<!-- PHOTOGRAPHY -->
-<div class="photo-section">
-  <div class="photo-header">
-    <span class="sec-label photo-label">Dirección fotográfica</span>
-    <div class="photo-headline">Dos<br>modos.<br><em>Una verdad.</em></div>
-  </div>
-  <div class="photo-modes">
-    <div class="photo-mode">
-      <div class="photo-mode-num">01</div>
-      <span class="photo-mode-name">Editorial</span>
-      <span class="photo-mode-label">Fotografía de boda · interior · El Cardenal</span>
-      <div class="photo-mode-body">Tonos cálidos. Color siempre. Luz de vela como fuente principal. Composición cinematográfica — el interior de El Cardenal como fondo activo. La cámara observa, no posa. 35mm o medio formato digital con tratamiento análogo.</div>
-      <div class="photo-mode-tags"><span class="photo-tag">Tono cálido</span><span class="photo-tag">Siempre color</span><span class="photo-tag">Luz de vela</span><span class="photo-tag">35mm · Medio formato</span><span class="photo-tag">El Cardenal como fondo</span></div>
-    </div>
-    <div class="photo-mode">
-      <div class="photo-mode-num">02</div>
-      <span class="photo-mode-name">Íntima</span>
-      <span class="photo-mode-label">Save the date · piezas personales</span>
-      <div class="photo-mode-body">Alto contraste. Blanco y negro permitido solo en este modo. Momentos reales, no posados. Formato fotobooth, polaroid o carrete análogo. La imperfección es parte de la autenticidad. Sin flash plano. Granulado visible.</div>
-      <div class="photo-mode-tags"><span class="photo-tag">Alto contraste</span><span class="photo-tag">B&N permitido</span><span class="photo-tag">Analógico</span><span class="photo-tag">Fotobooth · Polaroid</span><span class="photo-tag">Sin posado</span></div>
-    </div>
-  </div>
-  <div class="film-strip">
-    <span class="film-strip-label">Modo íntimo — referencia de encuadre análogo</span>
-    <div class="film-strip-frames">
-      <div class="film-frame"><span class="film-frame-num">01</span></div>
-      <div class="film-frame"><span class="film-frame-num">02</span></div>
-      <div class="film-frame"><span class="film-frame-num">03</span></div>
-      <div class="film-frame"><span class="film-frame-num">04</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- DECORATION -->
-<div class="deco-section">
-  <span class="sec-label deco-label">Dirección de decoración · El Cardenal Oaxaca</span>
-  <div class="deco-headline">El espacio<br>como <em>escenario.</em></div>
-  <div class="deco-grid">
-    <div class="deco-cell">
-      <span class="deco-cell-label">Floral</span>
-      <span class="deco-cell-name">Crimson & Burgundy</span>
-      <div class="deco-cell-body">Rosas crimson en cascada. Dalias burgundy. Calla lilies blush. Follaje oscuro como contraste. <em>Sin pasteles. Sin blanco puro.</em> Los arreglos son minimalistas y elegantes — cada pieza tiene su lugar y su silencio.</div>
-      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#3D1019;"></div><div class="deco-swatch-dot" style="background:#6B1A2A;"></div><div class="deco-swatch-dot" style="background:#C8A4B8;"></div><div class="deco-swatch-dot" style="background:#2D4A1E;"></div></div>
-    </div>
-    <div class="deco-cell">
-      <span class="deco-cell-label">Mesa</span>
-      <span class="deco-cell-name">Cristal & Plata</span>
-      <div class="deco-cell-body">Cristalería tallada. Cubiertos en tonos plata. Velas taper como protagonistas de la mesa. <em>La luz de la vela es el centro.</em> Vajilla blanca simple. Sin elementos que compitan con el floral y la luz.</div>
-      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#C8C8C0;"></div><div class="deco-swatch-dot" style="background:#8C7B6B;"></div><div class="deco-swatch-dot" style="background:#F5E0C0;"></div></div>
-    </div>
-    <div class="deco-cell">
-      <span class="deco-cell-label">Luz</span>
-      <span class="deco-cell-name">Vela como protagonista</span>
-      <div class="deco-cell-body">Velas taper en marfil o crimson oscuro. Velas votivas agrupadas. Faroles de cristal al piso. <em>Sin luz artificial directa.</em> El interior de El Cardenal debe sentirse iluminado únicamente por el fuego.</div>
-      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#F5E0C0;"></div><div class="deco-swatch-dot" style="background:#3D1019;"></div><div class="deco-swatch-dot" style="background:#F0D080;"></div></div>
-    </div>
-    <div class="deco-cell">
-      <span class="deco-cell-label">Espacio · El Cardenal</span>
-      <span class="deco-cell-name">Interior contenido</span>
-      <div class="deco-cell-body">El Cardenal es un espacio interior. Sus muros, su arquitectura y su atmósfera son parte activa del diseño. <em>No intervenir en exceso.</em> Las flores y las velas completan el espacio — no lo transforman. El venue define el carácter. La decoración lo intensifica.</div>
-      <div class="deco-swatches-inline"><div class="deco-swatch-dot" style="background:#1C1814;"></div><div class="deco-swatch-dot" style="background:#8C7B6B;"></div><div class="deco-swatch-dot" style="background:#F5E0C0;"></div></div>
-    </div>
+    <div class="type-row"><div><span class="type-row-role">Nombres<br>Playfair Display<br>Regular · 400 · Caps</span><div class="type-row-note">Portada y títulos</div></div><div class="spec-names">Laura <em>&amp;</em> Diego</div></div>
+    <div class="type-row"><div><span class="type-row-role">Encabezados<br>Playfair Display<br>Regular · 400</span><div class="type-row-note">36–64px · minúsculas</div></div><div class="spec-heading">Nuestra Historia<br>La Ceremonia</div></div>
+    <div class="type-row"><div><span class="type-row-role">Etiquetas<br>Montserrat · Light<br>+0.32em · Caps</span><div class="type-row-note">Fechas, secciones, pies de foto</div></div><div class="spec-label">SÁBADO · 15 DE MAYO · 2027<br>OAXACA, MÉXICO</div></div>
+    <div class="type-row"><div><span class="type-row-role">Cuerpo<br>Playfair Display<br>Regular · 1.85</span><div class="type-row-note">16–18px · interlineado 1.85×</div></div><div class="spec-body">Con el mezcal celebramos<br>la eternidad en Oaxaca.</div></div>
   </div>
 </div>
 
 <!-- ICONOGRAPHY -->
 <div class="icon-section">
   <span class="sec-label icon-label">Iconografía</span>
-  <div class="icon-headline">El agave<br>como <em>símbolo.</em></div>
-  <div class="icon-intro">El agave oaxaqueño es el testigo silencioso de la identidad. Aparece como icono en favicon, sellos y elementos digitales. Siempre monocromático, siempre centrado. Nunca decorativo por sí solo — siempre con significado.</div>
+  <div class="icon-intro">Favicon y sellos digitales. Monocromático.</div>
   <div class="icon-grid">
 
     <!-- On cream -->
@@ -1062,7 +580,7 @@ body {
           </svg>
         </div>
       </div>
-      <div class="icon-cell-note">Crimson sobre Cream — uso principal en piezas gráficas.</div>
+      <div class="icon-cell-note">Uso principal.</div>
     </div>
 
     <!-- On crimson -->
@@ -1100,12 +618,12 @@ body {
           </svg>
         </div>
       </div>
-      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Crimson — sobres, contraportadas, sellos de cera.</div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Sobres y sellos.</div>
     </div>
 
     <!-- On olive -->
     <div class="icon-cell" style="background:var(--olive);">
-      <span class="icon-cell-label" style="color:#D4E0A0; opacity:0.9;">Sobre fondo Olive · Botánica</span>
+      <span class="icon-cell-label" style="color:#D4E0A0; opacity:0.9;">Sobre fondo Olive</span>
       <div class="icon-specimen">
         <div class="icon-box">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" aria-label="Agave icon on olive">
@@ -1140,12 +658,12 @@ body {
           </svg>
         </div>
       </div>
-      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Olive — etiquetas botánicas, mezcalería, follaje.</div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Elementos decorativos.</div>
     </div>
 
     <!-- On ink -->
     <div class="icon-cell" style="background:var(--ink);">
-      <span class="icon-cell-label" style="color:var(--cream); opacity:0.55;">Sobre fondo oscuro · Ink</span>
+      <span class="icon-cell-label" style="color:var(--cream); opacity:0.55;">Sobre fondo oscuro</span>
       <div class="icon-specimen">
         <div class="icon-box">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" aria-label="Agave icon on ink">
@@ -1180,7 +698,7 @@ body {
           </svg>
         </div>
       </div>
-      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Ink — elementos nocturnos, menú, interior oscuro.</div>
+      <div class="icon-cell-note" style="color:var(--cream); opacity:0.65;">Piezas de noche.</div>
     </div>
 
   </div><!-- /icon-grid -->
@@ -1189,8 +707,7 @@ body {
 <!-- MONOGRAMA -->
 <div class="logo-section">
   <span class="sec-label logo-label">Monograma</span>
-  <div class="logo-headline">L &amp; D —<br>el <em>monograma.</em></div>
-  <div class="logo-intro">La marca de la pareja se expresa en Playfair Display, el mismo trazo que lleva la historia de la boda. Aparece en el footer, invitaciones y sellos. Siempre tipográfico — nunca icónico solo.</div>
+  <div class="logo-intro">Playfair Display · footer e invitaciones.</div>
   <div class="logo-grid">
 
     <!-- On cream -->
@@ -1200,7 +717,7 @@ body {
         <span class="logo-mark" style="font-size:3rem; color:var(--crimson);">L &amp; D</span>
         <span class="logo-mark" style="font-size:2rem; color:var(--crimson);">L &amp; D</span>
       </div>
-      <div class="logo-cell-note">Crimson sobre Cream — uso principal en invitaciones y web.</div>
+      <div class="logo-cell-note">Invitaciones y web.</div>
     </div>
 
     <!-- On crimson -->
@@ -1210,7 +727,7 @@ body {
         <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
         <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
       </div>
-      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Crimson — sellos y piezas de acento.</div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Sellos y acento.</div>
     </div>
 
     <!-- On olive -->
@@ -1220,81 +737,40 @@ body {
         <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
         <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
       </div>
-      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Olive — modo alternativo, menú temporada.</div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Piezas botánicas.</div>
     </div>
 
     <!-- On ink -->
     <div class="logo-cell" style="background:var(--ink);">
-      <span class="logo-cell-label" style="color:var(--blush); opacity:0.85;">Sobre fondo oscuro · Ink</span>
+      <span class="logo-cell-label" style="color:var(--blush); opacity:0.85;">Sobre fondo oscuro</span>
       <div class="logo-specimen">
         <span class="logo-mark" style="font-size:3rem; color:var(--cream);">L &amp; D</span>
         <span class="logo-mark" style="font-size:2rem; color:var(--cream);">L &amp; D</span>
       </div>
-      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Cream sobre Ink — footer, elementos nocturnos, interior oscuro.</div>
+      <div class="logo-cell-note" style="color:var(--cream); opacity:0.65;">Sobres y detalles.</div>
     </div>
 
   </div><!-- /logo-grid -->
 </div>
 
-<!-- MARCA COMBINADA -->
-<div class="marca-section">
-  <!-- Agave de fondo, centrado, escala grande -->
-  <svg class="marca-agave" xmlns="http://www.w3.org/2000/svg" viewBox="-220 -317 440 440" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-    <g transform="translate(0,0) scale(1)" fill="var(--ink)">
-      <path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/>
-      <g transform="rotate(20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-20) scale(.88)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-40) scale(.76)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-60) scale(.62)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-      <g transform="rotate(-78) scale(.5)"><path d="M0,0 C-18,-30,-14,-100,0,-175 C14,-100,18,-30,0,0Z M0,-175 L-1.5,-186 L0,-194 L1.5,-186Z"/></g>
-    </g>
-  </svg>
-  <!-- Contenido encima -->
-  <div class="marca-content">
-    <span class="marca-label">Sello de pareja</span>
-    <span class="marca-wordmark">L &amp; D</span>
-    <span class="marca-date">Mayo 15 &middot; 2027 &middot; Oaxaca</span>
-  </div>
-</div>
-
 <!-- APPLICATIONS -->
 <div class="apps">
   <span class="apps-label">Aplicaciones</span>
-  <span class="app-item-label">Save the date — modo íntimo</span>
-  <div class="std">
-    <div class="std-film-side">
-      <div class="std-frame"><span class="std-frame-label">L&D · 01</span></div>
-      <div class="std-frame"><span class="std-frame-label">L&D · 02</span></div>
-      <div class="std-frame"><span class="std-frame-label">L&D · 03</span></div>
-    </div>
-    <div class="std-text">
-      <span class="std-top-label">Save the date</span>
-      <div class="std-names">LAURA <em>&</em> DIEGO</div>
-      <div class="std-foot">
-        <span class="std-date">Sábado · 15 de Mayo · 2027</span>
-        <span class="std-location">El Cardenal · Oaxaca, México</span>
-      </div>
-    </div>
-  </div>
-  <span class="app-item-label" style="padding-top:0;">Sitio web</span>
-  <div class="web">
-    <div class="web-nav"><span class="web-logo">LAURA & DIEGO</span><div class="web-links"><span class="web-link">Nuestra historia</span><span class="web-link">La boda</span><span class="web-link">Confirmar</span></div></div>
-    <div class="web-hero"><div class="web-hl">En Oaxaca<br>hay un mezcal<br><em>esperándote.</em></div><div class="web-meta">Mayo 15, 2027 · El Cardenal · Oaxaca</div></div>
-    <div class="web-lower">
-      <div class="web-lower-cell"><span class="web-cell-label">Confirmación</span><div class="web-cell-heading">¿Nos acompañas?</div><div class="web-cell-body">Confirma tu asistencia antes del 15 de febrero de 2027.</div><span class="web-cell-btn">Confirmar asistencia</span></div>
-      <div class="web-lower-cell"><span class="web-cell-label">La frase</span><div class="web-cell-body" style="font-size:16px;margin-top:4px;font-style:italic;">Con el mezcal<br>celebramos la eternidad.</div></div>
-    </div>
-  </div>
-  <span class="app-item-label" style="padding-top:0;">Etiquetas</span>
+  <span class="app-item-label">Etiquetas</span>
   <div class="labels">
-    <div class="label-cell on-crimson"><span class="label-cell-type">Etiqueta de botella · Crimson</span><span class="label-cell-spec">Con el mezcal<br>celebramos la eternidad<br>L & D · 15 · 05 · 2027</span></div>
-    <div class="label-cell on-olive"><span class="label-cell-type">Etiqueta de botella · Olive</span><span class="label-cell-spec">Con el mezcal<br>celebramos la eternidad<br>L & D · 15 · 05 · 2027</span></div>
-    <div class="label-cell"><span class="label-cell-type">Menú</span><span class="label-cell-spec">Menú de boda<br>El Cardenal · Oaxaca · Mayo 2027</span></div>
-    <div class="label-cell"><span class="label-cell-type">Sobre · Remitente</span><span class="label-cell-spec">Laura & Diego<br>Oaxaca, México<br>15 de Mayo · 2027</span></div>
+    <div class="label-cell"><span class="label-cell-type">Botella · Cream</span><span class="label-cell-spec">Con el mezcal<br>celebramos la eternidad<br>L &amp; D · 15 · 05 · 2027</span></div>
+    <div class="label-cell on-crimson"><span class="label-cell-type">Menú · Crimson</span><span class="label-cell-spec">Menú · Mayo 2027<br>Oaxaca, México<br>L &amp; D</span></div>
+    <div class="label-cell on-olive"><span class="label-cell-type">Número de mesa · Olive</span><span class="label-cell-spec">Mesa 01<br>Laura &amp; Diego<br>15 · 05 · 2027</span></div>
   </div>
+</div>
+
+<!-- PHRASE -->
+<div class="phrase">
+  <span class="sec-label phrase-label">La frase de la boda</span>
+  <span class="phrase-line">Con el agave entendimos la espera de la tierra.</span>
+  <span class="phrase-line">Con la distancia entendimos la fuerza de elegirnos.</span>
+  <span class="phrase-line">Con el mezcal celebramos la eternidad.</span>
+  <div class="phrase-short">&mdash; Variante corta &middot; etiquetas, men&uacute;, detalles</div>
 </div>
 
 <!-- RULES -->
@@ -1304,29 +780,18 @@ body {
     <div>
       <div class="rules-col-head do-head">Sí</div>
       <ul class="rules-list do-list">
-        <li>Playfair Display para nombres (mayúsculas, tracking amplio), titulares y cuerpo de texto.</li>
-        <li>Contraste de escala tipográfica — titulares grandes, cuerpo pequeño.</li>
-        <li>Espacio en blanco generoso en papel. El silencio visual es parte del lujo.</li>
-        <li>Fotografía editorial siempre en tonos cálidos y color.</li>
-        <li>B&N permitido solo en modo íntimo — fotobooth, analógico, save the date.</li>
-        <li>Velas y luz cálida — taper, votivas y faroles de cristal. Sin luz fría.</li>
-        <li>Arreglos florales minimalistas y elegantes — cada pieza tiene su lugar y su silencio.</li>
-        <li>El interior de El Cardenal como fondo activo en fotografía y decoración.</li>
-        <li>La frase completa o solo la variante corta aprobada.</li>
+        <li>Playfair Display para títulos y cuerpo</li>
+        <li>Espacio en blanco generoso</li>
+        <li>Colores de la paleta aprobada</li>
+        <li>Fotografía en tonos cálidos</li>
       </ul>
     </div>
     <div>
       <div class="rules-col-head dont-head">No</div>
       <ul class="rules-list dont-list">
-        <li>Más de dos tipografías en una misma pieza gráfica.</li>
-        <li>Nombres en peso regular o bold. Siempre italic 300.</li>
-        <li>Colores fuera de la paleta — especialmente blancos puros o rosas pastel.</li>
-        <li>Crimson como fondo en piezas gráficas principales.</li>
-        <li>Flores artificiales o en tonos pastel en la decoración.</li>
-        <li>Candelabros. La vela sola es suficiente protagonista.</li>
-        <li>Luz artificial directa o LED fría en el espacio.</li>
-        <li>Decoración que compita con la arquitectura de El Cardenal.</li>
-        <li>Frases de la boda modificadas o parafraseadas.</li>
+        <li>Más de dos tipografías en una pieza</li>
+        <li>Colores fuera de la paleta</li>
+        <li>Frases modificadas</li>
       </ul>
     </div>
   </div>
@@ -1335,10 +800,9 @@ body {
 <!-- CLOSING -->
 <div class="closing">
   <div class="closing-inner">
-    <div class="closing-phrase">Con el agave entendimos la espera de la tierra.<br>Con la distancia entendimos la fuerza de elegirnos.<br>Con el mezcal celebramos la eternidad.</div>
     <div class="closing-vr" style="background:linear-gradient(to bottom, var(--olive), var(--crimson));"></div>
-    <span class="closing-names">Laura & Diego</span>
-    <div class="closing-credit">Guía de Estilo · El Cardenal Oaxaca · 2027</div>
+    <span class="closing-names">Laura <em>&amp;</em> Diego</span>
+    <div class="closing-credit">Guía de Estilo · Oaxaca · 2027</div>
   </div>
 </div>
 
