@@ -336,13 +336,10 @@
           <div class="form-group">
             <label class="label label--required" for="rsvp-name" data-i18n="rsvp-name-label">Nombre completo</label>
             <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="Laura" autocomplete="name" required data-i18n-placeholder="rsvp-name-placeholder" />
+            <p class="field-error" id="rsvp-name-error" role="alert"></p>
           </div>
 
-          <div class="form-group">
-            <label class="label" for="rsvp-phone" data-i18n="rsvp-phone-label">Número de teléfono</label>
-            <input class="form-input" type="tel" id="rsvp-phone" name="phone" placeholder="+52 951 000 0000"
-              autocomplete="tel" data-i18n-placeholder="rsvp-phone-placeholder" />
-          </div>
+
 
           <fieldset class="form-group attend-group">
             <legend class="label label--required" data-i18n="rsvp-attend-legend">Asistencia</legend>
@@ -350,6 +347,7 @@
               <button type="button" class="attend-btn" data-attend="yes" data-i18n="rsvp-attend-yes">Sí, asistiré</button>
               <button type="button" class="attend-btn" data-attend="no" data-i18n="rsvp-attend-no">No podré asistir</button>
             </div>
+            <p class="field-error" id="rsvp-attend-error" role="alert"></p>
           </fieldset>
 
           <div class="form-group extra-fields" id="extra-fields">
@@ -361,6 +359,7 @@
               <option value="3" data-i18n="rsvp-guests-opt3">3 personas</option>
               <option value="4" data-i18n="rsvp-guests-opt4">4 personas</option>
             </select>
+            <p class="field-error" id="rsvp-guests-error" role="alert"></p>
           </div>
 
           <div class="form-group extra-fields" id="extra-dietary">
@@ -378,14 +377,22 @@
           <!-- Honeypot — must stay empty -->
           <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
 
+          <div class="rsvp-feedback" id="rsvp-feedback" hidden>
+            <p class="rsvp-feedback-msg" id="rsvp-feedback-msg"></p>
+          </div>
+
           <button type="button" class="submit-btn" id="rsvp-submit" data-i18n="rsvp-submit">
             Enviar confirmación
           </button>
 
         </div>
 
-        <div class="rsvp-feedback" id="rsvp-feedback" hidden>
-          <p class="rsvp-feedback-msg" id="rsvp-feedback-msg"></p>
+        <div class="rsvp-success-card" id="rsvp-success-card" hidden>
+          <div class="rsvp-success-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="rsvp-success-card__title" id="rsvp-success-title"></p>
+          <p class="rsvp-success-card__body" id="rsvp-success-body"></p>
         </div>
 
       </div>

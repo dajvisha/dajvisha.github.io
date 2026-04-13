@@ -1642,6 +1642,64 @@
       background: color-mix(in srgb, var(--sienna) 8%, transparent);
       border-left: 2px solid var(--sienna);
       color: var(--sienna);
+      text-align: left;
+    }
+
+    /* Inline field validation */
+    .field-error {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--sienna);
+      margin-top: 6px;
+      margin-bottom: 0;
+      display: none;
+    }
+
+    .field-error.visible {
+      display: block;
+    }
+
+    .form-input--error {
+      border-color: var(--sienna) !important;
+    }
+
+    /* RSVP success card */
+    .rsvp-success-card {
+      text-align: center;
+      padding: clamp(48px, 10vw, 80px) 24px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .rsvp-success-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid var(--crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      color: var(--crimson);
+    }
+
+    .rsvp-success-card__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+      font-weight: 400;
+      color: var(--crimson);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .rsvp-success-card__body {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      color: var(--ink);
+      opacity: 0.6;
+      margin: 0;
     }
 
     .req {

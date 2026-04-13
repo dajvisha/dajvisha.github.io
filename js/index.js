@@ -52,8 +52,7 @@
           'rsvp-body': 'Confirma tu asistencia antes del <em style="font-style:italic;color:var(--sienna);">15 de febrero de 2027.</em>',
           'rsvp-name-label': 'Nombre completo',
           'rsvp-name-placeholder': 'Laura',
-          'rsvp-phone-label': 'Número de teléfono',
-          'rsvp-phone-placeholder': '+52 951 000 0000',
+
           'rsvp-attend-legend': 'Asistencia',
           'rsvp-attend-yes': 'Asistiré con gusto',
           'rsvp-attend-no': 'No podré asistir',
@@ -183,8 +182,7 @@
           'rsvp-body': 'Please confirm your attendance by <em style="font-style:italic;color:var(--sienna);">February 15, 2027.</em>',
           'rsvp-name-label': 'Full name',
           'rsvp-name-placeholder': 'Laura',
-          'rsvp-phone-label': 'Phone number',
-          'rsvp-phone-placeholder': '+52 951 000 0000',
+
           'rsvp-attend-legend': 'Attendance',
           'rsvp-attend-yes': 'I\'ll be there',
           'rsvp-attend-no': 'Unable to attend',
@@ -479,7 +477,7 @@
     });
 
     /* RSVP — submit to Google Apps Script */
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySa7GVy0qU9X1yFO1uOj7bb1c25-5Wo8vMsDBOBarXEVxeHE6UVk0fqeh2o0ZC7eZm/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLJN2mYGn_hIZ4J0YmX7rgVpg9x65hR7kOdihYypJUID-Xmf5qPN692J7lJTDVECuN/exec';
 
     const submitBtn = document.getElementById('rsvp-submit');
     const feedback = document.getElementById('rsvp-feedback');
@@ -495,6 +493,8 @@
         validationPhone: 'Por favor ingresa tu número de teléfono.',
         validationAttend: 'Por favor indica si asistirás.',
         validationGuests: 'Por favor selecciona el número de asistentes.',
+        successTitle: '¡Listo, te esperamos!',
+        successBody: 'Nos vemos en Oaxaca el 15 de mayo de 2027.',
       },
       en: {
         sending: 'Sending…',
@@ -505,6 +505,8 @@
         validationPhone: 'Please enter your phone number.',
         validationAttend: 'Please let us know if you\'ll attend.',
         validationGuests: 'Please select the number of guests.',
+        successTitle: 'You\'re all set!',
+        successBody: 'See you in Oaxaca, May 15, 2027.',
       }
     };
 
@@ -513,9 +515,29 @@
       return (rsvpMessages[lang] || rsvpMessages.es)[key];
     }
 
+    function showFieldError(errorId, inputId, msgKey) {
+      const el = document.getElementById(errorId);
+      el.textContent = getRsvpMsg(msgKey);
+      el.classList.add('visible');
+      if (inputId) {
+        const input = document.getElementById(inputId);
+        input.classList.add('form-input--error');
+        input.focus();
+      }
+    }
+
+    function clearFieldError(errorId, inputId) {
+      const el = document.getElementById(errorId);
+      if (el) { el.textContent = ''; el.classList.remove('visible'); }
+      if (inputId) document.getElementById(inputId)?.classList.remove('form-input--error');
+    }
+
+    document.getElementById('rsvp-name').addEventListener('input', () => clearFieldError('rsvp-name-error', 'rsvp-name'));
+    document.querySelectorAll('.attend-btn').forEach(btn => btn.addEventListener('click', () => clearFieldError('rsvp-attend-error', null)));
+    document.getElementById('rsvp-guests').addEventListener('change', () => clearFieldError('rsvp-guests-error', 'rsvp-guests'));
+
     submitBtn.addEventListener('click', () => {
       const name = document.getElementById('rsvp-name').value.trim();
-      const phone = document.getElementById('rsvp-phone').value.trim();
       const attendBtn = document.querySelector('.attend-btn.selected');
       const honeypot = document.querySelector('input[name="_honeypot"]').value;
 
@@ -524,40 +546,30 @@
 
       // Specific validation
       if (!name) {
-        feedback.hidden = false;
-        feedback.className = 'rsvp-feedback rsvp-feedback--error';
-        feedbackMsg.textContent = getRsvpMsg('validationName');
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        document.getElementById('rsvp-name').focus();
+        showFieldError('rsvp-name-error', 'rsvp-name', 'validationName');
         return;
       }
       if (!attendBtn) {
-        feedback.hidden = false;
-        feedback.className = 'rsvp-feedback rsvp-feedback--error';
-        feedbackMsg.textContent = getRsvpMsg('validationAttend');
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        showFieldError('rsvp-attend-error', null, 'validationAttend');
+        document.querySelector('.attend-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
       const attending = attendBtn.dataset.attend === 'yes';
 
       if (attending && !document.getElementById('rsvp-guests').value) {
-        feedback.hidden = false;
-        feedback.className = 'rsvp-feedback rsvp-feedback--error';
-        feedbackMsg.textContent = getRsvpMsg('validationGuests');
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        showFieldError('rsvp-guests-error', 'rsvp-guests', 'validationGuests');
         return;
       }
       const guests = attending ? document.getElementById('rsvp-guests').value : '';
       const dietary = attending ? document.getElementById('rsvp-dietary').value.trim() : '';
       const note = document.getElementById('rsvp-note').value.trim();
-      const lang = localStorage.getItem('lang') || 'es';
 
       submitBtn.disabled = true;
       submitBtn.textContent = getRsvpMsg('sending');
       feedback.hidden = true;
 
-      const payload = { name, phone, attending, guests, dietary, note, lang, timestamp: new Date().toISOString() };
+      const payload = { name, attending, guests, dietary, note, timestamp: new Date().toISOString() };
 
       fetch(SCRIPT_URL, {
         method: 'POST',
@@ -567,10 +579,11 @@
       })
         .then(() => {
           document.querySelector('.rsvp-form').style.display = 'none';
-          feedback.hidden = false;
-          feedback.className = 'rsvp-feedback rsvp-feedback--success';
-          feedbackMsg.textContent = getRsvpMsg('success');
-          feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const successCard = document.getElementById('rsvp-success-card');
+          document.getElementById('rsvp-success-title').textContent = getRsvpMsg('successTitle');
+          document.getElementById('rsvp-success-body').textContent = getRsvpMsg('successBody');
+          successCard.hidden = false;
+          successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         })
         .catch(() => {
           feedback.hidden = false;
