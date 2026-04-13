@@ -488,15 +488,23 @@
     const rsvpMessages = {
       es: {
         sending: 'Enviando…',
+        submit: 'Enviar confirmación',
         success: '¡Confirmación recibida! Nos vemos en Oaxaca.',
         error: 'Algo salió mal. Por favor intenta de nuevo.',
-        validation: 'Por favor completa tu nombre y selecciona tu asistencia.',
+        validationName: 'Por favor ingresa tu nombre completo.',
+        validationPhone: 'Por favor ingresa tu número de teléfono.',
+        validationAttend: 'Por favor indica si asistirás.',
+        validationGuests: 'Por favor selecciona el número de asistentes.',
       },
       en: {
         sending: 'Sending…',
+        submit: 'Send confirmation',
         success: 'Confirmation received! See you in Oaxaca.',
         error: 'Something went wrong. Please try again.',
-        validation: 'Please enter your name and select your attendance.',
+        validationName: 'Please enter your full name.',
+        validationPhone: 'Please enter your phone number.',
+        validationAttend: 'Please let us know if you\'ll attend.',
+        validationGuests: 'Please select the number of guests.',
       }
     };
 
@@ -514,15 +522,32 @@
       // Honeypot check
       if (honeypot) return;
 
-      // Basic validation
-      if (!name || !attendBtn) {
+      // Specific validation
+      if (!name) {
         feedback.hidden = false;
         feedback.className = 'rsvp-feedback rsvp-feedback--error';
-        feedbackMsg.textContent = getRsvpMsg('validation');
+        feedbackMsg.textContent = getRsvpMsg('validationName');
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('rsvp-name').focus();
+        return;
+      }
+      if (!attendBtn) {
+        feedback.hidden = false;
+        feedback.className = 'rsvp-feedback rsvp-feedback--error';
+        feedbackMsg.textContent = getRsvpMsg('validationAttend');
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
       const attending = attendBtn.dataset.attend === 'yes';
+
+      if (attending && !document.getElementById('rsvp-guests').value) {
+        feedback.hidden = false;
+        feedback.className = 'rsvp-feedback rsvp-feedback--error';
+        feedbackMsg.textContent = getRsvpMsg('validationGuests');
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
       const guests = attending ? document.getElementById('rsvp-guests').value : '';
       const dietary = attending ? document.getElementById('rsvp-dietary').value.trim() : '';
       const note = document.getElementById('rsvp-note').value.trim();
@@ -541,19 +566,18 @@
         body: JSON.stringify(payload),
       })
         .then(() => {
+          document.querySelector('.rsvp-form').style.display = 'none';
           feedback.hidden = false;
           feedback.className = 'rsvp-feedback rsvp-feedback--success';
           feedbackMsg.textContent = getRsvpMsg('success');
-          submitBtn.style.display = 'none';
-          document.querySelector('.rsvp-form').querySelectorAll('input, select, textarea, button:not(#rsvp-submit)').forEach(el => el.disabled = true);
+          feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
         })
         .catch(() => {
           feedback.hidden = false;
           feedback.className = 'rsvp-feedback rsvp-feedback--error';
           feedbackMsg.textContent = getRsvpMsg('error');
           submitBtn.disabled = false;
-          submitBtn.setAttribute('data-i18n', 'rsvp-submit');
-          submitBtn.textContent = getRsvpMsg('submit') || 'Enviar confirmación';
+          submitBtn.textContent = getRsvpMsg('submit');
         });
     });
 

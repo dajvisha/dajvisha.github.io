@@ -1622,12 +1622,14 @@
     }
 
     .rsvp-feedback {
-      margin-top: 28px;
-      padding: 18px 20px;
+      margin-top: 0;
+      margin-bottom: 24px;
+      padding: 16px 20px;
       font-family: var(--font-sans);
       font-size: .75rem;
       letter-spacing: .06em;
       line-height: 1.6;
+      text-align: center;
     }
 
     .rsvp-feedback--success {
@@ -1640,6 +1642,21 @@
       background: color-mix(in srgb, var(--sienna) 8%, transparent);
       border-left: 2px solid var(--sienna);
       color: var(--sienna);
+    }
+
+    .req {
+      color: var(--crimson);
+      margin-left: 3px;
+      font-size: .7rem;
+      opacity: 0.75;
+    }
+
+    .label--required::after {
+      content: '*';
+      color: var(--crimson);
+      margin-left: 3px;
+      font-size: .7rem;
+      opacity: 0.75;
     }
 
     .extra-fields {

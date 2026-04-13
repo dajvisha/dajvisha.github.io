@@ -334,8 +334,8 @@
         <div class="rsvp-form reveal">
 
           <div class="form-group">
-            <label class="label" for="rsvp-name" data-i18n="rsvp-name-label">Nombre completo</label>
-            <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="Laura" autocomplete="name" data-i18n-placeholder="rsvp-name-placeholder" />
+            <label class="label label--required" for="rsvp-name" data-i18n="rsvp-name-label">Nombre completo</label>
+            <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="Laura" autocomplete="name" required data-i18n-placeholder="rsvp-name-placeholder" />
           </div>
 
           <div class="form-group">
@@ -345,7 +345,7 @@
           </div>
 
           <fieldset class="form-group attend-group">
-            <legend class="label" data-i18n="rsvp-attend-legend">Asistencia</legend>
+            <legend class="label label--required" data-i18n="rsvp-attend-legend">Asistencia</legend>
             <div class="attend-btns">
               <button type="button" class="attend-btn" data-attend="yes" data-i18n="rsvp-attend-yes">Sí, asistiré</button>
               <button type="button" class="attend-btn" data-attend="no" data-i18n="rsvp-attend-no">No podré asistir</button>
@@ -382,10 +382,10 @@
             Enviar confirmación
           </button>
 
-          <div class="rsvp-feedback" id="rsvp-feedback" hidden>
-            <p class="rsvp-feedback-msg" id="rsvp-feedback-msg"></p>
-          </div>
+        </div>
 
+        <div class="rsvp-feedback" id="rsvp-feedback" hidden>
+          <p class="rsvp-feedback-msg" id="rsvp-feedback-msg"></p>
         </div>
 
       </div>
