@@ -2,13 +2,13 @@
       const i18n = {
         es: {
           'skip-link': 'Saltar al contenido principal',
-          'preloader-date': 'Mayo &middot; 2027 &middot; Oaxaca',
+          'preloader-date': 'MAYO 15, 2027 &middot; OAXACA',
           'nav-home': 'Inicio',
           'nav-venue': 'Lugar',
           'nav-rsvp': 'Confirmar',
           'nav-toggle-label': 'Menú',
           'hero-h1': 'En Oaxaca hay un mezcal <em>esperándote.</em>',
-          'hero-info': 'Mayo 15, 2027 &middot; Oaxaca, Mexico',
+          'hero-info': 'MAYO 15, 2027 &middot; OAXACA',
           'hero-cta': 'Confirma tu presencia',
           'photo-1-alt': 'Laura y Diego en Paris',
           'photo-2-alt': 'Laura y Diego en un cafe parisino',
@@ -67,7 +67,7 @@
           'rsvp-note-label': 'Mensaje para los novios <span style="opacity:.45;">(opcional)</span>',
           'rsvp-note-placeholder': 'Un pensamiento, un deseo…',
           'rsvp-submit': 'Confirmar',
-          'footer-sub': 'Mayo 15, 2027 &middot; Oaxaca, Mexico',
+          'footer-sub': 'MAYO 15, 2027 &middot; OAXACA',
           // nav (optional sections)
           'nav-oaxaca': 'Oaxaca',
           'nav-registry': 'Regalos',
@@ -166,7 +166,7 @@
         },
         en: {
           'skip-link': 'Skip to main content',
-          'preloader-date': 'May &middot; 2027 &middot; Oaxaca',
+          'preloader-date': 'May 15, 2027 &middot; Oaxaca',
           'nav-home': 'Home',
           'nav-venue': 'Venue',
           'nav-rsvp': 'Confirm',

@@ -111,7 +111,7 @@
     :root {
       --cream: #FDFAF5;
       --cream2: #F5EFE4;
-      --cream3: #EDE5D4;
+
       --ink: #1A1612;
       --chocolate: #2C1810;
       --sienna: #A0582C;
@@ -174,7 +174,7 @@
     }
 
     .section-alt-2 {
-      background: var(--cream3);
+      background: var(--cream2);
     }
 
     .container-sm {
@@ -1521,7 +1521,6 @@
 
     .info-section--cream  { background: var(--cream); }
     .info-section--cream2 { background: var(--cream2); }
-    .info-section--cream3 { background: var(--cream3); }
 
     .info-section .heading-serif { margin-bottom: 2rem; }
 
@@ -2126,10 +2125,11 @@
 
 
     .footer .sub {
-      font-size: .75rem;
-      letter-spacing: .35em;
-      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
       font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
       opacity: .88;
     }
 
