@@ -983,18 +983,17 @@
     }
 
     .venue-cols {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(32px, 5vw, 56px);
-      align-items: start;
+      display: none;
     }
 
     .venue-col { }
 
     @media (min-width: 720px) {
       .venue-cols {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 56px;
+        align-items: start;
       }
 
       .venue-col + .venue-col {
@@ -1188,6 +1187,67 @@
       line-height: 1.6;
     }
 
+    /* ── Vestimenta: mobile overrides ── */
+    @media (max-width: 719px) {
+      .venue-attire {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .venue-attire {
+        margin-top: 24px;
+      }
+
+      .venue-attire-details {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 12px;
+        max-width: 100%;
+        margin-top: 16px;
+      }
+
+      .venue-attire-group {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .venue-attire-note {
+        width: 100%;
+        text-align: center;
+      }
+
+      .venue-attire-divider {
+        display: none;
+      }
+
+      .venue-attire-palette {
+        align-items: flex-start;
+      }
+
+      .venue-attire-palette-label {
+        width: 100%;
+        text-align: center;
+      }
+
+      .venue-attire-swatches {
+        display: grid;
+        grid-template-columns: repeat(4, 36px);
+        gap: 14px;
+        margin: 0 auto;
+      }
+
+      .swatch-circle {
+        width: 36px;
+        height: 36px;
+      }
+
+      .swatch-name {
+        font-size: 9px;
+      }
+    }
+
     /* ── Programme Timeline ── */
     .prog-timeline {
       display: flex;
@@ -1270,11 +1330,30 @@
       color: var(--ink);
     }
 
+    .prog-venue {
+      font-style: normal;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(26,22,18,0.22);
+    }
+
+    .prog-venue--placeholder {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    @media (min-width: 901px) {
+      .prog-venue { display: none; }
+      .prog-venue--placeholder { display: none; }
+    }
+
     /* ── Timeline: vertical on mobile ── */
     @media (max-width: 559px) {
       .prog-timeline {
         flex-direction: column;
         gap: 0;
+        margin-bottom: 20px;
+        padding-bottom: 0;
       }
 
       /*
@@ -1285,10 +1364,16 @@
         left: 4px;
         right: auto;
         width: 1px;
-        top: 7px;   /* first dot centre: margin-top(2) + half-dot(5) = 7px */
-        bottom: 7px;
+        top: 0;
+        bottom: 0;
         height: auto;
-        background: rgba(26,22,18,0.15);
+        background: linear-gradient(
+          to bottom,
+          transparent 0,
+          rgba(26,22,18,0.15) 10px,
+          rgba(26,22,18,0.15) 72%,
+          transparent 85%
+        );
       }
 
       /*
