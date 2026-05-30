@@ -45,22 +45,15 @@
 
     .preloader-monogram {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2rem, 7vw, 3.6rem);
-      font-weight: 400;
-      letter-spacing: 0.28em;
+      font-size: clamp(1.4rem, 5vw, 2.4rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: #2C1810;
       opacity: 0.88;
       line-height: 1;
     }
 
-    .preloader-monogram em {
-      color: var(--crimson);
-      opacity: 0.8;
-      font-size: 0.65em;
-      font-style: normal;
-      letter-spacing: 0.28em;
-    }
 
     .preloader-date {
       font-family: 'Montserrat', Helvetica, Arial, sans-serif;
@@ -197,7 +190,7 @@
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 300;
       letter-spacing: .06em;
-      color: var(--ink);
+      color: #2C1810;
     }
 
     /* ── Skip Link ── */
@@ -291,19 +284,12 @@
       font-size: clamp(.85rem, 2vw, 1.15rem);
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: #2C1810;
       opacity: 0.88;
       transition: color .4s, opacity .4s;
       line-height: 1;
     }
 
-    .nav-logo em {
-      color: var(--crimson);
-      opacity: 0.8;
-      font-size: 0.55em;
-      font-style: normal;
-      letter-spacing: 0.28em;
-    }
 
     /* Mobile: nav floats over full-bleed photo — use cream */
     .nav:not(.scrolled) .nav-logo {
@@ -542,7 +528,7 @@
     .hero-text h1 {
       font-family: var(--font-display);
       font-size: clamp(2.1rem, 8vw, 2.8rem);
-      color: var(--ink);
+      color: #2C1810;
       line-height: 1.15;
       font-weight: 300;
       letter-spacing: 0.02em;
@@ -553,9 +539,8 @@
     }
 
     .hero-text h1 em {
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
-      color: var(--crimson);
     }
 
     .hero-divider {
@@ -666,8 +651,7 @@
     .countdown-bar {
       position: relative;
       background: var(--crimson);
-      padding: 48px 0 48px 0;
-      min-height: 200px;
+      padding: 32px 0;
       border-top: none;
       overflow: hidden;
       display: flex;
@@ -723,7 +707,7 @@
 
     /* ── Hero Responsive — desktop (≥901px) ── */
     @media (min-width: 901px) {
-      .nav:not(.scrolled) .nav-logo { color: var(--ink); }
+      .nav:not(.scrolled) .nav-logo { color: #2C1810; }
       .nav:not(.scrolled) .nav-links a { color: var(--sienna); }
       .nav:not(.scrolled) .nav-links a:hover { color: var(--ink); }
 
@@ -804,8 +788,7 @@
       .hero-photo:nth-child(3) img { aspect-ratio: 3 / 4; }
 
       .countdown-bar {
-        padding: 64px 0 64px 0;
-        min-height: 260px;
+        padding: 44px 0;
       }
     }
 
@@ -876,19 +859,17 @@
       font-size: clamp(2.2rem, 6vw, 3.6rem);
       line-height: 1;
       letter-spacing: -0.01em;
-      color: var(--ink);
-      opacity: 0.85;
+      color: #2C1810;
+      opacity: 0.90;
       margin-bottom: clamp(28px, 4vw, 48px);
     }
 
     .story-headline em {
-      font-style: italic;
-      color: var(--crimson);
+      font-style: normal;
     }
 
     .heading-serif em {
-      font-style: italic;
-      color: var(--crimson);
+      font-style: normal;
     }
 
     /* milestones */
@@ -1022,6 +1003,335 @@
       .venue-col + .venue-col {
         border-left: 0.5px solid rgba(26,22,18,0.10);
         padding-left: 56px;
+      }
+    }
+
+    .venue-section-heading {
+      margin-bottom: clamp(36px, 5vw, 52px);
+    }
+
+    .venue-col-label--second {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 0.5px solid rgba(26,22,18,0.12);
+    }
+
+    /* ── Timeline column ── */
+    .venue-col--timeline .venue-rows {
+      border-top: none;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .venue-col--timeline .venue-rows::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(26,22,18,0.18) 15%,
+        rgba(26,22,18,0.18) 85%,
+        transparent
+      );
+    }
+
+    .venue-col--timeline .venue-row {
+      border-bottom: none;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      position: relative;
+    }
+
+    .venue-col--timeline .venue-row::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 19px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid rgba(160,88,44,0.55);
+      box-sizing: border-box;
+    }
+
+    /* ── Standalone attire block ── */
+    .venue-attire {
+      margin-top: clamp(40px, 5vw, 56px);
+      padding-top: clamp(28px, 3vw, 40px);
+      border-top: 0.5px solid rgba(26,22,18,0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .venue-attire-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.78;
+    }
+
+    .venue-attire-val {
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      margin-top: 8px;
+    }
+
+    /* Ellas / Ellos row */
+    .venue-attire-details {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .venue-attire-divider {
+      flex-shrink: 0;
+      width: 1px;
+      height: 32px;
+      background: rgba(26,22,18,0.12);
+      margin: 0 36px;
+    }
+
+    .venue-attire-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .venue-attire-group-key {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.78;
+    }
+
+    .venue-attire-group-desc {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    /* Colour palette */
+    .venue-attire-palette {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 0.5px solid rgba(26,22,18,0.07);
+      width: 100%;
+      max-width: 620px;
+    }
+
+    .venue-attire-palette-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.78;
+    }
+
+    .venue-attire-swatches {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .venue-attire-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .swatch-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: block;
+      box-shadow: 0 0 0 1px rgba(26,22,18,0.10);
+    }
+
+    .swatch-name {
+      font-family: var(--font-sans);
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.60;
+    }
+
+    .venue-attire-note {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-style: italic;
+      opacity: 0.50;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ── Programme Timeline ── */
+    .prog-timeline {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      margin-bottom: clamp(40px, 5vw, 56px);
+      padding-bottom: clamp(32px, 4vw, 48px);
+      border-bottom: 0.5px solid rgba(26,22,18,0.10);
+    }
+
+    /*
+      Single horizontal line running between the centre of the first and last dot.
+      Each item is flex:1 so width = 100%/3.
+      First-dot centre  = 100%/6 from left.
+      Last-dot centre   = 100%/6 from right.
+      top = prog-time min-height (22px) + margin-bottom (12px) + half-dot (5px) = 39px.
+    */
+    .prog-timeline::before {
+      content: '';
+      position: absolute;
+      left: calc(100% / 6);
+      right: calc(100% / 6);
+      top: 39px;
+      height: 1px;
+      background: rgba(26,22,18,0.15);
+      z-index: 0;
+    }
+
+    .prog-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .prog-time {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      opacity: 0.78;
+      margin-bottom: 12px;
+      min-height: 22px; /* fixes the dot row at 22 + 12 + 5 = 39px */
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .prog-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid rgba(160,88,44,0.55);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;        /* sits above the ::before line */
+      margin-bottom: 14px;
+    }
+
+    .prog-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .prog-name {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+    }
+
+    .prog-note {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-style: italic;
+      opacity: 0.50;
+      color: var(--ink);
+    }
+
+    /* ── Timeline: vertical on mobile ── */
+    @media (max-width: 559px) {
+      .prog-timeline {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      /*
+        Vertical line. Each item uses a 10px grid column for the dot,
+        so the dot centre sits at 5px from the timeline left.
+      */
+      .prog-timeline::before {
+        left: 4px;
+        right: auto;
+        width: 1px;
+        top: 7px;   /* first dot centre: margin-top(2) + half-dot(5) = 7px */
+        bottom: 7px;
+        height: auto;
+        background: rgba(26,22,18,0.15);
+      }
+
+      /*
+        Grid layout: [dot 10px] [content]
+        grid-template-areas lets the dot span both the time and name rows.
+      */
+      .prog-item {
+        display: grid;
+        grid-template-columns: 10px 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+          "dot time"
+          "dot text";
+        column-gap: 16px;
+        row-gap: 4px;
+        text-align: left;
+        align-items: start;
+        padding-bottom: 28px;
+      }
+
+      .prog-item:last-child { padding-bottom: 0; }
+
+      .prog-dot {
+        grid-area: dot;
+        margin: 2px 0 0;
+        align-self: start;
+      }
+
+      .prog-time {
+        grid-area: time;
+        min-height: unset;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 0;
+      }
+
+      .prog-text {
+        grid-area: text;
       }
     }
 
@@ -1419,7 +1729,7 @@
     }
     .form-group--cta {
       margin-bottom: 0;
-      margin-top: 48px;
+      margin-top: 0;
     }
 
     .rsvp-form {
@@ -1719,7 +2029,7 @@
        FOOTER
     ────────────────────────────────────── */
     .footer {
-      background: var(--ink);
+      background: #2C1810;
       color: var(--cream);
       padding: clamp(56px, 8vw, 80px) 24px;
       text-align: center;
@@ -1729,10 +2039,13 @@
 
     .footer h2 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
       letter-spacing: .06em;
+      font-weight: 300;
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
+
 
     .footer .sub {
       font-size: .75rem;
@@ -1790,12 +2103,12 @@
       left: 0;
       width: 100%;
       height: 120px;
-      opacity: 0.55;
+      opacity: 0.45;
       z-index: 2;
       color: var(--cream);
     }
 
-    /* Agave fill on dark footer background — cream */
+    /* Agave fill on footer background — cream */
     .footer .agave-field path {
       fill: currentColor;
     }

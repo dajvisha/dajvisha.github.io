@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Style Guide · Laura & Diego · 2027</title>
+<style>
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300; font-style: normal; font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --crimson: #5C1A22;
+    --blush: #E8C4BC;
+    --cream: #FDFAF5;
+    --cream2: #F5EFE4;
+    --cream3: #EDE5D4;
+    --sienna: #A0582C;
+    --olive: #6B6440;
+    --ink: #1A1612;
+  }
+  :root.olive-mode { --crimson: #6B6440; --blush: #D4E0A0; }
+
+  html, body { overflow-x: hidden; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 52vh;
+    padding: 48px 24px 40px;
+    border-bottom: 0.5px solid rgba(26,22,18,0.10);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    background: var(--cream2);
+  }
+  .cover-eyebrow {
+    font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase;
+    color: var(--sienna); opacity: 0.7; margin-bottom: 20px;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 8vw, 60px); line-height: 0.92;
+    color: var(--ink); opacity: 0.85; letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .cover-title em { font-style: italic; color: var(--crimson); }
+  .cover-meta {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ink); opacity: 0.32;
+  }
+
+  /* ── TOGGLE ── */
+  .accent-toggle {
+    position: fixed; bottom: 20px; right: 50%; transform: translateX(50%); z-index: 9999;
+    display: flex; align-items: center;
+    border: 0.5px solid rgba(26,22,18,0.18);
+    background: var(--cream); overflow: hidden;
+    box-shadow: 0 2px 16px rgba(26,22,18,0.10);
+    cursor: pointer;
+  }
+  .accent-toggle-opt {
+    padding: 10px 18px;
+    font-family: 'Montserrat', sans-serif; font-weight: 300;
+    font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--ink); opacity: 0.38;
+    transition: opacity 0.3s, background 0.3s, color 0.3s; user-select: none;
+  }
+  .accent-toggle-opt.active { opacity: 1; color: var(--cream); background: var(--crimson); }
+  .accent-toggle-divider { width: 0.5px; height: 16px; background: rgba(26,22,18,0.15); flex-shrink: 0; }
+
+  /* ── SECTION ── */
+  .sec { border-top: 0.5px solid rgba(26,22,18,0.08); padding: 36px 24px 40px; }
+  .sec-label {
+    font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase;
+    color: var(--sienna); opacity: 0.80; display: block; margin-bottom: 28px;
+  }
+
+  /* ── CARD GRID ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .cards-3 { grid-template-columns: repeat(3, 1fr); }
+
+  .card { display: flex; flex-direction: column; gap: 8px; }
+
+  /* placeholder image box */
+  .card-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--cream3);
+    border: 0.5px solid rgba(26,22,18,0.10);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .card-img.wide { aspect-ratio: 4/3; }
+  .card-img.sq   { aspect-ratio: 1/1; }
+  .card-img-label {
+    font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); opacity: 0.18;
+    font-family: 'Montserrat', sans-serif; font-weight: 300;
+    text-align: center; padding: 8px;
+  }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; color: var(--ink); opacity: 0.78; line-height: 1.2;
+  }
+  .card-note {
+    font-size: 10px; letter-spacing: 0.04em;
+    color: var(--ink); opacity: 0.40; line-height: 1.6;
+  }
+
+  /* ── PALETTE ── */
+  .swatches {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+  }
+  .swatch-fill { width: 100%; aspect-ratio: 1/1; }
+  .swatch-info { padding: 10px 0 18px; }
+  .swatch-name {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 13px; color: var(--ink); opacity: 0.68; display: block; margin-bottom: 2px;
+  }
+  .swatch-sub {
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink); opacity: 0.40; line-height: 1.7;
+  }
+
+  /* ── DO / DON'T ── */
+  .rules { background: var(--cream3); border-top: 0.5px solid rgba(26,22,18,0.08); }
+  .rules-inner { padding: 36px 24px 40px; }
+  .rules-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+  .rules-head {
+    font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase;
+    display: block; margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 0.5px solid rgba(26,22,18,0.10);
+  }
+  .do-head { color: var(--olive); }
+  .dont-head { color: var(--crimson); }
+  .rules-list { list-style: none; }
+  .rules-list li {
+    font-size: 12px; line-height: 1.6; color: var(--ink); opacity: 0.60;
+    padding: 8px 0; border-bottom: 0.5px solid rgba(26,22,18,0.07);
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  .rules-list li:last-child { border-bottom: none; }
+  .rules-list li::before { font-size: 9px; flex-shrink: 0; opacity: 0.55; font-family: 'Montserrat', sans-serif; }
+  .do-list li::before   { content: '→'; color: var(--olive); }
+  .dont-list li::before { content: '×'; color: var(--crimson); }
+
+  /* bg alts */
+  .on-cream2 { background: var(--cream2); }
+
+  /* ── RESPONSIVE ── */
+  @media (min-width: 600px) {
+    .cover { padding: 64px 40px 48px; }
+    .sec { padding: 44px 40px 52px; }
+    .cards { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+    .rules-inner { padding: 44px 40px 52px; }
+    .rules-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .accent-toggle { bottom: 28px; right: 32px; transform: none; }
+  }
+
+  @media (min-width: 1024px) {
+    .cover { padding: 80px 64px 64px; }
+    .sec { padding: 56px 64px 64px; }
+    .cards { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+    .rules-inner { padding: 56px 64px 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <span class="cover-eyebrow">Visual Style Guide · Laura &amp; Diego · Oaxaca 2027</span>
+  <h1 class="cover-title">Referencia para<br>el <em>diseñador.</em></h1>
+  <span class="cover-meta">Elementos orientativos · Mayo 15, 2027</span>
+</div>
+
+<!-- CONCEPTO -->
+<section class="sec">
+  <span class="sec-label">Concepto</span>
+  <div style="font-family:'Playfair Display',serif; font-size:clamp(28px,7vw,48px); line-height:0.92; color:var(--ink); opacity:0.82; letter-spacing:-0.02em; margin-bottom:28px;">Flores.<br>Barro.<br><em style="font-style:italic; color:var(--crimson);">Luz.</em></div>
+  <div style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; color:var(--ink); opacity:0.45; line-height:1.9; max-width:480px; margin-bottom:24px; letter-spacing:0.06em;">Composición orgánica · barro y cristalería · velas de Teotitlán · El Cardenal · Drapeado lino manta · Lámparas suspendidas</div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px;">
+    <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.55; border:0.5px solid rgba(26,22,18,0.25); padding:6px 12px;">Orgánico</span>
+    <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.55; border:0.5px solid rgba(26,22,18,0.25); padding:6px 12px;">Artesanal</span>
+    <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.55; border:0.5px solid rgba(26,22,18,0.25); padding:6px 12px;">Íntimo</span>
+    <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.55; border:0.5px solid rgba(26,22,18,0.25); padding:6px 12px;">Oaxaqueño</span>
+    <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.55; border:0.5px solid rgba(26,22,18,0.25); padding:6px 12px;">Floral</span>
+    <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.55; border:0.5px solid rgba(26,22,18,0.25); padding:6px 12px;">Cálido</span>
+  </div>
+</section>
+
+<!-- 01 FLORES -->
+<section class="sec">
+  <span class="sec-label">01 · Flores · temporada mayo · Oaxaca</span>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Alcatraz</span>
+      <span class="card-note">Blanco marfil y burdeos</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Dalia</span>
+      <span class="card-note">Fucsia, vino, blush</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Bugambilia</span>
+      <span class="card-note">Magenta · endémica Oaxaca</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Nardo</span>
+      <span class="card-note">Blanco puro · muy fragante</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Amaranto</span>
+      <span class="card-note">Cae · peso visual descendente</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Rosa de jardín</span>
+      <span class="card-note">Silvestre · nude y borgoña</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Cosmos</span>
+      <span class="card-note">Wildflower · rosa y blanco</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Follaje y eucalipto</span>
+      <span class="card-note">Estructura · sin competir</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- PALETA FLORAL -->
+<section class="sec on-cream2">
+  <span class="sec-label">— · Paleta floral</span>
+  <div class="swatches">
+    <div>
+      <div class="swatch-fill" style="background:#5C1A22;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Burdeos</span>
+        <span class="swatch-sub">Alcatraz · Dalia · Rosa</span>
+      </div>
+    </div>
+    <div>
+      <div class="swatch-fill" style="background:#E8C4BC;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Blush</span>
+        <span class="swatch-sub">Rosa · Cosmos</span>
+      </div>
+    </div>
+    <div>
+      <div class="swatch-fill" style="background:#F5F0E8;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Marfil</span>
+        <span class="swatch-sub">Nardo · Alcatraz blanco</span>
+      </div>
+    </div>
+    <div>
+      <div class="swatch-fill" style="background:#4A5C35;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Verde</span>
+        <span class="swatch-sub">Follaje · Amaranto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 MATERIALES LOCALES -->
+<section class="sec">
+  <span class="sec-label">02 · Materiales locales · Oaxaca</span>
+  <div class="cards cards-3">
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Barro negro</span>
+      <span class="card-note">San Bartolo Coyotepec</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Barro blanco</span>
+      <span class="card-note">Cerámica clara local</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Agave</span>
+      <span class="card-note">Elemento escultórico</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 ILUMINACIÓN -->
+<section class="sec on-cream2">
+  <span class="sec-label">03 · Iluminación</span>
+  <div class="cards cards-3">
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Velas taper</span>
+      <span class="card-note">Burdeos, marfil o negro</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Velas votivas</span>
+      <span class="card-note">En vidrio · ras de mesa</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Velas pilar</span>
+      <span class="card-note">Mesa de novios · vidrio cilíndrico</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 04 MESAS -->
+<section class="sec">
+  <span class="sec-label">04 · Mesas y mantelería</span>
+  <div class="cards cards-3">
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Mantel blanco</span>
+      <span class="card-note">Blanco roto o marfil</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Servilleta de tela</span>
+      <span class="card-note">Blanco o piedra · sin doblez</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Camino de mesa</span>
+      <span class="card-note">Gasa crema · caída libre</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 05 VAJILLA -->
+<section class="sec on-cream2">
+  <span class="sec-label">05 · Vajilla y cristalería</span>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Cerámica blanca</span>
+      <span class="card-note">Borde fino · sin ornamento</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Cristal tallado</span>
+      <span class="card-note">Captura la luz de las velas</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Copa ámbar o verde</span>
+      <span class="card-note">Una por cubierto</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Cubiertos acero mate</span>
+      <span class="card-note">Satinado · sin brillo espejo</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 06 CENTROS DE MESA -->
+<section class="sec">
+  <span class="sec-label">06 · Centros de mesa</span>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Bud vases</span>
+      <span class="card-note">3–5 por mesa · un tallo c/u</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Jarrón barro negro o vidrio</span>
+      <span class="card-note">Bajo · no bloquea la vista</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Arreglo lineal</span>
+      <span class="card-note">Flores y velas en línea</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Alturas mixtas</span>
+      <span class="card-note">Alto · bajo · que caiga</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 07 SILLAS -->
+<section class="sec on-cream2">
+  <span class="sec-label">07 · Sillas y mobiliario</span>
+  <div class="cards cards-3">
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Chiavari</span>
+      <span class="card-note">Oro envejecido · cojín de lino</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Lounge cóctel</span>
+      <span class="card-note">Sofás en lino blanco</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Bar de mezcal</span>
+      <span class="card-note">Tablón de madera · barro negro</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 08 MESA DE NOVIOS -->
+<section class="sec">
+  <span class="sec-label">08 · Mesa de novios</span>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Telón drapeado</span>
+      <span class="card-note">Crema o marfil · pliegues sueltos</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Arreglos asimétricos</span>
+      <span class="card-note">No idénticos · flores al suelo</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Velas pilar al suelo</span>
+      <span class="card-note">Tubos de vidrio cilíndrico</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Mantel al suelo</span>
+      <span class="card-note">Gasa o lino · toca el piso</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 09 PAPELERÍA -->
+<section class="sec on-cream2">
+  <span class="sec-label">09 · Papelería</span>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Menú</span>
+      <span class="card-note">Tarjeta vertical · papel ahuesado</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Tarjeta de lugar</span>
+      <span class="card-note">Solo el nombre · tallo seco</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Seating chart</span>
+      <span class="card-note">Panel en parchment o lino</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Sello de cera</span>
+      <span class="card-note">Burdeos · monograma L&amp;D</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 10 DETALLES -->
+<section class="sec">
+  <span class="sec-label">10 · Detalles</span>
+  <div class="cards cards-3">
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Listón en servilleta</span>
+      <span class="card-note">Seda fina · con tallo seco</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Favor de mesa</span>
+      <span class="card-note">Agavito o botellita de mezcal</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img sq"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Cámara 35mm</span>
+      <span class="card-note">Una por mesa</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIRECCIÓN FOTOGRÁFICA -->
+<section class="sec on-cream2">
+  <span class="sec-label">Dirección fotográfica</span>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Editorial</span>
+      <span class="card-note">Tonos cálidos · luz de vela · 35mm · cámara observa, no posa</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Íntima</span>
+      <span class="card-note">B&amp;N permitido · analógico · sin posado · granulado visible</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Film analógico</span>
+      <span class="card-note">35mm · medio formato · Polaroid · encuadre natural</span>
+    </div>
+
+    <div class="card">
+      <div class="card-img wide"><span class="card-img-label">foto referencia</span></div>
+      <span class="card-name">Sin posado</span>
+      <span class="card-note">Oaxaca como fondo · interior · sin flash · momentos reales</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SÍ / NO -->
+<section class="rules">
+  <div class="rules-inner">
+    <div class="rules-grid">
+      <div>
+        <span class="rules-head do-head">Sí</span>
+        <ul class="rules-list do-list">
+          <li>Materiales naturales sin transformar</li>
+          <li>Luz de vela como fuente principal</li>
+          <li>Flores con imperfección visible</li>
+          <li>Alturas mixtas en cada composición</li>
+          <li>Espacios para respirar en cada mesa</li>
+        </ul>
+      </div>
+      <div>
+        <span class="rules-head dont-head">No</span>
+        <ul class="rules-list dont-list">
+          <li>Espejos, acrílico o elementos brillantes</li>
+          <li>Flores tintadas o colores no naturales</li>
+          <li>Velas LED o luz fría</li>
+          <li>Globos, confeti o letras de neón</li>
+          <li>Dorado brillante en masa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOGGLE -->
+<div class="accent-toggle" id="accentToggle">
+  <span class="accent-toggle-opt active" id="optCrimson">Crimson</span>
+  <div class="accent-toggle-divider"></div>
+  <span class="accent-toggle-opt" id="optOlive">Olive</span>
+</div>
+
+<script>
+  const toggle = document.getElementById('accentToggle');
+  const optC = document.getElementById('optCrimson');
+  const optO = document.getElementById('optOlive');
+  toggle.addEventListener('click', () => {
+    const isOlive = document.documentElement.classList.toggle('olive-mode');
+    optC.classList.toggle('active', !isOlive);
+    optO.classList.toggle('active', isOlive);
+  });
+</script>
+</body>
+</html>

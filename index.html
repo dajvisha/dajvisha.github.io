@@ -26,8 +26,8 @@
 
   <!-- Font preload -->
   <link rel="preload" href="fonts/PlayfairDisplay-Regular.ttf" as="font" type="font/truetype" crossorigin />
-  <link rel="stylesheet" href="css/shared.css" />
-  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/shared.css?v=2" />
+  <link rel="stylesheet" href="css/index.css?v=2" />
 </head>
 
 <body>
@@ -37,7 +37,7 @@
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
     <div class="preloader-inner">
-      <div class="preloader-monogram">L<em>&amp;</em>D</div>
+      <div class="preloader-monogram">LAURA &amp; DIEGO</div>
       <div class="preloader-date" data-i18n="preloader-date">Mayo &middot; 2027 &middot; Oaxaca</div>
     </div>
   </div>
@@ -46,7 +46,7 @@
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
-      <a href="#inicio" class="nav-logo">LAURA<em>&amp;</em>DIEGO</a>
+      <a href="#inicio" class="nav-logo">LAURA &amp; DIEGO</a>
       <!-- Language toggle -->
       <div class="lang-toggle" id="langToggle" aria-label="Idioma / Language">
         <button class="lang-opt" data-lang="es" aria-pressed="false">ES</button>
@@ -174,10 +174,52 @@
     <section class="venue" id="lugar">
       <div class="venue-inner">
 
+        <h2 class="heading-serif venue-section-heading" data-i18n="venue-section-heading">El <em>día</em></h2>
+
+        <!-- Programa: horizontal on desktop, vertical on mobile -->
+        <div class="prog-timeline">
+          <div class="prog-item">
+            <span class="prog-time" data-i18n="sched-ceremony-time-short">4:30 PM</span>
+            <span class="prog-dot"></span>
+            <div class="prog-text">
+              <span class="prog-name" data-i18n="sched-ceremony-name">Ceremonia religiosa</span>
+            </div>
+          </div>
+          <div class="prog-item">
+            <span class="prog-time" data-i18n="sched-calenda-time">5:30 PM</span>
+            <span class="prog-dot"></span>
+            <div class="prog-text">
+              <span class="prog-name" data-i18n="sched-calenda-name">Calenda</span>
+            </div>
+          </div>
+          <div class="prog-item">
+            <span class="prog-time" data-i18n="sched-reception-time-short">6:30 PM</span>
+            <span class="prog-dot"></span>
+            <div class="prog-text">
+              <span class="prog-name" data-i18n="sched-reception-name">Recepción</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venues: La Misa + La Recepción side by side -->
         <div class="venue-cols">
 
           <div class="venue-col">
-            <span class="venue-col-label" data-i18n="venue-col-label">El lugar</span>
+            <span class="venue-col-label" data-i18n="misa-col-label">La Misa</span>
+            <div class="venue-rows">
+              <div class="venue-row">
+                <span class="venue-row-key" data-i18n="misa-space-label">Templo</span>
+                <a class="venue-row-val venue-name-link" href="https://maps.google.com/?q=Templo+de+Santo+Domingo+de+Guzm%C3%A1n+Oaxaca" target="_blank" rel="noopener noreferrer" data-i18n="misa-name">Templo de Santo Domingo</a>
+              </div>
+              <div class="venue-row">
+                <span class="venue-row-key" data-i18n="venue-address-label">Dirección</span>
+                <span class="venue-row-val">Macedonio Alcalá s/n<br>Centro Histórico, Oaxaca</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="venue-col">
+            <span class="venue-col-label" data-i18n="venue-col-label">La Recepción</span>
             <div class="venue-rows">
               <div class="venue-row">
                 <span class="venue-row-key" data-i18n="venue-space-label">Salón</span>
@@ -185,35 +227,76 @@
               </div>
               <div class="venue-row">
                 <span class="venue-row-key" data-i18n="venue-address-label">Dirección</span>
-                <span class="venue-row-val">C. Macedonio Alcalá 704<br>RUTA INDEPENDENCIA, Centro</span>
-              </div>
-              <div class="venue-row">
-                <span class="venue-row-key" data-i18n="attire-label">Vestimenta</span>
-                <span class="venue-row-val" data-i18n="attire-val">Cóctel elegante
-                  <span class="venue-row-note" data-i18n="attire-note">Telas ligeras y calzado cómodo recomendados.</span>
-                </span>
+                <span class="venue-row-val">Macedonio Alcalá 704<br>Centro Histórico, Oaxaca</span>
               </div>
             </div>
           </div>
 
-          <div class="venue-col">
-            <span class="venue-col-label" data-i18n="program-label">Programa</span>
-            <div class="venue-rows">
-              <div class="venue-row">
-                <span class="venue-row-key" data-i18n="sched-ceremony-name">Ceremonia</span>
-                <span class="venue-row-val venue-row-tbd" data-i18n="sched-ceremony-time">Por confirmar</span>
-              </div>
-              <div class="venue-row">
-                <span class="venue-row-key" data-i18n="sched-cocktail-name">Cóctel</span>
-                <span class="venue-row-val venue-row-tbd" data-i18n="sched-cocktail-time">Por confirmar</span>
-              </div>
-              <div class="venue-row">
-                <span class="venue-row-key" data-i18n="sched-reception-name">Recepción</span>
-                <span class="venue-row-val venue-row-tbd" data-i18n="sched-reception-time">Por confirmar</span>
-              </div>
+        </div>
+
+        <!-- Dress code — standalone below the grid -->
+        <div class="venue-attire">
+          <span class="venue-attire-label" data-i18n="attire-label">Vestimenta</span>
+          <span class="venue-attire-val" data-i18n="attire-val">Formal elegante</span>
+
+          <div class="venue-attire-details">
+            <div class="venue-attire-group">
+              <span class="venue-attire-group-key" data-i18n="attire-women-label">Ellas</span>
+              <span class="venue-attire-group-desc" data-i18n="attire-women-desc">Vestido largo</span>
+            </div>
+            <div class="venue-attire-divider"></div>
+            <div class="venue-attire-group">
+              <span class="venue-attire-group-key" data-i18n="attire-men-label">Ellos</span>
+              <span class="venue-attire-group-desc" data-i18n="attire-men-desc">Traje, saco o camisa de vestir</span>
             </div>
           </div>
 
+          <div class="venue-attire-palette">
+            <span class="venue-attire-palette-label" data-i18n="attire-palette-label">Paleta sugerida para vestidos</span>
+            <div class="venue-attire-swatches">
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#CEBD9E;"></span>
+                <span class="swatch-name" data-i18n="attire-color-1">Arena</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#D4AC6E;"></span>
+                <span class="swatch-name" data-i18n="attire-color-2">Champán</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#B89040;"></span>
+                <span class="swatch-name" data-i18n="attire-color-3">Mostaza</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#C17040;"></span>
+                <span class="swatch-name" data-i18n="attire-color-4">Terracota</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#C88A68;"></span>
+                <span class="swatch-name" data-i18n="attire-color-5">Durazno</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#B87E72;"></span>
+                <span class="swatch-name" data-i18n="attire-color-6">Rosa arcilla</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#9A6878;"></span>
+                <span class="swatch-name" data-i18n="attire-color-7">Malva</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#7A2B3D;"></span>
+                <span class="swatch-name" data-i18n="attire-color-8">Vino tinto</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#7B9B71;"></span>
+                <span class="swatch-name" data-i18n="attire-color-9">Verde salvia</span>
+              </div>
+              <div class="venue-attire-swatch">
+                <span class="swatch-circle" style="background:#6A7A3A;"></span>
+                <span class="swatch-name" data-i18n="attire-color-10">Verde olivo</span>
+              </div>
+            </div>
+            <span class="venue-attire-note" data-i18n="attire-white-note">Con cariño, pedimos evitar el blanco.</span>
+          </div>
         </div>
 
       </div>
@@ -222,7 +305,7 @@
     <!-- OAXACA -->
     <section class="info-section info-section--cream2" id="oaxaca">
       <div class="info-inner">
-        <h2 class="heading-serif" data-i18n="oaxaca-heading">Tu guía de <em>Oaxaca</em></h2>
+        <h2 class="heading-serif" data-i18n="oaxaca-heading">Oaxaca, <em>lo esencial</em></h2>
 
         <!-- Tab bar (desktop only) -->
         <div class="tab-bar" role="tablist">
@@ -298,7 +381,7 @@
               <span class="story-sub-label" data-i18n="explore-food-label">Gastronomía &amp; Mezcal</span>
               <ul class="explore-list">
                 <li class="explore-item"><a class="explore-item-name" href="https://maps.google.com/?q=Mercado+Benito+Juarez+Oaxaca" target="_blank" rel="noopener noreferrer">Mercado Benito Juárez</a><span class="explore-item-note" data-i18n="explore-market-note">Tamales, tlayudas, chocolate oaxaqueño</span></li>
-                <li class="explore-item"><a class="explore-item-name" href="https://maps.google.com/?q=In+Situ+Mezcaleria+Murguia+105+Oaxaca" target="_blank" rel="noopener noreferrer">In Situ Mezcalería</a><span class="explore-item-note" data-i18n="explore-insitu-note">Mezcal artesanal de la Sierra · Murguía 105</span></li>
+                <li class="explore-item"><a class="explore-item-name" href="https://maps.google.com/?q=Casa+Convite+Oaxaca" target="_blank" rel="noopener noreferrer">Casa Convite</a><span class="explore-item-note" data-i18n="explore-insitu-note">Mezcal artesanal · Centro Histórico</span></li>
                 <li class="explore-item"><a class="explore-item-name" href="https://maps.google.com/?q=Los+Danzantes+Macedonio+Alcala+403+Oaxaca" target="_blank" rel="noopener noreferrer">Los Danzantes</a><span class="explore-item-note" data-i18n="explore-danzantes-note">Cocina oaxaqueña contemporánea · Macedonio Alcalá 403</span></li>
               </ul>
             </div>
@@ -367,7 +450,7 @@
               placeholder="Vegetariano, sin gluten…" data-i18n-placeholder="rsvp-dietary-placeholder" />
           </div>
 
-          <div class="form-group form-group--cta">
+          <div class="form-group form-group--cta extra-fields" id="extra-note">
             <label class="label" for="rsvp-note" data-i18n="rsvp-note-label">Un mensaje <span style="opacity:.45;">(opcional)</span></label>
             <textarea class="form-input" id="rsvp-note" name="note" rows="3"
               placeholder="Un pensamiento, un deseo…" data-i18n-placeholder="rsvp-note-placeholder"></textarea>
@@ -420,13 +503,13 @@
         <g transform="translate(910,295) scale(0.55)"><use href="#agv" opacity="0.55" /></g>
         <g transform="translate(1100,295) scale(0.34)"><use href="#agv" opacity="0.35" /></g>
       </svg>
-      <h2>L &amp; D</h2>
+      <h2>LAURA &amp; DIEGO</h2>
       <p class="sub" data-i18n="footer-sub">15 de mayo de 2027 &middot; Oaxaca, México</p>
     </footer>
 
   </div><!-- /page-content -->
 
-  <script src="js/index.js"></script>
+  <script src="js/index.js?v=2"></script>
 </body>
 
 </html>
