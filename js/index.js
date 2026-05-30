@@ -194,9 +194,9 @@
           'home-1': 'Monclova, Mexico',
           'home-2': 'Mexico City, Mexico',
           'home-3': 'San Francisco, United States',
-          'phrase-1': 'Agave taught us the patience of the earth.',
-          'phrase-2': 'Distance taught us the power of choosing each other.',
-          'phrase-3': 'With mezcal we celebrate eternity.',
+          'phrase-1': 'Agave taught us to wait.',
+          'phrase-2': 'Distance taught us to keep choosing each other.',
+          'phrase-3': 'And with mezcal, we toast to forever.',
           'venue-label': 'The venue',
           'venue-name-em': 'Oaxaca',
           'venue-map-label': 'View on map ↗',
@@ -260,7 +260,7 @@
           'attire-color-8': 'Burgundy',
           'attire-color-9': 'Sage green',
           'attire-color-10': 'Olive green',
-          'attire-white-note': 'We kindly ask that you refrain from wearing white.',
+          'attire-white-note': 'We ask that guests avoid wearing white.',
           'sched-ceremony-time': '4:30 PM',
           'sched-ceremony-time-short': '4:30 PM',
           'sched-ceremony-name': 'Church ceremony',
@@ -289,7 +289,7 @@
           'hotel-3-meta': 'On the Macedonio Alcalá pedestrian walk · steps from the venue',
           'hotels-book-link': 'Book ↗',
           'hotels-map-link': 'View on map ↗',
-          'hotels-note': 'Room block to be confirmed. We will notify you should a special guest rate become available.',
+          'hotels-note': 'We\'re working on a room block and will share details once confirmed.',
           // travel
           'travel-label': 'Getting There',
           'travel-heading': 'Getting to <em>Oaxaca</em>',
@@ -316,7 +316,7 @@
           // registry
           'registry-label': 'Registry',
           'registry-heading': 'Your presence is <em>the gift</em>',
-          'registry-body': "Your presence is what we cherish most. Should you wish to give a gift, a cash contribution would be greatly appreciated.",
+          'registry-body': "Having you there means everything to us. If you\'d like to give a gift, we\'d gratefully welcome a monetary contribution.",
         }
       };
 
@@ -550,7 +550,7 @@
         successTitle: 'You\'re all set!',
         successBody: 'See you in Oaxaca, May 15, 2027.',
         successTitleNo: 'Thanks for letting us know.',
-        successBodyNo: 'So sorry to miss you. See you soon!',
+        successBodyNo: 'We\'ll miss you — thanks for letting us know.',
       }
     };
 
