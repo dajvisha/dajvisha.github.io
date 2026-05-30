@@ -793,7 +793,7 @@
        STORY
     ────────────────────────────────────── */
     .story {
-      background: var(--cream);
+      background: var(--cream2);
       border-top: 0.5px solid rgba(26,22,18,0.07);
       padding: clamp(96px, 12vw, 144px) var(--page-x);
     }
