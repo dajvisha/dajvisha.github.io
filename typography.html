@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipografía · Laura & Diego · 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400&family=EB+Garamond:ital,wght@0,400;1,400&family=Cinzel:wght@400;600&family=Bodoni+Moda:ital,opsz,wght@0,6,400;0,6,700;1,6,400&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&family=Italiana&family=Cardo:ital,wght@0,400;1,400&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;1,400&family=GFS+Didot:wght@400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Serif+Display:ital@0;1&family=Marcellus&family=Marcellus+SC&family=Crimson+Text:ital,wght@0,400;1,400&family=Oranienbaum&family=Vidaloka&family=Great+Vibes&family=Pinyon+Script&family=Tangerine:wght@400;700&family=Alex+Brush&family=Sacramento&family=Parisienne&family=Euphoria+Script&family=Clicker+Script&family=Mr+De+Haviland&family=Rochester&family=Montserrat:wght@300;400&family=Raleway:wght@300;400&family=Josefin+Sans:wght@300;400&family=Tenor+Sans&family=Forum&family=Quattrocento+Sans:ital,wght@0,400;1,400&family=Didact+Gothic&family=Abril+Fatface&family=Poiret+One&family=Almendra+Display&family=Bebas+Neue&family=Syncopate:wght@400;700&family=Jost:wght@300;400&family=Petit+Formal+Script&family=Herr+Von+Muellerhoff&family=Lovers+Quarrel&family=Ruthie&family=Satisfy&family=Dancing+Script:wght@400;700&family=Princess+Sofia&family=Italianno&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #FDFAF5;
+    --cream2:    #F5EFE4;
+    --chocolate: #2C1810;
+    --crimson:   #5C1A22;
+    --sienna:    #A0582C;
+    --olive:     #6B6440;
+    --ink:       #1A1612;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    padding: 64px 40px 56px;
+    border-bottom: 0.5px solid rgba(26,22,18,0.08);
+  }
+  .cover-label {
+    font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--sienna); opacity: 0.85; display: block; margin-bottom: 20px;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', serif; font-weight: 400;
+    font-size: clamp(28px, 5vw, 48px); color: var(--chocolate);
+    line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 14px;
+  }
+  .cover-note {
+    font-size: 12px; color: var(--ink); opacity: 0.50; line-height: 1.7;
+  }
+  .badge {
+    display: inline-block; font-size: 9px; letter-spacing: 0.24em;
+    text-transform: uppercase; background: var(--crimson); color: var(--cream);
+    padding: 3px 8px; vertical-align: middle; margin-left: 8px;
+  }
+
+  /* ── SECTION ── */
+  .type-section {
+    border-top: 0.5px solid rgba(26,22,18,0.07);
+    padding: 56px 40px 0;
+  }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--sienna); opacity: 0.85; display: block; margin-bottom: 0;
+  }
+  .section-count {
+    font-size: 10px; color: var(--ink); opacity: 0.30;
+    margin-left: 12px; letter-spacing: 0.04em;
+  }
+
+  /* ── FONT CARD ── */
+  .font-grid { margin-bottom: 72px; }
+
+  .font-card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+    align-items: stretch;
+    padding: 0;
+    border-bottom: 0.5px solid rgba(26,22,18,0.07);
+  }
+  .font-card:last-child { border-bottom: none; }
+
+  .font-meta { padding: 44px 32px 44px 0; }
+  .font-meta-name {
+    font-size: 13px; font-weight: 400; color: var(--chocolate);
+    display: block; margin-bottom: 5px; line-height: 1.4;
+  }
+  .font-meta-tag {
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--sienna); opacity: 0.65; display: block; margin-bottom: 14px;
+  }
+  .font-meta-note {
+    font-size: 11.5px; color: var(--ink); opacity: 0.50; line-height: 1.7;
+  }
+
+  /* ── SPECIMENS ── */
+  .spec-upper {
+    font-size: clamp(32px, 5vw, 62px);
+    line-height: 1.05;
+    color: var(--chocolate);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .spec-natural {
+    font-size: clamp(18px, 2.5vw, 28px);
+    line-height: 1.2;
+    color: var(--chocolate);
+    opacity: 0.45;
+    margin-bottom: 20px;
+  }
+  .spec-divider {
+    height: 0.5px;
+    background: rgba(26,22,18,0.08);
+    margin-bottom: 16px;
+  }
+  .spec-date {
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--sienna); opacity: 0.75; margin-bottom: 10px;
+  }
+  .spec-phrase {
+    font-size: 14px; line-height: 1.8; color: var(--ink); opacity: 0.55;
+  }
+
+  /* Scripts: no uppercase, show large natural + monogram */
+  .spec-script-main {
+    font-size: clamp(44px, 7vw, 80px);
+    line-height: 1.2;
+    color: var(--chocolate);
+    margin-bottom: 8px;
+  }
+  .spec-script-mono {
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.2;
+    color: var(--chocolate);
+    opacity: 0.50;
+    margin-bottom: 20px;
+  }
+
+  /* ── COMBINATIONS ── */
+  .combos {
+    padding: 56px 40px 72px;
+    border-top: 0.5px solid rgba(26,22,18,0.07);
+    background: var(--cream2);
+    transition: background 0.25s;
+  }
+  .combo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: rgba(26,22,18,0.07);
+    border: 0.5px solid rgba(26,22,18,0.07);
+    margin-top: 36px;
+    transition: background 0.25s;
+  }
+  .combo-cell { background: var(--cream2); padding: 32px 28px; transition: background 0.25s; }
+  .combo-tag  { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sienna); opacity: 0.65; display: block; margin-bottom: 20px; transition: color 0.25s; }
+  .combo-names { display: block; margin-bottom: 10px; color: var(--chocolate); transition: color 0.25s; }
+  .combo-date  { font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--sienna); opacity: 0.75; display: block; transition: color 0.25s; }
+  body[data-bg="crimson"]   .combos,
+  body[data-bg="chocolate"] .combos      { background: var(--crimson); border-top-color: rgba(253,250,245,0.1); }
+  body[data-bg="olive"]     .combos      { background: var(--olive); border-top-color: rgba(253,250,245,0.1); }
+  body[data-bg="crimson"]   .combo-grid,
+  body[data-bg="chocolate"] .combo-grid,
+  body[data-bg="olive"]     .combo-grid  { background: rgba(253,250,245,0.12); }
+  body[data-bg="crimson"]   .combo-cell  { background: var(--crimson); }
+  body[data-bg="chocolate"] .combo-cell  { background: var(--chocolate); }
+  body[data-bg="olive"]     .combo-cell  { background: var(--olive); }
+  body[data-bg="crimson"]   .combo-names,
+  body[data-bg="chocolate"] .combo-names,
+  body[data-bg="olive"]     .combo-names { color: var(--cream); }
+  body[data-bg="crimson"]   .combo-tag,
+  body[data-bg="chocolate"] .combo-tag   { color: var(--cream); opacity: 0.55; }
+  body[data-bg="olive"]     .combo-tag   { color: #D4E0A0; opacity: 0.75; }
+  body[data-bg="crimson"]   .combo-date,
+  body[data-bg="chocolate"] .combo-date  { color: var(--cream); opacity: 0.60; }
+  body[data-bg="olive"]     .combo-date  { color: #D4E0A0; opacity: 0.80; }
+
+  /* ── SPEC AREA ── */
+  .spec-area {
+    padding: 44px 28px;
+    transition: background 0.25s;
+  }
+  body[data-bg="crimson"]  .spec-area { background: var(--crimson); }
+  body[data-bg="chocolate"] .spec-area { background: var(--chocolate); }
+  body[data-bg="olive"]    .spec-area { background: var(--olive); }
+
+  body[data-bg="crimson"]  .spec-upper,
+  body[data-bg="chocolate"] .spec-upper,
+  body[data-bg="olive"]    .spec-upper { color: var(--cream); }
+
+  body[data-bg="crimson"]  .spec-natural,
+  body[data-bg="chocolate"] .spec-natural,
+  body[data-bg="olive"]    .spec-natural { color: var(--cream); opacity: 0.45; }
+
+  body[data-bg="crimson"]  .spec-divider,
+  body[data-bg="chocolate"] .spec-divider,
+  body[data-bg="olive"]    .spec-divider { background: rgba(253,250,245,0.15); }
+
+  body[data-bg="crimson"]  .spec-date { color: #E8C4BC; opacity: 0.85; }
+  body[data-bg="chocolate"] .spec-date { color: var(--cream); opacity: 0.60; }
+  body[data-bg="olive"]    .spec-date { color: #D4E0A0; opacity: 0.9; }
+
+  body[data-bg="crimson"]  .spec-phrase,
+  body[data-bg="chocolate"] .spec-phrase,
+  body[data-bg="olive"]    .spec-phrase { color: var(--cream); opacity: 0.60; }
+
+  body[data-bg="crimson"]  .spec-script-main,
+  body[data-bg="chocolate"] .spec-script-main,
+  body[data-bg="olive"]    .spec-script-main { color: var(--cream); }
+
+  body[data-bg="crimson"]  .spec-script-mono,
+  body[data-bg="chocolate"] .spec-script-mono,
+  body[data-bg="olive"]    .spec-script-mono { color: var(--cream); opacity: 0.45; }
+
+  /* ── STICKY NAV ── */
+  .toc-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--cream);
+    border-bottom: 0.5px solid rgba(26,22,18,0.10);
+    padding: 0 40px;
+    display: flex; align-items: center; height: 48px;
+  }
+  .toc-pills {
+    display: flex; flex: 1; overflow-x: auto;
+    scrollbar-width: none; gap: 0;
+  }
+  .toc-pills::-webkit-scrollbar { display: none; }
+  .toc-pill {
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ink); opacity: 0.35; padding: 0 12px; height: 48px;
+    display: flex; align-items: center; cursor: pointer; white-space: nowrap;
+    text-decoration: none; border-bottom: 1.5px solid transparent;
+    transition: opacity 0.15s;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .toc-pill:hover { opacity: 0.65; }
+  .toc-pill.active { opacity: 1; color: var(--crimson); border-bottom-color: var(--crimson); }
+
+  .toc-controls {
+    display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+    padding-left: 16px; margin-left: 8px;
+    border-left: 0.5px solid rgba(26,22,18,0.08);
+  }
+  .toc-label {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink); opacity: 0.30; font-family: 'Montserrat', sans-serif;
+  }
+  .bg-swatch {
+    width: 18px; height: 18px; border-radius: 50%; cursor: pointer;
+    border: 2px solid transparent; transition: border-color 0.12s, transform 0.12s;
+    flex-shrink: 0; outline-offset: 2px;
+  }
+  .bg-swatch:hover { transform: scale(1.18); }
+  .bg-swatch.active { border-color: var(--sienna); }
+  .bg-swatch[data-bg="cream"]     { background: var(--cream); outline: 1px solid rgba(26,22,18,0.2); }
+  .bg-swatch[data-bg="crimson"]   { background: var(--crimson); }
+  .bg-swatch[data-bg="chocolate"] { background: var(--chocolate); }
+  .bg-swatch[data-bg="olive"]     { background: var(--olive); }
+
+  .fav-toggle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--sienna); cursor: pointer; padding: 5px 10px;
+    border: 0.5px solid rgba(160,88,44,0.35); background: transparent;
+    transition: all 0.15s; white-space: nowrap; opacity: 0.80;
+  }
+  .fav-toggle:hover { opacity: 1; }
+  .fav-toggle.active { background: var(--crimson); color: var(--cream); border-color: var(--crimson); opacity: 1; }
+
+  /* ── FAVORITES ── */
+  .fav-btn {
+    position: absolute; top: 12px; right: 4px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; opacity: 0.18; transition: opacity 0.12s;
+    background: none; border: none; font-size: 15px;
+    color: var(--chocolate); padding: 0;
+  }
+  .fav-btn:hover { opacity: 0.55; }
+  .fav-btn.active { opacity: 1; color: var(--crimson); }
+  .font-card { position: relative; }
+  body.fav-mode .font-card:not(.is-fav) { display: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .cover, .type-section, .combos { padding-left: 24px; padding-right: 24px; }
+    .toc-nav { padding: 0 24px; }
+    .font-card { grid-template-columns: 1fr; }
+    .font-meta { padding: 28px 0 0; }
+    .spec-area { padding: 20px 0 32px; }
+  }
+  @media (min-width: 1025px) {
+    .cover { padding: 80px 64px 72px; }
+    .type-section { padding: 72px 64px 0; }
+    .combos { padding: 72px 64px 88px; }
+    .toc-nav { padding: 0 64px; }
+    .font-card { grid-template-columns: 220px 1fr; }
+    .font-meta { padding: 52px 48px 52px 0; }
+    .spec-area { padding: 52px 52px; }
+    .spec-upper { font-size: 68px; }
+    .spec-natural { font-size: 30px; }
+    .spec-script-main { font-size: 84px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="toc-nav">
+  <div class="toc-pills">
+    <a class="toc-pill" href="#s-serifas">Serifas</a>
+    <a class="toc-pill" href="#s-scripts">Scripts</a>
+    <a class="toc-pill" href="#s-sans">Sans</a>
+    <a class="toc-pill" href="#s-lujo">Lujo</a>
+    <a class="toc-pill" href="#s-geo">Geometría</a>
+    <a class="toc-pill" href="#s-cali">Caligrafía</a>
+    <a class="toc-pill" href="#s-boda">Boda</a>
+  </div>
+  <div class="toc-controls">
+    <span class="toc-label">Fondo</span>
+    <div class="bg-swatch active" data-bg="cream"     title="Cream"></div>
+    <div class="bg-swatch"        data-bg="crimson"   title="Crimson"></div>
+    <div class="bg-swatch"        data-bg="chocolate" title="Chocolate"></div>
+    <div class="bg-swatch"        data-bg="olive"     title="Olive"></div>
+    <button class="fav-toggle" id="favToggle">★ Favoritas</button>
+  </div>
+</nav>
+
+
+<!-- COVER -->
+<div class="cover">
+  <span class="cover-label">Exploración tipográfica · Laura & Diego · 2027</span>
+  <h1 class="cover-title">Tipografía</h1>
+  <p class="cover-note">
+    Cada fuente muestra: mayúsculas (principal), minúsculas (secundario), etiqueta de fecha y frase de la boda.<br>
+    La selección actual está marcada <span class="badge">actual</span>
+  </p>
+</div>
+
+<!-- ─────────── COMBINACIONES ─────────── -->
+<div class="combos">
+  <span class="section-label">Combinaciones sugeridas</span>
+  <div class="combo-grid">
+
+    <div class="combo-cell">
+      <span class="combo-tag">Actual</span>
+      <span class="combo-names" style="font-family:'Playfair Display',serif;font-size:28px;letter-spacing:0.06em;text-transform:uppercase;">LAURA & DIEGO</span>
+      <span class="combo-date" style="font-family:'Montserrat',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+    <div class="combo-cell">
+      <span class="combo-tag">Máximo lujo</span>
+      <span class="combo-names" style="font-family:'Bodoni Moda',serif;font-size:28px;letter-spacing:0.08em;text-transform:uppercase;">LAURA & DIEGO</span>
+      <span class="combo-date" style="font-family:'Raleway',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+    <div class="combo-cell">
+      <span class="combo-tag">Ultra refinada</span>
+      <span class="combo-names" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:28px;letter-spacing:0.08em;text-transform:uppercase;">LAURA & DIEGO</span>
+      <span class="combo-date" style="font-family:'Raleway',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+    <div class="combo-cell">
+      <span class="combo-tag">Romana clásica</span>
+      <span class="combo-names" style="font-family:'Cinzel',serif;font-weight:400;font-size:22px;letter-spacing:0.14em;text-transform:uppercase;">LAURA & DIEGO</span>
+      <span class="combo-date" style="font-family:'Forum',cursive;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+    <div class="combo-cell">
+      <span class="combo-tag">Editorial moderna</span>
+      <span class="combo-names" style="font-family:'Spectral',serif;font-weight:300;font-size:28px;letter-spacing:0.06em;text-transform:uppercase;">LAURA & DIEGO</span>
+      <span class="combo-date" style="font-family:'Josefin Sans',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+    <div class="combo-cell">
+      <span class="combo-tag">Con script</span>
+      <span class="combo-names" style="font-family:'Great Vibes',cursive;font-size:38px;">Laura & Diego</span>
+      <span class="combo-date" style="font-family:'Montserrat',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+    <div class="combo-cell">
+      <span class="combo-tag">Versalitas refinada</span>
+      <span class="combo-names" style="font-family:'Cormorant SC',serif;font-weight:400;font-size:24px;letter-spacing:0.1em;text-transform:uppercase;">LAURA & DIEGO</span>
+      <span class="combo-date" style="font-family:'Quattrocento Sans',sans-serif;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+    <div class="combo-cell">
+      <span class="combo-tag">Máximo carácter</span>
+      <span class="combo-names" style="font-family:'Fraunces',serif;font-weight:400;font-size:28px;letter-spacing:0.04em;text-transform:uppercase;">LAURA & DIEGO</span>
+      <span class="combo-date" style="font-family:'Didact Gothic',sans-serif;">MAYO 15, 2027 · OAXACA</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ─────────── SECTION 1: SERIFAS ─────────── -->
+<section class="type-section" id="s-serifas">
+  <span class="section-label">Serifas <span class="section-count">· 19 fuentes</span></span>
+
+  <div class="font-grid">
+
+    <!-- Playfair Display -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Playfair Display <span class="badge">actual</span></span>
+        <span class="font-meta-tag">Serif · Alto contraste · Editorial</span>
+        <p class="font-meta-note">Dramático. Contraste alto entre trazos. Base actual del sistema. Muy legible en display y cuerpo.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Playfair Display',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Playfair Display',serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Playfair Display',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Playfair Display',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Bodoni Moda -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Bodoni Moda</span>
+        <span class="font-meta-tag">Serif · Máximo contraste · Moda / Lujo</span>
+        <p class="font-meta-note">Contraste extremo — trazos muy finos vs. muy gruesos. Estética de alta moda. Muy poderoso en mayúsculas grandes.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Bodoni Moda',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Bodoni Moda',serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Bodoni Moda',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Bodoni Moda',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Cormorant Garamond -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Cormorant Garamond</span>
+        <span class="font-meta-tag">Serif · Refinada · Europea</span>
+        <p class="font-meta-note">Extremadamente elegante. Contraste alto pero más delicado que Bodoni. Más literaria y europea.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Cormorant Garamond',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Cormorant Garamond',serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Cormorant Garamond',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Cormorant Garamond',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Cormorant Garamond Light -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Cormorant Garamond Light</span>
+        <span class="font-meta-tag">Serif · Ultra ligera · Etérea</span>
+        <p class="font-meta-note">Versión light. Casi transparente en display grande. Máxima delicadeza — solo funciona en tamaños grandes.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Cormorant Garamond',serif;font-weight:300;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Cormorant Garamond',serif;font-weight:300;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Cormorant Garamond',serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- GFS Didot -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">GFS Didot</span>
+        <span class="font-meta-tag">Serif · Didone · Clásica griega</span>
+        <p class="font-meta-note">Didot tradicional de la imprenta griega. Contraste alto, muy elegante. Atemporal y formal.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'GFS Didot',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'GFS Didot',serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'GFS Didot',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'GFS Didot',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Italiana -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Italiana</span>
+        <span class="font-meta-tag">Serif · Ligera · Italiana</span>
+        <p class="font-meta-note">Muy fina y elegante. Inspiración italiana. Trazos delgados con remates bien definidos. Sofisticada en mayúsculas.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Italiana',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Italiana',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Italiana',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Italiana',serif;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Spectral -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Spectral</span>
+        <span class="font-meta-tag">Serif · Editorial · Screen-first</span>
+        <p class="font-meta-note">Diseñada para pantalla. Elegante y muy legible. Carácter editorial fuerte. Buen equilibrio entre contraste y legibilidad.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Spectral',serif;font-weight:300;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Spectral',serif;font-weight:300;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Spectral',serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Spectral',serif;font-style:italic;font-weight:300;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Cinzel -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Cinzel</span>
+        <span class="font-meta-tag">Serif · Romana · Solo mayúsculas</span>
+        <p class="font-meta-note">Inscripciones romanas clásicas. Arquitectónica. Sin minúsculas reales — solo mayúsculas. Muy formal y poderosa.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Cinzel',serif;font-weight:400;letter-spacing:0.14em;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Cinzel',serif;font-weight:600;font-size:clamp(12px,1.8vw,18px);opacity:0.5;margin-bottom:20px;">LAURA & DIEGO · SEMIBOLD</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Cinzel',serif;font-weight:400;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Cinzel',serif;font-weight:400;font-size:13px;line-height:1.8;color:var(--ink);opacity:0.55;">CON EL MEZCAL CELEBRAMOS LA ETERNIDAD.</div>
+      </div>
+    </div>
+
+    <!-- EB Garamond -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">EB Garamond</span>
+        <span class="font-meta-tag">Serif · Clásica · Siglo XVI</span>
+        <p class="font-meta-note">Garamond del siglo XVI. Cálida y atemporal. Muy legible en cuerpo. Evoca libros y manuscritos históricos.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'EB Garamond',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'EB Garamond',serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'EB Garamond',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'EB Garamond',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Cardo -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Cardo</span>
+        <span class="font-meta-tag">Serif · Académica · Clásica</span>
+        <p class="font-meta-note">Diseñada para textos clásicos y académicos. Serenos, equilibrados. Más neutral que EB Garamond pero igualmente atemporal.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Cardo',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Cardo',serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Cardo',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Cardo',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Lora -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Lora</span>
+        <span class="font-meta-tag">Serif · Contemporánea · Cálida</span>
+        <p class="font-meta-note">Moderna y cálida. Contraste moderado. Muy legible para cuerpo largo. Menos formal que Playfair.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Lora',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Lora',serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Lora',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Lora',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Fraunces -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Fraunces</span>
+        <span class="font-meta-tag">Serif · Óptica variable · Literaria</span>
+        <p class="font-meta-note">Variable con eje óptico. En tamaños grandes se vuelve muy expresiva con remates llamativos. Carácter literario muy marcado y único.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Fraunces',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Fraunces',serif;font-weight:300;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Fraunces',serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- DM Serif Display -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">DM Serif Display</span>
+        <span class="font-meta-tag">Serif · Display · Alto contraste</span>
+        <p class="font-meta-note">Diseñada específicamente para display. Alto contraste, remates elegantes. Contemporánea pero con alma clásica. Muy legible en tamaños grandes.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'DM Serif Display',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'DM Serif Display',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'DM Serif Display',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'DM Serif Display',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Marcellus -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Marcellus</span>
+        <span class="font-meta-tag">Serif · Romana · Proporciones clásicas</span>
+        <p class="font-meta-note">Proporciones romanas muy refinadas. Elegante sin ser dramática. Excelente en mayúsculas — las letras tienen dignidad individual.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Marcellus',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Marcellus',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Marcellus',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Marcellus',serif;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Marcellus SC -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Marcellus SC</span>
+        <span class="font-meta-tag">Serif · Versalitas · Inscripcional</span>
+        <p class="font-meta-note">Variante de Marcellus en versalitas. Todo mayúsculas con altura de x reducida. Muy arquitectónico e inscripcional. Ideal para fechas y etiquetas formales.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Marcellus SC',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Marcellus SC',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Marcellus SC',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Marcellus SC',serif;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Cormorant SC -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Cormorant SC</span>
+        <span class="font-meta-tag">Serif · Versalitas · Ultra refinada</span>
+        <p class="font-meta-note">Cormorant en versalitas. La variante más formal y arquitectónica de la familia. Extraordinariamente elegante en display.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Cormorant SC',serif;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Cormorant SC',serif;font-weight:300;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Cormorant SC',serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Cormorant SC',serif;font-weight:300;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Crimson Text -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Crimson Text</span>
+        <span class="font-meta-tag">Serif · Cálida · Texto literario</span>
+        <p class="font-meta-note">Diseñada para cuerpo de texto largo. Muy cálida y legible. Excelente para el menú y descripciones extensas. Inspirada en Garamond con personalidad propia.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Crimson Text',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Crimson Text',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Crimson Text',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Crimson Text',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Oranienbaum -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Oranienbaum</span>
+        <span class="font-meta-tag">Serif · Transicional · Rusa</span>
+        <p class="font-meta-note">Serif transicional de origen ruso. Contraste moderado con trazos cálidos. Única entre las opciones — mezcla elegancia clásica con cierta aspereza interesante.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Oranienbaum',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Oranienbaum',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Oranienbaum',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Oranienbaum',serif;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Vidaloka -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Vidaloka</span>
+        <span class="font-meta-tag">Serif · Display · Personalidad</span>
+        <p class="font-meta-note">Display con mucho carácter. Remates inusuales que le dan una presencia editorial marcada. Diferente a todo lo demás en esta lista — muy memorable.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Vidaloka',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Vidaloka',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Vidaloka',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Vidaloka',serif;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────── SECTION 2: SCRIPTS ─────────── -->
+<section class="type-section" id="s-scripts">
+  <span class="section-label">Scripts · Monograma, firmas y detalles <span class="section-count">· 10 fuentes</span></span>
+
+  <div class="font-grid">
+
+    <!-- Great Vibes -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Great Vibes</span>
+        <span class="font-meta-tag">Script · Fluida · Clásica de boda</span>
+        <p class="font-meta-note">Caligrafía fluida y elegante. Buen peso, legible en tamaños medios. La más versátil de las scripts.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Great Vibes',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Great Vibes',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Great Vibes',cursive;font-size:16px;letter-spacing:0.04em;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Pinyon Script -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Pinyon Script</span>
+        <span class="font-meta-tag">Script · Caligráfica formal · Pluma</span>
+        <p class="font-meta-note">Más formal. Trazos de pluma clásicos con ornamentos. Ideal para encabezados decorativos de invitación.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Pinyon Script',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Pinyon Script',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Pinyon Script',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Sacramento -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Sacramento</span>
+        <span class="font-meta-tag">Script · Moderna · Minimalista</span>
+        <p class="font-meta-note">Script moderna y fluida. Más minimal que Pinyon. Trazos continuos con poca ornamentación. Contemporánea.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Sacramento',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Sacramento',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Sacramento',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Parisienne -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Parisienne</span>
+        <span class="font-meta-tag">Script · Ornamentada · Parisina</span>
+        <p class="font-meta-note">Ornamentada y extravagante. Mayúsculas muy decorativas. Mucho carácter — mejor en aplicaciones puntuales.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Parisienne',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Parisienne',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Parisienne',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Alex Brush -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Alex Brush</span>
+        <span class="font-meta-tag">Script · Pincel · Orgánica</span>
+        <p class="font-meta-note">Trazo de pincel. Más cálida y orgánica que las scripts de pluma. Equilibrio entre calidez manuscrita y elegancia.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Alex Brush',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Alex Brush',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Alex Brush',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Tangerine -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Tangerine</span>
+        <span class="font-meta-tag">Script · Muy delgada · Manuscrita</span>
+        <p class="font-meta-note">Muy fina. Evoca escritura con pluma fina. Solo funciona grande — pierde legibilidad en pequeño.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Tangerine',cursive;font-weight:700;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Tangerine',cursive;font-weight:400;">Laura & Diego · regular</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Tangerine',cursive;font-weight:700;font-size:20px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Euphoria Script -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Euphoria Script</span>
+        <span class="font-meta-tag">Script · Suelta · Contemporánea</span>
+        <p class="font-meta-note">Caligrafía suelta y contemporánea. Menos formal que Pinyon, más fluida que Sacramento. Equilibrio interesante entre espontaneidad y elegancia.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Euphoria Script',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Euphoria Script',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Euphoria Script',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Clicker Script -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Clicker Script</span>
+        <span class="font-meta-tag">Script · Bold · Presencia fuerte</span>
+        <p class="font-meta-note">Script con mucho peso y presencia. Trazos gruesos y seguros. Más impactante que las scripts delgadas — muy visible en portadas e invitaciones.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Clicker Script',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Clicker Script',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Clicker Script',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Mr De Haviland -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Mr De Haviland</span>
+        <span class="font-meta-tag">Script · Ornamentada · Alta caligrafía</span>
+        <p class="font-meta-note">Alta caligrafía ornamentada. Mayúsculas muy elaboradas con florituras. La más formal y elaborada de las scripts. Mejor en aplicaciones puntuales y grandes.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Mr De Haviland',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Mr De Haviland',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Mr De Haviland',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <!-- Rochester -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Rochester</span>
+        <span class="font-meta-tag">Script · Vintage · Caligrafía inglesa</span>
+        <p class="font-meta-note">Caligrafía inglesa clásica. Estética vintage refinada. Trazos de pluma con inclinación tradicional. Evoca tarjetas y papelería antigua de calidad.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Rochester',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Rochester',cursive;">L & D</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Rochester',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────── SECTION 3: SANS-SERIF ─────────── -->
+<section class="type-section" id="s-sans">
+  <span class="section-label">Sans-serif · Etiquetas, fechas y UI <span class="section-count">· 7 fuentes</span></span>
+
+  <div class="font-grid">
+
+    <!-- Montserrat -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Montserrat <span class="badge">actual</span></span>
+        <span class="font-meta-tag">Sans · Geométrica · Versátil</span>
+        <p class="font-meta-note">Selección actual. Limpia, sobria y muy versátil. Excelente en tracking amplio para etiquetas.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Montserrat',sans-serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Montserrat',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Raleway -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Raleway</span>
+        <span class="font-meta-tag">Sans · Elegante · Refinada</span>
+        <p class="font-meta-note">Más elegante que Montserrat. La "W" en versalitas es un detalle muy refinado. Excelente alternativo.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Raleway',sans-serif;font-weight:300;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Raleway',sans-serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Raleway',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Raleway',sans-serif;font-weight:300;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Josefin Sans -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Josefin Sans</span>
+        <span class="font-meta-tag">Sans · Art Deco · Geométrica</span>
+        <p class="font-meta-note">Geométrica con influencia art deco. El espaciado uniforme y las proporciones cuadradas le dan mucho carácter. Más personalidad que Montserrat.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Josefin Sans',sans-serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Josefin Sans',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Tenor Sans -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Tenor Sans</span>
+        <span class="font-meta-tag">Sans · Humanista · Suave</span>
+        <p class="font-meta-note">Sans humanista con calidez. Trazos ligeramente orgánicos. Menos geométrica y más cálida que Montserrat.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Tenor Sans',sans-serif;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Tenor Sans',sans-serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Tenor Sans',sans-serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Tenor Sans',sans-serif;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Forum -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Forum</span>
+        <span class="font-meta-tag">Sans · Romana · Con remates suaves</span>
+        <p class="font-meta-note">A medio camino entre serif y sans. Inspiración romana con remates mínimos. Muy adecuada para etiquetas formales y fechas.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Forum',cursive;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Forum',cursive;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Forum',cursive;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Forum',cursive;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Quattrocento Sans -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Quattrocento Sans</span>
+        <span class="font-meta-tag">Sans · Humanista · Italiana</span>
+        <p class="font-meta-note">Humanista con influencia italiana renacentista. Más cálida y orgánica que Montserrat. Complemento natural para serifas como Cormorant o EB Garamond.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Quattrocento Sans',sans-serif;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Quattrocento Sans',sans-serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Quattrocento Sans',sans-serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Quattrocento Sans',sans-serif;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;font-style:italic;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <!-- Didact Gothic -->
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Didact Gothic</span>
+        <span class="font-meta-tag">Sans · Limpia · Neutral</span>
+        <p class="font-meta-note">Extremadamente limpia y neutral. Más despojada que Montserrat. Ideal cuando se busca que las etiquetas desaparezcan y el contenido serif tome el protagonismo.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Didact Gothic',sans-serif;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Didact Gothic',sans-serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Didact Gothic',sans-serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Didact Gothic',sans-serif;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<!-- ─────────── SECTION: LUJO ─────────── -->
+<section class="type-section" id="s-lujo">
+  <span class="section-label">Lujo <span class="section-count">· Impacto, presencia, alta moda · 3 fuentes</span></span>
+  <div class="font-grid">
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Abril Fatface</span>
+        <span class="font-meta-tag">Display · Bold · Alta moda</span>
+        <p class="font-meta-note">Contraste máximo en peso grueso. Inspirada en las tipografías de carteles del siglo XIX. Presencia visual muy fuerte — solo para encabezados principales.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Abril Fatface',cursive;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Abril Fatface',cursive;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Abril Fatface',cursive;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Abril Fatface',cursive;font-size:14px;line-height:1.7;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Poiret One</span>
+        <span class="font-meta-tag">Sans · Art Deco · Elegante</span>
+        <p class="font-meta-note">Art Deco puro. Geométrica pero con mucha gracia. Muy sofisticada en mayúsculas. Evoca los carteles de moda parisinos de los años 20.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Poiret One',cursive;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Poiret One',cursive;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Poiret One',cursive;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Poiret One',cursive;font-size:14px;line-height:1.7;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Almendra Display</span>
+        <span class="font-meta-tag">Serif · Ornamentada · Display</span>
+        <p class="font-meta-note">Serif ornamentada con remates elaborados. Mezcla de influencias medievales y renacentistas. Muy lujosa en display — única en su clase.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Almendra Display',serif;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Almendra Display',serif;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Almendra Display',serif;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Almendra Display',serif;font-size:14px;line-height:1.7;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────── SECTION: GEOMETRÍA ─────────── -->
+<section class="type-section" id="s-geo">
+  <span class="section-label">Geometría <span class="section-count">· Formas puras, estructura, precisión · 3 fuentes</span></span>
+  <div class="font-grid">
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Bebas Neue</span>
+        <span class="font-meta-tag">Sans · All caps · Condensada</span>
+        <p class="font-meta-note">Solo mayúsculas, muy condensada. Geométrica y sin concesiones. Máximo impacto en encabezados. Contrasta bien con serifas ligeras.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Bebas Neue',cursive;letter-spacing:0.08em;">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Bebas Neue',cursive;font-size:clamp(14px,2vw,22px);opacity:0.4;margin-bottom:20px;letter-spacing:0.04em;">laura & diego · solo mayúsculas</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Bebas Neue',cursive;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Bebas Neue',cursive;font-size:14px;line-height:1.7;color:var(--ink);opacity:0.55;">CON EL MEZCAL CELEBRAMOS LA ETERNIDAD.</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Syncopate</span>
+        <span class="font-meta-tag">Sans · Ultra geométrica · Minimal</span>
+        <p class="font-meta-note">Formas geométricas puras. Espaciado amplio natural. Muy contemporánea y arquitectónica. Para un enfoque más moderno y menos tradicional.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Syncopate',sans-serif;font-weight:400;font-size:clamp(20px,3vw,42px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Syncopate',sans-serif;font-weight:700;font-size:clamp(12px,1.8vw,22px);opacity:0.4;margin-bottom:20px;">LAURA & DIEGO · BOLD</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Syncopate',sans-serif;font-weight:400;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Syncopate',sans-serif;font-size:11px;line-height:1.9;color:var(--ink);opacity:0.55;">CON EL MEZCAL CELEBRAMOS LA ETERNIDAD.</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Jost</span>
+        <span class="font-meta-tag">Sans · Geométrica · Moderna</span>
+        <p class="font-meta-note">Inspirada en Futura pero más versátil. Geométrica limpia con proporciones excelentes. Funciona tanto en mayúsculas como en cuerpo de texto.</p>
+      </div>
+      <div>
+        <div class="spec-upper" style="font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(22px,3.5vw,44px);">LAURA & DIEGO</div>
+        <div class="spec-natural" style="font-family:'Jost',sans-serif;font-weight:400;">Laura & Diego</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Jost',sans-serif;font-weight:300;">MAYO 15, 2027 · OAXACA</div>
+        <div class="spec-phrase" style="font-family:'Jost',sans-serif;font-weight:300;font-size:12px;line-height:1.8;color:var(--ink);opacity:0.55;">Con el mezcal celebramos la eternidad.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────── SECTION: CALIGRAFÍA ─────────── -->
+<section class="type-section" id="s-cali">
+  <span class="section-label">Caligrafía <span class="section-count">· Pluma, trazos elaborados, alta caligrafía · 4 fuentes</span></span>
+  <div class="font-grid">
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Petit Formal Script</span>
+        <span class="font-meta-tag">Caligrafía · Formal · Francesa</span>
+        <p class="font-meta-note">Caligrafía formal francesa. Trazos de pluma de punta fina con inclinación clásica. La más cercana a la caligrafía de cancillería. Muy refinada.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Petit Formal Script',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Petit Formal Script',cursive;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Petit Formal Script',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Herr Von Muellerhoff</span>
+        <span class="font-meta-tag">Caligrafía · Alemana · Ornamentada</span>
+        <p class="font-meta-note">Caligrafía alemana del siglo XIX con mayúsculas muy ornamentadas. Las iniciales son espectaculares. Mejor en títulos y monogramas.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Herr Von Muellerhoff',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Herr Von Muellerhoff',cursive;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Herr Von Muellerhoff',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Lovers Quarrel</span>
+        <span class="font-meta-tag">Caligrafía · Ornamentada · Display</span>
+        <p class="font-meta-note">Caligrafía ornamentada con mayúsculas muy elaboradas. Los bucles y florituras son espectaculares en tamaños grandes. Muy romántica.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Lovers Quarrel',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Lovers Quarrel',cursive;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Lovers Quarrel',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Ruthie</span>
+        <span class="font-meta-tag">Caligrafía · Delgada · Elegante</span>
+        <p class="font-meta-note">Caligrafía muy delgada y elegante. Trazos continuos con inclinación suave. Entre la script y la caligrafía formal. Delicada y contemporánea.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Ruthie',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Ruthie',cursive;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Ruthie',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────── SECTION: BODA ─────────── -->
+<section class="type-section" id="s-boda">
+  <span class="section-label">Boda <span class="section-count">· Romántica, clásica, perfecta para la ocasión · 4 fuentes</span></span>
+  <div class="font-grid">
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Satisfy</span>
+        <span class="font-meta-tag">Script · Romántica · Fluida</span>
+        <p class="font-meta-note">Una de las scripts más usadas en papelería de boda. Fluida y romántica. Buen equilibrio entre calidez y legibilidad. Muy reconocible.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Satisfy',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Satisfy',cursive;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Satisfy',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Dancing Script</span>
+        <span class="font-meta-tag">Script · Manuscrita · Viva</span>
+        <p class="font-meta-note">Script manuscrita muy viva y dinámica. Más desenfadada que las otras scripts. Si se busca un tono más cálido y menos formal, esta es la opción.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Dancing Script',cursive;font-weight:700;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Dancing Script',cursive;font-weight:400;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Dancing Script',cursive;font-weight:400;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Princess Sofia</span>
+        <span class="font-meta-tag">Script · Ornamentada · Boda clásica</span>
+        <p class="font-meta-note">Mayúsculas muy ornamentadas con florituras amplias. Muy clásica para bodas. Las iniciales son el punto fuerte — ideales para monogramas y sellos.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Princess Sofia',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Princess Sofia',cursive;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Princess Sofia',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-meta">
+        <span class="font-meta-name">Italianno</span>
+        <span class="font-meta-tag">Script · Italiana · Refinada</span>
+        <p class="font-meta-note">Caligrafía italiana refinada. Trazos continuos y elegantes. Menos ornamentada que Princess Sofia pero igual de elegante. Sofisticada y atemporal.</p>
+      </div>
+      <div>
+        <div class="spec-script-main" style="font-family:'Italianno',cursive;">Laura & Diego</div>
+        <div class="spec-script-mono" style="font-family:'Italianno',cursive;">LAURA & DIEGO</div>
+        <div class="spec-divider"></div>
+        <div class="spec-date" style="font-family:'Italianno',cursive;font-size:16px;text-transform:none;">Mayo 15, 2027 · Oaxaca</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+  // ── Wrap specimen column in .spec-area ──
+  document.querySelectorAll('.font-card').forEach(card => {
+    const spec = [...card.children].find(c => !c.classList.contains('font-meta'));
+    if (spec) spec.classList.add('spec-area');
+  });
+
+  // ── Background switcher ──
+  document.querySelectorAll('.bg-swatch').forEach(swatch => {
+    swatch.addEventListener('click', () => {
+      document.querySelectorAll('.bg-swatch').forEach(s => s.classList.remove('active'));
+      swatch.classList.add('active');
+      document.body.dataset.bg = swatch.dataset.bg;
+    });
+  });
+
+  // ── Favorites ──
+  const favBtn = document.getElementById('favToggle');
+
+  document.querySelectorAll('.font-card').forEach(card => {
+    const btn = document.createElement('button');
+    btn.className = 'fav-btn';
+    btn.setAttribute('aria-label', 'Marcar como favorita');
+    btn.textContent = '♡';
+    btn.addEventListener('click', () => {
+      const isFav = card.classList.toggle('is-fav');
+      btn.classList.toggle('active', isFav);
+      btn.textContent = isFav ? '♥' : '♡';
+      updateFavBtn();
+      if (document.body.classList.contains('fav-mode')) updateSectionVisibility();
+    });
+    card.appendChild(btn);
+  });
+
+  function updateFavBtn() {
+    const count = document.querySelectorAll('.font-card.is-fav').length;
+    favBtn.textContent = count > 0 ? `★ ${count} favoritas` : '★ Favoritas';
+  }
+
+  function updateSectionVisibility() {
+    document.querySelectorAll('.type-section').forEach(section => {
+      const hasVisible = [...section.querySelectorAll('.font-card')].some(c => c.classList.contains('is-fav'));
+      section.style.display = document.body.classList.contains('fav-mode') && !hasVisible ? 'none' : '';
+    });
+  }
+
+  favBtn.addEventListener('click', () => {
+    const isActive = favBtn.classList.toggle('active');
+    document.body.classList.toggle('fav-mode', isActive);
+    updateSectionVisibility();
+  });
+
+  // ── Active section highlight ──
+  const pills = document.querySelectorAll('.toc-pill');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        pills.forEach(p => p.classList.toggle('active', p.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '-48px 0px -55% 0px' });
+
+  document.querySelectorAll('.type-section[id]').forEach(s => observer.observe(s));
+
+  // Smooth scroll
+  pills.forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(pill.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
