@@ -507,6 +507,7 @@
     const feedbackMsg = document.getElementById('rsvp-feedback-msg');
     const guestPicker = document.getElementById('guest-picker');
     const guestList = document.getElementById('guest-list');
+    const additionalGuestFields = document.getElementById('additional-guest-fields');
     const inviteIdField = document.getElementById('rsvp-id');
 
     const rsvpMessages = {
@@ -574,6 +575,11 @@
       guestList.innerHTML = '';
 
       const uniqueNames = [...new Set(names.map(name => name.trim()).filter(Boolean))];
+      if (uniqueNames.length === 0) {
+        guestList.innerHTML = '<span class="guest-option guest-option--empty">No hay invitados disponibles.</span>';
+        return;
+      }
+
       uniqueNames.forEach((name) => {
         const label = document.createElement('label');
         label.className = 'guest-option';
@@ -582,7 +588,7 @@
         input.type = 'checkbox';
         input.name = 'guest-check';
         input.value = name;
-        input.checked = true;
+        input.checked = false;
 
         const span = document.createElement('span');
         span.textContent = name;
@@ -593,9 +599,78 @@
       });
     }
 
+    function renderGuestStatus(message) {
+      if (!guestList) return;
+      guestList.innerHTML = `<span class="guest-option guest-option--empty">${message}</span>`;
+    }
+
+    let inviteNames = [];
+    let allowAdditionalGuests = false;
+    let maxAdditionalGuests = 0;
+    let inviteLoadStatus = 'loading';
+
+    function showGuestPicker(visible) {
+      if (!guestPicker) return;
+      guestPicker.hidden = !visible;
+      guestPicker.classList.toggle('show', visible);
+    }
+
+    function renderAdditionalGuestFields() {
+      if (!additionalGuestFields) return;
+      additionalGuestFields.innerHTML = '';
+
+      if (!allowAdditionalGuests || maxAdditionalGuests < 1) {
+        additionalGuestFields.hidden = true;
+        return;
+      }
+
+      const toggleLabel = document.createElement('label');
+      toggleLabel.className = 'additional-guest-toggle';
+
+      const toggle = document.createElement('input');
+      toggle.type = 'checkbox';
+      toggle.id = 'additional-guests-toggle';
+      toggle.name = 'additional-guests';
+
+      const toggleText = document.createElement('span');
+      toggleText.textContent = `Traeré invitados adicionales (máximo ${maxAdditionalGuests})`;
+
+      toggleLabel.appendChild(toggle);
+      toggleLabel.appendChild(toggleText);
+      additionalGuestFields.appendChild(toggleLabel);
+
+      const inputFields = document.createElement('div');
+      inputFields.className = 'additional-guest-inputs';
+      inputFields.hidden = true;
+
+      const label = document.createElement('span');
+      label.className = 'additional-guest-label';
+      label.textContent = 'Nombres de invitados adicionales';
+      inputFields.appendChild(label);
+
+      for (let index = 0; index < maxAdditionalGuests; index += 1) {
+        const input = document.createElement('input');
+        input.className = 'form-input additional-guest-input';
+        input.type = 'text';
+        input.name = 'additional-guest-name';
+        input.placeholder = `Nombre del invitado adicional ${index + 1}`;
+        input.autocomplete = 'off';
+        inputFields.appendChild(input);
+      }
+
+      toggle.addEventListener('change', () => {
+        inputFields.hidden = !toggle.checked;
+      });
+      additionalGuestFields.appendChild(inputFields);
+      additionalGuestFields.hidden = false;
+    }
+
     function loadInviteFromSheet() {
       const urlId = new URLSearchParams(window.location.search).get('id');
-      if (!urlId) return;
+      if (!urlId) {
+        inviteLoadStatus = 'error';
+        return;
+      }
 
       fetch(`${SCRIPT_URL}?id=${encodeURIComponent(urlId)}`, { cache: 'no-store' })
         .then((response) => {
@@ -603,20 +678,28 @@
           return response.json();
         })
         .then((data) => {
-          if (!data || data.found === false) return;
+          if (!data || data.found === false) throw new Error('Invite not found');
 
-          const invitedNames = Array.isArray(data.invitedNames)
+          inviteNames = Array.isArray(data.invitedNames)
             ? data.invitedNames
             : parseInvitedNames(data.invitedNames);
+          maxAdditionalGuests = Number.isInteger(Number(data.maxGuests))
+            ? Math.max(0, Number(data.maxGuests))
+            : 0;
+          allowAdditionalGuests = data.allowAdditionalGuests === true || maxAdditionalGuests > 0;
+          inviteLoadStatus = 'ready';
 
           if (inviteIdField) inviteIdField.value = data.id || urlId;
-          if (guestPicker) guestPicker.hidden = false;
-          if (invitedNames.length) renderGuestOptions(invitedNames);
+          if (document.querySelector('.attend-btn.selected')?.dataset.attend === 'yes') {
+            renderGuestOptions(inviteNames);
+            renderAdditionalGuestFields();
+            showGuestPicker(true);
+          }
         })
         .catch(() => {
-          if (guestPicker) guestPicker.hidden = false;
-          if (guestList) {
-            guestList.innerHTML = '<span class="guest-option guest-option--empty">No se pudo cargar la lista de invitados.</span>';
+          inviteLoadStatus = 'error';
+          if (document.querySelector('.attend-btn.selected')?.dataset.attend === 'yes') {
+            renderGuestStatus('No se pudo cargar la lista de invitados.');
           }
         });
     }
@@ -626,7 +709,19 @@
         clearFieldError('rsvp-attend-error', null);
         clearFieldError('rsvp-guest-error', null);
         const attending = btn.dataset.attend === 'yes';
-        if (guestPicker) guestPicker.hidden = !attending;
+        if (attending) {
+          if (inviteLoadStatus === 'loading') {
+            renderGuestStatus('Cargando lista de invitados…');
+          } else if (inviteLoadStatus === 'error') {
+            renderGuestStatus('No se pudo cargar la lista de invitados.');
+          } else {
+            renderGuestOptions(inviteNames);
+          }
+          renderAdditionalGuestFields();
+          showGuestPicker(true);
+        } else {
+          showGuestPicker(false);
+        }
       });
     });
 
@@ -648,6 +743,12 @@
       const selectedGuests = Array.from(document.querySelectorAll('#guest-list input[name="guest-check"]:checked'))
         .map((checkbox) => checkbox.value.trim())
         .filter(Boolean);
+      const additionalGuestsAllowed = document.querySelector('#additional-guests-toggle')?.checked === true;
+      const additionalGuests = additionalGuestsAllowed
+        ? Array.from(document.querySelectorAll('#additional-guest-fields input[name="additional-guest-name"]'))
+          .map((input) => input.value.trim())
+          .filter(Boolean)
+        : [];
 
       if (attending && selectedGuests.length === 0) {
         showFieldError('rsvp-guest-error', null, 'validationGuestSelection');
@@ -657,7 +758,7 @@
 
       const dietary = attending ? document.getElementById('rsvp-dietary').value.trim() : '';
       const id = inviteIdField ? inviteIdField.value.trim() : '';
-      const invitedNames = selectedGuests.join(', ');
+      const invitedNames = [...selectedGuests, ...additionalGuests].join(', ');
 
       submitBtn.disabled = true;
       submitBtn.textContent = getRsvpMsg('sending');
@@ -674,7 +775,7 @@
 
       fetch(SCRIPT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload),
       })
         .then(async (response) => {
