@@ -115,12 +115,31 @@
       --ink: #1A1612;
       --chocolate: #2C1810;
       --sienna: #A0582C;
-      --crimson: #5C1A22;
+      --crimson: #511324;
       --blush: #E8C4BC;
       --olive: #6B6440;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-sans: 'Montserrat', Helvetica, Arial, sans-serif;
       --page-x: clamp(24px, 6vw, 80px);
+    }
+
+    .names-script {
+      font-family: 'Snell Roundhand', 'Snell Roundhand Script', cursive;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .names-lockup {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.24em;
+    }
+
+    .names-ampersand {
+      font-family: inherit;
+      font-size: 0.78em;
+      transform: translateX(0.22em);
     }
 
     body {

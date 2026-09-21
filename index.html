@@ -38,7 +38,7 @@
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
     <div class="preloader-inner">
-      <div class="preloader-monogram">LAURA &amp; DIEGO</div>
+      <div class="preloader-monogram"><span class="names-lockup"><span class="names-script">Laura</span><span class="names-ampersand">&amp;</span><span class="names-script">Diego</span></span></div>
       <div class="preloader-date" data-i18n="preloader-date">MAYO 15, 2027 &middot; OAXACA</div>
     </div>
   </div>
@@ -47,7 +47,7 @@
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
-      <a href="#inicio" class="nav-logo">LAURA &amp; DIEGO</a>
+      <a href="#inicio" class="nav-logo"><span class="names-lockup"><span class="names-script">Laura</span><span class="names-ampersand">&amp;</span><span class="names-script">Diego</span></span></a>
       <!-- Language toggle -->
       <div class="lang-toggle" id="langToggle" aria-label="Idioma / Language">
         <button class="lang-opt" data-lang="es" aria-pressed="false">ES</button>
@@ -116,50 +116,6 @@
           <span class="story-connector-text" data-i18n="story-connector-text">6 años · 5 ciudades · 1 historia</span>
           <span class="story-connector-line"></span>
         </div>
-
-        <div class="story-milestones">
-
-          <div class="story-milestone">
-            <span class="story-milestone-num">2021</span>
-            <div class="story-milestone-body">
-              <span class="story-milestone-city" data-i18n="m1-city">Monterrey, México</span>
-              <span class="story-milestone-event" data-i18n="m1-event">nos conocimos</span>
-            </div>
-          </div>
-
-          <div class="story-milestone">
-            <span class="story-milestone-num">2022</span>
-            <div class="story-milestone-body">
-              <span class="story-milestone-city" data-i18n="m2-city">San Francisco, Estados Unidos</span>
-              <span class="story-milestone-event" data-i18n="m2-event">nos hicimos novios</span>
-            </div>
-          </div>
-
-          <div class="story-milestone">
-            <span class="story-milestone-num">2024</span>
-            <div class="story-milestone-body">
-              <span class="story-milestone-city" data-i18n="m3-city">París, Francia</span>
-              <span class="story-milestone-event" data-i18n="m3-event">nos comprometimos</span>
-            </div>
-          </div>
-
-          <div class="story-milestone">
-            <span class="story-milestone-num">2025</span>
-            <div class="story-milestone-body">
-              <span class="story-milestone-city" data-i18n="m4-city">Toluca, México</span>
-              <span class="story-milestone-event" data-i18n="m4-event">nos casamos por lo civil</span>
-            </div>
-          </div>
-
-          <div class="story-milestone">
-            <span class="story-milestone-num">2027</span>
-            <div class="story-milestone-body">
-              <span class="story-milestone-city" data-i18n="m5-city">Oaxaca, México</span>
-              <span class="story-milestone-event" data-i18n="m5-event">la boda</span>
-            </div>
-          </div>
-
-        </div><!-- /milestones -->
 
       </div><!-- /story-inner -->
     </section>
@@ -275,7 +231,7 @@
         <!-- Tab bar (desktop only) -->
         <div class="tab-bar" role="tablist">
           <button class="tab-btn active" role="tab" aria-selected="true" data-tab="travel" data-i18n="tab-travel">Llegar</button>
-          <button class="tab-btn" role="tab" aria-selected="false" data-tab="hotels" data-i18n="tab-hotels" data-optional hidden>Hospedarse</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="hotels" data-i18n="tab-hotels">Hospedarse</button>
           <button class="tab-btn" role="tab" aria-selected="false" data-tab="explore" data-i18n="tab-explore">Explorar</button>
         </div>
 
@@ -301,7 +257,7 @@
         </div>
 
         <!-- Accordion item: Hospedarse -->
-        <div class="oax-accordion" data-tab="hotels" data-optional hidden>
+        <div class="oax-accordion" data-tab="hotels">
           <button class="oax-acc-trigger" aria-expanded="false" data-i18n="tab-hotels">Hospedarse</button>
           <div class="tab-panel" id="tab-panel-hotels" role="tabpanel" hidden>
             <div class="hotel-list">
@@ -318,7 +274,6 @@
               <span class="hotel-meta" data-i18n="hotel-3-meta">Sobre el andador Macedonio Alcalá 407, Centro Histórico</span>
             </div>
           </div>
-          <p class="info-note" data-i18n="hotels-note">Bloque de habitaciones por confirmar. Se informará si se confirma una tarifa especial para invitados.</p>
           </div>
         </div>
 
@@ -389,12 +344,6 @@
 
         <div class="rsvp-form">
 
-          <div class="form-group">
-            <label class="label label--required" for="rsvp-name" data-i18n="rsvp-name-label">Nombre completo</label>
-            <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="Laura" autocomplete="name" required data-i18n-placeholder="rsvp-name-placeholder" />
-            <p class="field-error" id="rsvp-name-error" role="alert"></p>
-          </div>
-
           <fieldset class="form-group attend-group">
             <legend class="label label--required" data-i18n="rsvp-attend-legend">Asistencia</legend>
             <div class="attend-btns">
@@ -404,28 +353,18 @@
             <p class="field-error" id="rsvp-attend-error" role="alert"></p>
           </fieldset>
 
-          <div class="form-group extra-fields" id="extra-fields">
-            <label class="label" for="rsvp-guests" data-i18n="rsvp-guests-label">¿Cuántos asistentes, incluyéndote?</label>
-            <select class="form-input" id="rsvp-guests" name="guests">
-              <option value="" data-i18n="rsvp-guests-opt0">— Selecciona —</option>
-              <option value="1" data-i18n="rsvp-guests-opt1">1 persona</option>
-              <option value="2" data-i18n="rsvp-guests-opt2">2 personas</option>
-              <option value="3" data-i18n="rsvp-guests-opt3">3 personas</option>
-              <option value="4" data-i18n="rsvp-guests-opt4">4 personas</option>
-            </select>
-            <p class="field-error" id="rsvp-guests-error" role="alert"></p>
+          <div class="form-group extra-fields" id="guest-picker" hidden>
+            <label class="label label--required">Invitados</label>
+            <div class="guest-checklist" id="guest-list" role="group" aria-label="Invitados"></div>
+            <p class="field-error" id="rsvp-guest-error" role="alert"></p>
           </div>
+
+          <input type="hidden" id="rsvp-id" name="id" />
 
           <div class="form-group extra-fields" id="extra-dietary">
-            <label class="label" for="rsvp-dietary" data-i18n="rsvp-dietary-label">Restricciones alimentarias</label>
+            <label class="label" for="rsvp-dietary" data-i18n="rsvp-dietary-label">Restricciones o preferencias alimentarias</label>
             <input class="form-input" type="text" id="rsvp-dietary" name="dietary"
               placeholder="Vegetariano, sin gluten…" data-i18n-placeholder="rsvp-dietary-placeholder" />
-          </div>
-
-          <div class="form-group form-group--cta extra-fields" id="extra-note">
-            <label class="label" for="rsvp-note" data-i18n="rsvp-note-label">Un mensaje <span style="opacity:.45;">(opcional)</span></label>
-            <textarea class="form-input" id="rsvp-note" name="note" rows="3"
-              placeholder="Un pensamiento, un deseo…" data-i18n-placeholder="rsvp-note-placeholder"></textarea>
           </div>
 
           <!-- Honeypot — must stay empty -->
@@ -475,7 +414,7 @@
         <g transform="translate(910,295) scale(0.55)"><use href="#agv" opacity="0.55" /></g>
         <g transform="translate(1100,295) scale(0.34)"><use href="#agv" opacity="0.35" /></g>
       </svg>
-      <h2>LAURA &amp; DIEGO</h2>
+      <h2><span class="names-lockup"><span class="names-script">Laura</span><span class="names-ampersand">&amp;</span><span class="names-script">Diego</span></span></h2>
       <p class="sub" data-i18n="footer-sub">MAYO 15, 2027 &middot; OAXACA</p>
     </footer>
 

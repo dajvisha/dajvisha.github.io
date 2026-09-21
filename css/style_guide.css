@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --crimson: #5C1A22;
+  --crimson: #511324;
   --chocolate: #2C1810;
   --blush: #E8C4BC;
   --cream: #FDFAF5;
@@ -22,7 +22,7 @@
 :root.olive-mode .logo-grid,
 :root.olive-mode .labels,
 :root.olive-mode .apps {
-  --crimson: #5C1A22;
+  --crimson: #511324;
   --blush: #E8C4BC;
 }
 
@@ -102,6 +102,22 @@ em { font-style: normal; }
 .cover-names em {
   color: var(--chocolate);
   font-style: normal;
+}
+.names-script {
+  font-family: 'Snell Roundhand', 'Snell Roundhand Script', cursive;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.names-lockup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.24em;
+}
+.names-ampersand {
+  font-family: inherit;
+  font-size: 0.78em;
+  transform: translateX(0.22em);
 }
 .cover-foot {
   position: relative; z-index: 2;

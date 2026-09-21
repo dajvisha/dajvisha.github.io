@@ -21,16 +21,6 @@
           'story-label': 'Nuestra historia',
           'story-headline': 'De Monterrey<br>a <em>Oaxaca</em>',
           'story-connector-text': '6 años · 5 ciudades · 1 historia',
-          'm1-city': 'Monterrey, México',
-          'm1-event': 'nos conocimos',
-          'm2-city': 'San Francisco, Estados Unidos',
-          'm2-event': 'nos hicimos novios',
-          'm3-city': 'París, Francia',
-          'm3-event': 'nos comprometimos',
-          'm4-city': 'Toluca, México',
-          'm4-event': 'boda civil',
-          'm5-city': 'Oaxaca, México',
-          'm5-event': 'boda religiosa',
           'homes-label': 'Hemos vivido juntos en',
           'home-1': 'Monclova, México',
           'home-2': 'Ciudad de México, México',
@@ -62,10 +52,11 @@
           'rsvp-guests-opt2': '2 personas',
           'rsvp-guests-opt3': '3 personas',
           'rsvp-guests-opt4': '4 personas',
-          'rsvp-dietary-label': 'Restricciones o preferencias alimentarias',
+          'rsvp-dietary-label': 'Restricciones o preferencias alimentarias <span style="opacity:.45;">(opcional)</span>',
           'rsvp-dietary-placeholder': 'Vegetariano, sin gluten, alergias…',
           'rsvp-note-label': 'Mensaje para los novios <span style="opacity:.45;">(opcional)</span>',
           'rsvp-note-placeholder': 'Un pensamiento, un deseo…',
+          'validationGuestSelection': 'Por favor selecciona al menos un invitado.',
           'rsvp-submit': 'Confirmar',
           'footer-sub': 'MAYO 15, 2027 &middot; OAXACA',
           // nav (optional sections)
@@ -133,7 +124,6 @@
           'hotel-3-meta': 'Sobre el andador Macedonio Alcalá · a pasos del venue',
           'hotels-book-link': 'Reservar ↗',
           'hotels-map-link': 'Ver en mapa ↗',
-          'hotels-note': 'Bloque de habitaciones por confirmar. Les comunicaremos si se confirma una tarifa especial para invitados.',
           // travel
           'travel-label': 'Cómo llegar',
           'travel-heading': 'Llegar a <em>Oaxaca</em>',
@@ -185,16 +175,6 @@
           'story-label': 'Our story',
           'story-headline': 'From Monterrey<br>to <em>Oaxaca</em>',
           'story-connector-text': '6 years · 5 cities · 1 story',
-          'm1-city': 'Monterrey, Mexico',
-          'm1-event': 'we met',
-          'm2-city': 'San Francisco, United States',
-          'm2-event': 'we started dating',
-          'm3-city': 'Paris, France',
-          'm3-event': 'we got engaged',
-          'm4-city': 'Toluca, Mexico',
-          'm4-event': 'civil ceremony',
-          'm5-city': 'Oaxaca, Mexico',
-          'm5-event': 'the wedding',
           'homes-label': 'We\'ve lived together in',
           'home-1': 'Monclova, Mexico',
           'home-2': 'Mexico City, Mexico',
@@ -226,10 +206,11 @@
           'rsvp-guests-opt2': '2 people',
           'rsvp-guests-opt3': '3 people',
           'rsvp-guests-opt4': '4 people',
-          'rsvp-dietary-label': 'Dietary restrictions or preferences',
+          'rsvp-dietary-label': 'Dietary restrictions or preferences <span style="opacity:.45;">(optional)</span>',
           'rsvp-dietary-placeholder': 'Vegetarian, gluten-free, allergies…',
           'rsvp-note-label': 'A note for us <span style="opacity:.45;">(optional)</span>',
           'rsvp-note-placeholder': 'A thought, a wish…',
+          'validationGuestSelection': 'Please select at least one guest.',
           'rsvp-submit': 'Confirm',
           'footer-sub': 'May 15, 2027 &middot; Oaxaca, Mexico',
           // nav (optional sections)
@@ -297,7 +278,6 @@
           'hotel-3-meta': 'On the Macedonio Alcalá pedestrian walk · steps from the venue',
           'hotels-book-link': 'Book ↗',
           'hotels-map-link': 'View on map ↗',
-          'hotels-note': 'We\'re working on a room block and will share details once confirmed.',
           // travel
           'travel-label': 'Getting There',
           'travel-heading': 'Getting to <em>Oaxaca</em>',
@@ -386,11 +366,6 @@
       // Apply immediately (before DOM interactive is fine for data-i18n)
       applyLanguage(detectDefaultLang());
     })();
-
-    /* Optional sections — add ?info to the URL to show all detail sections */
-    if (new URLSearchParams(window.location.search).has('info')) {
-      document.querySelectorAll('[data-optional]').forEach(el => el.removeAttribute('hidden'));
-    }
 
     /* Preloader — fast 2s total */
     document.documentElement.classList.add('loading');
@@ -520,18 +495,19 @@
         document.querySelectorAll('.attend-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         const attending = btn.dataset.attend === 'yes';
-        document.getElementById('extra-fields').classList.toggle('show', attending);
         document.getElementById('extra-dietary').classList.toggle('show', attending);
-        document.getElementById('extra-note').classList.toggle('show', attending);
       });
     });
 
     /* RSVP — submit to Google Apps Script */
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLJN2mYGn_hIZ4J0YmX7rgVpg9x65hR7kOdihYypJUID-Xmf5qPN692J7lJTDVECuN/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwhXkarD0MD9_eTuE-WWfO2SnG2MENMlkuMBKqa3PX8ugxyRKtgoi1fjpOfUV7T1Fxx/exec';
 
     const submitBtn = document.getElementById('rsvp-submit');
     const feedback = document.getElementById('rsvp-feedback');
     const feedbackMsg = document.getElementById('rsvp-feedback-msg');
+    const guestPicker = document.getElementById('guest-picker');
+    const guestList = document.getElementById('guest-list');
+    const inviteIdField = document.getElementById('rsvp-id');
 
     const rsvpMessages = {
       es: {
@@ -586,12 +562,75 @@
       if (inputId) document.getElementById(inputId)?.classList.remove('form-input--error');
     }
 
-    document.getElementById('rsvp-name').addEventListener('input', () => clearFieldError('rsvp-name-error', 'rsvp-name'));
-    document.querySelectorAll('.attend-btn').forEach(btn => btn.addEventListener('click', () => clearFieldError('rsvp-attend-error', null)));
-    document.getElementById('rsvp-guests').addEventListener('change', () => clearFieldError('rsvp-guests-error', 'rsvp-guests'));
+    function parseInvitedNames(raw) {
+      return String(raw || '')
+        .split(',')
+        .map(name => name.trim())
+        .filter(Boolean);
+    }
+
+    function renderGuestOptions(names) {
+      if (!guestList) return;
+      guestList.innerHTML = '';
+
+      const uniqueNames = [...new Set(names.map(name => name.trim()).filter(Boolean))];
+      uniqueNames.forEach((name) => {
+        const label = document.createElement('label');
+        label.className = 'guest-option';
+
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.name = 'guest-check';
+        input.value = name;
+        input.checked = true;
+
+        const span = document.createElement('span');
+        span.textContent = name;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        guestList.appendChild(label);
+      });
+    }
+
+    function loadInviteFromSheet() {
+      const urlId = new URLSearchParams(window.location.search).get('id');
+      if (!urlId) return;
+
+      fetch(`${SCRIPT_URL}?id=${encodeURIComponent(urlId)}`, { cache: 'no-store' })
+        .then((response) => {
+          if (!response.ok) throw new Error('Invite lookup failed');
+          return response.json();
+        })
+        .then((data) => {
+          if (!data || data.found === false) return;
+
+          const invitedNames = Array.isArray(data.invitedNames)
+            ? data.invitedNames
+            : parseInvitedNames(data.invitedNames);
+
+          if (inviteIdField) inviteIdField.value = data.id || urlId;
+          if (guestPicker) guestPicker.hidden = false;
+          if (invitedNames.length) renderGuestOptions(invitedNames);
+        })
+        .catch(() => {
+          if (guestPicker) guestPicker.hidden = false;
+          if (guestList) {
+            guestList.innerHTML = '<span class="guest-option guest-option--empty">No se pudo cargar la lista de invitados.</span>';
+          }
+        });
+    }
+
+    document.querySelectorAll('.attend-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        clearFieldError('rsvp-attend-error', null);
+        clearFieldError('rsvp-guest-error', null);
+        const attending = btn.dataset.attend === 'yes';
+        if (guestPicker) guestPicker.hidden = !attending;
+      });
+    });
 
     submitBtn.addEventListener('click', () => {
-      const name = document.getElementById('rsvp-name').value.trim();
       const attendBtn = document.querySelector('.attend-btn.selected');
       const honeypot = document.querySelector('input[name="_honeypot"]').value;
 
@@ -599,10 +638,6 @@
       if (honeypot) return;
 
       // Specific validation
-      if (!name) {
-        showFieldError('rsvp-name-error', 'rsvp-name', 'validationName');
-        return;
-      }
       if (!attendBtn) {
         showFieldError('rsvp-attend-error', null, 'validationAttend');
         document.querySelector('.attend-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -610,28 +645,50 @@
       }
 
       const attending = attendBtn.dataset.attend === 'yes';
+      const selectedGuests = Array.from(document.querySelectorAll('#guest-list input[name="guest-check"]:checked'))
+        .map((checkbox) => checkbox.value.trim())
+        .filter(Boolean);
 
-      if (attending && !document.getElementById('rsvp-guests').value) {
-        showFieldError('rsvp-guests-error', 'rsvp-guests', 'validationGuests');
+      if (attending && selectedGuests.length === 0) {
+        showFieldError('rsvp-guest-error', null, 'validationGuestSelection');
+        if (guestPicker) guestPicker.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
-      const guests = attending ? document.getElementById('rsvp-guests').value : '';
+
       const dietary = attending ? document.getElementById('rsvp-dietary').value.trim() : '';
-      const note = document.getElementById('rsvp-note').value.trim();
+      const id = inviteIdField ? inviteIdField.value.trim() : '';
+      const invitedNames = selectedGuests.join(', ');
 
       submitBtn.disabled = true;
       submitBtn.textContent = getRsvpMsg('sending');
       feedback.hidden = true;
 
-      const payload = { name, attending, guests, dietary, note, timestamp: new Date().toISOString() };
+      const payload = {
+        id,
+        attending,
+        name: invitedNames,
+        invitedNames,
+        dietary,
+        timestamp: new Date().toISOString(),
+      };
 
       fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
-        .then(() => {
+        .then(async (response) => {
+          let data = {};
+          try {
+            data = await response.json();
+          } catch (error) {
+            data = { result: 'success' };
+          }
+
+          if (data.result === 'error') {
+            throw new Error(data.message || 'Submission failed');
+          }
+
           document.querySelector('.rsvp-form').style.display = 'none';
           const successCard = document.getElementById('rsvp-success-card');
           document.getElementById('rsvp-success-title').textContent = getRsvpMsg(attending ? 'successTitle' : 'successTitleNo');
@@ -647,6 +704,8 @@
           submitBtn.textContent = getRsvpMsg('submit');
         });
     });
+
+    loadInviteFromSheet();
 
     /* Countdown */
     const weddingDate = new Date('2027-05-15T17:00:00-06:00');
