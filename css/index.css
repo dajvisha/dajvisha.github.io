@@ -1690,6 +1690,17 @@
       border-top: 0.5px solid rgba(26,22,18,0.10);
     }
 
+    .hotel-intro {
+      max-width: 620px;
+      margin: 0 0 28px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink);
+      opacity: 0.72;
+    }
+
     .hotel-item {
       padding: 20px 0;
       border-bottom: 0.5px solid rgba(26,22,18,0.07);
