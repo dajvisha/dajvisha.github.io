@@ -164,7 +164,7 @@
           // registry
           'registry-label': 'Mesa de regalos',
           'registry-heading': 'Tu presencia es <em>el regalo</em>',
-          'registry-body': 'Contar con su presencia es lo que más valoramos. Si desean hacernos un obsequio, agradeceremos mucho una contribución económica. Más adelante compartiremos los detalles.',
+          'registry-body': 'Su compañía es el obsequio más importante para nosotros. En caso de desear colaborar con un apoyo para nuestra nueva etapa, les estaremos muy agradecidos. Más adelante les compartiremos los datos necesarios.',
         },
         en: {
           'skip-link': 'Skip to main content',
@@ -330,7 +330,7 @@
           // registry
           'registry-label': 'Registry',
           'registry-heading': 'Your presence is <em>the gift</em>',
-          'registry-body': "Having you there means everything to us. If you\'d like to give us a gift, we\'d be very grateful for a monetary contribution. We\'ll share more details closer to our date.",
+          'registry-body': "Having you with us is the most meaningful gift. If you\'d like to support us as we begin this new chapter, we would be deeply grateful. We\'ll share the necessary details closer to our date.",
         }
       };
 
