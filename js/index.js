@@ -52,8 +52,8 @@
           'rsvp-guests-opt2': '2 personas',
           'rsvp-guests-opt3': '3 personas',
           'rsvp-guests-opt4': '4 personas',
-          'rsvp-dietary-label': 'Restricciones o preferencias alimentarias <span style="opacity:.45;">(opcional)</span>',
-          'rsvp-dietary-placeholder': 'Vegetariano, sin gluten, alergias…',
+          'rsvp-dietary-label': 'Restricciones alimentarias <span style="opacity:.45;">(opcional)</span>',
+          'rsvp-dietary-placeholder': 'Vegetariano, alergias, etc.',
           'rsvp-note-label': 'Mensaje para los novios <span style="opacity:.45;">(opcional)</span>',
           'rsvp-note-placeholder': 'Un pensamiento, un deseo…',
           'validationGuestSelection': 'Por favor selecciona al menos un invitado.',
@@ -173,7 +173,7 @@
           'nav-venue': 'Venue',
           'nav-rsvp': 'Confirm',
           'nav-toggle-label': 'Menu',
-          'hero-h1': 'In Oaxaca there\'s a mezcal <em>waiting for you.</em>',
+          'hero-h1': 'In Oaxaca there\'s a mezcal <em>waiting for you</em>',
           'hero-info': 'May 15, 2027 &middot; Oaxaca, Mexico',
           'hero-cta': 'Confirm your attendance',
           'photo-1-alt': 'Laura and Diego in Paris',
@@ -218,8 +218,8 @@
           'rsvp-guests-opt2': '2 people',
           'rsvp-guests-opt3': '3 people',
           'rsvp-guests-opt4': '4 people',
-          'rsvp-dietary-label': 'Dietary restrictions or preferences <span style="opacity:.45;">(optional)</span>',
-          'rsvp-dietary-placeholder': 'Vegetarian, gluten-free, allergies…',
+          'rsvp-dietary-label': 'Dietary restrictions only <span style="opacity:.45;">(optional)</span>',
+          'rsvp-dietary-placeholder': 'Vegetarian, allergies, etc.',
           'rsvp-note-label': 'A note for us <span style="opacity:.45;">(optional)</span>',
           'rsvp-note-placeholder': 'A thought, a wish…',
           'validationGuestSelection': 'Please select at least one guest.',
@@ -330,7 +330,7 @@
           // registry
           'registry-label': 'Registry',
           'registry-heading': 'Your presence is <em>the gift</em>',
-          'registry-body': "Having you there means everything to us. If you\'d like to give us a gift, we\'d be very grateful for a financial contribution. We\'ll share more details later.",
+          'registry-body': "Having you there means everything to us. If you\'d like to give us a gift, we\'d be very grateful for a monetary contribution. We\'ll share more details closer to our date.",
         }
       };
 
