@@ -164,7 +164,7 @@
           // registry
           'registry-label': 'Mesa de regalos',
           'registry-heading': 'Tu presencia es <em>el regalo</em>',
-          'registry-body': 'Contar con su presencia es lo que más valoramos. Si lo desea, agradecemos un detalle en efectivo.',
+          'registry-body': 'Contar con su presencia es lo que más valoramos. Si desean hacernos un obsequio, agradeceremos mucho una contribución económica. Más adelante compartiremos los detalles.',
         },
         en: {
           'skip-link': 'Skip to main content',
@@ -330,7 +330,7 @@
           // registry
           'registry-label': 'Registry',
           'registry-heading': 'Your presence is <em>the gift</em>',
-          'registry-body': "Having you there means everything to us. If you\'d like to give a gift, we\'d gratefully welcome a monetary contribution.",
+          'registry-body': "Having you there means everything to us. If you\'d like to give us a gift, we\'d be very grateful for a financial contribution. We\'ll share more details later.",
         }
       };
 
@@ -659,7 +659,7 @@
       toggle.name = 'additional-guests';
 
       const toggleText = document.createElement('span');
-      toggleText.textContent = `Traeré invitados adicionales (máximo ${maxAdditionalGuests})`;
+      toggleText.textContent = `Tendre invitados adicionales (máximo ${maxAdditionalGuests})`;
 
       toggleLabel.appendChild(toggle);
       toggleLabel.appendChild(toggleText);

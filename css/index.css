@@ -1798,15 +1798,6 @@
       line-height: 1.5;
     }
 
-    @media (min-width: 560px) {
-      .explore-item {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 20px;
-      }
-      .explore-item-name { flex-shrink: 0; }
-    }
-
     /* ── Registry ── */
     .registry-note {
       font-family: var(--font-display);
