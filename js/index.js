@@ -378,6 +378,7 @@
           const val = t[el.dataset.i18nAlt];
           if (val !== undefined) el.alt = val;
         });
+        document.dispatchEvent(new CustomEvent('languagechange', { detail: { lang } }));
       }
 
       // Wire toggle buttons
@@ -545,6 +546,12 @@
         validationAttend: 'Por favor indica si asistirás.',
         validationGuests: 'Por favor selecciona el número de asistentes.',
         validationGuestSelection: 'Por favor selecciona al menos un invitado.',
+        inviteLoading: 'Cargando lista de invitados…',
+        inviteError: 'No se pudo cargar la lista de invitados.',
+        inviteEmpty: 'No hay invitados disponibles.',
+        additionalGuestsToggle: 'Tendre invitados adicionales (máximo {max})',
+        additionalGuestsLabel: 'Nombres de invitados adicionales',
+        additionalGuestPlaceholder: 'Nombre del invitado adicional {number}',
         successTitle: '¡Listo, te esperamos!',
         successBody: 'Nos vemos en Oaxaca el 15 de mayo de 2027.',
         successTitleNo: 'Gracias por avisarnos.',
@@ -560,6 +567,12 @@
         validationAttend: 'Please let us know if you\'ll attend.',
         validationGuests: 'Please select the number of guests.',
         validationGuestSelection: 'Please select at least one guest.',
+        inviteLoading: 'Loading guest list…',
+        inviteError: 'Unable to load the guest list.',
+        inviteEmpty: 'No guests available.',
+        additionalGuestsToggle: 'I will bring additional guests (maximum {max})',
+        additionalGuestsLabel: 'Names of additional guests',
+        additionalGuestPlaceholder: 'Name of additional guest {number}',
         successTitle: 'You\'re all set!',
         successBody: 'See you in Oaxaca, May 15, 2027.',
         successTitleNo: 'Thanks for letting us know.',
@@ -602,7 +615,7 @@
 
       const uniqueNames = [...new Set(names.map(name => name.trim()).filter(Boolean))];
       if (uniqueNames.length === 0) {
-        guestList.innerHTML = '<span class="guest-option guest-option--empty">No hay invitados disponibles.</span>';
+        renderGuestStatus('inviteEmpty');
         return;
       }
 
@@ -625,10 +638,25 @@
       });
     }
 
-    function renderGuestStatus(message) {
+    function renderGuestStatus(messageKey) {
       if (!guestList) return;
-      guestList.innerHTML = `<span class="guest-option guest-option--empty">${message}</span>`;
+      const status = document.createElement('span');
+      status.className = 'guest-option guest-option--empty';
+      status.dataset.rsvpMessage = messageKey;
+      status.textContent = getRsvpMsg(messageKey);
+      guestList.replaceChildren(status);
     }
+
+    function refreshDynamicRsvpText() {
+      document.querySelectorAll('[data-rsvp-message]').forEach((element) => {
+        let message = getRsvpMsg(element.dataset.rsvpMessage);
+        if (element.dataset.max) message = message.replace('{max}', element.dataset.max);
+        if (element.dataset.number) message = message.replace('{number}', element.dataset.number);
+        element.textContent = message;
+      });
+    }
+
+    document.addEventListener('languagechange', refreshDynamicRsvpText);
 
     let inviteNames = [];
     let allowAdditionalGuests = false;
@@ -699,7 +727,9 @@
       toggle.name = 'additional-guests';
 
       const toggleText = document.createElement('span');
-      toggleText.textContent = `Tendre invitados adicionales (máximo ${maxAdditionalGuests})`;
+      toggleText.dataset.rsvpMessage = 'additionalGuestsToggle';
+      toggleText.dataset.max = maxAdditionalGuests;
+      toggleText.textContent = getRsvpMsg('additionalGuestsToggle').replace('{max}', maxAdditionalGuests);
 
       toggleLabel.appendChild(toggle);
       toggleLabel.appendChild(toggleText);
@@ -711,7 +741,8 @@
 
       const label = document.createElement('span');
       label.className = 'additional-guest-label';
-      label.textContent = 'Nombres de invitados adicionales';
+      label.dataset.rsvpMessage = 'additionalGuestsLabel';
+      label.textContent = getRsvpMsg('additionalGuestsLabel');
       inputFields.appendChild(label);
 
       for (let index = 0; index < maxAdditionalGuests; index += 1) {
@@ -719,7 +750,9 @@
         input.className = 'form-input additional-guest-input';
         input.type = 'text';
         input.name = 'additional-guest-name';
-        input.placeholder = `Nombre del invitado adicional ${index + 1}`;
+        input.dataset.rsvpMessage = 'additionalGuestPlaceholder';
+        input.dataset.number = index + 1;
+        input.placeholder = getRsvpMsg('additionalGuestPlaceholder').replace('{number}', index + 1);
         input.autocomplete = 'off';
         inputFields.appendChild(input);
       }
@@ -763,7 +796,7 @@
         .catch(() => {
           inviteLoadStatus = 'error';
           if (document.querySelector('.attend-btn.selected')?.dataset.attend === 'yes') {
-            renderGuestStatus('No se pudo cargar la lista de invitados.');
+            renderGuestStatus('inviteError');
           }
         })
         .finally(() => {
@@ -778,9 +811,9 @@
         const attending = btn.dataset.attend === 'yes';
         if (attending) {
           if (inviteLoadStatus === 'loading') {
-            renderGuestStatus('Cargando lista de invitados…');
+            renderGuestStatus('inviteLoading');
           } else if (inviteLoadStatus === 'error') {
-            renderGuestStatus('No se pudo cargar la lista de invitados.');
+            renderGuestStatus('inviteError');
           } else {
             renderGuestOptions(inviteNames);
           }
