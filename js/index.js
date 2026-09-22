@@ -778,7 +778,7 @@
       }
 
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
+      const timeout = setTimeout(() => controller.abort(), 30000);
 
       fetch(`${SCRIPT_URL}?id=${encodeURIComponent(urlId)}`, {
         cache: 'no-store',
