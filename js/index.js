@@ -634,6 +634,46 @@
     let allowAdditionalGuests = false;
     let maxAdditionalGuests = 0;
     let inviteLoadStatus = 'loading';
+    const INVITE_CACHE_TTL = 60 * 60 * 1000;
+
+    function getCachedInvite(id) {
+      try {
+        const cached = JSON.parse(localStorage.getItem(`invite:${id}`));
+        if (!cached || Date.now() - cached.timestamp >= INVITE_CACHE_TTL) return null;
+        return cached.data;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function cacheInvite(id, data) {
+      try {
+        localStorage.setItem(`invite:${id}`, JSON.stringify({
+          timestamp: Date.now(),
+          data,
+        }));
+      } catch (error) {
+        // Storage may be unavailable in private browsing or restricted contexts.
+      }
+    }
+
+    function applyInviteData(data, urlId) {
+      inviteNames = Array.isArray(data.invitedNames)
+        ? data.invitedNames
+        : parseInvitedNames(data.invitedNames);
+      maxAdditionalGuests = Number.isInteger(Number(data.maxGuests))
+        ? Math.max(0, Number(data.maxGuests))
+        : 0;
+      allowAdditionalGuests = data.allowAdditionalGuests === true || maxAdditionalGuests > 0;
+      inviteLoadStatus = 'ready';
+
+      if (inviteIdField) inviteIdField.value = data.id || urlId;
+      if (document.querySelector('.attend-btn.selected')?.dataset.attend === 'yes') {
+        renderGuestOptions(inviteNames);
+        renderAdditionalGuestFields();
+        showGuestPicker(true);
+      }
+    }
 
     function showGuestPicker(visible) {
       if (!guestPicker) return;
@@ -698,35 +738,36 @@
         return;
       }
 
-      fetch(`${SCRIPT_URL}?id=${encodeURIComponent(urlId)}`, { cache: 'no-store' })
+      const cachedInvite = getCachedInvite(urlId);
+      if (cachedInvite) {
+        applyInviteData(cachedInvite, urlId);
+        return;
+      }
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+
+      fetch(`${SCRIPT_URL}?id=${encodeURIComponent(urlId)}`, {
+        cache: 'no-store',
+        signal: controller.signal,
+      })
         .then((response) => {
           if (!response.ok) throw new Error('Invite lookup failed');
           return response.json();
         })
         .then((data) => {
           if (!data || data.found === false) throw new Error('Invite not found');
-
-          inviteNames = Array.isArray(data.invitedNames)
-            ? data.invitedNames
-            : parseInvitedNames(data.invitedNames);
-          maxAdditionalGuests = Number.isInteger(Number(data.maxGuests))
-            ? Math.max(0, Number(data.maxGuests))
-            : 0;
-          allowAdditionalGuests = data.allowAdditionalGuests === true || maxAdditionalGuests > 0;
-          inviteLoadStatus = 'ready';
-
-          if (inviteIdField) inviteIdField.value = data.id || urlId;
-          if (document.querySelector('.attend-btn.selected')?.dataset.attend === 'yes') {
-            renderGuestOptions(inviteNames);
-            renderAdditionalGuestFields();
-            showGuestPicker(true);
-          }
+          cacheInvite(urlId, data);
+          applyInviteData(data, urlId);
         })
         .catch(() => {
           inviteLoadStatus = 'error';
           if (document.querySelector('.attend-btn.selected')?.dataset.attend === 'yes') {
             renderGuestStatus('No se pudo cargar la lista de invitados.');
           }
+        })
+        .finally(() => {
+          clearTimeout(timeout);
         });
     }
 
