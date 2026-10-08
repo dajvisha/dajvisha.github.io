@@ -164,7 +164,10 @@
           // registry
           'registry-label': 'Mesa de regalos',
           'registry-heading': 'Tu presencia es <em>el regalo</em>',
-          'registry-body': 'Su compañía es el obsequio más importante para nosotros. En caso de desear colaborar para nuestra nueva etapa, les estaremos muy agradecidos. Más adelante compartiremos los detalles.',
+          'registry-body': 'Su compañía es el obsequio más importante para nosotros. En caso de desear colaborar para nuestra nueva etapa, les estaremos muy agradecidos.',
+          'registry-bank-label': 'Banco',
+          'registry-recipient-label': 'Beneficiario',
+          'registry-clabe-label': 'CLABE',
         },
         en: {
           'skip-link': 'Skip to main content',
@@ -330,7 +333,10 @@
           // registry
           'registry-label': 'Registry',
           'registry-heading': 'Your presence is <em>the gift</em>',
-          'registry-body': "Having you with us is the most meaningful gift. If you\'d like to support us as we begin this new chapter, we would be deeply grateful. We\'ll share the details later.",
+          'registry-body': 'Having you with us is the most meaningful gift. If you would like to contribute to our next chapter, we would be deeply grateful.',
+          'registry-bank-label': 'Bank',
+          'registry-recipient-label': 'Recipient',
+          'registry-clabe-label': 'CLABE',
         }
       };
 

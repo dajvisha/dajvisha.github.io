@@ -19,7 +19,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --crimson: #511324;
+    --bordeaux: #511324;
     --chocolate: #2C1810;
     --blush: #E8C4BC;
     --cream: #FDFAF5;
@@ -28,7 +28,7 @@
     --olive: #6B6440;
     --ink: #1A1612;
   }
-  :root.olive-mode { --crimson: #6B6440; --blush: #D4E0A0; }
+  :root.olive-mode { --bordeaux: #6B6440; --blush: #D4E0A0; }
 
   html, body { overflow-x: hidden; }
   body {
@@ -57,7 +57,7 @@
     color: var(--ink); opacity: 0.85; letter-spacing: -0.02em;
     margin-bottom: 24px;
   }
-  .cover-title em { font-style: italic; color: var(--crimson); }
+  .cover-title em { font-style: italic; color: var(--bordeaux); }
   .cover-meta {
     font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
     color: var(--ink); opacity: 0.32;
@@ -79,7 +79,7 @@
     color: var(--ink); opacity: 0.38;
     transition: opacity 0.3s, background 0.3s, color 0.3s; user-select: none;
   }
-  .accent-toggle-opt.active { opacity: 1; color: var(--cream); background: var(--crimson); }
+  .accent-toggle-opt.active { opacity: 1; color: var(--cream); background: var(--bordeaux); }
   .accent-toggle-divider { width: 0.5px; height: 16px; background: rgba(26,22,18,0.15); flex-shrink: 0; }
 
   /* ── SECTION ── */
@@ -151,7 +151,7 @@
     border-bottom: 0.5px solid rgba(26,22,18,0.10);
   }
   .do-head { color: var(--olive); }
-  .dont-head { color: var(--crimson); }
+  .dont-head { color: var(--bordeaux); }
   .rules-list { list-style: none; }
   .rules-list li {
     font-size: 12px; line-height: 1.6; color: var(--ink); opacity: 0.60;
@@ -161,7 +161,7 @@
   .rules-list li:last-child { border-bottom: none; }
   .rules-list li::before { font-size: 9px; flex-shrink: 0; opacity: 0.55; font-family: 'Montserrat', sans-serif; }
   .do-list li::before   { content: '→'; color: var(--olive); }
-  .dont-list li::before { content: '×'; color: var(--crimson); }
+  .dont-list li::before { content: '×'; color: var(--bordeaux); }
 
   /* bg alts */
   .on-cream2 { background: var(--cream2); }
@@ -199,7 +199,7 @@
 <!-- CONCEPTO -->
 <section class="sec">
   <span class="sec-label">Concepto</span>
-  <div style="font-family:'Playfair Display',serif; font-size:clamp(28px,7vw,48px); line-height:0.92; color:var(--ink); opacity:0.82; letter-spacing:-0.02em; margin-bottom:28px;">Flores.<br>Barro.<br><em style="font-style:italic; color:var(--crimson);">Luz.</em></div>
+  <div style="font-family:'Playfair Display',serif; font-size:clamp(28px,7vw,48px); line-height:0.92; color:var(--ink); opacity:0.82; letter-spacing:-0.02em; margin-bottom:28px;">Flores.<br>Barro.<br><em style="font-style:italic; color:var(--bordeaux);">Luz.</em></div>
   <div style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:11px; color:var(--ink); opacity:0.45; line-height:1.9; max-width:480px; margin-bottom:24px; letter-spacing:0.06em;">Composición orgánica · barro y cristalería · velas de Teotitlán · El Cardenal · Drapeado lino manta · Lámparas suspendidas</div>
   <div style="display:flex; flex-wrap:wrap; gap:8px;">
     <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink); opacity:0.55; border:0.5px solid rgba(26,22,18,0.25); padding:6px 12px;">Orgánico</span>
@@ -622,14 +622,14 @@
 
 <!-- TOGGLE -->
 <div class="accent-toggle" id="accentToggle">
-  <span class="accent-toggle-opt active" id="optCrimson">Crimson</span>
+  <span class="accent-toggle-opt active" id="optBordeaux">Bordeaux</span>
   <div class="accent-toggle-divider"></div>
   <span class="accent-toggle-opt" id="optOlive">Olive</span>
 </div>
 
 <script>
   const toggle = document.getElementById('accentToggle');
-  const optC = document.getElementById('optCrimson');
+  const optC = document.getElementById('optBordeaux');
   const optO = document.getElementById('optOlive');
   toggle.addEventListener('click', () => {
     const isOlive = document.documentElement.classList.toggle('olive-mode');
