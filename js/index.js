@@ -79,7 +79,7 @@
           'attire-label': 'Vestimenta',
           'attire-val': 'Formal elegante',
           'attire-women-label': 'Ellas',
-          'attire-women-desc': 'Vestido largo',
+          'attire-women-desc': 'Vestido largo. Sugerimos el uso de tacón grueso',
           'attire-men-label': 'Ellos',
           'attire-men-desc': 'Traje, saco o camisa de vestir',
           'attire-palette-label': 'Paleta sugerida para vestidos',
@@ -247,9 +247,9 @@
           'misa-time': '4:30 PM',
           // attire + schedule
           'attire-label': 'Dress code',
-          'attire-val': 'Elegant formal',
+          'attire-val': 'Formal attire',
           'attire-women-label': 'Ladies',
-          'attire-women-desc': 'Floor-length gown',
+          'attire-women-desc': 'Floor-length gown. We suggest block heels',
           'attire-men-label': 'Gentlemen',
           'attire-men-desc': 'Suit, blazer, or dress shirt',
           'attire-palette-label': 'Suggested palette for dresses',
@@ -302,7 +302,7 @@
           'hotels-book-link': 'Book ↗',
           'hotels-map-link': 'View on map ↗',
           // travel
-          'travel-label': 'Getting There',
+          'travel-label': 'How to Get There',
           'travel-heading': 'Getting to <em>Oaxaca</em>',
           'travel-air-label': 'By air',
           'travel-air-val': 'Oaxaca International Airport (OAX) · ~9 km from Centro Histórico. Direct flights from Mexico City with Aeroméxico, VivaAerobus, and Volaris.',
@@ -327,7 +327,7 @@
           'explore-criollo-note': 'Fire-based cooking elevating native ingredients through modern techniques.',
           'explore-danzantes-note': 'Contemporary cuisine blending traditional flavors with modern execution.',
           'explore-casaoaxaca-note': 'Sophisticated contemporary dishes featuring complex moles and market ingredients.',
-          'explore-beverages-label': 'Beverages, Bakery & Cafe',
+          'explore-beverages-label': 'Beverages, Bakery & Café',
           'explore-convite-note': 'Artisanal mezcal paired with traditional regional bites.',
           'explore-filemon-note': 'Artisan breads, pastries, and specialty coffee.',
           'explore-atoleria-note': 'Ancestral corn and cacao beverages and heritage atoles.',
@@ -557,7 +557,7 @@
         inviteLoading: 'Cargando lista de invitados…',
         inviteError: 'No se pudo cargar la lista de invitados.',
         inviteEmpty: 'No hay invitados disponibles.',
-        additionalGuestsToggle: 'Tendre invitados adicionales (máximo {max})',
+        additionalGuestsToggle: 'Tendré invitados adicionales (máximo {max})',
         additionalGuestsLabel: 'Nombres de invitados adicionales',
         additionalGuestPlaceholder: 'Nombre del invitado adicional {number}',
         successTitle: '¡Listo, te esperamos!',
@@ -584,7 +584,7 @@
         successTitle: 'You\'re all set!',
         successBody: 'See you in Oaxaca, May 15, 2027.',
         successTitleNo: 'Thanks for letting us know.',
-        successBodyNo: 'We\'ll miss you — thanks for letting us know.',
+        successBodyNo: 'We\'ll miss you. See you soon!',
       }
     };
 
