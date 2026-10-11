@@ -1488,8 +1488,8 @@
     @media (min-width: 560px) {
       .venue-row {
         display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 20px;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 24px;
         align-items: baseline;
       }
     }
@@ -1498,11 +1498,12 @@
       font-family: var(--font-sans);
       font-weight: 400;
       font-size: var(--fs-label);
-      letter-spacing: 0.38em;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--sienna);
       opacity: 0.78;
       padding-top: 3px;
+      overflow-wrap: anywhere;
     }
 
     .venue-row-val {
