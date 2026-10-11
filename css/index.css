@@ -871,11 +871,11 @@
     .story-connector-text {
       font-family: var(--font-sans);
       font-weight: 400;
-      font-size: 10px;
-      letter-spacing: 0.38em;
+      font-size: clamp(11px, 2.9vw, 14px);
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--sienna);
-      opacity: 0.78;
+      opacity: 0.85;
       white-space: nowrap;
     }
 
@@ -1210,9 +1210,9 @@
 
     .venue-attire-note {
       font-family: var(--font-display);
-      font-size: 0.78rem;
+      font-size: 0.95rem;
       font-style: italic;
-      opacity: 0.50;
+      opacity: 0.80;
       color: var(--ink);
       line-height: 1.6;
     }
